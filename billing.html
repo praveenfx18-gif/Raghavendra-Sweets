@@ -2,79 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Raghavendra Sweets - Billing</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#fffaf0,#f1dda5);
-    color:#3d160f;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-header{
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#fffaf0,#f1dda5);
+    color:#3d160f;
+    min-height:100vh;
+}
+
+.header{
     background:linear-gradient(135deg,#68140e,#350805);
     color:white;
-    padding:15px;
     text-align:center;
-    box-shadow:0 4px 15px #0003;
+    padding:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
 .logo{
-    width:70px;
-    height:70px;
-    border-radius:50%;
+    width:78px;
+    height:78px;
     object-fit:cover;
+    border-radius:50%;
     background:white;
     padding:3px;
-    border:2px solid #d5a52b;
+    border:3px solid #d5a52b;
 }
 
-header h1{
-    color:#ffd95a;
+.header h1{
     margin-top:7px;
-    font-size:23px;
+    color:#ffd95a;
+    font-size:24px;
 }
 
-header p{
-    color:#ffeeb0;
-    margin-top:4px;
+.header p{
+    margin-top:5px;
+    color:#fff0b5;
 }
 
 .container{
+    width:95%;
     max-width:1200px;
     margin:20px auto;
-    padding:0 12px;
 }
 
-.layout{
+.top-info{
     display:grid;
-    grid-template-columns:1fr 380px;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.info{
+    background:white;
+    border:1px solid #e2c16c;
+    border-radius:12px;
+    padding:13px;
+    box-shadow:0 4px 15px rgba(70,30,10,.1);
+}
+
+.info small{
+    display:block;
+    color:#80604b;
+}
+
+.info strong{
+    display:block;
+    margin-top:5px;
+    color:#68140e;
+}
+
+.main{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
     gap:18px;
 }
 
 .card{
     background:white;
-    border:1px solid #e2c16c;
     border-radius:16px;
-    padding:16px;
+    padding:18px;
     margin-bottom:18px;
-    box-shadow:0 5px 20px #5a250e18;
+    border:1px solid #e2c16c;
+    box-shadow:0 5px 20px rgba(70,30,10,.12);
 }
 
 h2{
     color:#68140e;
-    margin-bottom:14px;
-    font-size:20px;
+    margin-bottom:15px;
 }
 
 .search{
     width:100%;
     padding:13px;
-    border:1px solid #cdaa50;
-    border-radius:10px;
+    border:1px solid #c9a34d;
+    border-radius:9px;
     font-size:15px;
     outline:none;
     margin-bottom:15px;
@@ -87,25 +118,25 @@ h2{
 }
 
 .product{
-    border:1px solid #ead49b;
-    border-radius:13px;
+    border:1px solid #e5cf91;
+    border-radius:12px;
     overflow:hidden;
     background:#fffdf7;
 }
 
-.product-img{
+.product-image{
     width:100%;
-    height:125px;
+    height:115px;
     object-fit:cover;
-    background:#f4df9e;
+    display:block;
 }
 
-.placeholder{
+.no-image{
     width:100%;
-    height:125px;
+    height:115px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-size:45px;
     background:linear-gradient(135deg,#fff1c4,#e8cd83);
 }
@@ -117,12 +148,12 @@ h2{
 .product-name{
     font-weight:bold;
     color:#68140e;
-    min-height:34px;
+    min-height:36px;
 }
 
 .price{
-    margin-top:5px;
     font-weight:bold;
+    margin-top:4px;
 }
 
 .stock{
@@ -131,11 +162,11 @@ h2{
     margin-top:4px;
 }
 
-.add{
+.add-btn{
     width:100%;
     margin-top:8px;
-    padding:9px;
-    border:0;
+    padding:10px;
+    border:none;
     border-radius:8px;
     background:#68140e;
     color:white;
@@ -143,57 +174,42 @@ h2{
     cursor:pointer;
 }
 
-.add:active{
+.add-btn:active{
     transform:scale(.97);
 }
 
-.bill-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin-bottom:12px;
-}
-
-.info{
-    background:#fff8e5;
-    border:1px solid #e5c978;
-    padding:9px;
-    border-radius:8px;
-}
-
-.info small{
-    display:block;
+.loading{
+    grid-column:1/-1;
+    text-align:center;
+    padding:35px;
     color:#80604b;
-    font-size:11px;
 }
 
-.info strong{
-    display:block;
-    margin-top:3px;
-    color:#68140e;
-    font-size:13px;
+.bill{
+    position:sticky;
+    top:10px;
 }
 
 .bill-items{
-    max-height:350px;
+    max-height:390px;
     overflow-y:auto;
 }
 
 .empty{
     text-align:center;
-    padding:35px 10px;
-    color:#887768;
+    padding:30px 10px;
+    color:#8a7767;
 }
 
-.item{
-    border-bottom:1px solid #eadbb5;
+.bill-item{
+    border-bottom:1px solid #ead9aa;
     padding:11px 0;
 }
 
-.item-top{
+.item-head{
     display:flex;
     justify-content:space-between;
-    gap:8px;
+    gap:10px;
 }
 
 .item-name{
@@ -205,28 +221,29 @@ h2{
     font-weight:bold;
 }
 
-.item-bottom{
+.item-details{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-top:7px;
+    margin-top:8px;
     font-size:12px;
 }
 
-.qty{
+.quantity-control{
     display:flex;
     align-items:center;
     gap:5px;
 }
 
-.qty button{
-    width:27px;
-    height:27px;
-    border:1px solid #d8bb65;
+.quantity-control button{
+    width:28px;
+    height:28px;
+    border:1px solid #d5b65d;
     border-radius:6px;
     background:#fff3ca;
     color:#68140e;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .remove{
@@ -236,49 +253,54 @@ h2{
 }
 
 .summary{
-    border-top:2px dashed #d8bd6a;
-    margin-top:12px;
+    margin-top:15px;
     padding-top:10px;
+    border-top:2px dashed #d5b65d;
 }
 
 .row{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:7px 0;
+    padding:8px 0;
 }
 
 .discount{
     width:90px;
     padding:8px;
-    border:1px solid #cdaa50;
+    border:1px solid #c9a34d;
     border-radius:7px;
     text-align:right;
 }
 
-.total{
-    color:#68140e;
-    font-size:23px;
-    font-weight:bold;
+.grand-total{
     border-top:1px solid #ead9aa;
     margin-top:5px;
     padding-top:12px;
+    color:#68140e;
+    font-size:23px;
+    font-weight:bold;
+}
+
+.payment-title{
+    margin-top:15px;
+    font-weight:bold;
 }
 
 .payment{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:7px;
-    margin-top:10px;
+    gap:8px;
+    margin-top:9px;
 }
 
 .payment label{
     text-align:center;
-    padding:10px 4px;
+    padding:11px 4px;
     border:1px solid #dfc475;
     border-radius:8px;
     background:#fffaf0;
-    font-size:12px;
+    font-size:13px;
     font-weight:bold;
     cursor:pointer;
 }
@@ -292,11 +314,11 @@ h2{
     color:white;
 }
 
-.save{
+.save-btn{
     width:100%;
-    margin-top:12px;
+    margin-top:13px;
     padding:15px;
-    border:0;
+    border:none;
     border-radius:10px;
     background:linear-gradient(135deg,#8b5a00,#d5a52b);
     color:white;
@@ -305,14 +327,18 @@ h2{
     cursor:pointer;
 }
 
+.save-btn:disabled{
+    opacity:.6;
+}
+
 .message{
-    margin-top:10px;
-    padding:10px;
+    display:none;
+    margin-top:12px;
+    padding:11px;
     border-radius:8px;
     text-align:center;
-    font-size:13px;
     font-weight:bold;
-    display:none;
+    font-size:13px;
 }
 
 .success{
@@ -327,175 +353,244 @@ h2{
     color:#8b1a13;
 }
 
-@media(max-width:850px){
-    .layout{grid-template-columns:1fr}
-    .products{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .bill{
+        position:static;
+    }
+
 }
 
-@media(max-width:600px){
-    .products{grid-template-columns:repeat(2,1fr)}
-    .product-img,.placeholder{height:110px}
+@media(max-width:650px){
+
+    .top-info{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
-@media(max-width:380px){
-    .products{grid-template-columns:1fr 1fr}
+@media(max-width:400px){
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .header h1{
+        font-size:20px;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
 
-<header>
 
-<img src="logo.jpg" class="logo" alt="Raghavendra Sweets Logo">
+<header class="header">
 
-<h1>RAGHAVENDRA SWEETS</h1>
-<p>Smart Billing System</p>
+    <img
+        src="logo.jpg"
+        class="logo"
+        alt="Raghavendra Sweets Logo">
+
+    <h1>RAGHAVENDRA SWEETS</h1>
+
+    <p>Smart Billing System</p>
 
 </header>
 
+
 <div class="container">
 
-<div class="layout">
 
-<!-- PRODUCTS -->
+    <!-- BILL INFORMATION -->
 
-<div>
+    <div class="top-info">
 
-<div class="card">
+        <div class="info">
+            <small>Bill Number</small>
+            <strong id="billNo">Generating...</strong>
+        </div>
 
-<h2>🍬 Sweets</h2>
+        <div class="info">
+            <small>Date</small>
+            <strong id="billDate">--</strong>
+        </div>
 
-<input
-    id="search"
-    class="search"
-    type="search"
-    placeholder="🔎 Search sweet..."
->
+        <div class="info">
+            <small>Time</small>
+            <strong id="billTime">--</strong>
+        </div>
 
-<div id="products" class="products">
-    <div class="empty">Loading sweets...</div>
-</div>
-
-</div>
-
-</div>
+    </div>
 
 
-<!-- BILL -->
-
-<div>
-
-<div class="card">
-
-<h2>🧾 Current Bill</h2>
-
-<div class="bill-info">
-
-<div class="info">
-<small>Bill Number</small>
-<strong id="billNo">--</strong>
-</div>
-
-<div class="info">
-<small>Date</small>
-<strong id="date">--</strong>
-</div>
-
-<div class="info">
-<small>Time</small>
-<strong id="time">--</strong>
-</div>
-
-<div class="info">
-<small>Items</small>
-<strong id="itemCount">0</strong>
-</div>
-
-</div>
+    <div class="main">
 
 
-<div id="billItems" class="bill-items">
+        <!-- PRODUCTS -->
 
-<div class="empty">
-🛒<br><br>
-No sweets added
-</div>
+        <div>
 
-</div>
+            <div class="card">
 
+                <h2>🍬 Select Sweet</h2>
 
-<div class="summary">
+                <input
+                    type="search"
+                    id="search"
+                    class="search"
+                    placeholder="🔎 Search sweet...">
 
-<div class="row">
-<span>Subtotal</span>
-<strong id="subtotal">₹0.00</strong>
-</div>
+                <div
+                    id="products"
+                    class="products">
 
-<div class="row">
-<span>Discount</span>
+                    <div class="loading">
+                        ⏳ Loading sweets...
+                    </div>
 
-<input
-    id="discount"
-    class="discount"
-    type="number"
-    value="0"
-    min="0"
->
-</div>
+                </div>
 
-<div class="row total">
-<span>TOTAL</span>
-<strong id="total">₹0.00</strong>
-</div>
+            </div>
 
-</div>
+        </div>
 
 
-<div style="margin-top:12px;font-weight:bold;font-size:13px">
-Payment Method
-</div>
+        <!-- BILL -->
 
-<div class="payment">
+        <div>
 
-<label>
-<input type="radio" name="payment" value="Cash" checked>
-💵 Cash
-</label>
+            <div class="card bill">
 
-<label>
-<input type="radio" name="payment" value="Card">
-💳 Card
-</label>
+                <h2>🧾 Current Bill</h2>
 
-<label>
-<input type="radio" name="payment" value="UPI">
-📱 UPI
-</label>
+                <div
+                    id="billItems"
+                    class="bill-items">
 
-</div>
+                    <div class="empty">
+                        🛒<br><br>
+                        No sweets added
+                    </div>
+
+                </div>
 
 
-<button id="save" class="save">
-🧾 SAVE BILL
-</button>
+                <div class="summary">
 
-<div id="message" class="message"></div>
+                    <div class="row">
+                        <span>Items</span>
+                        <strong id="itemCount">0</strong>
+                    </div>
 
-</div>
+                    <div class="row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">
+                            ₹0.00
+                        </strong>
+                    </div>
 
-</div>
+                    <div class="row">
 
-</div>
+                        <span>Discount</span>
+
+                        <input
+                            type="number"
+                            id="discount"
+                            class="discount"
+                            min="0"
+                            value="0">
+
+                    </div>
+
+                    <div class="row grand-total">
+
+                        <span>TOTAL</span>
+
+                        <strong id="grandTotal">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="payment-title">
+                    Payment Method
+                </div>
+
+                <div class="payment">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash"
+                            checked>
+                        💵 Cash
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Card">
+                        💳 Card
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="UPI">
+                        📱 UPI
+                    </label>
+
+                </div>
+
+
+                <button
+                    id="saveBtn"
+                    class="save-btn">
+
+                    🧾 SAVE BILL
+
+                </button>
+
+
+                <div
+                    id="message"
+                    class="message">
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
 
 
 <script>
 
-/* ================================
-   SUPABASE
-================================ */
+/* =====================================================
+   SUPABASE CONFIG
+===================================================== */
 
 const SUPABASE_URL =
 "https://vajhxvghtyiwcdnbbwpt.supabase.co";
@@ -504,146 +599,246 @@ const SUPABASE_KEY =
 "sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
 
 
-/* ================================
-   DATA
-================================ */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let products = [];
+
 let cart = [];
 
 
-/* ================================
+/* =====================================================
    START
-================================ */
+===================================================== */
 
 document.addEventListener(
-"DOMContentLoaded",
-function(){
+    "DOMContentLoaded",
+    function(){
 
-    generateBill();
+        generateBillNumber();
 
-    updateTime();
+        updateDateTime();
 
-    setInterval(updateTime,1000);
+        setInterval(
+            updateDateTime,
+            1000
+        );
 
-    loadProducts();
+        loadProducts();
 
-    document
-    .getElementById("search")
-    .addEventListener(
-        "input",
-        renderProducts
-    );
+        document
+            .getElementById("search")
+            .addEventListener(
+                "input",
+                renderProducts
+            );
 
-    document
-    .getElementById("discount")
-    .addEventListener(
-        "input",
-        calculate
-    );
+        document
+            .getElementById("discount")
+            .addEventListener(
+                "input",
+                calculateTotal
+            );
 
-    document
-    .getElementById("save")
-    .addEventListener(
-        "click",
-        saveBill
-    );
+        document
+            .getElementById("saveBtn")
+            .addEventListener(
+                "click",
+                saveBill
+            );
 
-});
+    }
+);
 
 
-/* ================================
+/* =====================================================
    BILL NUMBER
-================================ */
+===================================================== */
 
-function generateBill(){
+function generateBillNumber(){
 
     const now = new Date();
 
     const date =
         now.getFullYear() +
-        String(now.getMonth()+1).padStart(2,"0") +
-        String(now.getDate()).padStart(2,"0");
+        String(
+            now.getMonth()+1
+        ).padStart(2,"0") +
+        String(
+            now.getDate()
+        ).padStart(2,"0");
 
     const random =
         Math.floor(
-            1000 + Math.random()*9000
+            1000 +
+            Math.random()*9000
         );
 
-    document.getElementById("billNo")
-    .textContent =
-    `RS-${date}-${random}`;
+    document
+        .getElementById("billNo")
+        .textContent =
+        "RS-" +
+        date +
+        "-" +
+        random;
 
 }
 
 
-/* ================================
-   TIME
-================================ */
+/* =====================================================
+   DATE TIME
+===================================================== */
 
-function updateTime(){
+function updateDateTime(){
 
     const now = new Date();
 
-    document.getElementById("date")
-    .textContent =
-    now.toLocaleDateString("en-IN");
+    document
+        .getElementById("billDate")
+        .textContent =
+        now.toLocaleDateString(
+            "en-IN"
+        );
 
-    document.getElementById("time")
-    .textContent =
-    now.toLocaleTimeString("en-IN");
+    document
+        .getElementById("billTime")
+        .textContent =
+        now.toLocaleTimeString(
+            "en-IN"
+        );
 
 }
 
 
-/* ================================
+/* =====================================================
    LOAD PRODUCTS
-================================ */
+===================================================== */
 
 async function loadProducts(){
 
+    const box =
+        document.getElementById(
+            "products"
+        );
+
+    box.innerHTML =
+        `
+        <div class="loading">
+            ⏳ Connecting to products...
+        </div>
+        `;
+
+
     try{
 
+        /*
+           IMPORTANT:
+           select=* is intentionally used here.
+           This avoids problems caused by missing
+           optional columns.
+        */
+
         const response =
-        await fetch(
-            SUPABASE_URL +
-            "/rest/v1/products?select=id,name,price_per_kg,stock_kg,active,image_url&active=eq.true&order=name.asc",
-            {
-                headers:{
-                    "apikey":SUPABASE_KEY,
-                    "Authorization":
-                    "Bearer " + SUPABASE_KEY
+            await fetch(
+                SUPABASE_URL +
+                "/rest/v1/products?select=*",
+                {
+                    method:"GET",
+
+                    headers:{
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Authorization":
+                            "Bearer " +
+                            SUPABASE_KEY
+                    }
                 }
-            }
-        );
+            );
+
+
+        const text =
+            await response.text();
 
 
         if(!response.ok){
 
             throw new Error(
-                await response.text()
+                "Supabase Error: " +
+                response.status +
+                " - " +
+                text
             );
 
         }
 
 
+        const data =
+            JSON.parse(text);
+
+
+        if(!Array.isArray(data)){
+
+            throw new Error(
+                "Products response invalid."
+            );
+
+        }
+
+
+        products = data;
+
+
+        /*
+           Active filtering is done here,
+           but if active column doesn't exist
+           we still display the products.
+        */
+
         products =
-        await response.json();
+            products.filter(
+                function(product){
+
+                    if(
+                        product.active === undefined ||
+                        product.active === null
+                    ){
+                        return true;
+                    }
+
+                    return product.active === true;
+
+                }
+            );
 
 
         renderProducts();
 
+
     }
     catch(error){
 
-        console.error(error);
+        console.error(
+            "LOAD PRODUCTS ERROR:",
+            error
+        );
 
-        document.getElementById("products")
-        .innerHTML =
+
+        box.innerHTML =
         `
-        <div class="empty">
-        ❌ Products load avvaledu.<br><br>
-        ${escapeHtml(error.message)}
+        <div class="loading">
+
+            ❌ Products load failed
+
+            <br><br>
+
+            <small>
+                ${escapeHtml(
+                    error.message
+                )}
+            </small>
+
         </div>
         `;
 
@@ -652,42 +847,46 @@ async function loadProducts(){
 }
 
 
-/* ================================
+/* =====================================================
    RENDER PRODUCTS
-================================ */
+===================================================== */
 
 function renderProducts(){
 
     const box =
-    document.getElementById("products");
+        document.getElementById(
+            "products"
+        );
+
 
     const search =
-    document.getElementById("search")
-    .value
-    .toLowerCase()
-    .trim();
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase()
+            .trim();
 
 
     const filtered =
-    products.filter(
-        function(product){
+        products.filter(
+            function(product){
 
-            return String(
-                product.name
-            )
-            .toLowerCase()
-            .includes(search);
+                return String(
+                    product.name || ""
+                )
+                .toLowerCase()
+                .includes(search);
 
-        }
-    );
+            }
+        );
 
 
     if(filtered.length === 0){
 
         box.innerHTML =
         `
-        <div class="empty">
-        😔 Sweet dorakaledu
+        <div class="loading">
+            😔 Sweet not found
         </div>
         `;
 
@@ -702,34 +901,54 @@ function renderProducts(){
     filtered.forEach(
         function(product){
 
-            const card =
-            document.createElement("div");
-
-            card.className =
-            "product";
-
-
             const price =
-            Number(product.price_per_kg) || 0;
+                Number(
+                    product.price_per_kg
+                ) || 0;
+
 
             const stock =
-            Number(product.stock_kg) || 0;
+                Number(
+                    product.stock_kg
+                ) || 0;
 
 
-            let image;
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-            if(product.image_url){
+            card.className =
+                "product";
 
-                image =
+
+            let imageHTML = "";
+
+
+            if(
+                product.image_url &&
+                String(
+                    product.image_url
+                ).trim() !== ""
+            ){
+
+                imageHTML =
                 `
                 <img
-                    src="${escapeAttribute(product.image_url)}"
-                    class="product-img"
-                    alt="${escapeAttribute(product.name)}"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                >
+                    src="${escapeAttribute(
+                        product.image_url
+                    )}"
+                    class="product-image"
+                    alt="${escapeAttribute(
+                        product.name
+                    )}"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    ">
+
                 <div
-                    class="placeholder"
+                    class="no-image"
                     style="display:none">
                     🍬
                 </div>
@@ -738,9 +957,9 @@ function renderProducts(){
             }
             else{
 
-                image =
+                imageHTML =
                 `
-                <div class="placeholder">
+                <div class="no-image">
                     🍬
                 </div>
                 `;
@@ -750,12 +969,14 @@ function renderProducts(){
 
             card.innerHTML =
             `
-            ${image}
+            ${imageHTML}
 
             <div class="product-info">
 
                 <div class="product-name">
-                    ${escapeHtml(product.name)}
+                    ${escapeHtml(
+                        product.name
+                    )}
                 </div>
 
                 <div class="price">
@@ -763,12 +984,17 @@ function renderProducts(){
                 </div>
 
                 <div class="stock">
-                    Stock: ${stock.toFixed(3)} KG
+                    Stock:
+                    ${stock.toFixed(3)} KG
                 </div>
 
                 <button
-                    class="add"
-                    onclick="addItem(${Number(product.id)})">
+                    class="add-btn"
+                    onclick="
+                        addProduct(
+                            ${Number(product.id)}
+                        )
+                    ">
 
                     + ADD 250g
 
@@ -786,34 +1012,44 @@ function renderProducts(){
 }
 
 
-/* ================================
-   ADD ITEM
-================================ */
+/* =====================================================
+   ADD PRODUCT
+===================================================== */
 
-function addItem(id){
+function addProduct(id){
 
     const product =
-    products.find(
-        p => Number(p.id) === Number(id)
-    );
+        products.find(
+            function(item){
+
+                return Number(item.id) ===
+                    Number(id);
+
+            }
+        );
 
 
     if(!product){
 
-        alert("Product not found");
+        alert(
+            "Product not found."
+        );
+
         return;
 
     }
 
 
     const stock =
-    Number(product.stock_kg) || 0;
+        Number(
+            product.stock_kg
+        ) || 0;
 
 
-    if(stock < 0.250){
+    if(stock <= 0){
 
         alert(
-            `Available stock: ${stock.toFixed(3)} KG`
+            "Stock unavailable."
         );
 
         return;
@@ -822,21 +1058,30 @@ function addItem(id){
 
 
     const existing =
-    cart.find(
-        item =>
-        Number(item.product_id) === Number(id)
-    );
+        cart.find(
+            function(item){
+
+                return Number(
+                    item.product_id
+                ) === Number(id);
+
+            }
+        );
 
 
     if(existing){
 
-        if(
-            existing.quantity_kg + 0.250
-            > stock
-        ){
+        const newQty =
+            existing.quantity_kg +
+            0.250;
+
+
+        if(newQty > stock){
 
             alert(
-                `Available stock: ${stock.toFixed(3)} KG`
+                "Available stock: " +
+                stock.toFixed(3) +
+                " KG"
             );
 
             return;
@@ -844,32 +1089,41 @@ function addItem(id){
         }
 
 
-        existing.quantity_kg += 0.250;
+        existing.quantity_kg =
+            Number(
+                newQty.toFixed(3)
+            );
+
 
         existing.item_total =
-        existing.quantity_kg *
-        existing.price_per_kg;
+            existing.quantity_kg *
+            existing.price_per_kg;
 
     }
     else{
 
+        const price =
+            Number(
+                product.price_per_kg
+            ) || 0;
+
+
         cart.push({
 
             product_id:
-            product.id,
+                product.id,
 
             product_name:
-            product.name,
+                product.name,
 
             quantity_kg:
-            0.250,
+                0.250,
 
             price_per_kg:
-            Number(product.price_per_kg) || 0,
+                price,
 
             item_total:
-            0.250 *
-            (Number(product.price_per_kg) || 0)
+                0.250 * price
 
         });
 
@@ -881,392 +1135,27 @@ function addItem(id){
 }
 
 
-/* ================================
-   CHANGE QTY
-================================ */
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
 
-function changeQty(index,amount){
+function changeQuantity(
+    index,
+    amount
+){
 
-    const item = cart[index];
+    const item =
+        cart[index];
+
 
     if(!item) return;
 
 
     const product =
-    products.find(
-        p =>
-        Number(p.id) ===
-        Number(item.product_id)
-    );
-
-
-    const stock =
-    Number(product?.stock_kg) || 0;
-
-
-    let quantity =
-    item.quantity_kg + amount;
-
-
-    if(quantity < 0.250){
-
-        cart.splice(index,1);
-
-        renderBill();
-
-        return;
-
-    }
-
-
-    if(quantity > stock){
-
-        alert(
-            `Available stock: ${stock.toFixed(3)} KG`
-        );
-
-        return;
-
-    }
-
-
-    item.quantity_kg =
-    Number(quantity.toFixed(3));
-
-
-    item.item_total =
-    item.quantity_kg *
-    item.price_per_kg;
-
-
-    renderBill();
-
-}
-
-
-/* ================================
-   REMOVE
-================================ */
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    renderBill();
-
-}
-
-
-/* ================================
-   RENDER BILL
-================================ */
-
-function renderBill(){
-
-    const box =
-    document.getElementById("billItems");
-
-
-    document.getElementById("itemCount")
-    .textContent =
-    cart.length;
-
-
-    if(cart.length === 0){
-
-        box.innerHTML =
-        `
-        <div class="empty">
-        🛒<br><br>
-        No sweets added
-        </div>
-        `;
-
-        calculate();
-
-        return;
-
-    }
-
-
-    box.innerHTML = "";
-
-
-    cart.forEach(
-        function(item,index){
-
-            const div =
-            document.createElement("div");
-
-            div.className =
-            "item";
-
-
-            div.innerHTML =
-            `
-            <div class="item-top">
-
-                <span class="item-name">
-                    ${escapeHtml(item.product_name)}
-                </span>
-
-                <span class="item-total">
-                    ₹${item.item_total.toFixed(2)}
-                </span>
-
-            </div>
-
-            <div class="item-bottom">
-
-                <span>
-                    ₹${item.price_per_kg.toFixed(2)}/KG
-                </span>
-
-                <div class="qty">
-
-                    <button
-                        onclick="changeQty(${index},-0.250)">
-                        −
-                    </button>
-
-                    <strong>
-                        ${item.quantity_kg.toFixed(3)} KG
-                    </strong>
-
-                    <button
-                        onclick="changeQty(${index},0.250)">
-                        +
-                    </button>
-
-                </div>
-
-                <span
-                    class="remove"
-                    onclick="removeItem(${index})">
-                    Remove
-                </span>
-
-            </div>
-            `;
-
-
-            box.appendChild(div);
-
-        }
-    );
-
-
-    calculate();
-
-}
-
-
-/* ================================
-   CALCULATE
-================================ */
-
-function calculate(){
-
-    const subtotal =
-    cart.reduce(
-        (sum,item) =>
-        sum + item.item_total,
-        0
-    );
-
-
-    let discount =
-    Number(
-        document.getElementById("discount").value
-    ) || 0;
-
-
-    if(discount < 0)
-        discount = 0;
-
-
-    if(discount > subtotal)
-        discount = subtotal;
-
-
-    document.getElementById("subtotal")
-    .textContent =
-    `₹${subtotal.toFixed(2)}`;
-
-
-    document.getElementById("total")
-    .textContent =
-    `₹${(subtotal-discount).toFixed(2)}`;
-
-}
-
-
-/* ================================
-   SAVE BILL
-================================ */
-
-async function saveBill(){
-
-    if(cart.length === 0){
-
-        showMessage(
-            "❌ First sweet add cheyyi.",
-            false
-        );
-
-        return;
-
-    }
-
-
-    const subtotal =
-    cart.reduce(
-        (sum,item) =>
-        sum + item.item_total,
-        0
-    );
-
-
-    let discount =
-    Number(
-        document.getElementById("discount").value
-    ) || 0;
-
-
-    if(discount > subtotal)
-        discount = subtotal;
-
-
-    const total =
-    subtotal - discount;
-
-
-    const payment =
-    document.querySelector(
-        'input[name="payment"]:checked'
-    )?.value || "Cash";
-
-
-    const billNo =
-    document.getElementById("billNo")
-    .textContent;
-
-
-    const button =
-    document.getElementById("save");
-
-
-    button.disabled = true;
-
-    button.textContent =
-    "⏳ Saving...";
-
-
-    try{
-
-        /* SAVE SALE */
-
-        const saleResponse =
-        await fetch(
-            SUPABASE_URL +
-            "/rest/v1/sales",
-            {
-                method:"POST",
-
-                headers:{
-                    "apikey":SUPABASE_KEY,
-
-                    "Authorization":
-                    "Bearer " + SUPABASE_KEY,
-
-                    "Content-Type":
-                    "application/json",
-
-                    "Prefer":
-                    "return=representation"
-                },
-
-                body:JSON.stringify({
-
-                    bill_no:billNo,
-
-                    subtotal:
-                    Number(subtotal.toFixed(2)),
-
-                    discount:
-                    Number(discount.toFixed(2)),
-
-                    total:
-                    Number(total.toFixed(2)),
-
-                    payment_method:
-                    payment
-
-                })
-            }
-        );
-
-
-        const saleText =
-        await saleResponse.text();
-
-
-        if(!saleResponse.ok){
-
-            throw new Error(
-                saleText
-            );
-
-        }
-
-
-        const sale =
-        JSON.parse(saleText);
-
-
-        const saleId =
-        sale[0].id;
-
-
-        /* SAVE ITEMS */
-
-        const itemData =
-        cart.map(
-            item => ({
-
-                sale_id:
-                saleId,
-
-                product_id:
-                item.product_id,
-
-                product_name:
-                item.product_name,
-
-                quantity_kg:
-                Number(
-                    item.quantity_kg.toFixed(3)
-                ),
-
-                price_per_kg:
-                Number(
-                    item.price_per_kg.toFixed(2)
-                ),
-
-                item_total:
-                Number(
-                    item.item_total.toFixed(2)
-                )
-
-            })
-        );
-
-
-        const itemResponse =
-        await fetch(
-            SUPABASE_URL +
-            "/rest/v1/sale_items",
-            {
-                method:"POST",
-
-          
+        products.find(
+            function(p){
+
+                return Number(
+                    p.id
+                ) === Number(
+                    item.product_
