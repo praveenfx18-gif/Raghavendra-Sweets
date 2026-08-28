@@ -2,300 +2,163 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Raghavendra Sweets | Billing</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Raghavendra Sweets - Billing</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-:root{
-    --maroon:#68140e;
-    --dark:#350805;
-    --gold:#d5a52b;
-    --light:#fff8e8;
-    --cream:#fffaf0;
-    --text:#3d160f;
-    --border:#ead49a;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#fffaf0,#f3dfaa);
-    color:var(--text);
-    min-height:100vh;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fffaf0,#f1dda5);
+    color:#3d160f;
 }
 
-/* HEADER */
-
-.header{
-    background:linear-gradient(135deg,var(--maroon),var(--dark));
+header{
+    background:linear-gradient(135deg,#68140e,#350805);
     color:white;
-    padding:18px 20px;
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 4px 20px rgba(0,0,0,.25);
-}
-
-.header-inner{
-    max-width:1250px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:13px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 15px #0003;
 }
 
 .logo{
-    width:65px;
-    height:65px;
-    object-fit:cover;
+    width:70px;
+    height:70px;
     border-radius:50%;
+    object-fit:cover;
     background:white;
     padding:3px;
-    border:2px solid var(--gold);
+    border:2px solid #d5a52b;
 }
 
-.brand h1{
+header h1{
     color:#ffd95a;
+    margin-top:7px;
     font-size:23px;
 }
 
-.brand p{
-    color:#fff1bb;
-    font-size:13px;
+header p{
+    color:#ffeeb0;
     margin-top:4px;
 }
 
-.bill-top{
-    text-align:right;
-}
-
-.bill-top span{
-    display:block;
-    font-size:12px;
-    color:#ffe9a3;
-}
-
-.bill-top strong{
-    font-size:16px;
-}
-
-/* LAYOUT */
-
 .container{
-    max-width:1250px;
+    max-width:1200px;
     margin:20px auto;
-    padding:0 15px;
+    padding:0 12px;
 }
 
-.main-grid{
+.layout{
     display:grid;
-    grid-template-columns:minmax(0,1fr) 390px;
-    gap:20px;
-    align-items:start;
+    grid-template-columns:1fr 380px;
+    gap:18px;
 }
-
-/* CARDS */
 
 .card{
-    background:rgba(255,255,255,.96);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:18px;
+    background:white;
+    border:1px solid #e2c16c;
+    border-radius:16px;
+    padding:16px;
     margin-bottom:18px;
-    box-shadow:0 8px 25px rgba(70,30,10,.12);
+    box-shadow:0 5px 20px #5a250e18;
 }
 
-.section-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:15px;
-}
-
-.section-title h2{
-    color:var(--maroon);
+h2{
+    color:#68140e;
+    margin-bottom:14px;
     font-size:20px;
 }
 
-.count{
-    background:var(--light);
-    color:var(--maroon);
-    border:1px solid var(--gold);
-    border-radius:20px;
-    padding:6px 11px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-/* SEARCH */
-
-.search-box{
-    position:relative;
-    margin-bottom:13px;
-}
-
-.search-box input{
+.search{
     width:100%;
-    padding:14px 45px 14px 15px;
-    border:1px solid #d8bd70;
-    border-radius:12px;
-    background:#fffdf7;
+    padding:13px;
+    border:1px solid #cdaa50;
+    border-radius:10px;
     font-size:15px;
     outline:none;
+    margin-bottom:15px;
 }
-
-.search-box input:focus{
-    border-color:var(--maroon);
-    box-shadow:0 0 0 3px rgba(104,20,14,.08);
-}
-
-.search-icon{
-    position:absolute;
-    right:15px;
-    top:13px;
-    font-size:20px;
-}
-
-/* CATEGORIES */
-
-.categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding-bottom:7px;
-    margin-bottom:14px;
-}
-
-.category-btn{
-    flex:0 0 auto;
-    padding:8px 13px;
-    border-radius:20px;
-    border:1px solid #d9bd6c;
-    background:#fffaf0;
-    color:var(--maroon);
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.category-btn.active,
-.category-btn:hover{
-    background:var(--maroon);
-    color:white;
-}
-
-/* PRODUCT GRID */
 
 .products{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:13px;
+    gap:12px;
 }
 
 .product{
-    border:1px solid #ead7a5;
-    border-radius:15px;
+    border:1px solid #ead49b;
+    border-radius:13px;
     overflow:hidden;
     background:#fffdf7;
-    transition:.2s;
-    display:flex;
-    flex-direction:column;
 }
 
-.product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 18px rgba(80,30,10,.14);
-}
-
-.product-image{
-    height:145px;
+.product-img{
     width:100%;
+    height:125px;
     object-fit:cover;
-    background:linear-gradient(135deg,#fff0bf,#ead08a);
+    background:#f4df9e;
 }
 
-.image-placeholder{
-    height:145px;
+.placeholder{
+    width:100%;
+    height:125px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:48px;
-    background:linear-gradient(135deg,#fff1bd,#e7ca80);
+    align-items:center;
+    font-size:45px;
+    background:linear-gradient(135deg,#fff1c4,#e8cd83);
 }
 
-.product-body{
-    padding:12px;
+.product-info{
+    padding:10px;
 }
 
 .product-name{
     font-weight:bold;
-    color:var(--maroon);
-    font-size:15px;
-    min-height:36px;
+    color:#68140e;
+    min-height:34px;
 }
 
-.product-price{
+.price{
     margin-top:5px;
     font-weight:bold;
-    font-size:15px;
 }
 
-.product-stock{
-    margin-top:4px;
+.stock{
     font-size:12px;
-    color:#746354;
+    color:#777;
+    margin-top:4px;
 }
 
-.add-product{
+.add{
     width:100%;
-    margin-top:9px;
-    background:var(--maroon);
+    margin-top:8px;
+    padding:9px;
+    border:0;
+    border-radius:8px;
+    background:#68140e;
     color:white;
-    padding:10px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.add-product:hover{
-    background:#8b2118;
-}
-
-.no-products{
-    grid-column:1/-1;
-    padding:35px;
-    text-align:center;
-    color:#8a7767;
-}
-
-/* BILL */
-
-.bill-card{
-    position:sticky;
-    top:105px;
+.add:active{
+    transform:scale(.97);
 }
 
 .bill-info{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:8px;
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
 
 .info{
-    background:var(--light);
-    border:1px solid #e6cc82;
-    padding:10px;
-    border-radius:10px;
+    background:#fff8e5;
+    border:1px solid #e5c978;
+    padding:9px;
+    border-radius:8px;
 }
 
 .info small{
@@ -306,609 +169,333 @@ body{
 
 .info strong{
     display:block;
-    margin-top:4px;
-    color:var(--maroon);
+    margin-top:3px;
+    color:#68140e;
     font-size:13px;
 }
 
-/* BILL ITEMS */
-
 .bill-items{
-    max-height:330px;
+    max-height:350px;
     overflow-y:auto;
-    margin-top:10px;
 }
 
 .empty{
     text-align:center;
-    padding:30px 10px;
-    color:#8a7767;
+    padding:35px 10px;
+    color:#887768;
 }
 
-.bill-item{
-    padding:12px 0;
-    border-bottom:1px solid #eee0b9;
+.item{
+    border-bottom:1px solid #eadbb5;
+    padding:11px 0;
 }
 
-.item-row{
+.item-top{
     display:flex;
     justify-content:space-between;
-    gap:10px;
+    gap:8px;
 }
 
 .item-name{
     font-weight:bold;
-    color:var(--maroon);
+    color:#68140e;
 }
 
 .item-total{
     font-weight:bold;
 }
 
-.item-details{
+.item-bottom{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-top:7px;
     font-size:12px;
-    color:#76675b;
 }
 
-.qty-controls{
+.qty{
     display:flex;
     align-items:center;
     gap:5px;
 }
 
-.qty-btn{
+.qty button{
     width:27px;
     height:27px;
-    padding:0;
-    border-radius:7px;
-    background:#fff2c9;
-    color:var(--maroon);
-    border:1px solid #dfc16a;
+    border:1px solid #d8bb65;
+    border-radius:6px;
+    background:#fff3ca;
+    color:#68140e;
+    font-weight:bold;
 }
 
 .remove{
     color:#b3261e;
-    cursor:pointer;
     font-weight:bold;
+    cursor:pointer;
 }
 
-/* TOTAL */
-
-.total-box{
-    margin-top:14px;
+.summary{
+    border-top:2px dashed #d8bd6a;
+    margin-top:12px;
     padding-top:10px;
-    border-top:2px dashed #d7bd70;
 }
 
-.total-row{
+.row{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:7px 0;
 }
 
-.discount-input{
-    width:100px;
+.discount{
+    width:90px;
     padding:8px;
-    border:1px solid #d2b35d;
+    border:1px solid #cdaa50;
     border-radius:7px;
     text-align:right;
 }
 
-.grand-total{
-    margin-top:5px;
-    padding-top:12px;
-    border-top:1px solid #ead9aa;
-    color:var(--maroon);
+.total{
+    color:#68140e;
     font-size:23px;
     font-weight:bold;
-}
-
-/* PAYMENT */
-
-.payment-title{
-    margin-top:14px;
-    margin-bottom:8px;
-    font-size:13px;
-    font-weight:bold;
+    border-top:1px solid #ead9aa;
+    margin-top:5px;
+    padding-top:12px;
 }
 
 .payment{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:7px;
+    margin-top:10px;
 }
 
 .payment label{
-    padding:10px 5px;
     text-align:center;
+    padding:10px 4px;
     border:1px solid #dfc475;
-    border-radius:9px;
+    border-radius:8px;
     background:#fffaf0;
-    cursor:pointer;
     font-size:12px;
     font-weight:bold;
-}
-
-.payment label:has(input:checked){
-    background:var(--maroon);
-    color:white;
-    border-color:var(--maroon);
+    cursor:pointer;
 }
 
 .payment input{
     display:none;
 }
 
-/* SAVE */
+.payment label:has(input:checked){
+    background:#68140e;
+    color:white;
+}
 
-.save-btn{
+.save{
     width:100%;
-    margin-top:13px;
+    margin-top:12px;
     padding:15px;
-    border-radius:11px;
-    background:linear-gradient(135deg,#8a5700,#d5a52b);
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(135deg,#8b5a00,#d5a52b);
     color:white;
     font-size:17px;
     font-weight:bold;
+    cursor:pointer;
 }
-
-.save-btn:hover{
-    filter:brightness(1.05);
-}
-
-.save-btn:disabled{
-    opacity:.6;
-}
-
-/* MESSAGE */
 
 .message{
-    display:none;
-    margin-top:12px;
-    padding:11px;
-    border-radius:9px;
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
     text-align:center;
     font-size:13px;
     font-weight:bold;
-    word-break:break-word;
+    display:none;
 }
 
 .success{
     display:block;
-    background:#e6f7df;
+    background:#e5f7df;
     color:#24611c;
 }
 
 .error{
     display:block;
-    background:#ffe2df;
+    background:#ffe1df;
     color:#8b1a13;
 }
 
-/* MOBILE */
-
-@media(max-width:950px){
-
-    .main-grid{
-        grid-template-columns:1fr;
-    }
-
-    .bill-card{
-        position:static;
-    }
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
-    }
+@media(max-width:850px){
+    .layout{grid-template-columns:1fr}
+    .products{grid-template-columns:repeat(3,1fr)}
 }
 
-@media(max-width:650px){
+@media(max-width:600px){
+    .products{grid-template-columns:repeat(2,1fr)}
+    .product-img,.placeholder{height:110px}
+}
 
-    .header{
-        padding:12px;
-    }
-
-    .header-inner{
-        align-items:flex-start;
-    }
-
-    .logo{
-        width:55px;
-        height:55px;
-    }
-
-    .brand h1{
-        font-size:17px;
-    }
-
-    .brand p{
-        font-size:11px;
-    }
-
-    .bill-top{
-        font-size:11px;
-    }
-
-    .container{
-        margin-top:12px;
-        padding:0 9px;
-    }
-
-    .card{
-        padding:13px;
-        border-radius:14px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:9px;
-    }
-
-    .product-image,
-    .image-placeholder{
-        height:115px;
-    }
-
-    .product-body{
-        padding:9px;
-    }
-
-    .product-name{
-        font-size:13px;
-    }
-
-    .product-price{
-        font-size:13px;
-    }
-
-    .add-product{
-        padding:9px 5px;
-        font-size:12px;
-    }
+@media(max-width:380px){
+    .products{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
 
-    <div class="header-inner">
+<img src="logo.jpg" class="logo" alt="Raghavendra Sweets Logo">
 
-        <div class="brand">
-
-            <img
-                src="logo.jpg"
-                class="logo"
-                alt="Raghavendra Sweets Logo"
-                onerror="this.style.display='none';">
-
-            <div>
-                <h1>RAGHAVENDRA SWEETS</h1>
-                <p>Premium Billing System</p>
-            </div>
-
-        </div>
-
-        <div class="bill-top">
-            <span>Current Bill</span>
-            <strong id="topBillNo">--</strong>
-        </div>
-
-    </div>
+<h1>RAGHAVENDRA SWEETS</h1>
+<p>Smart Billing System</p>
 
 </header>
 
+<div class="container">
 
-<main class="container">
+<div class="layout">
 
-<div class="main-grid">
+<!-- PRODUCTS -->
 
-
-<!-- =========================================
-     PRODUCTS
-========================================= -->
-
-<section>
+<div>
 
 <div class="card">
 
-    <div class="section-title">
+<h2>🍬 Sweets</h2>
 
-        <h2>🍬 Select Sweets</h2>
+<input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="🔎 Search sweet..."
+>
 
-        <span class="count">
-            <span id="productCount">0</span> Items
-        </span>
-
-    </div>
-
-
-    <div class="search-box">
-
-        <input
-            type="search"
-            id="search"
-            placeholder="Search sweets..."
-            autocomplete="off">
-
-        <span class="search-icon">🔎</span>
-
-    </div>
-
-
-    <div
-        class="categories"
-        id="categories">
-
-        <button
-            class="category-btn active"
-            data-category="All">
-
-            All
-
-        </button>
-
-        <button
-            class="category-btn"
-            data-category="Kaju">
-
-            Kaju
-
-        </button>
-
-        <button
-            class="category-btn"
-            data-category="Laddu">
-
-            Laddu
-
-        </button>
-
-        <button
-            class="category-btn"
-            data-category="Milk">
-
-            Milk Sweets
-
-        </button>
-
-        <button
-            class="category-btn"
-            data-category="Halwa">
-
-            Halwa
-
-        </button>
-
-        <button
-            class="category-btn"
-            data-category="Other">
-
-            Others
-
-        </button>
-
-    </div>
-
-
-    <div
-        id="products"
-        class="products">
-
-        <div class="no-products">
-            ⏳ Loading sweets...
-        </div>
-
-    </div>
+<div id="products" class="products">
+    <div class="empty">Loading sweets...</div>
+</div>
 
 </div>
 
-</section>
+</div>
 
 
-<!-- =========================================
-     BILL
-========================================= -->
+<!-- BILL -->
 
-<aside>
+<div>
 
-<div class="card bill-card">
+<div class="card">
 
-    <div class="section-title">
+<h2>🧾 Current Bill</h2>
 
-        <h2>🧾 Current Bill</h2>
+<div class="bill-info">
 
-        <span
-            class="count"
-            id="cartCount">
+<div class="info">
+<small>Bill Number</small>
+<strong id="billNo">--</strong>
+</div>
 
-            0 Items
+<div class="info">
+<small>Date</small>
+<strong id="date">--</strong>
+</div>
 
-        </span>
+<div class="info">
+<small>Time</small>
+<strong id="time">--</strong>
+</div>
 
-    </div>
-
-
-    <div class="bill-info">
-
-        <div class="info">
-
-            <small>Bill Number</small>
-
-            <strong id="billNo">
-                --
-            </strong>
-
-        </div>
-
-        <div class="info">
-
-            <small>Date</small>
-
-            <strong id="billDate">
-                --
-            </strong>
-
-        </div>
-
-        <div class="info">
-
-            <small>Time</small>
-
-            <strong id="billTime">
-                --
-            </strong>
-
-        </div>
-
-        <div class="info">
-
-            <small>Items</small>
-
-            <strong id="itemCount">
-                0
-            </strong>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="billItems"
-        class="bill-items">
-
-        <div class="empty">
-
-            🛒<br><br>
-            No sweets added yet.
-
-        </div>
-
-    </div>
-
-
-    <div class="total-box">
-
-        <div class="total-row">
-
-            <span>Subtotal</span>
-
-            <strong id="subtotal">
-                ₹0.00
-            </strong>
-
-        </div>
-
-
-        <div class="total-row">
-
-            <span>Discount</span>
-
-            <input
-                type="number"
-                id="discount"
-                class="discount-input"
-                value="0"
-                min="0"
-                step="1">
-
-        </div>
-
-
-        <div class="total-row grand-total">
-
-            <span>TOTAL</span>
-
-            <span id="grandTotal">
-                ₹0.00
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="payment-title">
-        Payment Method
-    </div>
-
-
-    <div class="payment">
-
-        <label>
-
-            <input
-                type="radio"
-                name="payment"
-                value="Cash"
-                checked>
-
-            💵 Cash
-
-        </label>
-
-
-        <label>
-
-            <input
-                type="radio"
-                name="payment"
-                value="Card">
-
-            💳 Card
-
-        </label>
-
-
-        <label>
-
-            <input
-                type="radio"
-                name="payment"
-                value="UPI">
-
-            📱 UPI
-
-        </label>
-
-    </div>
-
-
-    <button
-        class="save-btn"
-        id="saveBtn">
-
-        🧾 SAVE BILL
-
-    </button>
-
-
-    <div
-        id="message"
-        class="message">
-    </div>
+<div class="info">
+<small>Items</small>
+<strong id="itemCount">0</strong>
+</div>
 
 </div>
 
-</aside>
+
+<div id="billItems" class="bill-items">
+
+<div class="empty">
+🛒<br><br>
+No sweets added
+</div>
 
 </div>
 
-</main>
+
+<div class="summary">
+
+<div class="row">
+<span>Subtotal</span>
+<strong id="subtotal">₹0.00</strong>
+</div>
+
+<div class="row">
+<span>Discount</span>
+
+<input
+    id="discount"
+    class="discount"
+    type="number"
+    value="0"
+    min="0"
+>
+</div>
+
+<div class="row total">
+<span>TOTAL</span>
+<strong id="total">₹0.00</strong>
+</div>
+
+</div>
+
+
+<div style="margin-top:12px;font-weight:bold;font-size:13px">
+Payment Method
+</div>
+
+<div class="payment">
+
+<label>
+<input type="radio" name="payment" value="Cash" checked>
+💵 Cash
+</label>
+
+<label>
+<input type="radio" name="payment" value="Card">
+💳 Card
+</label>
+
+<label>
+<input type="radio" name="payment" value="UPI">
+📱 UPI
+</label>
+
+</div>
+
+
+<button id="save" class="save">
+🧾 SAVE BILL
+</button>
+
+<div id="message" class="message"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 
 <script>
 
-/* =====================================================
+/* ================================
    SUPABASE
-===================================================== */
+================================ */
 
 const SUPABASE_URL =
 "https://vajhxvghtyiwcdnbbwpt.supabase.co";
@@ -917,369 +504,769 @@ const SUPABASE_KEY =
 "sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ================================
+   DATA
+================================ */
 
 let products = [];
-
 let cart = [];
 
-let currentCategory = "All";
 
-
-/* =====================================================
+/* ================================
    START
-===================================================== */
+================================ */
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+"DOMContentLoaded",
+function(){
 
-        createBillNumber();
+    generateBill();
 
-        updateClock();
+    updateTime();
 
-        setInterval(
-            updateClock,
-            1000
-        );
+    setInterval(updateTime,1000);
 
-        loadProducts();
+    loadProducts();
 
-        document
-            .getElementById("search")
-            .addEventListener(
-                "input",
-                renderProducts
-            );
+    document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        renderProducts
+    );
 
-        document
-            .getElementById("discount")
-            .addEventListener(
-                "input",
-                calculateTotal
-            );
+    document
+    .getElementById("discount")
+    .addEventListener(
+        "input",
+        calculate
+    );
 
-        document
-            .getElementById("saveBtn")
-            .addEventListener(
-                "click",
-                saveBill
-            );
+    document
+    .getElementById("save")
+    .addEventListener(
+        "click",
+        saveBill
+    );
 
-        document
-            .getElementById("categories")
-            .addEventListener(
-                "click",
-                categoryClick
-            );
-
-    }
-);
+});
 
 
-/* =====================================================
+/* ================================
    BILL NUMBER
-===================================================== */
+================================ */
 
-function createBillNumber(){
+function generateBill(){
 
     const now = new Date();
 
-    const year =
-        now.getFullYear();
-
-    const month =
-        String(
-            now.getMonth()+1
-        ).padStart(2,"0");
-
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2,"0");
+    const date =
+        now.getFullYear() +
+        String(now.getMonth()+1).padStart(2,"0") +
+        String(now.getDate()).padStart(2,"0");
 
     const random =
         Math.floor(
-            1000 +
-            Math.random()*9000
+            1000 + Math.random()*9000
         );
 
-    const bill =
-        `RS-${year}${month}${day}-${random}`;
-
-    document.getElementById(
-        "billNo"
-    ).textContent =
-        bill;
-
-    document.getElementById(
-        "topBillNo"
-    ).textContent =
-        bill;
+    document.getElementById("billNo")
+    .textContent =
+    `RS-${date}-${random}`;
 
 }
 
 
-/* =====================================================
-   CLOCK
-===================================================== */
+/* ================================
+   TIME
+================================ */
 
-function updateClock(){
+function updateTime(){
 
-    const now =
-        new Date();
+    const now = new Date();
 
-    document.getElementById(
-        "billDate"
-    ).textContent =
-        now.toLocaleDateString(
-            "en-IN"
-        );
+    document.getElementById("date")
+    .textContent =
+    now.toLocaleDateString("en-IN");
 
-    document.getElementById(
-        "billTime"
-    ).textContent =
-        now.toLocaleTimeString(
-            "en-IN"
-        );
+    document.getElementById("time")
+    .textContent =
+    now.toLocaleTimeString("en-IN");
 
 }
 
 
-/* =====================================================
+/* ================================
    LOAD PRODUCTS
-===================================================== */
+================================ */
 
 async function loadProducts(){
-
-    const box =
-        document.getElementById(
-            "products"
-        );
-
-    box.innerHTML =
-        `<div class="no-products">
-            ⏳ Loading sweets...
-         </div>`;
-
 
     try{
 
         const response =
-            await fetch(
-
-                `${SUPABASE_URL}/rest/v1/products?select=id,name,price_per_kg,stock_kg,active,image_url&order=name.asc`,
-
-                {
-                    method:"GET",
-
-                    headers:{
-                        "apikey":
-                            SUPABASE_KEY,
-
-                        "Authorization":
-                            `Bearer ${SUPABASE_KEY}`
-                    }
-
+        await fetch(
+            SUPABASE_URL +
+            "/rest/v1/products?select=id,name,price_per_kg,stock_kg,active,image_url&active=eq.true&order=name.asc",
+            {
+                headers:{
+                    "apikey":SUPABASE_KEY,
+                    "Authorization":
+                    "Bearer " + SUPABASE_KEY
                 }
-
-            );
-
-
-        const text =
-            await response.text();
-
-
-        console.log(
-            "PRODUCT RESPONSE:",
-            response.status,
-            text
+            }
         );
 
 
         if(!response.ok){
 
             throw new Error(
-                `HTTP ${response.status}: ${text}`
+                await response.text()
             );
 
         }
 
 
         products =
-            JSON.parse(text);
-
-
-        if(!Array.isArray(products)){
-
-            throw new Error(
-                "Invalid products response."
-            );
-
-        }
-
-
-        document.getElementById(
-            "productCount"
-        ).textContent =
-            products.length;
+        await response.json();
 
 
         renderProducts();
-
 
     }
     catch(error){
 
         console.error(error);
 
-
-        box.innerHTML =
-            `<div class="no-products">
-                ❌ Products load avvaledu.<br><br>
-                ${escapeHtml(error.message)}
-             </div>`;
+        document.getElementById("products")
+        .innerHTML =
+        `
+        <div class="empty">
+        ❌ Products load avvaledu.<br><br>
+        ${escapeHtml(error.message)}
+        </div>
+        `;
 
     }
 
 }
 
 
-/* =====================================================
-   CATEGORY
-===================================================== */
-
-function categoryClick(event){
-
-    const button =
-        event.target.closest(
-            ".category-btn"
-        );
-
-
-    if(!button){
-        return;
-    }
-
-
-    currentCategory =
-        button.dataset.category;
-
-
-    document
-        .querySelectorAll(
-            ".category-btn"
-        )
-        .forEach(
-            function(btn){
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-
-    button.classList.add(
-        "active"
-    );
-
-
-    renderProducts();
-
-}
-
-
-/* =====================================================
-   CATEGORY MATCH
-===================================================== */
-
-function categoryMatch(
-    product
-){
-
-    if(currentCategory === "All"){
-        return true;
-    }
-
-
-    const name =
-        String(
-            product.name || ""
-        ).toLowerCase();
-
-
-    if(currentCategory === "Kaju"){
-
-        return name.includes("kaju");
-
-    }
-
-
-    if(currentCategory === "Laddu"){
-
-        return name.includes("laddu");
-
-    }
-
-
-    if(currentCategory === "Milk"){
-
-        return (
-            name.includes("peda") ||
-            name.includes("milk") ||
-            name.includes("rasmalai") ||
-            name.includes("rasgulla") ||
-            name.includes("gulab")
-        );
-
-    }
-
-
-    if(currentCategory === "Halwa"){
-
-        return name.includes("halwa");
-
-    }
-
-
-    if(currentCategory === "Other"){
-
-        return (
-            !name.includes("kaju") &&
-            !name.includes("laddu") &&
-            !name.includes("peda") &&
-            !name.includes("milk") &&
-            !name.includes("rasmalai") &&
-            !name.includes("rasgulla") &&
-            !name.includes("gulab") &&
-            !name.includes("halwa")
-        );
-
-    }
-
-
-    return true;
-
-}
-
-
-/* =====================================================
+/* ================================
    RENDER PRODUCTS
-===================================================== */
+================================ */
 
 function renderProducts(){
 
     const box =
-        document.getElementById(
-            "products"
+    document.getElementById("products");
+
+    const search =
+    document.getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+
+    const filtered =
+    products.filter(
+        function(product){
+
+            return String(
+                product.name
+            )
+            .toLowerCase()
+            .includes(search);
+
+        }
+    );
+
+
+    if(filtered.length === 0){
+
+        box.innerHTML =
+        `
+        <div class="empty">
+        😔 Sweet dorakaledu
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+
+    filtered.forEach(
+        function(product){
+
+            const card =
+            document.createElement("div");
+
+            card.className =
+            "product";
+
+
+            const price =
+            Number(product.price_per_kg) || 0;
+
+            const stock =
+            Number(product.stock_kg) || 0;
+
+
+            let image;
+
+            if(product.image_url){
+
+                image =
+                `
+                <img
+                    src="${escapeAttribute(product.image_url)}"
+                    class="product-img"
+                    alt="${escapeAttribute(product.name)}"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                >
+                <div
+                    class="placeholder"
+                    style="display:none">
+                    🍬
+                </div>
+                `;
+
+            }
+            else{
+
+                image =
+                `
+                <div class="placeholder">
+                    🍬
+                </div>
+                `;
+
+            }
+
+
+            card.innerHTML =
+            `
+            ${image}
+
+            <div class="product-info">
+
+                <div class="product-name">
+                    ${escapeHtml(product.name)}
+                </div>
+
+                <div class="price">
+                    ₹${price.toFixed(2)} / KG
+                </div>
+
+                <div class="stock">
+                    Stock: ${stock.toFixed(3)} KG
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addItem(${Number(product.id)})">
+
+                    + ADD 250g
+
+                </button>
+
+            </div>
+            `;
+
+
+            box.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* ================================
+   ADD ITEM
+================================ */
+
+function addItem(id){
+
+    const product =
+    products.find(
+        p => Number(p.id) === Number(id)
+    );
+
+
+    if(!product){
+
+        alert("Product not found");
+        return;
+
+    }
+
+
+    const stock =
+    Number(product.stock_kg) || 0;
+
+
+    if(stock < 0.250){
+
+        alert(
+            `Available stock: ${stock.toFixed(3)} KG`
+        );
+
+        return;
+
+    }
+
+
+    const existing =
+    cart.find(
+        item =>
+        Number(item.product_id) === Number(id)
+    );
+
+
+    if(existing){
+
+        if(
+            existing.quantity_kg + 0.250
+            > stock
+        ){
+
+            alert(
+                `Available stock: ${stock.toFixed(3)} KG`
+            );
+
+            return;
+
+        }
+
+
+        existing.quantity_kg += 0.250;
+
+        existing.item_total =
+        existing.quantity_kg *
+        existing.price_per_kg;
+
+    }
+    else{
+
+        cart.push({
+
+            product_id:
+            product.id,
+
+            product_name:
+            product.name,
+
+            quantity_kg:
+            0.250,
+
+            price_per_kg:
+            Number(product.price_per_kg) || 0,
+
+            item_total:
+            0.250 *
+            (Number(product.price_per_kg) || 0)
+
+        });
+
+    }
+
+
+    renderBill();
+
+}
+
+
+/* ================================
+   CHANGE QTY
+================================ */
+
+function changeQty(index,amount){
+
+    const item = cart[index];
+
+    if(!item) return;
+
+
+    const product =
+    products.find(
+        p =>
+        Number(p.id) ===
+        Number(item.product_id)
+    );
+
+
+    const stock =
+    Number(product?.stock_kg) || 0;
+
+
+    let quantity =
+    item.quantity_kg + amount;
+
+
+    if(quantity < 0.250){
+
+        cart.splice(index,1);
+
+        renderBill();
+
+        return;
+
+    }
+
+
+    if(quantity > stock){
+
+        alert(
+            `Available stock: ${stock.toFixed(3)} KG`
+        );
+
+        return;
+
+    }
+
+
+    item.quantity_kg =
+    Number(quantity.toFixed(3));
+
+
+    item.item_total =
+    item.quantity_kg *
+    item.price_per_kg;
+
+
+    renderBill();
+
+}
+
+
+/* ================================
+   REMOVE
+================================ */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    renderBill();
+
+}
+
+
+/* ================================
+   RENDER BILL
+================================ */
+
+function renderBill(){
+
+    const box =
+    document.getElementById("billItems");
+
+
+    document.getElementById("itemCount")
+    .textContent =
+    cart.length;
+
+
+    if(cart.length === 0){
+
+        box.innerHTML =
+        `
+        <div class="empty">
+        🛒<br><br>
+        No sweets added
+        </div>
+        `;
+
+        calculate();
+
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+
+    cart.forEach(
+        function(item,index){
+
+            const div =
+            document.createElement("div");
+
+            div.className =
+            "item";
+
+
+            div.innerHTML =
+            `
+            <div class="item-top">
+
+                <span class="item-name">
+                    ${escapeHtml(item.product_name)}
+                </span>
+
+                <span class="item-total">
+                    ₹${item.item_total.toFixed(2)}
+                </span>
+
+            </div>
+
+            <div class="item-bottom">
+
+                <span>
+                    ₹${item.price_per_kg.toFixed(2)}/KG
+                </span>
+
+                <div class="qty">
+
+                    <button
+                        onclick="changeQty(${index},-0.250)">
+                        −
+                    </button>
+
+                    <strong>
+                        ${item.quantity_kg.toFixed(3)} KG
+                    </strong>
+
+                    <button
+                        onclick="changeQty(${index},0.250)">
+                        +
+                    </button>
+
+                </div>
+
+                <span
+                    class="remove"
+                    onclick="removeItem(${index})">
+                    Remove
+                </span>
+
+            </div>
+            `;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
+
+    calculate();
+
+}
+
+
+/* ================================
+   CALCULATE
+================================ */
+
+function calculate(){
+
+    const subtotal =
+    cart.reduce(
+        (sum,item) =>
+        sum + item.item_total,
+        0
+    );
+
+
+    let discount =
+    Number(
+        document.getElementById("discount").value
+    ) || 0;
+
+
+    if(discount < 0)
+        discount = 0;
+
+
+    if(discount > subtotal)
+        discount = subtotal;
+
+
+    document.getElementById("subtotal")
+    .textContent =
+    `₹${subtotal.toFixed(2)}`;
+
+
+    document.getElementById("total")
+    .textContent =
+    `₹${(subtotal-discount).toFixed(2)}`;
+
+}
+
+
+/* ================================
+   SAVE BILL
+================================ */
+
+async function saveBill(){
+
+    if(cart.length === 0){
+
+        showMessage(
+            "❌ First sweet add cheyyi.",
+            false
+        );
+
+        return;
+
+    }
+
+
+    const subtotal =
+    cart.reduce(
+        (sum,item) =>
+        sum + item.item_total,
+        0
+    );
+
+
+    let discount =
+    Number(
+        document.getElementById("discount").value
+    ) || 0;
+
+
+    if(discount > subtotal)
+        discount = subtotal;
+
+
+    const total =
+    subtotal - discount;
+
+
+    const payment =
+    document.querySelector(
+        'input[name="payment"]:checked'
+    )?.value || "Cash";
+
+
+    const billNo =
+    document.getElementById("billNo")
+    .textContent;
+
+
+    const button =
+    document.getElementById("save");
+
+
+    button.disabled = true;
+
+    button.textContent =
+    "⏳ Saving...";
+
+
+    try{
+
+        /* SAVE SALE */
+
+        const saleResponse =
+        await fetch(
+            SUPABASE_URL +
+            "/rest/v1/sales",
+            {
+                method:"POST",
+
+                headers:{
+                    "apikey":SUPABASE_KEY,
+
+                    "Authorization":
+                    "Bearer " + SUPABASE_KEY,
+
+                    "Content-Type":
+                    "application/json",
+
+                    "Prefer":
+                    "return=representation"
+                },
+
+                body:JSON.stringify({
+
+                    bill_no:billNo,
+
+                    subtotal:
+                    Number(subtotal.toFixed(2)),
+
+                    discount:
+                    Number(discount.toFixed(2)),
+
+                    total:
+                    Number(total.toFixed(2)),
+
+                    payment_method:
+                    payment
+
+                })
+            }
         );
 
 
-    const search =
-        document.getElementById(
-            "search"
-        
+        const saleText =
+        await saleResponse.text();
+
+
+        if(!saleResponse.ok){
+
+            throw new Error(
+                saleText
+            );
+
+        }
+
+
+        const sale =
+        JSON.parse(saleText);
+
+
+        const saleId =
+        sale[0].id;
+
+
+        /* SAVE ITEMS */
+
+        const itemData =
+        cart.map(
+            item => ({
+
+                sale_id:
+                saleId,
+
+                product_id:
+                item.product_id,
+
+                product_name:
+                item.product_name,
+
+                quantity_kg:
+                Number(
+                    item.quantity_kg.toFixed(3)
+                ),
+
+                price_per_kg:
+                Number(
+                    item.price_per_kg.toFixed(2)
+                ),
+
+                item_total:
+                Number(
+                    item.item_total.toFixed(2)
+                )
+
+            })
+        );
+
+
+        const itemResponse =
+        await fetch(
+            SUPABASE_URL +
+            "/rest/v1/sale_items",
+            {
+                method:"POST",
+
+          
