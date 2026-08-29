@@ -764,7 +764,7 @@ async function loadProducts(){
 
         const url =
             SUPABASE_URL +
-            "/rest/v1/products?select=*";
+            "/`${SUPABASE_URL}/rest/v1/products?select=id,name,price_per_kg,stock_kg&order=name`*";
 
 
         const response =
