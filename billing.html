@@ -7,6 +7,7 @@
 <title>Raghavendra Sweets - Billing</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -15,24 +16,22 @@
 
 body{
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#fffaf0,#f4dfaa);
+    background:linear-gradient(135deg,#fffaf0,#f1d99a);
     color:#3d160f;
     min-height:100vh;
 }
 
-/* HEADER */
-
 .header{
-    background:linear-gradient(135deg,#68140e,#3c0805);
+    background:linear-gradient(135deg,#68140e,#350604);
     color:white;
     padding:18px;
     text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
+    box-shadow:0 4px 18px rgba(0,0,0,.3);
 }
 
 .logo{
-    width:85px;
-    height:85px;
+    width:82px;
+    height:82px;
     object-fit:cover;
     border-radius:50%;
     border:3px solid #d5a52b;
@@ -51,31 +50,25 @@ body{
     color:#fff0b5;
 }
 
-/* CONTAINER */
-
 .container{
     width:95%;
     max-width:1100px;
-    margin:25px auto;
+    margin:22px auto;
 }
-
-/* CARD */
 
 .card{
-    background:white;
+    background:rgba(255,255,255,.96);
     border-radius:15px;
     padding:20px;
-    margin-bottom:20px;
+    margin-bottom:18px;
     box-shadow:0 5px 20px rgba(70,30,10,.15);
-    border:1px solid #e2c16c;
+    border:1px solid #dfc16a;
 }
-
-/* BILL INFO */
 
 .bill-info{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
+    gap:14px;
 }
 
 .info-box{
@@ -95,14 +88,10 @@ body{
     font-size:17px;
 }
 
-/* HEADINGS */
-
 h2{
     color:#68140e;
     margin-bottom:15px;
 }
-
-/* FORM */
 
 .form-grid{
     display:grid;
@@ -134,8 +123,6 @@ input:focus{
     border-color:#68140e;
 }
 
-/* BUTTONS */
-
 button{
     border:none;
     border-radius:8px;
@@ -154,28 +141,10 @@ button{
     background:#8b2118;
 }
 
-.remove-btn{
-    background:#b3261e;
-    color:white;
-    padding:7px 12px;
-}
-
-.remove-btn:hover{
-    background:#8d1712;
-}
-
-/* TABLE */
-
-.table-wrapper{
-    width:100%;
-    overflow-x:auto;
-}
-
 table{
     width:100%;
     border-collapse:collapse;
     margin-top:10px;
-    min-width:650px;
 }
 
 th{
@@ -190,13 +159,17 @@ td{
     text-align:center;
 }
 
+.remove-btn{
+    background:#b3261e;
+    color:white;
+    padding:7px 12px;
+}
+
 .empty{
     text-align:center;
     padding:25px;
     color:#8a7767;
 }
-
-/* SUMMARY */
 
 .summary{
     display:flex;
@@ -215,19 +188,12 @@ td{
     border-bottom:1px solid #ead9aa;
 }
 
-.total-row input{
-    width:120px;
-    text-align:right;
-}
-
 .grand-total{
     font-size:23px;
     font-weight:bold;
     color:#68140e;
     border-bottom:none;
 }
-
-/* PAYMENT */
 
 .payment{
     display:grid;
@@ -245,16 +211,10 @@ td{
     background:#fffaf0;
 }
 
-.payment label:hover{
-    border-color:#68140e;
-}
-
 .payment input{
     width:auto;
     margin-right:7px;
 }
-
-/* SAVE */
 
 .save-btn{
     width:100%;
@@ -268,8 +228,6 @@ td{
 .save-btn:hover{
     opacity:.9;
 }
-
-/* MESSAGE */
 
 .message{
     display:none;
@@ -292,22 +250,12 @@ td{
     color:#8b1a13;
 }
 
-/* LOADING */
-
 .loading{
-    text-align:center;
-    padding:20px;
     color:#68140e;
     font-weight:bold;
 }
 
-/* MOBILE */
-
 @media(max-width:700px){
-
-    .header h1{
-        font-size:21px;
-    }
 
     .bill-info{
         grid-template-columns:1fr;
@@ -325,14 +273,20 @@ td{
         width:100%;
     }
 
+    table{
+        font-size:13px;
+    }
+
+    th,td{
+        padding:8px 4px;
+    }
+
     .payment{
         grid-template-columns:1fr;
     }
 
-    .card{
-        padding:15px;
-    }
 }
+
 </style>
 </head>
 
@@ -340,11 +294,9 @@ td{
 
 <header class="header">
 
-    <img
-        src="logo.jpg"
-        class="logo"
-        alt="Raghavendra Sweets Logo"
-    >
+    <img src="logo.jpg"
+         class="logo"
+         alt="Raghavendra Sweets Logo">
 
     <h1>RAGHAVENDRA SWEETS</h1>
 
@@ -355,253 +307,279 @@ td{
 
 <main class="container">
 
-    <!-- BILL INFORMATION -->
 
-    <div class="card">
+<!-- BILL INFORMATION -->
 
-        <div class="bill-info">
+<div class="card">
 
-            <div class="info-box">
+    <div class="bill-info">
 
-                <small>Bill Number</small>
+        <div class="info-box">
 
-                <strong id="billNumber">
-                    Generating...
-                </strong>
+            <small>Bill Number</small>
 
-            </div>
+            <strong id="billNumber">
+                Generating...
+            </strong>
 
-
-            <div class="info-box">
-
-                <small>Date</small>
-
-                <strong id="billDate">
-                    --
-                </strong>
-
-            </div>
+        </div>
 
 
-            <div class="info-box">
+        <div class="info-box">
 
-                <small>Time</small>
+            <small>Date</small>
 
-                <strong id="billTime">
-                    --
-                </strong>
+            <strong id="billDate">
+                --
+            </strong>
 
-            </div>
+        </div>
+
+
+        <div class="info-box">
+
+            <small>Time</small>
+
+            <strong id="billTime">
+                --
+            </strong>
 
         </div>
 
     </div>
 
-
-    <!-- ADD SWEET -->
-
-    <div class="card">
-
-        <h2>🍬 Add Sweet</h2>
-
-        <div class="form-grid">
-
-            <div>
-
-                <label>Select Sweet</label>
-
-                <select id="productSelect">
-
-                    <option value="">
-                        Loading sweets...
-                    </option>
-
-                </select>
-
-            </div>
+</div>
 
 
-            <div>
 
-                <label>Quantity (KG)</label>
+<!-- ADD SWEET -->
 
-                <input
-                    type="number"
-                    id="quantity"
-                    min="0.001"
-                    step="0.001"
-                    placeholder="0.250"
-                >
+<div class="card">
 
-            </div>
+    <h2>🍬 Add Sweet</h2>
 
 
-            <div>
-
-                <label>Price / KG</label>
-
-                <input
-                    type="text"
-                    id="price"
-                    readonly
-                    placeholder="₹0.00"
-                >
-
-            </div>
+    <div class="form-grid">
 
 
-            <button
-                class="add-btn"
-                onclick="addItem()"
-            >
-                + Add
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- CURRENT BILL -->
-
-    <div class="card">
-
-        <h2>🧾 Current Bill</h2>
-
-        <div id="billTable">
-
-            <div class="empty">
-                No sweets added yet.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PAYMENT -->
-
-    <div class="card">
-
-        <h2>💰 Payment</h2>
-
-        <div class="summary">
-
-            <div class="summary-box">
-
-                <div class="total-row">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <strong id="subtotal">
-                        ₹0.00
-                    </strong>
-
-                </div>
-
-
-                <div class="total-row">
-
-                    <span>
-                        Discount
-                    </span>
-
-                    <input
-                        type="number"
-                        id="discount"
-                        min="0"
-                        value="0"
-                        oninput="calculateTotal()"
-                    >
-
-                </div>
-
-
-                <div class="total-row grand-total">
-
-                    <span>
-                        TOTAL
-                    </span>
-
-                    <strong id="grandTotal">
-                        ₹0.00
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PAYMENT METHOD -->
-
-        <div class="payment">
+        <div>
 
             <label>
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="Cash"
-                    checked
-                >
-
-                💵 Cash
-
+                Select Sweet
             </label>
 
+            <select id="productSelect">
 
-            <label>
+                <option value="">
+                    Loading sweets...
+                </option>
 
-                <input
-                    type="radio"
-                    name="payment"
-                    value="Card"
-                >
-
-                💳 Card
-
-            </label>
-
-
-            <label>
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="UPI"
-                >
-
-                📱 UPI
-
-            </label>
+            </select>
 
         </div>
+
+
+
+        <div>
+
+            <label>
+                Quantity (KG)
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                min="0.001"
+                step="0.001"
+                placeholder="0.250">
+
+        </div>
+
+
+
+        <div>
+
+            <label>
+                Price / KG
+            </label>
+
+            <input
+                type="text"
+                id="price"
+                readonly
+                placeholder="₹0.00">
+
+        </div>
+
 
 
         <button
-            class="save-btn"
-            onclick="saveBill()"
-            id="saveButton"
-        >
-            🧾 SAVE BILL
+            class="add-btn"
+            onclick="addItem()">
+
+            + Add
+
         </button>
 
 
-        <div
-            id="message"
-            class="message"
-        ></div>
+    </div>
+
+</div>
+
+
+
+<!-- CURRENT BILL -->
+
+<div class="card">
+
+    <h2>🧾 Current Bill</h2>
+
+    <div id="billTable">
+
+        <div class="empty">
+            No sweets added yet.
+        </div>
 
     </div>
+
+</div>
+
+
+
+<!-- PAYMENT -->
+
+<div class="card">
+
+    <h2>💰 Payment</h2>
+
+
+    <div class="summary">
+
+        <div class="summary-box">
+
+
+            <div class="total-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+
+            <div class="total-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <input
+                    type="number"
+                    id="discount"
+                    min="0"
+                    value="0"
+                    oninput="calculateTotal()"
+                    style="width:120px;text-align:right;">
+
+            </div>
+
+
+
+            <div class="total-row grand-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="grandTotal">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PAYMENT METHODS -->
+
+    <div class="payment">
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="payment"
+                value="Cash"
+                checked>
+
+            💵 Cash
+
+        </label>
+
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="payment"
+                value="Card">
+
+            💳 Card
+
+        </label>
+
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="payment"
+                value="UPI">
+
+            📱 UPI
+
+        </label>
+
+
+    </div>
+
+
+
+    <button
+        class="save-btn"
+        onclick="saveBill()">
+
+        🧾 SAVE BILL
+
+    </button>
+
+
+    <div
+        id="message"
+        class="message">
+    </div>
+
+
+</div>
 
 </main>
 
 
+
 <script>
+
 
 /* =====================================================
    SUPABASE CONFIG
@@ -609,6 +587,7 @@ td{
 
 const SUPABASE_URL =
 "https://vajhxvghtyiwcdnbbwpt.supabase.co";
+
 
 const SUPABASE_KEY =
 "sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
@@ -639,18 +618,22 @@ window.addEventListener("load", function(){
 
 
 /* =====================================================
-   DATE & TIME
+   DATE
    ===================================================== */
 
 function updateDateTime(){
 
     const now = new Date();
 
-    document.getElementById("billDate").textContent =
-        now.toLocaleDateString("en-IN");
 
-    document.getElementById("billTime").textContent =
-        now.toLocaleTimeString("en-IN");
+    document.getElementById("billDate")
+    .textContent =
+    now.toLocaleDateString("en-IN");
+
+
+    document.getElementById("billTime")
+    .textContent =
+    now.toLocaleTimeString("en-IN");
 
 }
 
@@ -663,29 +646,34 @@ function generateBillNumber(){
 
     const now = new Date();
 
+
     const year =
-        now.getFullYear();
+    now.getFullYear();
+
 
     const month =
-        String(now.getMonth()+1)
-        .padStart(2,"0");
+    String(now.getMonth()+1)
+    .padStart(2,"0");
+
 
     const day =
-        String(now.getDate())
-        .padStart(2,"0");
+    String(now.getDate())
+    .padStart(2,"0");
+
 
     const random =
-        Math.floor(
-            1000 +
-            Math.random()*9000
-        );
+    Math.floor(
+        1000 +
+        Math.random()*9000
+    );
+
 
     const bill =
-        `RS-${year}${month}${day}-${random}`;
+    `RS-${year}${month}${day}-${random}`;
 
-    document.getElementById(
-        "billNumber"
-    ).textContent = bill;
+
+    document.getElementById("billNumber")
+    .textContent = bill;
 
 }
 
@@ -693,63 +681,59 @@ function generateBillNumber(){
 /* =====================================================
    LOAD PRODUCTS
    IMPORTANT:
-   NO active column used
+   NO active=eq.true HERE
    ===================================================== */
 
 async function loadProducts(){
 
     const select =
-        document.getElementById(
-            "productSelect"
-        );
+    document.getElementById("productSelect");
+
 
     select.innerHTML =
-        `<option value="">
-            Loading sweets...
-        </option>`;
+    `<option value="">
+        Loading sweets...
+     </option>`;
 
 
     try{
 
+
         const url =
-            `${SUPABASE_URL}/rest/v1/products` +
-            `?select=id,name,price_per_kg,stock_kg` +
-            `&order=name.asc`;
+        `${SUPABASE_URL}/rest/v1/products` +
+        `?select=id,name,price_per_kg,stock_kg` +
+        `&order=name.asc`;
 
 
-        console.log(
-            "Loading products:",
-            url
-        );
+        console.log("Products URL:",url);
 
 
         const response =
-            await fetch(
-                url,
-                {
-                    method:"GET",
+        await fetch(
+            url,
+            {
+                method:"GET",
 
-                    headers:{
-                        "apikey":
-                            SUPABASE_KEY,
+                headers:{
+                    "apikey":
+                    SUPABASE_KEY,
 
-                        "Authorization":
-                            `Bearer ${SUPABASE_KEY}`,
+                    "Authorization":
+                    `Bearer ${SUPABASE_KEY}`,
 
-                        "Content-Type":
-                            "application/json"
-                    }
+                    "Accept":
+                    "application/json"
                 }
-            );
+            }
+        );
 
 
         const responseText =
-            await response.text();
+        await response.text();
 
 
         console.log(
             "Supabase response:",
-            response.status,
             responseText
         );
 
@@ -757,53 +741,53 @@ async function loadProducts(){
         if(!response.ok){
 
             throw new Error(
-                `HTTP ${response.status}: ${responseText}`
+                responseText ||
+                `HTTP ${response.status}`
             );
 
         }
 
 
         products =
-            JSON.parse(responseText);
+        JSON.parse(responseText);
 
 
         if(!Array.isArray(products)){
 
             throw new Error(
-                "Products response is not an array"
+                "Products data is not an array"
             );
 
         }
 
 
-        console.log(
-            "Products loaded:",
-            products.length
-        );
-
-
         select.innerHTML =
-            `<option value="">
-                Select Sweet
-            </option>`;
+        `<option value="">
+            Select Sweet
+         </option>`;
 
 
-        products.forEach(function(product){
+        products.forEach(product => {
+
 
             const option =
-                document.createElement("option");
+            document.createElement("option");
 
 
             option.value =
-                product.id;
+            product.id;
 
 
             option.textContent =
-                `${product.name} — ₹${Number(
+            `${product.name} — ₹${
+                Number(
                     product.price_per_kg
-                ).toFixed(2)}/KG — Stock: ${Number(
+                ).toFixed(2)
+            }/KG — Stock: ${
+                Number(
                     product.stock_kg
-                ).toFixed(3)} KG`;
+                ).toFixed(3)
+            } KG`;
 
 
             select.appendChild(option);
@@ -811,39 +795,38 @@ async function loadProducts(){
         });
 
 
-        if(products.length === 0){
-
-            select.innerHTML =
-                `<option value="">
-                    No sweets found
-                </option>`;
-
-        }
-
-
         showMessage(
-            `✅ ${products.length} sweets loaded successfully.`,
+            `${products.length} sweets loaded successfully.`,
             true
         );
+
+
+        setTimeout(() => {
+
+            document.getElementById("message")
+            .style.display = "none";
+
+        },2500);
 
 
     }
     catch(error){
 
         console.error(
-            "PRODUCT LOAD ERROR:",
+            "PRODUCT ERROR:",
             error
         );
 
 
         select.innerHTML =
-            `<option value="">
-                Products loading failed
-            </option>`;
+        `<option value="">
+            Failed to load sweets
+         </option>`;
 
 
         showMessage(
-            `❌ Products load avvaledu.<br><br>${escapeHtml(error.message)}`,
+            "❌ Supabase connection error: " +
+            error.message,
             false
         );
 
@@ -853,7 +836,7 @@ async function loadProducts(){
 
 
 /* =====================================================
-   PRODUCT CHANGE
+   SELECT SWEET
    ===================================================== */
 
 document
@@ -862,34 +845,32 @@ document
     "change",
     function(){
 
-        const productId =
-            Number(this.value);
+        const id =
+        Number(this.value);
 
 
         const product =
-            products.find(
-                function(p){
-                    return Number(p.id)
-                    === productId;
-                }
-            );
+        products.find(
+            p =>
+            Number(p.id) === id
+        );
 
 
         if(product){
 
-            document.getElementById(
-                "price"
-            ).value =
-                `₹${Number(
+            document.getElementById("price")
+            .value =
+            `₹${
+                Number(
                     product.price_per_kg
-                ).toFixed(2)}`;
+                ).toFixed(2)
+            }`;
 
         }
         else{
 
-            document.getElementById(
-                "price"
-            ).value = "";
+            document.getElementById("price")
+            .value = "";
 
         }
 
@@ -904,25 +885,25 @@ document
 function addItem(){
 
     const productId =
-        Number(
-            document.getElementById(
-                "productSelect"
-            ).value
-        );
+    Number(
+        document.getElementById(
+            "productSelect"
+        ).value
+    );
 
 
     const quantity =
-        Number(
-            document.getElementById(
-                "quantity"
-            ).value
-        );
+    Number(
+        document.getElementById(
+            "quantity"
+        ).value
+    );
 
 
     if(!productId){
 
         alert(
-            "Sweet select cheyyi."
+            "First sweet select cheyyi."
         );
 
         return;
@@ -942,12 +923,10 @@ function addItem(){
 
 
     const product =
-        products.find(
-            function(p){
-                return Number(p.id)
-                === productId;
-            }
-        );
+    products.find(
+        p =>
+        Number(p.id) === productId
+    );
 
 
     if(!product){
@@ -962,13 +941,15 @@ function addItem(){
 
 
     const stock =
-        Number(product.stock_kg);
+    Number(product.stock_kg);
 
 
     if(quantity > stock){
 
         alert(
-            `Stock available: ${stock.toFixed(3)} KG`
+            `Available stock: ${
+                stock.toFixed(3)
+            } KG`
         );
 
         return;
@@ -977,26 +958,26 @@ function addItem(){
 
 
     const existing =
-        cart.find(
-            function(item){
-                return Number(
-                    item.product_id
-                ) === productId;
-            }
-        );
+    cart.find(
+        item =>
+        Number(item.product_id)
+        === productId
+    );
 
 
     if(existing){
 
         const newQuantity =
-            existing.quantity_kg +
-            quantity;
+        existing.quantity_kg +
+        quantity;
 
 
         if(newQuantity > stock){
 
             alert(
-                `Stock available: ${stock.toFixed(3)} KG`
+                `Available stock: ${
+                    stock.toFixed(3)
+                } KG`
             );
 
             return;
@@ -1005,12 +986,12 @@ function addItem(){
 
 
         existing.quantity_kg =
-            newQuantity;
+        newQuantity;
 
 
         existing.item_total =
-            newQuantity *
-            Number(product.price_per_kg);
+        newQuantity *
+        Number(product.price_per_kg);
 
     }
     else{
@@ -1018,24 +999,24 @@ function addItem(){
         cart.push({
 
             product_id:
-                product.id,
+            product.id,
 
             product_name:
-                product.name,
+            product.name,
 
             quantity_kg:
-                quantity,
+            quantity,
 
             price_per_kg:
-                Number(
-                    product.price_per_kg
-                ),
+            Number(
+                product.price_per_kg
+            ),
 
             item_total:
-                quantity *
-                Number(
-                    product.price_per_kg
-                )
+            quantity *
+            Number(
+                product.price_per_kg
+            )
 
         });
 
@@ -1053,23 +1034,39 @@ function addItem(){
 
 
 /* =====================================================
+   ESCAPE HTML
+   ===================================================== */
+
+function escapeHtml(text){
+
+    const div =
+    document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
    RENDER BILL
    ===================================================== */
 
 function renderBill(){
 
     const container =
-        document.getElementById(
-            "billTable"
-        );
+    document.getElementById(
+        "billTable"
+    );
 
 
     if(cart.length === 0){
 
         container.innerHTML =
-            `<div class="empty">
-                No sweets added yet.
-             </div>`;
+        `<div class="empty">
+            No sweets added yet.
+         </div>`;
 
 
         calculateTotal();
@@ -1081,96 +1078,96 @@ function renderBill(){
 
     let html = `
 
-        <div class="table-wrapper">
+    <div style="overflow-x:auto;">
 
-        <table>
+    <table>
 
-            <thead>
+    <thead>
 
-                <tr>
+    <tr>
 
-                    <th>S.No</th>
+        <th>S.No</th>
 
-                    <th>Sweet</th>
+        <th>Sweet</th>
 
-                    <th>Qty KG</th>
+        <th>Qty KG</th>
 
-                    <th>Price/KG</th>
+        <th>Price/KG</th>
 
-                    <th>Total</th>
+        <th>Total</th>
 
-                    <th>Action</th>
+        <th>Action</th>
 
-                </tr>
+    </tr>
 
-            </thead>
+    </thead>
 
-            <tbody>
-
+    <tbody>
     `;
 
 
     cart.forEach(
-        function(item,index){
+        (item,index) => {
 
-            html += `
 
-                <tr>
+        html += `
 
-                    <td>
-                        ${index + 1}
-                    </td>
+        <tr>
 
-                    <td>
-                        ${escapeHtml(
-                            item.product_name
-                        )}
-                    </td>
+            <td>
+                ${index+1}
+            </td>
 
-                    <td>
-                        ${item.quantity_kg.toFixed(3)}
-                    </td>
+            <td>
+                ${escapeHtml(
+                    item.product_name
+                )}
+            </td>
 
-                    <td>
-                        ₹${item.price_per_kg.toFixed(2)}
-                    </td>
+            <td>
+                ${item.quantity_kg.toFixed(3)}
+            </td>
 
-                    <td>
-                        ₹${item.item_total.toFixed(2)}
-                    </td>
+            <td>
+                ₹${item.price_per_kg.toFixed(2)}
+            </td>
 
-                    <td>
+            <td>
+                ₹${item.item_total.toFixed(2)}
+            </td>
 
-                        <button
-                            class="remove-btn"
-                            onclick="removeItem(${index})"
-                        >
-                            Remove
-                        </button>
+            <td>
 
-                    </td>
+                <button
+                    class="remove-btn"
+                    onclick="removeItem(${index})">
 
-                </tr>
+                    Remove
 
-            `;
+                </button>
 
-        }
-    );
+            </td>
+
+        </tr>
+
+        `;
+
+    });
 
 
     html += `
 
-            </tbody>
+    </tbody>
 
-        </table>
+    </table>
 
-        </div>
+    </div>
 
     `;
 
 
     container.innerHTML =
-        html;
+    html;
 
 
     calculateTotal();
@@ -1179,7 +1176,7 @@ function renderBill(){
 
 
 /* =====================================================
-   REMOVE ITEM
+   REMOVE
    ===================================================== */
 
 function removeItem(index){
@@ -1192,60 +1189,168 @@ function removeItem(index){
 
 
 /* =====================================================
-   CALCULATE TOTAL
+   TOTAL
    ===================================================== */
 
 function calculateTotal(){
 
     const subtotal =
-        cart.reduce(
-            function(sum,item){
-
-                return sum +
-                    item.item_total;
-
-            },
-            0
-        );
+    cart.reduce(
+        (sum,item) =>
+        sum + item.item_total,
+        0
+    );
 
 
     let discount =
-        Number(
-            document.getElementById(
-                "discount"
-            ).value
-        ) || 0;
-
-
-    if(discount < 0){
-
-        discount = 0;
-
+    Number(
         document.getElementById(
             "discount"
-        ).value = 0;
-
-    }
+        ).value
+    ) || 0;
 
 
     if(discount > subtotal){
 
         discount = subtotal;
 
+
         document.getElementById(
             "discount"
         ).value =
-            discount;
+        discount;
 
     }
 
 
     const total =
-        subtotal -
-        discount;
+    subtotal - discount;
 
 
     document.getElementById(
         "subtotal"
     ).textContent =
-        `₹${subtotal.toFixed(2)}`
+    `₹${subtotal.toFixed(2)}`;
+
+
+    document.getElementById(
+        "grandTotal"
+    ).textContent =
+    `₹${total.toFixed(2)}`;
+
+}
+
+
+/* =====================================================
+   SAVE BILL
+   ===================================================== */
+
+async function saveBill(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Bill lo atleast one sweet add cheyyi."
+        );
+
+        return;
+
+    }
+
+
+    const subtotal =
+    cart.reduce(
+        (sum,item) =>
+        sum + item.item_total,
+        0
+    );
+
+
+    const discount =
+    Number(
+        document.getElementById(
+            "discount"
+        ).value
+    ) || 0;
+
+
+    const total =
+    subtotal - discount;
+
+
+    const paymentMethod =
+    document.querySelector(
+        'input[name="payment"]:checked'
+    ).value;
+
+
+    const billNo =
+    document.getElementById(
+        "billNumber"
+    ).textContent;
+
+
+    try{
+
+
+        /* =============================================
+           SAVE SALE
+           ============================================= */
+
+        const saleResponse =
+        await fetch(
+            `${SUPABASE_URL}/rest/v1/sales`,
+            {
+
+                method:"POST",
+
+                headers:{
+
+                    "apikey":
+                    SUPABASE_KEY,
+
+                    "Authorization":
+                    `Bearer ${SUPABASE_KEY}`,
+
+                    "Content-Type":
+                    "application/json",
+
+                    "Prefer":
+                    "return=representation"
+
+                },
+
+                body:JSON.stringify({
+
+                    bill_no:
+                    billNo,
+
+                    subtotal:
+                    subtotal,
+
+                    discount:
+                    discount,
+
+                    total:
+                    total,
+
+                    payment_method:
+                    paymentMethod
+
+                })
+
+            }
+        );
+
+
+        const saleText =
+        await saleResponse.text();
+
+
+        console.log(
+            "SALE RESPONSE:",
+            saleText
+        );
+
+
+    
