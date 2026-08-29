@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,6 +10,10 @@
 
 <style>
 
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,12 +21,15 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:linear-gradient(135deg,#fffaf0,#f6e2aa);
     color:#4b160f;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     background:linear-gradient(135deg,#68140e,#8f2118);
@@ -37,24 +45,42 @@ header h1{
 }
 
 header p{
-    margin-top:5px;
+    margin-top:6px;
     color:#fff4cc;
 }
 
-/* ================= MAIN ================= */
+
+/* =====================================================
+   MAIN LAYOUT
+===================================================== */
 
 .container{
     width:95%;
-    max-width:1200px;
+    max-width:1250px;
     margin:20px auto;
+
     display:grid;
     grid-template-columns:2fr 1fr;
     gap:20px;
 }
 
-/* ================= PRODUCTS ================= */
 
-.products-section{
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.left-section{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+
+/* =====================================================
+   ADD SWEET BOX
+===================================================== */
+
+.add-sweet-box{
     background:white;
     padding:20px;
     border-radius:15px;
@@ -63,86 +89,210 @@ header p{
 
 .section-title{
     font-size:23px;
-    margin-bottom:15px;
+    font-weight:bold;
     color:#68140e;
+
     border-bottom:2px solid #d5a52b;
+
     padding-bottom:8px;
+    margin-bottom:15px;
 }
 
-.products{
+.add-form{
     display:grid;
+    grid-template-columns:1.5fr 1fr auto;
+    gap:10px;
+}
+
+.add-form input{
+    width:100%;
+    padding:12px;
+
+    border:1px solid #c9a84c;
+    border-radius:8px;
+
+    font-size:15px;
+    outline:none;
+}
+
+.add-form input:focus{
+    border:2px solid #68140e;
+}
+
+.add-sweet-btn{
+    border:none;
+    padding:12px 18px;
+
+    border-radius:8px;
+
+    background:#68140e;
+    color:white;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.add-sweet-btn:hover{
+    background:#8f2118;
+}
+
+
+/* =====================================================
+   SELECTED SWEETS
+===================================================== */
+
+.selected-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.selected-sweets{
+    display:grid;
+
     grid-template-columns:
-        repeat(auto-fit,minmax(190px,1fr));
+    repeat(auto-fit,minmax(190px,1fr));
+
     gap:15px;
 }
 
-.product{
-    border:2px solid #ead39a;
-    border-radius:12px;
-    padding:15px;
-    background:#fffdf7;
+.no-sweets{
     text-align:center;
-    transition:.2s;
+    color:#777;
+
+    padding:30px 10px;
+
+    grid-column:1/-1;
 }
 
-.product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 12px rgba(0,0,0,.15);
+
+/* =====================================================
+   SWEET CARD
+===================================================== */
+
+.sweet-card{
+    border:2px solid #ead39a;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    background:#fffdf7;
+
+    text-align:center;
 }
 
-.product h3{
+.sweet-card h3{
     color:#68140e;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
-.price{
-    font-size:20px;
+.sweet-price{
+    font-size:19px;
     font-weight:bold;
+
     color:#9a6510;
-    margin-bottom:12px;
+
+    margin-bottom:10px;
 }
 
 .quantity-select{
     width:100%;
+
     padding:9px;
+
     border:1px solid #c9a84c;
+
     border-radius:7px;
-    margin-bottom:10px;
+
+    margin-bottom:9px;
+
     background:white;
+
+    font-size:14px;
 }
 
-.add-btn{
+.add-bill-btn{
     width:100%;
+
     border:none;
+
     padding:10px;
+
     border-radius:8px;
+
     background:#68140e;
+
     color:white;
-    font-size:15px;
+
+    font-size:14px;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
-.add-btn:hover{
+.add-bill-btn:hover{
     background:#8f2118;
 }
 
-/* ================= BILL ================= */
+.delete-sweet-btn{
+    width:100%;
+
+    border:1px solid #c62828;
+
+    padding:7px;
+
+    margin-top:7px;
+
+    border-radius:7px;
+
+    background:white;
+
+    color:#c62828;
+
+    font-size:13px;
+
+    cursor:pointer;
+}
+
+.delete-sweet-btn:hover{
+    background:#c62828;
+    color:white;
+}
+
+
+/* =====================================================
+   BILL
+===================================================== */
 
 .bill-section{
     background:white;
+
     padding:20px;
+
     border-radius:15px;
+
     box-shadow:0 4px 15px rgba(0,0,0,.15);
+
     height:max-content;
+
     position:sticky;
+
     top:15px;
 }
 
 .bill-header{
     text-align:center;
+
     border-bottom:2px dashed #999;
+
     padding-bottom:12px;
+
     margin-bottom:12px;
 }
 
@@ -152,72 +302,107 @@ header p{
 
 .bill-info{
     font-size:13px;
+
     color:#555;
+
     margin-top:5px;
 }
 
 .bill-items{
-    max-height:350px;
+    max-height:400px;
+
     overflow-y:auto;
 }
 
 .bill-item{
     padding:10px 0;
+
     border-bottom:1px solid #ddd;
 }
 
 .item-top{
     display:flex;
+
     justify-content:space-between;
+
+    gap:10px;
+
     font-weight:bold;
 }
 
 .item-bottom{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    margin-top:6px;
-    font-size:13px;
+
+    gap:7px;
+
+    margin-top:7px;
+
+    font-size:12px;
+
     color:#555;
 }
 
 .remove-btn{
     background:#c62828;
+
     color:white;
+
     border:none;
+
     padding:5px 8px;
+
     border-radius:5px;
+
     cursor:pointer;
 }
 
 .empty{
     text-align:center;
+
     color:#777;
+
     padding:30px 10px;
 }
 
-/* ================= TOTAL ================= */
+
+/* =====================================================
+   TOTAL
+===================================================== */
 
 .total-box{
     border-top:2px solid #68140e;
+
     margin-top:15px;
+
     padding-top:12px;
 }
 
 .total-row{
     display:flex;
+
     justify-content:space-between;
+
     margin:7px 0;
 }
 
 .grand-total{
     font-size:25px;
+
     font-weight:bold;
+
     color:#68140e;
+
     margin-top:10px;
 }
 
-/* ================= PAYMENT ================= */
+
+/* =====================================================
+   PAYMENT
+===================================================== */
 
 .payment{
     margin-top:15px;
@@ -229,40 +414,60 @@ header p{
 
 .cash-box{
     width:100%;
+
     padding:11px;
+
     border:2px solid #d5a52b;
+
     border-radius:8px;
+
     text-align:center;
+
     font-weight:bold;
+
     background:#fffaf0;
+
     color:#68140e;
 }
 
-/* ================= BUTTONS ================= */
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .buttons{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:10px;
+
     margin-top:15px;
 }
 
 .main-btn{
     border:none;
+
     padding:13px;
+
     border-radius:8px;
+
     font-size:15px;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
 .print-btn{
     background:#2e7d32;
+
     color:white;
 }
 
 .clear-btn{
     background:#c62828;
+
     color:white;
 }
 
@@ -274,15 +479,12 @@ header p{
     background:#8e0000;
 }
 
-/* ================= PRINT PAGES ================= */
 
-.print-page{
-    display:none;
-}
+/* =====================================================
+   MOBILE
+===================================================== */
 
-/* ================= MOBILE ================= */
-
-@media(max-width:800px){
+@media(max-width:850px){
 
     .container{
         grid-template-columns:1fr;
@@ -292,11 +494,25 @@ header p{
         position:static;
     }
 
+    .add-form{
+        grid-template-columns:1fr;
+    }
+
 }
 
-/* ==================================================
-   PRINT SETTINGS
-================================================== */
+
+/* =====================================================
+   PRINT PAGES
+===================================================== */
+
+.print-page{
+    display:none;
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
 
 @media print{
 
@@ -305,10 +521,12 @@ header p{
         margin:0;
     }
 
+    html,
     body{
-        background:white;
         margin:0;
         padding:0;
+
+        background:white;
     }
 
     body > header,
@@ -318,67 +536,87 @@ header p{
 
     .print-page{
         display:flex !important;
+
         width:80mm;
+
         min-height:100vh;
-        page-break-after:always;
-        page-break-inside:avoid;
+
+        padding:8mm;
 
         flex-direction:column;
+
         justify-content:center;
+
         align-items:center;
 
         text-align:center;
 
-        padding:8mm;
+        page-break-after:always;
+
+        page-break-inside:avoid;
     }
 
     .print-page:last-child{
         page-break-after:auto;
     }
 
-    /* BILL PAGE */
+
+    /* ================= BILL PAGE ================= */
 
     #printBillPage{
         display:block !important;
+
         text-align:left;
     }
 
-    #printBillPage .print-center{
+    .print-center{
         text-align:center;
     }
 
-    #printBillPage .print-logo{
+    .print-logo{
         width:28mm;
         height:28mm;
+
         object-fit:contain;
+
         margin-bottom:3mm;
     }
 
     .print-title{
         font-size:19px;
+
         font-weight:bold;
+
         color:#68140e;
+
+        text-align:center;
     }
 
     .print-line{
         border-top:1px dashed #000;
+
         margin:4mm 0;
     }
 
     .print-info{
         font-size:11px;
+
         line-height:1.6;
     }
 
     .print-items{
         width:100%;
+
         font-size:11px;
     }
 
     .print-item{
         display:flex;
+
         justify-content:space-between;
+
         gap:5px;
+
         margin:3mm 0;
     }
 
@@ -388,97 +626,121 @@ header p{
 
     .print-total{
         display:flex;
+
         justify-content:space-between;
+
         font-size:17px;
+
         font-weight:bold;
+
         margin-top:4mm;
     }
 
     .cash-print{
         text-align:center;
+
         margin-top:5mm;
+
         font-weight:bold;
+
         font-size:12px;
     }
 
     .thank-you{
         text-align:center;
+
         margin-top:7mm;
+
         font-size:12px;
     }
 
 
-    /* ================================
-       ACKNOWLEDGMENT PAGE
-    ================================= */
+    /* ================= ACKNOWLEDGMENT ================= */
 
     #ackPage{
-        border-top:0;
+        text-align:center;
     }
 
     .ack-logo{
         width:45mm;
         height:45mm;
+
         object-fit:contain;
+
         margin-bottom:8mm;
     }
 
     .ack-title{
         font-size:22px;
+
         font-weight:bold;
+
         color:#68140e;
+
         margin-bottom:8mm;
     }
 
     .ack-text{
         font-size:14px;
+
         line-height:1.8;
+
         max-width:65mm;
     }
 
     .ack-small{
         margin-top:8mm;
+
         font-size:11px;
     }
 
 
-    /* ================================
-       SPONSORED PAGE
-    ================================= */
+    /* ================= SPONSOR ================= */
 
     #sponsorPage{
-        border-top:0;
+        text-align:center;
     }
 
     .sponsor-label{
         font-size:15px;
+
         letter-spacing:2px;
+
         margin-bottom:8mm;
+
         color:#555;
+    }
+
+    .sponsor-title{
+        font-size:23px;
+
+        font-weight:bold;
+
+        color:#68140e;
+
+        margin-bottom:8mm;
     }
 
     .sponsor-logo{
         width:45mm;
         height:45mm;
-        object-fit:contain;
-        margin-bottom:8mm;
-    }
 
-    .sponsor-title{
-        font-size:23px;
-        font-weight:bold;
-        color:#68140e;
-        margin-bottom:5mm;
+        object-fit:contain;
+
+        margin-bottom:8mm;
     }
 
     .sponsor-name{
         font-size:18px;
+
         font-weight:bold;
     }
 
     .sponsor-text{
         font-size:12px;
+
         margin-top:5mm;
+
         line-height:1.6;
     }
 
@@ -492,45 +754,125 @@ header p{
 <body>
 
 
-<!-- =================================================
-     SCREEN HEADER
-================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-    <h1>🍬 RAGHAVENDRA SWEETS 🍬</h1>
+    <h1>
+        🍬 RAGHAVENDRA SWEETS 🍬
+    </h1>
 
-    <p>Billing Counter</p>
+    <p>
+        Billing Counter
+    </p>
 
 </header>
 
 
-<!-- =================================================
-     SCREEN CONTENT
-================================================= -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <div class="container">
 
 
-    <!-- PRODUCTS -->
+    <!-- =================================================
+         LEFT
+    ================================================= -->
 
-    <section class="products-section">
-
-        <div class="section-title">
-            🍬 Sweets
-        </div>
-
-        <div
-            class="products"
-            id="products">
-        </div>
-
-    </section>
+    <div class="left-section">
 
 
-    <!-- BILL -->
+        <!-- =============================================
+             ADD SWEET
+        ============================================== -->
+
+        <section class="add-sweet-box">
+
+            <div class="section-title">
+
+                ➕ Add Sweet
+
+            </div>
+
+
+            <div class="add-form">
+
+                <input
+                    type="text"
+                    id="sweetName"
+                    placeholder="Sweet name"
+                    autocomplete="off"
+                >
+
+
+                <input
+                    type="number"
+                    id="sweetPrice"
+                    placeholder="Price per KG"
+                    min="0"
+                    step="0.01"
+                >
+
+
+                <button
+                    class="add-sweet-btn"
+                    onclick="addSweet()"
+                >
+
+                    + Add Sweet
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =============================================
+             SELECTED SWEETS
+        ============================================== -->
+
+        <section class="selected-box">
+
+            <div class="section-title">
+
+                🍬 Selected Sweets
+
+            </div>
+
+
+            <div
+                id="selectedSweets"
+                class="selected-sweets"
+            >
+
+                <div class="no-sweets">
+
+                    No sweets added yet.<br>
+
+                    Add your first sweet above.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =================================================
+         BILL SECTION
+    ================================================= -->
 
     <section class="bill-section">
+
 
         <div class="bill-header">
 
@@ -538,34 +880,46 @@ header p{
                 RAGHAVENDRA SWEETS
             </h2>
 
+
             <div class="bill-info">
 
                 Bill No:
-                <span id="billNumber"></span>
+                <span id="billNumber">
+                </span>
 
             </div>
 
+
             <div class="bill-info">
 
-                <span id="dateTime"></span>
+                <span id="dateTime">
+                </span>
 
             </div>
 
         </div>
+
 
 
         <div
             id="billItems"
-            class="bill-items">
+            class="bill-items"
+        >
 
             <div class="empty">
+
                 No items added
+
             </div>
 
         </div>
 
 
+
+        <!-- TOTAL -->
+
         <div class="total-box">
+
 
             <div class="total-row">
 
@@ -574,9 +928,11 @@ header p{
                 </span>
 
                 <strong>
+
                     ₹<span id="subtotal">
                         0.00
                     </span>
+
                 </strong>
 
             </div>
@@ -602,14 +958,17 @@ header p{
                 </span>
 
                 <span>
+
                     ₹<span id="total">
                         0.00
                     </span>
+
                 </span>
 
             </div>
 
         </div>
+
 
 
         <!-- CASH ONLY -->
@@ -620,27 +979,36 @@ header p{
                 Payment Method
             </h3>
 
+
             <div class="cash-box">
+
                 💵 CASH PAYMENT
+
             </div>
 
         </div>
 
 
+
+        <!-- BUTTONS -->
+
         <div class="buttons">
+
 
             <button
                 class="main-btn clear-btn"
-                onclick="clearBill()">
+                onclick="clearBill()"
+            >
 
-                🗑 Clear
+                🗑 Clear Bill
 
             </button>
 
 
             <button
                 class="main-btn print-btn"
-                onclick="printBill()">
+                onclick="printBill()"
+            >
 
                 🖨 Print Bill
 
@@ -653,30 +1021,40 @@ header p{
 </div>
 
 
-<!-- =================================================
+
+<!-- =====================================================
      PRINT PAGE 1 - BILL
-================================================= -->
+===================================================== -->
 
 <div
     id="printBillPage"
-    class="print-page">
+    class="print-page"
+>
+
 
     <div class="print-center">
+
 
         <img
             src="logo.png"
             class="print-logo"
             alt="Raghavendra Sweets Logo"
-            onerror="this.style.display='none'">
+            onerror="this.style.display='none'"
+        >
+
 
         <div class="print-title">
+
             RAGHAVENDRA SWEETS
+
         </div>
 
     </div>
 
 
+
     <div class="print-line"></div>
+
 
 
     <div class="print-info">
@@ -690,6 +1068,7 @@ header p{
 
         <br>
 
+
         <strong>
             Date:
         </strong>
@@ -700,16 +1079,21 @@ header p{
     </div>
 
 
+
     <div class="print-line"></div>
+
 
 
     <div
         id="printItems"
-        class="print-items">
+        class="print-items"
+    >
     </div>
 
 
+
     <div class="print-line"></div>
+
 
 
     <div class="print-total">
@@ -719,12 +1103,15 @@ header p{
         </span>
 
         <span>
+
             ₹<span id="printTotal">
                 0.00
             </span>
+
         </span>
 
     </div>
+
 
 
     <div class="cash-print">
@@ -734,9 +1121,11 @@ header p{
     </div>
 
 
+
     <div class="thank-you">
 
         Thank You!<br>
+
         Visit Again ❤️
 
     </div>
@@ -744,19 +1133,23 @@ header p{
 </div>
 
 
-<!-- =================================================
+
+<!-- =====================================================
      PRINT PAGE 2 - ACKNOWLEDGMENT
-================================================= -->
+===================================================== -->
 
 <div
     id="ackPage"
-    class="print-page">
+    class="print-page"
+>
+
 
     <img
         src="logo.png"
         class="ack-logo"
         alt="Raghavendra Sweets Logo"
-        onerror="this.style.display='none'">
+        onerror="this.style.display='none'"
+    >
 
 
     <div class="ack-title">
@@ -764,6 +1157,7 @@ header p{
         ACKNOWLEDGMENT
 
     </div>
+
 
 
     <div class="ack-text">
@@ -788,6 +1182,7 @@ header p{
     </div>
 
 
+
     <div class="ack-small">
 
         With gratitude,<br>
@@ -801,13 +1196,16 @@ header p{
 </div>
 
 
-<!-- =================================================
+
+<!-- =====================================================
      PRINT PAGE 3 - SPONSORED BY
-================================================= -->
+===================================================== -->
 
 <div
     id="sponsorPage"
-    class="print-page">
+    class="print-page"
+>
+
 
     <div class="sponsor-label">
 
@@ -827,7 +1225,8 @@ header p{
         src="logo.png"
         class="sponsor-logo"
         alt="Sponsor Logo"
-        onerror="this.style.display='none'">
+        onerror="this.style.display='none'"
+    >
 
 
     <div class="sponsor-name">
@@ -844,7 +1243,7 @@ header p{
 
         <br><br>
 
-        Powered with ❤️ for better
+        Powered with ❤️ for a better
         billing experience.
 
     </div>
@@ -852,99 +1251,26 @@ header p{
 </div>
 
 
+
 <script>
 
-/* =================================================
-   PRODUCTS
-================================================= */
+/* =====================================================
+   SWEETS DATA
+===================================================== */
 
-const products = [
-
-    {
-        id:1,
-        name:"Kaju Katli",
-        price:700
-    },
-
-    {
-        id:2,
-        name:"Gulab Jamun",
-        price:280
-    },
-
-    {
-        id:3,
-        name:"Mysore Pak",
-        price:480
-    },
-
-    {
-        id:4,
-        name:"Boondi Laddu",
-        price:360
-    },
-
-    {
-        id:5,
-        name:"Motichoor Laddu",
-        price:420
-    },
-
-    {
-        id:6,
-        name:"Rasmalai",
-        price:500
-    },
-
-    {
-        id:7,
-        name:"Badusha",
-        price:360
-    },
-
-    {
-        id:8,
-        name:"Jangri",
-        price:400
-    },
-
-    {
-        id:9,
-        name:"Doodh Peda",
-        price:460
-    },
-
-    {
-        id:10,
-        name:"Milk Mysore Pak",
-        price:520
-    },
-
-    {
-        id:11,
-        name:"Dry Fruit Laddu",
-        price:650
-    },
-
-    {
-        id:12,
-        name:"Soan Papdi",
-        price:320
-    }
-
-];
+let sweets = [];
 
 
-/* =================================================
-   CART
-================================================= */
+/* =====================================================
+   BILL DATA
+===================================================== */
 
 let cart = [];
 
 
-/* =================================================
+/* =====================================================
    BILL NUMBER
-================================================= */
+===================================================== */
 
 let billNumber =
     "RS-" +
@@ -961,9 +1287,9 @@ document.getElementById(
 ).textContent = billNumber;
 
 
-/* =================================================
-   DATE TIME
-================================================= */
+/* =====================================================
+   DATE & TIME
+===================================================== */
 
 function getDateTime(){
 
@@ -982,13 +1308,13 @@ function updateDateTime(){
 
     document.getElementById(
         "dateTime"
-    ).textContent =
-        getDateTime();
+    ).textContent = getDateTime();
 
 }
 
 
 updateDateTime();
+
 
 setInterval(
     updateDateTime,
@@ -996,285 +1322,99 @@ setInterval(
 );
 
 
-/* =================================================
-   DISPLAY PRODUCTS
-================================================= */
+/* =====================================================
+   ADD SWEET
+===================================================== */
 
-function displayProducts(){
+function addSweet(){
 
-    const container =
+    const nameInput =
         document.getElementById(
-            "products"
-        );
-
-    container.innerHTML = "";
-
-
-    products.forEach(product => {
-
-        const div =
-            document.createElement(
-                "div"
-            );
-
-        div.className =
-            "product";
-
-
-        div.innerHTML = `
-
-            <h3>
-                ${product.name}
-            </h3>
-
-            <div class="price">
-                ₹${product.price}/KG
-            </div>
-
-            <select
-                class="quantity-select"
-                id="qty-${product.id}">
-
-                <option value="0.25">
-                    250 g
-                </option>
-
-                <option value="0.5">
-                    500 g
-                </option>
-
-                <option value="0.75">
-                    750 g
-                </option>
-
-                <option
-                    value="1"
-                    selected>
-                    1 KG
-                </option>
-
-                <option value="1.25">
-                    1.25 KG
-                </option>
-
-                <option value="1.5">
-                    1.5 KG
-                </option>
-
-                <option value="2">
-                    2 KG
-                </option>
-
-            </select>
-
-
-            <button
-                class="add-btn"
-                onclick="
-                    addToBill(${product.id})
-                ">
-
-                + Add to Bill
-
-            </button>
-
-        `;
-
-
-        container.appendChild(div);
-
-    });
-
-}
-
-
-/* =================================================
-   ADD TO BILL
-================================================= */
-
-function addToBill(productId){
-
-    const product =
-        products.find(
-            p => p.id === productId
+            "sweetName"
         );
 
 
-    const quantity =
+    const priceInput =
+        document.getElementById(
+            "sweetPrice"
+        );
+
+
+    const name =
+        nameInput.value.trim();
+
+
+    const price =
         parseFloat(
-            document.getElementById(
-                "qty-" + productId
-            ).value
+            priceInput.value
         );
 
 
-    const existing =
-        cart.find(item =>
-            item.id === productId &&
-            item.quantity === quantity
+    /* VALIDATION */
+
+    if(name === ""){
+
+        alert(
+            "Please enter sweet name."
         );
 
-
-    if(existing){
-
-        existing.count++;
-
-    }
-
-    else{
-
-        cart.push({
-
-            id:product.id,
-
-            name:product.name,
-
-            price:product.price,
-
-            quantity:quantity,
-
-            count:1
-
-        });
-
-    }
-
-
-    renderBill();
-
-}
-
-
-/* =================================================
-   RENDER BILL
-================================================= */
-
-function renderBill(){
-
-    const billItems =
-        document.getElementById(
-            "billItems"
-        );
-
-
-    billItems.innerHTML = "";
-
-
-    if(cart.length === 0){
-
-        billItems.innerHTML = `
-            <div class="empty">
-                No items added
-            </div>
-        `;
-
-
-        document.getElementById(
-            "subtotal"
-        ).textContent =
-            "0.00";
-
-
-        document.getElementById(
-            "total"
-        ).textContent =
-            "0.00";
-
-
-        updatePrintBill();
+        nameInput.focus();
 
         return;
 
     }
 
 
-    let subtotal = 0;
+    if(
+        isNaN(price) ||
+        price <= 0
+    ){
+
+        alert(
+            "Please enter a valid price per KG."
+        );
+
+        priceInput.focus();
+
+        return;
+
+    }
 
 
-    cart.forEach(
-        (item,index) => {
+    /* CREATE SWEET */
 
-        const itemTotal =
-            item.price *
-            item.quantity *
-            item.count;
+    const sweet = {
 
+        id:
+            Date.now() +
+            Math.floor(
+                Math.random() * 1000
+            ),
 
-        subtotal += itemTotal;
+        name:name,
 
+        price:price
 
-        let quantityText;
-
-
-        if(item.quantity < 1){
-
-            quantityText =
-                Math.round(
-                    item.quantity * 1000
-                ) +
-                " g";
-
-        }
-
-        else{
-
-            quantityText =
-                item.quantity +
-                " KG";
-
-        }
+    };
 
 
-        const div =
-            document.createElement(
-                "div"
-            );
+    sweets.push(sweet);
 
 
-        div.className =
-            "bill-item";
+    /* CLEAR INPUT */
+
+    nameInput.value = "";
+
+    priceInput.value = "";
 
 
-        div.innerHTML = `
-
-            <div class="item-top">
-
-                <span>
-                    ${item.name}
-                </span>
-
-                <span>
-                    ₹${itemTotal.toFixed(2)}
-                </span>
-
-            </div>
+    renderSweets();
 
 
-            <div class="item-bottom">
+    nameInput.focus();
 
-                <span>
-                    ${quantityText}
-
-                    ${
-                        item.count > 1
-                        ? " × " + item.count
-                        : ""
-                    }
-
-                </span>
+}
 
 
-                <span>
-                    ₹${item.price}/KG
-                </span>
-
-
-                <button
-                    class="remove-btn"
-                    onclick="
-                        removeItem(${index})
-                    ">
-
-                    Remove
-
-</button>
+/* =====================================================
+   RENDE
