@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Raghavendra Sweets - Billing</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -19,10 +21,11 @@ body{
     color:#4b160f;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
     background:linear-gradient(135deg,#68140e,#8f2118);
-    color:#fff;
+    color:white;
     padding:18px;
     text-align:center;
     border-bottom:4px solid #d5a52b;
@@ -38,7 +41,8 @@ header p{
     color:#fff4cc;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
+
 .container{
     width:95%;
     max-width:1200px;
@@ -48,7 +52,8 @@ header p{
     gap:20px;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
+
 .products-section{
     background:white;
     padding:20px;
@@ -66,7 +71,8 @@ header p{
 
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(190px,1fr));
     gap:15px;
 }
 
@@ -121,7 +127,8 @@ header p{
     background:#8f2118;
 }
 
-/* BILL */
+/* ================= BILL ================= */
+
 .bill-section{
     background:white;
     padding:20px;
@@ -189,7 +196,8 @@ header p{
     padding:30px 10px;
 }
 
-/* TOTAL */
+/* ================= TOTAL ================= */
+
 .total-box{
     border-top:2px solid #68140e;
     margin-top:15px;
@@ -209,7 +217,8 @@ header p{
     margin-top:10px;
 }
 
-/* PAYMENT */
+/* ================= PAYMENT ================= */
+
 .payment{
     margin-top:15px;
 }
@@ -218,27 +227,19 @@ header p{
     margin-bottom:8px;
 }
 
-.payment-options{
-    display:flex;
-    gap:8px;
-}
-
-.payment-option{
-    flex:1;
-    padding:10px;
+.cash-box{
+    width:100%;
+    padding:11px;
     border:2px solid #d5a52b;
     border-radius:8px;
     text-align:center;
-    cursor:pointer;
     font-weight:bold;
+    background:#fffaf0;
+    color:#68140e;
 }
 
-.payment-option.active{
-    background:#68140e;
-    color:white;
-}
+/* ================= BUTTONS ================= */
 
-/* BUTTONS */
 .buttons{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -273,8 +274,16 @@ header p{
     background:#8e0000;
 }
 
-/* MOBILE */
+/* ================= PRINT PAGES ================= */
+
+.print-page{
+    display:none;
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:800px){
+
     .container{
         grid-template-columns:1fr;
     }
@@ -282,99 +291,272 @@ header p{
     .bill-section{
         position:static;
     }
+
 }
 
-/* PRINT */
+/* ==================================================
+   PRINT SETTINGS
+================================================== */
+
 @media print{
 
-    body{
-        background:white;
-    }
-
-    body *{
-        visibility:hidden;
-    }
-
-    .bill-section,
-    .bill-section *{
-        visibility:visible;
-    }
-
-    .bill-section{
-        position:absolute;
-        left:0;
-        top:0;
-        width:80mm;
-        max-width:80mm;
-        box-shadow:none;
-        padding:5mm;
+    @page{
+        size:80mm auto;
         margin:0;
     }
 
-    .buttons,
-    .payment{
-        display:none;
+    body{
+        background:white;
+        margin:0;
+        padding:0;
     }
 
-    .bill-items{
-        max-height:none;
-        overflow:visible;
+    body > header,
+    body > .container{
+        display:none !important;
     }
 
-    .remove-btn{
-        display:none;
+    .print-page{
+        display:flex !important;
+        width:80mm;
+        min-height:100vh;
+        page-break-after:always;
+        page-break-inside:avoid;
+
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        text-align:center;
+
+        padding:8mm;
     }
 
-    .bill-section{
-        border:none;
+    .print-page:last-child{
+        page-break-after:auto;
     }
 
-    .bill-header h2{
-        font-size:20px;
+    /* BILL PAGE */
+
+    #printBillPage{
+        display:block !important;
+        text-align:left;
     }
 
-    .grand-total{
-        font-size:20px;
+    #printBillPage .print-center{
+        text-align:center;
     }
+
+    #printBillPage .print-logo{
+        width:28mm;
+        height:28mm;
+        object-fit:contain;
+        margin-bottom:3mm;
+    }
+
+    .print-title{
+        font-size:19px;
+        font-weight:bold;
+        color:#68140e;
+    }
+
+    .print-line{
+        border-top:1px dashed #000;
+        margin:4mm 0;
+    }
+
+    .print-info{
+        font-size:11px;
+        line-height:1.6;
+    }
+
+    .print-items{
+        width:100%;
+        font-size:11px;
+    }
+
+    .print-item{
+        display:flex;
+        justify-content:space-between;
+        gap:5px;
+        margin:3mm 0;
+    }
+
+    .print-item-name{
+        flex:1;
+    }
+
+    .print-total{
+        display:flex;
+        justify-content:space-between;
+        font-size:17px;
+        font-weight:bold;
+        margin-top:4mm;
+    }
+
+    .cash-print{
+        text-align:center;
+        margin-top:5mm;
+        font-weight:bold;
+        font-size:12px;
+    }
+
+    .thank-you{
+        text-align:center;
+        margin-top:7mm;
+        font-size:12px;
+    }
+
+
+    /* ================================
+       ACKNOWLEDGMENT PAGE
+    ================================= */
+
+    #ackPage{
+        border-top:0;
+    }
+
+    .ack-logo{
+        width:45mm;
+        height:45mm;
+        object-fit:contain;
+        margin-bottom:8mm;
+    }
+
+    .ack-title{
+        font-size:22px;
+        font-weight:bold;
+        color:#68140e;
+        margin-bottom:8mm;
+    }
+
+    .ack-text{
+        font-size:14px;
+        line-height:1.8;
+        max-width:65mm;
+    }
+
+    .ack-small{
+        margin-top:8mm;
+        font-size:11px;
+    }
+
+
+    /* ================================
+       SPONSORED PAGE
+    ================================= */
+
+    #sponsorPage{
+        border-top:0;
+    }
+
+    .sponsor-label{
+        font-size:15px;
+        letter-spacing:2px;
+        margin-bottom:8mm;
+        color:#555;
+    }
+
+    .sponsor-logo{
+        width:45mm;
+        height:45mm;
+        object-fit:contain;
+        margin-bottom:8mm;
+    }
+
+    .sponsor-title{
+        font-size:23px;
+        font-weight:bold;
+        color:#68140e;
+        margin-bottom:5mm;
+    }
+
+    .sponsor-name{
+        font-size:18px;
+        font-weight:bold;
+    }
+
+    .sponsor-text{
+        font-size:12px;
+        margin-top:5mm;
+        line-height:1.6;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =================================================
+     SCREEN HEADER
+================================================= -->
+
 <header>
+
     <h1>🍬 RAGHAVENDRA SWEETS 🍬</h1>
+
     <p>Billing Counter</p>
+
 </header>
+
+
+<!-- =================================================
+     SCREEN CONTENT
+================================================= -->
 
 <div class="container">
 
+
     <!-- PRODUCTS -->
+
     <section class="products-section">
 
         <div class="section-title">
             🍬 Sweets
         </div>
 
-        <div class="products" id="products"></div>
+        <div
+            class="products"
+            id="products">
+        </div>
 
     </section>
 
 
     <!-- BILL -->
+
     <section class="bill-section">
 
         <div class="bill-header">
-            <h2>RAGHAVENDRA SWEETS</h2>
+
+            <h2>
+                RAGHAVENDRA SWEETS
+            </h2>
+
             <div class="bill-info">
-                Bill No: <span id="billNumber"></span>
+
+                Bill No:
+                <span id="billNumber"></span>
+
             </div>
+
             <div class="bill-info">
+
                 <span id="dateTime"></span>
+
             </div>
+
         </div>
 
-        <div id="billItems" class="bill-items">
+
+        <div
+            id="billItems"
+            class="bill-items">
 
             <div class="empty">
                 No items added
@@ -382,65 +564,86 @@ header p{
 
         </div>
 
+
         <div class="total-box">
 
             <div class="total-row">
-                <span>Subtotal</span>
-                <strong>₹<span id="subtotal">0.00</span></strong>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong>
+                    ₹<span id="subtotal">
+                        0.00
+                    </span>
+                </strong>
+
             </div>
+
 
             <div class="total-row">
-                <span>Discount</span>
-                <strong>₹0.00</strong>
+
+                <span>
+                    Discount
+                </span>
+
+                <strong>
+                    ₹0.00
+                </strong>
+
             </div>
+
 
             <div class="total-row grand-total">
-                <span>TOTAL</span>
-                <span>₹<span id="total">0.00</span></span>
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span>
+                    ₹<span id="total">
+                        0.00
+                    </span>
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- PAYMENT -->
+        <!-- CASH ONLY -->
+
         <div class="payment">
 
-            <h3>Payment Method</h3>
+            <h3>
+                Payment Method
+            </h3>
 
-            <div class="payment-options">
-
-                <div
-                    class="payment-option active"
-                    id="cash"
-                    onclick="selectPayment('CASH')">
-                    💵 Cash
-                </div>
-
-                <div
-                    class="payment-option"
-                    id="card"
-                    onclick="selectPayment('CARD')">
-                    💳 Card
-                </div>
-
+            <div class="cash-box">
+                💵 CASH PAYMENT
             </div>
 
         </div>
 
 
-        <!-- BUTTONS -->
         <div class="buttons">
 
             <button
                 class="main-btn clear-btn"
                 onclick="clearBill()">
+
                 🗑 Clear
+
             </button>
+
 
             <button
                 class="main-btn print-btn"
                 onclick="printBill()">
+
                 🖨 Print Bill
+
             </button>
 
         </div>
@@ -450,11 +653,210 @@ header p{
 </div>
 
 
+<!-- =================================================
+     PRINT PAGE 1 - BILL
+================================================= -->
+
+<div
+    id="printBillPage"
+    class="print-page">
+
+    <div class="print-center">
+
+        <img
+            src="logo.png"
+            class="print-logo"
+            alt="Raghavendra Sweets Logo"
+            onerror="this.style.display='none'">
+
+        <div class="print-title">
+            RAGHAVENDRA SWEETS
+        </div>
+
+    </div>
+
+
+    <div class="print-line"></div>
+
+
+    <div class="print-info">
+
+        <strong>
+            Bill No:
+        </strong>
+
+        <span id="printBillNumber">
+        </span>
+
+        <br>
+
+        <strong>
+            Date:
+        </strong>
+
+        <span id="printDate">
+        </span>
+
+    </div>
+
+
+    <div class="print-line"></div>
+
+
+    <div
+        id="printItems"
+        class="print-items">
+    </div>
+
+
+    <div class="print-line"></div>
+
+
+    <div class="print-total">
+
+        <span>
+            TOTAL
+        </span>
+
+        <span>
+            ₹<span id="printTotal">
+                0.00
+            </span>
+        </span>
+
+    </div>
+
+
+    <div class="cash-print">
+
+        PAYMENT: CASH
+
+    </div>
+
+
+    <div class="thank-you">
+
+        Thank You!<br>
+        Visit Again ❤️
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     PRINT PAGE 2 - ACKNOWLEDGMENT
+================================================= -->
+
+<div
+    id="ackPage"
+    class="print-page">
+
+    <img
+        src="logo.png"
+        class="ack-logo"
+        alt="Raghavendra Sweets Logo"
+        onerror="this.style.display='none'">
+
+
+    <div class="ack-title">
+
+        ACKNOWLEDGMENT
+
+    </div>
+
+
+    <div class="ack-text">
+
+        We sincerely thank you for
+        choosing
+
+        <strong>
+            Raghavendra Sweets
+        </strong>.
+
+        <br><br>
+
+        Your support and trust mean
+        a lot to us.
+
+        <br><br>
+
+        We look forward to serving
+        you again.
+
+    </div>
+
+
+    <div class="ack-small">
+
+        With gratitude,<br>
+
+        <strong>
+            Raghavendra Sweets
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     PRINT PAGE 3 - SPONSORED BY
+================================================= -->
+
+<div
+    id="sponsorPage"
+    class="print-page">
+
+    <div class="sponsor-label">
+
+        THIS BILLING SYSTEM IS
+
+    </div>
+
+
+    <div class="sponsor-title">
+
+        SPONSORED BY
+
+    </div>
+
+
+    <img
+        src="logo.png"
+        class="sponsor-logo"
+        alt="Sponsor Logo"
+        onerror="this.style.display='none'">
+
+
+    <div class="sponsor-name">
+
+        RAGHAVENDRA SWEETS
+
+    </div>
+
+
+    <div class="sponsor-text">
+
+        Thank you for your valuable
+        support.
+
+        <br><br>
+
+        Powered with ❤️ for better
+        billing experience.
+
+    </div>
+
+</div>
+
+
 <script>
 
-/* =====================================
+/* =================================================
    PRODUCTS
-===================================== */
+================================================= */
 
 const products = [
 
@@ -533,70 +935,97 @@ const products = [
 ];
 
 
-/* =====================================
-   BILL DATA
-===================================== */
+/* =================================================
+   CART
+================================================= */
 
 let cart = [];
 
-let paymentMethod = "CASH";
 
-
-/* =====================================
+/* =================================================
    BILL NUMBER
-===================================== */
+================================================= */
 
 let billNumber =
     "RS-" +
     new Date().getFullYear() +
     "-" +
-    Math.floor(1000 + Math.random() * 9000);
+    Math.floor(
+        1000 +
+        Math.random() * 9000
+    );
 
-document.getElementById("billNumber").textContent =
-    billNumber;
+
+document.getElementById(
+    "billNumber"
+).textContent = billNumber;
 
 
-/* =====================================
-   DATE & TIME
-===================================== */
+/* =================================================
+   DATE TIME
+================================================= */
 
-function updateDateTime(){
+function getDateTime(){
 
     const now = new Date();
 
-    document.getElementById("dateTime").textContent =
+    return (
         now.toLocaleDateString("en-IN") +
         " " +
-        now.toLocaleTimeString("en-IN");
+        now.toLocaleTimeString("en-IN")
+    );
 
 }
 
+
+function updateDateTime(){
+
+    document.getElementById(
+        "dateTime"
+    ).textContent =
+        getDateTime();
+
+}
+
+
 updateDateTime();
 
-setInterval(updateDateTime,1000);
+setInterval(
+    updateDateTime,
+    1000
+);
 
 
-/* =====================================
-   SHOW PRODUCTS
-===================================== */
+/* =================================================
+   DISPLAY PRODUCTS
+================================================= */
 
 function displayProducts(){
 
     const container =
-        document.getElementById("products");
+        document.getElementById(
+            "products"
+        );
 
     container.innerHTML = "";
+
 
     products.forEach(product => {
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        div.className = "product";
+        div.className =
+            "product";
+
 
         div.innerHTML = `
 
-            <h3>${product.name}</h3>
+            <h3>
+                ${product.name}
+            </h3>
 
             <div class="price">
                 ₹${product.price}/KG
@@ -618,7 +1047,9 @@ function displayProducts(){
                     750 g
                 </option>
 
-                <option value="1" selected>
+                <option
+                    value="1"
+                    selected>
                     1 KG
                 </option>
 
@@ -636,15 +1067,19 @@ function displayProducts(){
 
             </select>
 
+
             <button
                 class="add-btn"
-                onclick="addToBill(${product.id})">
+                onclick="
+                    addToBill(${product.id})
+                ">
 
                 + Add to Bill
 
             </button>
 
         `;
+
 
         container.appendChild(div);
 
@@ -653,14 +1088,17 @@ function displayProducts(){
 }
 
 
-/* =====================================
+/* =================================================
    ADD TO BILL
-===================================== */
+================================================= */
 
 function addToBill(productId){
 
     const product =
-        products.find(p => p.id === productId);
+        products.find(
+            p => p.id === productId
+        );
+
 
     const quantity =
         parseFloat(
@@ -669,17 +1107,21 @@ function addToBill(productId){
             ).value
         );
 
+
     const existing =
         cart.find(item =>
             item.id === productId &&
             item.quantity === quantity
         );
 
+
     if(existing){
 
         existing.count++;
 
-    }else{
+    }
+
+    else{
 
         cart.push({
 
@@ -697,21 +1139,26 @@ function addToBill(productId){
 
     }
 
+
     renderBill();
 
 }
 
 
-/* =====================================
+/* =================================================
    RENDER BILL
-===================================== */
+================================================= */
 
 function renderBill(){
 
     const billItems =
-        document.getElementById("billItems");
+        document.getElementById(
+            "billItems"
+        );
+
 
     billItems.innerHTML = "";
+
 
     if(cart.length === 0){
 
@@ -721,49 +1168,72 @@ function renderBill(){
             </div>
         `;
 
-        document.getElementById("subtotal")
-            .textContent = "0.00";
 
-        document.getElementById("total")
-            .textContent = "0.00";
+        document.getElementById(
+            "subtotal"
+        ).textContent =
+            "0.00";
+
+
+        document.getElementById(
+            "total"
+        ).textContent =
+            "0.00";
+
+
+        updatePrintBill();
 
         return;
+
     }
 
 
     let subtotal = 0;
 
 
-    cart.forEach((item,index) => {
+    cart.forEach(
+        (item,index) => {
 
         const itemTotal =
             item.price *
             item.quantity *
             item.count;
 
+
         subtotal += itemTotal;
 
 
         let quantityText;
 
+
         if(item.quantity < 1){
 
             quantityText =
-                Math.round(item.quantity * 1000) +
+                Math.round(
+                    item.quantity * 1000
+                ) +
                 " g";
 
-        }else{
+        }
+
+        else{
 
             quantityText =
-                item.quantity + " KG";
+                item.quantity +
+                " KG";
 
         }
 
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        div.className = "bill-item";
+
+        div.className =
+            "bill-item";
+
 
         div.innerHTML = `
 
@@ -779,170 +1249,32 @@ function renderBill(){
 
             </div>
 
+
             <div class="item-bottom">
 
                 <span>
                     ${quantityText}
-                    ${item.count > 1
+
+                    ${
+                        item.count > 1
                         ? " × " + item.count
-                        : ""}
+                        : ""
+                    }
+
                 </span>
+
 
                 <span>
                     ₹${item.price}/KG
                 </span>
 
+
                 <button
                     class="remove-btn"
-                    onclick="removeItem(${index})">
+                    onclick="
+                        removeItem(${index})
+                    ">
 
                     Remove
 
-                </button>
-
-            </div>
-
-        `;
-
-        billItems.appendChild(div);
-
-    });
-
-
-    document.getElementById("subtotal")
-        .textContent =
-        subtotal.toFixed(2);
-
-    document.getElementById("total")
-        .textContent =
-        subtotal.toFixed(2);
-
-}
-
-
-/* =====================================
-   REMOVE ITEM
-===================================== */
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    renderBill();
-
-}
-
-
-/* =====================================
-   PAYMENT
-===================================== */
-
-function selectPayment(method){
-
-    paymentMethod = method;
-
-    document
-        .getElementById("cash")
-        .classList.remove("active");
-
-    document
-        .getElementById("card")
-        .classList.remove("active");
-
-
-    if(method === "CASH"){
-
-        document
-            .getElementById("cash")
-            .classList.add("active");
-
-    }else{
-
-        document
-            .getElementById("card")
-            .classList.add("active");
-
-    }
-
-}
-
-
-/* =====================================
-   PRINT
-===================================== */
-
-function printBill(){
-
-    if(cart.length === 0){
-
-        alert(
-            "Please add at least one item to the bill."
-        );
-
-        return;
-
-    }
-
-
-    window.print();
-
-}
-
-
-/* =====================================
-   CLEAR BILL
-===================================== */
-
-function clearBill(){
-
-    if(cart.length === 0){
-        return;
-    }
-
-
-    const confirmClear =
-        confirm(
-            "Clear the current bill?"
-        );
-
-
-    if(!confirmClear){
-        return;
-    }
-
-
-    cart = [];
-
-    paymentMethod = "CASH";
-
-    billNumber =
-        "RS-" +
-        new Date().getFullYear() +
-        "-" +
-        Math.floor(1000 + Math.random() * 9000);
-
-
-    document.getElementById("billNumber")
-        .textContent =
-        billNumber;
-
-
-    selectPayment("CASH");
-
-    renderBill();
-
-}
-
-
-/* =====================================
-   START
-===================================== */
-
-displayProducts();
-
-renderBill();
-
-</script>
-
-</body>
-</html>
+</button>
