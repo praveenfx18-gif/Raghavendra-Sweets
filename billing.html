@@ -14,7 +14,7 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:linear-gradient(135deg,#fffaf0,#f1dda5);
     color:#3d160f;
     min-height:100vh;
@@ -24,13 +24,13 @@ body{
     background:linear-gradient(135deg,#68140e,#350805);
     color:white;
     text-align:center;
-    padding:16px;
+    padding:18px;
     box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
 .logo{
-    width:78px;
-    height:78px;
+    width:82px;
+    height:82px;
     object-fit:cover;
     border-radius:50%;
     background:white;
@@ -39,9 +39,9 @@ body{
 }
 
 .header h1{
-    margin-top:7px;
+    margin-top:8px;
     color:#ffd95a;
-    font-size:24px;
+    font-size:25px;
 }
 
 .header p{
@@ -55,7 +55,7 @@ body{
     margin:20px auto;
 }
 
-.top-info{
+.info-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:12px;
@@ -66,12 +66,11 @@ body{
     background:white;
     border:1px solid #e2c16c;
     border-radius:12px;
-    padding:13px;
-    box-shadow:0 4px 15px rgba(70,30,10,.1);
+    padding:14px;
+    box-shadow:0 4px 15px rgba(70,30,10,.10);
 }
 
 .info small{
-    display:block;
     color:#80604b;
 }
 
@@ -79,9 +78,10 @@ body{
     display:block;
     margin-top:5px;
     color:#68140e;
+    font-size:17px;
 }
 
-.main{
+.layout{
     display:grid;
     grid-template-columns:1.6fr 1fr;
     gap:18px;
@@ -118,13 +118,13 @@ h2{
 }
 
 .product{
+    background:#fffdf7;
     border:1px solid #e5cf91;
     border-radius:12px;
     overflow:hidden;
-    background:#fffdf7;
 }
 
-.product-image{
+.product-img{
     width:100%;
     height:115px;
     object-fit:cover;
@@ -135,38 +135,38 @@ h2{
     width:100%;
     height:115px;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     font-size:45px;
     background:linear-gradient(135deg,#fff1c4,#e8cd83);
 }
 
-.product-info{
+.product-body{
     padding:10px;
 }
 
 .product-name{
-    font-weight:bold;
     color:#68140e;
+    font-weight:bold;
     min-height:36px;
 }
 
 .price{
-    font-weight:bold;
     margin-top:4px;
+    font-weight:bold;
 }
 
 .stock{
+    margin-top:4px;
     font-size:12px;
     color:#777;
-    margin-top:4px;
 }
 
 .add-btn{
     width:100%;
-    margin-top:8px;
+    margin-top:9px;
     padding:10px;
-    border:none;
+    border:0;
     border-radius:8px;
     background:#68140e;
     color:white;
@@ -174,82 +174,92 @@ h2{
     cursor:pointer;
 }
 
-.add-btn:active{
-    transform:scale(.97);
+.add-btn:hover{
+    background:#8b2118;
 }
 
 .loading{
     grid-column:1/-1;
     text-align:center;
-    padding:35px;
+    padding:35px 10px;
     color:#80604b;
 }
 
-.bill{
+.error-box{
+    grid-column:1/-1;
+    padding:20px;
+    border-radius:10px;
+    background:#ffe5e2;
+    color:#8b1a13;
+    text-align:center;
+}
+
+.bill-card{
     position:sticky;
     top:10px;
 }
 
 .bill-items{
-    max-height:390px;
+    max-height:420px;
     overflow-y:auto;
 }
 
 .empty{
     text-align:center;
-    padding:30px 10px;
+    padding:35px 10px;
     color:#8a7767;
 }
 
 .bill-item{
     border-bottom:1px solid #ead9aa;
-    padding:11px 0;
+    padding:12px 0;
 }
 
-.item-head{
+.item-top{
     display:flex;
     justify-content:space-between;
     gap:10px;
 }
 
 .item-name{
-    font-weight:bold;
     color:#68140e;
+    font-weight:bold;
 }
 
 .item-total{
     font-weight:bold;
 }
 
-.item-details{
+.item-bottom{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     margin-top:8px;
     font-size:12px;
 }
 
-.quantity-control{
+.qty-control{
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:7px;
 }
 
-.quantity-control button{
+.qty-control button{
     width:28px;
     height:28px;
     border:1px solid #d5b65d;
     border-radius:6px;
     background:#fff3ca;
     color:#68140e;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
 }
 
 .remove{
     color:#b3261e;
-    font-weight:bold;
     cursor:pointer;
+    font-weight:bold;
 }
 
 .summary{
@@ -260,23 +270,23 @@ h2{
 
 .row{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     padding:8px 0;
 }
 
 .discount{
-    width:90px;
+    width:95px;
     padding:8px;
     border:1px solid #c9a34d;
     border-radius:7px;
     text-align:right;
 }
 
-.grand-total{
+.total{
     border-top:1px solid #ead9aa;
     margin-top:5px;
-    padding-top:12px;
+    padding-top:13px;
     color:#68140e;
     font-size:23px;
     font-weight:bold;
@@ -295,14 +305,14 @@ h2{
 }
 
 .payment label{
-    text-align:center;
     padding:11px 4px;
+    text-align:center;
     border:1px solid #dfc475;
     border-radius:8px;
     background:#fffaf0;
+    cursor:pointer;
     font-size:13px;
     font-weight:bold;
-    cursor:pointer;
 }
 
 .payment input{
@@ -316,9 +326,9 @@ h2{
 
 .save-btn{
     width:100%;
-    margin-top:13px;
+    margin-top:14px;
     padding:15px;
-    border:none;
+    border:0;
     border-radius:10px;
     background:linear-gradient(135deg,#8b5a00,#d5a52b);
     color:white;
@@ -329,16 +339,16 @@ h2{
 
 .save-btn:disabled{
     opacity:.6;
+    cursor:not-allowed;
 }
 
 .message{
     display:none;
     margin-top:12px;
-    padding:11px;
+    padding:12px;
     border-radius:8px;
     text-align:center;
     font-weight:bold;
-    font-size:13px;
 }
 
 .success{
@@ -355,11 +365,11 @@ h2{
 
 @media(max-width:900px){
 
-    .main{
+    .layout{
         grid-template-columns:1fr;
     }
 
-    .bill{
+    .bill-card{
         position:static;
     }
 
@@ -367,7 +377,7 @@ h2{
 
 @media(max-width:650px){
 
-    .top-info{
+    .info-grid{
         grid-template-columns:1fr;
     }
 
@@ -377,23 +387,26 @@ h2{
 
 }
 
-@media(max-width:400px){
-
-    .products{
-        grid-template-columns:1fr 1fr;
-    }
+@media(max-width:420px){
 
     .header h1{
         font-size:20px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-img,
+    .no-image{
+        height:100px;
     }
 
 }
 </style>
 </head>
 
-
 <body>
-
 
 <header class="header">
 
@@ -412,9 +425,9 @@ h2{
 <div class="container">
 
 
-    <!-- BILL INFORMATION -->
+    <!-- BILL INFO -->
 
-    <div class="top-info">
+    <div class="info-grid">
 
         <div class="info">
             <small>Bill Number</small>
@@ -434,7 +447,7 @@ h2{
     </div>
 
 
-    <div class="main">
+    <div class="layout">
 
 
         <!-- PRODUCTS -->
@@ -443,7 +456,7 @@ h2{
 
             <div class="card">
 
-                <h2>🍬 Select Sweet</h2>
+                <h2>🍬 Sweets</h2>
 
                 <input
                     type="search"
@@ -456,7 +469,7 @@ h2{
                     class="products">
 
                     <div class="loading">
-                        ⏳ Loading sweets...
+                        ⏳ Connecting to Supabase...
                     </div>
 
                 </div>
@@ -470,7 +483,7 @@ h2{
 
         <div>
 
-            <div class="card bill">
+            <div class="card bill-card">
 
                 <h2>🧾 Current Bill</h2>
 
@@ -489,16 +502,26 @@ h2{
                 <div class="summary">
 
                     <div class="row">
+
                         <span>Items</span>
-                        <strong id="itemCount">0</strong>
+
+                        <strong id="itemCount">
+                            0
+                        </strong>
+
                     </div>
 
+
                     <div class="row">
+
                         <span>Subtotal</span>
+
                         <strong id="subtotal">
                             ₹0.00
                         </strong>
+
                     </div>
+
 
                     <div class="row">
 
@@ -513,7 +536,8 @@ h2{
 
                     </div>
 
-                    <div class="row grand-total">
+
+                    <div class="row total">
 
                         <span>TOTAL</span>
 
@@ -526,11 +550,10 @@ h2{
                 </div>
 
 
-                <!-- PAYMENT -->
-
                 <div class="payment-title">
                     Payment Method
                 </div>
+
 
                 <div class="payment">
 
@@ -580,7 +603,6 @@ h2{
 
         </div>
 
-
     </div>
 
 </div>
@@ -589,7 +611,7 @@ h2{
 <script>
 
 /* =====================================================
-   SUPABASE CONFIG
+   SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
@@ -627,6 +649,7 @@ document.addEventListener(
 
         loadProducts();
 
+
         document
             .getElementById("search")
             .addEventListener(
@@ -634,12 +657,14 @@ document.addEventListener(
                 renderProducts
             );
 
+
         document
             .getElementById("discount")
             .addEventListener(
                 "input",
                 calculateTotal
             );
+
 
         document
             .getElementById("saveBtn")
@@ -669,11 +694,13 @@ function generateBillNumber(){
             now.getDate()
         ).padStart(2,"0");
 
+
     const random =
         Math.floor(
             1000 +
             Math.random()*9000
         );
+
 
     document
         .getElementById("billNo")
@@ -687,12 +714,13 @@ function generateBillNumber(){
 
 
 /* =====================================================
-   DATE TIME
+   DATE / TIME
 ===================================================== */
 
 function updateDateTime(){
 
     const now = new Date();
+
 
     document
         .getElementById("billDate")
@@ -700,6 +728,7 @@ function updateDateTime(){
         now.toLocaleDateString(
             "en-IN"
         );
+
 
     document
         .getElementById("billTime")
@@ -722,27 +751,25 @@ async function loadProducts(){
             "products"
         );
 
+
     box.innerHTML =
-        `
+    `
         <div class="loading">
-            ⏳ Connecting to products...
+            ⏳ Connecting to Supabase...
         </div>
-        `;
+    `;
 
 
     try{
 
-        /*
-           IMPORTANT:
-           select=* is intentionally used here.
-           This avoids problems caused by missing
-           optional columns.
-        */
+        const url =
+            SUPABASE_URL +
+            "/rest/v1/products?select=*";
+
 
         const response =
             await fetch(
-                SUPABASE_URL +
-                "/rest/v1/products?select=*",
+                url,
                 {
                     method:"GET",
 
@@ -752,7 +779,10 @@ async function loadProducts(){
 
                         "Authorization":
                             "Bearer " +
-                            SUPABASE_KEY
+                            SUPABASE_KEY,
+
+                        "Content-Type":
+                            "application/json"
                     }
                 }
             );
@@ -762,26 +792,52 @@ async function loadProducts(){
             await response.text();
 
 
+        console.log(
+            "SUPABASE STATUS:",
+            response.status
+        );
+
+
+        console.log(
+            "SUPABASE DATA:",
+            text
+        );
+
+
         if(!response.ok){
 
             throw new Error(
-                "Supabase Error: " +
+                "HTTP " +
                 response.status +
-                " - " +
+                " : " +
                 text
             );
 
         }
 
 
-        const data =
-            JSON.parse(text);
+        let data;
+
+
+        try{
+
+            data =
+                JSON.parse(text);
+
+        }
+        catch(e){
+
+            throw new Error(
+                "Supabase returned invalid JSON."
+            );
+
+        }
 
 
         if(!Array.isArray(data)){
 
             throw new Error(
-                "Products response invalid."
+                "Products data is not an array."
             );
 
         }
@@ -791,9 +847,11 @@ async function loadProducts(){
 
 
         /*
-           Active filtering is done here,
-           but if active column doesn't exist
-           we still display the products.
+          If active column exists:
+          show only active products.
+
+          If active column doesn't exist:
+          show all products.
         */
 
         products =
@@ -801,10 +859,14 @@ async function loadProducts(){
                 function(product){
 
                     if(
-                        product.active === undefined ||
-                        product.active === null
+                        product.active ===
+                        undefined ||
+                        product.active ===
+                        null
                     ){
+
                         return true;
+
                     }
 
                     return product.active === true;
@@ -813,33 +875,52 @@ async function loadProducts(){
             );
 
 
-        renderProducts();
+        if(products.length === 0){
 
+            box.innerHTML =
+            `
+                <div class="loading">
+
+                    ⚠️ Supabase connected.
+
+                    <br><br>
+
+                    But products table is empty.
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        renderProducts();
 
     }
     catch(error){
 
         console.error(
-            "LOAD PRODUCTS ERROR:",
+            "PRODUCT ERROR:",
             error
         );
 
 
         box.innerHTML =
         `
-        <div class="loading">
+            <div class="error-box">
 
-            ❌ Products load failed
+                ❌ Products Load Failed
 
-            <br><br>
+                <br><br>
 
-            <small>
-                ${escapeHtml(
-                    error.message
-                )}
-            </small>
+                <small>
+                    ${escapeHtml(
+                        error.message
+                    )}
+                </small>
 
-        </div>
+            </div>
         `;
 
     }
@@ -861,7 +942,9 @@ function renderProducts(){
 
     const search =
         document
-            .getElementById("search")
+            .getElementById(
+                "search"
+            )
             .value
             .toLowerCase()
             .trim();
@@ -885,9 +968,11 @@ function renderProducts(){
 
         box.innerHTML =
         `
-        <div class="loading">
-            😔 Sweet not found
-        </div>
+            <div class="loading">
+
+                😔 Sweet not found.
+
+            </div>
         `;
 
         return;
@@ -918,11 +1003,17 @@ function renderProducts(){
                     "div"
                 );
 
+
             card.className =
                 "product";
 
 
-            let imageHTML = "";
+            let imageHTML =
+                `
+                <div class="no-image">
+                    🍬
+                </div>
+                `;
 
 
             if(
@@ -938,7 +1029,7 @@ function renderProducts(){
                     src="${escapeAttribute(
                         product.image_url
                     )}"
-                    class="product-image"
+                    class="product-img"
                     alt="${escapeAttribute(
                         product.name
                     )}"
@@ -955,52 +1046,52 @@ function renderProducts(){
                 `;
 
             }
-            else{
-
-                imageHTML =
-                `
-                <div class="no-image">
-                    🍬
-                </div>
-                `;
-
-            }
 
 
             card.innerHTML =
             `
-            ${imageHTML}
+                ${imageHTML}
 
-            <div class="product-info">
+                <div class="product-body">
 
-                <div class="product-name">
-                    ${escapeHtml(
-                        product.name
-                    )}
+                    <div class="product-name">
+
+                        ${escapeHtml(
+                            product.name
+                        )}
+
+                    </div>
+
+
+                    <div class="price">
+
+                        ₹${price.toFixed(2)} / KG
+
+                    </div>
+
+
+                    <div class="stock">
+
+                        Stock:
+                        ${stock.toFixed(3)}
+                        KG
+
+                    </div>
+
+
+                    <button
+                        class="add-btn"
+                        onclick="
+                            addProduct(
+                                ${Number(product.id)}
+                            )
+                        ">
+
+                        + ADD 250g
+
+                    </button>
+
                 </div>
-
-                <div class="price">
-                    ₹${price.toFixed(2)} / KG
-                </div>
-
-                <div class="stock">
-                    Stock:
-                    ${stock.toFixed(3)} KG
-                </div>
-
-                <button
-                    class="add-btn"
-                    onclick="
-                        addProduct(
-                            ${Number(product.id)}
-                        )
-                    ">
-
-                    + ADD 250g
-
-                </button>
-
-            </div>
             `;
 
 
@@ -1013,17 +1104,18 @@ function renderProducts(){
 
 
 /* =====================================================
-   ADD PRODUCT
+   ADD 250 GRAMS
 ===================================================== */
 
 function addProduct(id){
 
     const product =
         products.find(
-            function(item){
+            function(p){
 
-                return Number(item.id) ===
-                    Number(id);
+                return Number(
+                    p.id
+                ) === Number(id);
 
             }
         );
@@ -1072,90 +1164,16 @@ function addProduct(id){
     if(existing){
 
         const newQty =
-            existing.quantity_kg +
-            0.250;
+            Number(
+                (
+                    existing.quantity_kg +
+                    0.250
+                ).toFixed(3)
+            );
 
 
         if(newQty > stock){
 
             alert(
                 "Available stock: " +
-                stock.toFixed(3) +
-                " KG"
-            );
-
-            return;
-
-        }
-
-
-        existing.quantity_kg =
-            Number(
-                newQty.toFixed(3)
-            );
-
-
-        existing.item_total =
-            existing.quantity_kg *
-            existing.price_per_kg;
-
-    }
-    else{
-
-        const price =
-            Number(
-                product.price_per_kg
-            ) || 0;
-
-
-        cart.push({
-
-            product_id:
-                product.id,
-
-            product_name:
-                product.name,
-
-            quantity_kg:
-                0.250,
-
-            price_per_kg:
-                price,
-
-            item_total:
-                0.250 * price
-
-        });
-
-    }
-
-
-    renderBill();
-
-}
-
-
-/* =====================================================
-   CHANGE QUANTITY
-===================================================== */
-
-function changeQuantity(
-    index,
-    amount
-){
-
-    const item =
-        cart[index];
-
-
-    if(!item) return;
-
-
-    const product =
-        products.find(
-            function(p){
-
-                return Number(
-                    p.id
-                ) === Number(
-                    item.product_
+                stock.toFix
