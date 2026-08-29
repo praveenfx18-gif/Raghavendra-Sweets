@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raghavendra Sweets - Billing</title>
+
+<title>Raghavendra Sweets | Billing</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -13,94 +16,100 @@
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#fffaf0,#f0d58c);
-    color:#35120d;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top,#fff8dc 0%,#f6df9b 45%,#ead08a 100%);
+    color:#35110c;
     min-height:100vh;
 }
 
 .header{
-    background:linear-gradient(135deg,#68140e,#350604);
-    color:white;
+    background:linear-gradient(135deg,#74150d,#350503);
+    padding:22px 15px;
     text-align:center;
-    padding:20px 15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    color:white;
+    box-shadow:0 5px 25px rgba(0,0,0,.3);
 }
 
 .logo{
-    width:85px;
-    height:85px;
-    object-fit:cover;
+    width:88px;
+    height:88px;
     border-radius:50%;
-    border:3px solid #d5a52b;
+    object-fit:cover;
     background:white;
-    padding:3px;
+    padding:4px;
+    border:3px solid #e1b52e;
 }
 
 .header h1{
-    margin-top:8px;
+    margin-top:9px;
     color:#ffd95a;
-    font-size:26px;
+    font-size:27px;
+    letter-spacing:.5px;
 }
 
 .header p{
     margin-top:5px;
-    color:#fff0b5;
+    color:#fff2b8;
+    font-size:14px;
 }
 
 .container{
     width:94%;
     max-width:1150px;
-    margin:22px auto;
+    margin:22px auto 40px;
 }
 
 .status{
     padding:14px;
+    margin-bottom:18px;
     border-radius:12px;
-    background:#fff8df;
-    border:1px solid #dfc16a;
-    color:#68140e;
     text-align:center;
     font-weight:bold;
-    margin-bottom:18px;
+    background:#fff9df;
+    border:1px solid #dfbd55;
+    color:#68140e;
 }
 
 .card{
     background:rgba(255,255,255,.97);
-    border:1px solid #dfc16a;
-    border-radius:16px;
+    border:1px solid #e1c36c;
+    border-radius:17px;
     padding:20px;
     margin-bottom:18px;
-    box-shadow:0 6px 22px rgba(70,30,10,.14);
+    box-shadow:0 7px 25px rgba(70,30,10,.14);
 }
 
-h2{
+.card h2{
     color:#68140e;
-    margin-bottom:16px;
+    margin-bottom:17px;
+    font-size:21px;
 }
 
-.bill-info{
+.info-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:14px;
 }
 
-.info-box{
+.info{
+    padding:15px;
+    border-radius:12px;
     background:#fff9e8;
-    border:1px solid #e5c66e;
-    border-radius:11px;
-    padding:14px;
+    border:1px solid #e6ca76;
 }
 
-.info-box small{
+.info span{
+    display:block;
+    font-size:13px;
     color:#80604b;
 }
 
-.info-box strong{
+.info strong{
     display:block;
-    margin-top:5px;
+    margin-top:6px;
     color:#68140e;
-    font-size:17px;
+    font-size:18px;
 }
 
 .form-grid{
@@ -110,10 +119,10 @@ h2{
     align-items:end;
 }
 
-label{
+.field label{
     display:block;
-    font-size:14px;
     font-weight:bold;
+    font-size:14px;
     margin-bottom:7px;
 }
 
@@ -121,10 +130,10 @@ select,
 input{
     width:100%;
     padding:12px;
-    border:1px solid #c9a34d;
     border-radius:9px;
+    border:1px solid #cba94e;
     background:#fffdf7;
-    color:#35120d;
+    color:#35110c;
     font-size:15px;
     outline:none;
 }
@@ -132,175 +141,194 @@ input{
 select:focus,
 input:focus{
     border-color:#68140e;
-}
-
-button{
-    border:0;
-    border-radius:9px;
-    cursor:pointer;
-    font-weight:bold;
+    box-shadow:0 0 0 2px rgba(104,20,14,.08);
 }
 
 .add-btn{
+    padding:13px 20px;
     background:#68140e;
     color:white;
-    padding:13px 20px;
+    font-size:15px;
 }
 
 .add-btn:hover{
-    background:#8b2118;
+    background:#8a2118;
 }
 
-.quick-title{
-    margin-top:15px;
+.quick-label{
+    margin-top:16px;
     margin-bottom:8px;
     font-size:13px;
     color:#80604b;
     font-weight:bold;
 }
 
-.quick-buttons{
+.quick{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
 }
 
-.quick-buttons button{
-    background:#fff4cf;
+.quick button{
+    border:1px solid #d6ad3e;
+    background:#fff4cd;
     color:#68140e;
-    border:1px solid #d5a52b;
-    padding:8px 14px;
+    padding:9px 14px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.quick-buttons button:hover{
-    background:#f4df9c;
+.quick button:hover{
+    background:#f5df9d;
 }
 
-.table-wrap{
-    width:100%;
+.table-container{
     overflow-x:auto;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:700px;
+    min-width:720px;
 }
 
 th{
     background:#68140e;
     color:#ffd95a;
-    padding:12px 8px;
+    padding:13px 8px;
+    font-size:14px;
 }
 
 td{
-    padding:11px 7px;
-    border-bottom:1px solid #ead9aa;
+    padding:12px 8px;
     text-align:center;
+    border-bottom:1px solid #ead9aa;
 }
 
-.remove-btn{
+tr:hover td{
+    background:#fffaf0;
+}
+
+.remove{
     background:#b3261e;
     color:white;
-    padding:7px 11px;
+    padding:7px 12px;
+    border-radius:7px;
+    cursor:pointer;
+    border:none;
 }
 
 .empty{
+    padding:32px;
     text-align:center;
-    padding:30px;
-    color:#8a7767;
+    color:#8b7868;
 }
 
-.summary{
+.payment-layout{
     display:flex;
     justify-content:flex-end;
 }
 
-.summary-box{
-    width:380px;
+.summary{
+    width:390px;
     max-width:100%;
 }
 
-.total-row{
+.row{
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:15px;
-    padding:11px 0;
+    padding:12px 0;
     border-bottom:1px solid #ead9aa;
 }
 
-.total-row input{
-    width:130px;
+.discount-input{
+    width:135px;
     text-align:right;
 }
 
-.grand-total{
+.total{
     border-bottom:0;
-    padding-top:16px;
-    font-size:24px;
+    padding-top:17px;
+    font-size:25px;
+    font-weight:bold;
     color:#68140e;
 }
 
-.payment{
+.payment-methods{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:12px;
     margin-top:18px;
 }
 
-.payment label{
-    border:2px solid #e1c36c;
+.payment-option{
+    border:2px solid #e2c56d;
     border-radius:11px;
-    padding:14px;
+    padding:15px;
     text-align:center;
     background:#fffaf0;
     cursor:pointer;
+    transition:.2s;
 }
 
-.payment input{
+.payment-option:hover{
+    transform:translateY(-2px);
+}
+
+.payment-option input{
     width:auto;
-    margin-right:6px;
+    margin-right:5px;
 }
 
-.save-btn{
+.save{
     width:100%;
     margin-top:20px;
     padding:16px;
-    font-size:18px;
-    background:linear-gradient(135deg,#68140e,#a86d00);
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#68140e,#ad7600);
     color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.save-btn:disabled{
+.save:disabled{
     opacity:.6;
     cursor:not-allowed;
 }
 
 .message{
     display:none;
+    margin-top:15px;
     padding:13px;
     border-radius:9px;
-    margin-top:15px;
     text-align:center;
     font-weight:bold;
 }
 
 .success{
     display:block;
-    background:#e4f7df;
+    background:#e5f7df;
     color:#24611c;
 }
 
 .error{
     display:block;
-    background:#ffe1df;
+    background:#ffe2df;
     color:#8b1a13;
 }
 
 @media(max-width:750px){
 
-    .bill-info{
+    .header h1{
+        font-size:22px;
+    }
+
+    .info-grid{
         grid-template-columns:1fr;
     }
 
@@ -308,29 +336,30 @@ td{
         grid-template-columns:1fr;
     }
 
-    .payment{
+    .payment-methods{
         grid-template-columns:1fr;
-    }
-
-    .header h1{
-        font-size:22px;
     }
 
     .card{
         padding:15px;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
+
 
 <header class="header">
 
     <img
         src="logo.jpg"
         class="logo"
-        alt="Raghavendra Sweets Logo">
+        alt="Raghavendra Sweets Logo"
+    >
 
     <h1>RAGHAVENDRA SWEETS</h1>
 
@@ -338,48 +367,51 @@ td{
 
 </header>
 
+
 <main class="container">
 
+
 <div id="status" class="status">
-    Connecting to database...
+    🔄 Connecting to database...
 </div>
 
 
-<!-- BILL INFORMATION -->
+<!-- BILL INFO -->
 
-<div class="card">
+<section class="card">
 
-    <div class="bill-info">
+    <div class="info-grid">
 
-        <div class="info-box">
-            <small>Bill Number</small>
+        <div class="info">
+            <span>Bill Number</span>
             <strong id="billNumber">---</strong>
         </div>
 
-        <div class="info-box">
-            <small>Date</small>
+        <div class="info">
+            <span>Date</span>
             <strong id="billDate">---</strong>
         </div>
 
-        <div class="info-box">
-            <small>Time</small>
+        <div class="info">
+            <span>Time</span>
             <strong id="billTime">---</strong>
         </div>
 
     </div>
 
-</div>
+</section>
 
 
 <!-- ADD SWEET -->
 
-<div class="card">
+<section class="card">
 
     <h2>🍬 Add Sweet</h2>
 
     <div class="form-grid">
 
-        <div>
+
+        <div class="field">
 
             <label>Select Sweet</label>
 
@@ -393,82 +425,83 @@ td{
 
         </div>
 
-        <div>
+
+        <div class="field">
 
             <label>Quantity (KG)</label>
 
             <input
-                type="number"
                 id="quantity"
+                type="number"
                 min="0.001"
                 step="0.001"
-                value="0.250">
+                value="0.250"
+            >
 
         </div>
 
-        <div>
+
+        <div class="field">
 
             <label>Price / KG</label>
 
             <input
-                type="text"
                 id="price"
+                type="text"
                 readonly
-                placeholder="₹0.00">
+                placeholder="₹0.00"
+            >
 
         </div>
 
+
         <button
-            type="button"
             class="add-btn"
-            onclick="addItem()">
-
+            type="button"
+            onclick="addItem()"
+        >
             + Add
-
         </button>
+
 
     </div>
 
 
-    <div class="quick-title">
+    <div class="quick-label">
         Quick Quantity
     </div>
 
-    <div class="quick-buttons">
 
-        <button type="button"
-                onclick="setQuantity(0.250)">
+    <div class="quick">
+
+        <button onclick="setQty(.250)">
             250g
         </button>
 
-        <button type="button"
-                onclick="setQuantity(0.500)">
+        <button onclick="setQty(.500)">
             500g
         </button>
 
-        <button type="button"
-                onclick="setQuantity(0.750)">
+        <button onclick="setQty(.750)">
             750g
         </button>
 
-        <button type="button"
-                onclick="setQuantity(1)">
+        <button onclick="setQty(1)">
             1 KG
         </button>
 
-        <button type="button"
-                onclick="setQuantity(2)">
+        <button onclick="setQty(2)">
             2 KG
         </button>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- CURRENT BILL -->
+<!-- BILL -->
 
-<div class="card">
+<section class="card">
 
     <h2>🧾 Current Bill</h2>
 
@@ -480,20 +513,21 @@ td{
 
     </div>
 
-</div>
+</section>
 
 
 <!-- PAYMENT -->
 
-<div class="card">
+<section class="card">
 
     <h2>💰 Payment</h2>
 
-    <div class="summary">
 
-        <div class="summary-box">
+    <div class="payment-layout">
 
-            <div class="total-row">
+        <div class="summary">
+
+            <div class="row">
 
                 <span>Subtotal</span>
 
@@ -503,20 +537,24 @@ td{
 
             </div>
 
-            <div class="total-row">
+
+            <div class="row">
 
                 <span>Discount</span>
 
                 <input
-                    type="number"
                     id="discount"
+                    class="discount-input"
+                    type="number"
                     min="0"
                     step="0.01"
-                    value="0">
+                    value="0"
+                >
 
             </div>
 
-            <div class="total-row grand-total">
+
+            <div class="row total">
 
                 <span>TOTAL</span>
 
@@ -531,49 +569,66 @@ td{
     </div>
 
 
-    <div class="payment">
+    <div class="payment-methods">
 
-        <label>
+        <label class="payment-option">
+
             <input
                 type="radio"
                 name="payment"
                 value="Cash"
-                checked>
+                checked
+            >
+
             💵 Cash
+
         </label>
 
-        <label>
+
+        <label class="payment-option">
+
             <input
                 type="radio"
                 name="payment"
-                value="Card">
+                value="Card"
+            >
+
             💳 Card
+
         </label>
 
-        <label>
+
+        <label class="payment-option">
+
             <input
                 type="radio"
                 name="payment"
-                value="UPI">
+                value="UPI"
+            >
+
             📱 UPI
+
         </label>
 
     </div>
 
 
     <button
-        type="button"
-        class="save-btn"
-        onclick="saveBill()">
-
+        class="save"
+        id="saveButton"
+        onclick="saveBill()"
+    >
         🧾 SAVE BILL
-
     </button>
 
 
-    <div id="message" class="message"></div>
+    <div
+        id="message"
+        class="message">
+    </div>
 
-</div>
+</section>
+
 
 </main>
 
@@ -581,55 +636,71 @@ td{
 <script>
 
 /* =====================================================
-   SUPABASE
+   SUPABASE CONFIG
 ===================================================== */
 
 const SUPABASE_URL =
-"https://vajhxvghtyiwcdnbbwpt.supabase.co";
+    "https://vajhxvghtyiwcdnbbwpt.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
+    "sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
 
 
 /* =====================================================
-   VARIABLES
+   APP DATA
 ===================================================== */
 
 let products = [];
+
 let cart = [];
 
 
 /* =====================================================
-   START
+   PAGE START
 ===================================================== */
 
-window.addEventListener("load", function(){
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-    generateBillNumber();
+        updateClock();
 
-    updateDateTime();
+        generateBillNumber();
 
-    loadProducts();
+        loadProducts();
 
-});
+    }
+);
 
 
-setInterval(updateDateTime,1000);
+setInterval(
+    updateClock,
+    1000
+);
 
 
 /* =====================================================
-   DATE / TIME
+   CLOCK
 ===================================================== */
 
-function updateDateTime(){
+function updateClock(){
 
-    const now = new Date();
+    const now =
+        new Date();
 
-    document.getElementById("billDate").textContent =
-        now.toLocaleDateString("en-IN");
+    document.getElementById(
+        "billDate"
+    ).textContent =
+        now.toLocaleDateString(
+            "en-IN"
+        );
 
-    document.getElementById("billTime").textContent =
-        now.toLocaleTimeString("en-IN");
+    document.getElementById(
+        "billTime"
+    ).textContent =
+        now.toLocaleTimeString(
+            "en-IN"
+        );
 
 }
 
@@ -640,18 +711,17 @@ function updateDateTime(){
 
 function generateBillNumber(){
 
-    const now = new Date();
+    const now =
+        new Date();
 
-    const year =
-        now.getFullYear();
-
-    const month =
-        String(now.getMonth()+1)
-        .padStart(2,"0");
-
-    const day =
-        String(now.getDate())
-        .padStart(2,"0");
+    const date =
+        now.getFullYear() +
+        String(
+            now.getMonth()+1
+        ).padStart(2,"0") +
+        String(
+            now.getDate()
+        ).padStart(2,"0");
 
     const random =
         Math.floor(
@@ -659,48 +729,56 @@ function generateBillNumber(){
             Math.random()*9000
         );
 
-    document.getElementById("billNumber")
-        .textContent =
+    document.getElementById(
+        "billNumber"
+    ).textContent =
         "RS-" +
-        year +
-        month +
-        day +
+        date +
         "-" +
         random;
+
 }
 
 
 /* =====================================================
-   LOAD PRODUCTS
+   LOAD PRODUCTS FROM SUPABASE
 ===================================================== */
 
 async function loadProducts(){
 
-    const status =
-        document.getElementById("status");
-
     const select =
-        document.getElementById("productSelect");
+        document.getElementById(
+            "productSelect"
+        );
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
 
     status.textContent =
-        "⏳ Loading sweets...";
+        "🔄 Loading sweets...";
+
+
+    select.innerHTML =
+        `<option value="">
+            Loading sweets...
+         </option>`;
+
 
     try{
 
-        const url =
+        const endpoint =
             SUPABASE_URL +
             "/rest/v1/products" +
             "?select=id,name,price_per_kg,stock_kg" +
             "&order=name.asc";
 
-        console.log(
-            "SUPABASE URL:",
-            url
-        );
 
         const response =
             await fetch(
-                url,
+                endpoint,
                 {
                     method:"GET",
 
@@ -712,56 +790,59 @@ async function loadProducts(){
                             "Bearer " +
                             SUPABASE_KEY,
 
-                        "Content-Type":
-                            "application/json",
-
                         "Accept":
                             "application/json"
                     }
                 }
             );
 
+
         const text =
             await response.text();
 
+
         console.log(
-            "SUPABASE RESPONSE:",
+            "PRODUCT RESPONSE:",
             text
         );
+
 
         if(!response.ok){
 
             throw new Error(
                 "HTTP " +
                 response.status +
-                " - " +
+                " | " +
                 text
             );
 
         }
 
+
         products =
             JSON.parse(text);
+
 
         if(!Array.isArray(products)){
 
             throw new Error(
-                "Products data invalid"
+                "Invalid products response"
             );
 
         }
 
 
-        /* SORT ALPHABETICALLY */
+        products.sort(
+            function(a,b){
 
-        products.sort(function(a,b){
-
-            return String(a.name)
-                .localeCompare(
+                return String(
+                    a.name
+                ).localeCompare(
                     String(b.name)
                 );
 
-        });
+            }
+        );
 
 
         select.innerHTML =
@@ -770,25 +851,38 @@ async function loadProducts(){
              </option>`;
 
 
-        products.forEach(function(product){
+        products.forEach(
+            function(product){
 
-            const option =
-                document.createElement("option");
+                const option =
+                    document.createElement(
+                        "option"
+                    );
 
-            option.value =
-                product.id;
 
-            option.textContent =
-                product.name +
-                " — ₹" +
-                money(product.price_per_kg) +
-                "/KG — Stock: " +
-                kg(product.stock_kg) +
-                " KG";
+                option.value =
+                    product.id;
 
-            select.appendChild(option);
 
-        });
+                option.textContent =
+                    String(product.name) +
+                    " — ₹" +
+                    money(
+                        product.price_per_kg
+                    ) +
+                    "/KG — Stock: " +
+                    kg(
+                        product.stock_kg
+                    ) +
+                    " KG";
+
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
 
 
         status.textContent =
@@ -803,30 +897,37 @@ async function loadProducts(){
         );
 
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
-            document.getElementById(
-                "message"
-            ).style.display = "none";
+                document.getElementById(
+                    "message"
+                ).style.display =
+                    "none";
 
-        },2500);
+            },
+            2500
+        );
 
 
     }
     catch(error){
 
         console.error(
-            "LOAD PRODUCTS ERROR:",
+            "PRODUCT LOAD ERROR:",
             error
         );
 
+
         select.innerHTML =
             `<option value="">
-                Failed to load sweets
+                ❌ Failed to load sweets
              </option>`;
+
 
         status.textContent =
             "❌ Database connection failed";
+
 
         showMessage(
             "❌ " +
@@ -840,7 +941,7 @@ async function loadProducts(){
 
 
 /* =====================================================
-   SELECT PRODUCT
+   SELECT SWEET
 ===================================================== */
 
 document.getElementById(
@@ -850,14 +951,19 @@ document.getElementById(
     function(){
 
         const product =
-            products.find(function(item){
+            products.find(
+                function(item){
 
-                return String(item.id) ===
-                       String(
-                           this.value
-                       );
+                    return String(
+                        item.id
+                    ) ===
+                    String(
+                        this.value
+                    );
 
-            },this);
+                },
+                this
+            );
 
 
         if(product){
@@ -875,7 +981,8 @@ document.getElementById(
 
             document.getElementById(
                 "price"
-            ).value = "";
+            ).value =
+                "";
 
         }
 
@@ -887,7 +994,7 @@ document.getElementById(
    QUICK QUANTITY
 ===================================================== */
 
-function setQuantity(value){
+function setQty(value){
 
     document.getElementById(
         "quantity"
@@ -907,6 +1014,7 @@ function addItem(){
         document.getElementById(
             "productSelect"
         ).value;
+
 
     const quantity =
         Number(
@@ -939,18 +1047,22 @@ function addItem(){
 
 
     const product =
-        products.find(function(item){
+        products.find(
+            function(item){
 
-            return String(item.id) ===
-                   String(productId);
+                return String(
+                    item.id
+                ) ===
+                String(productId);
 
-        });
+            }
+        );
 
 
     if(!product){
 
         alert(
-            "Product dorakaledu."
+            "Product not found."
         );
 
         return;
@@ -959,15 +1071,15 @@ function addItem(){
 
 
     const stock =
-        Number(product.stock_kg) || 0;
+        Number(
+            product.stock_kg
+        ) || 0;
 
 
-    if(quantity > stock){
+    if(stock <= 0){
 
         alert(
-            "Available stock: " +
-            kg(stock) +
-            " KG"
+            "This sweet is out of stock."
         );
 
         return;
@@ -976,14 +1088,16 @@ function addItem(){
 
 
     const existing =
-        cart.find(function(item){
+        cart.find(
+            function(item){
 
-            return String(
-                item.product_id
-            ) ===
-            String(product.id);
+                return String(
+                    item.product_id
+                ) ===
+                String(product.id);
 
-        });
+            }
+        );
 
 
     if(existing){
@@ -1008,6 +1122,7 @@ function addItem(){
 
         existing.quantity_kg =
             newQuantity;
+
 
         existing.item_total =
             newQuantity *
@@ -1078,146 +1193,63 @@ function renderBill(){
 
     let html = `
 
-        <div class="table-wrap">
+        <div class="table-container">
 
         <table>
 
         <thead>
 
         <tr>
+
             <th>S.No</th>
+
             <th>Sweet</th>
+
             <th>Qty</th>
+
             <th>Price/KG</th>
+
             <th>Total</th>
+
             <th>Action</th>
+
         </tr>
 
         </thead>
 
         <tbody>
-    `;
-
-
-    cart.forEach(function(item,index){
-
-        html += `
-
-            <tr>
-
-                <td>
-                    ${index + 1}
-                </td>
-
-                <td>
-                    ${escapeHtml(
-                        item.product_name
-                    )}
-                </td>
-
-                <td>
-                    ${kg(
-                        item.quantity_kg
-                    )} KG
-                </td>
-
-                <td>
-                    ₹${money(
-                        item.price_per_kg
-                    )}
-                </td>
-
-                <td>
-                    ₹${money(
-                        item.item_total
-                    )}
-                </td>
-
-                <td>
-
-                    <button
-                        type="button"
-                        class="remove-btn"
-                        onclick="removeItem(${index})">
-
-                        Remove
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-        `;
-
-    });
-
-
-    html += `
-
-        </tbody>
-
-        </table>
-
-        </div>
 
     `;
 
 
-    container.innerHTML =
-        html;
+    cart.forEach(
+        function(item,index){
 
+            html += `
 
-    calculateTotal();
+                <tr>
 
-}
+                    <td>
+                        ${index + 1}
+                    </td>
 
+                    <td>
+                        ${escapeHtml(
+                            item.product_name
+                        )}
+                    </td>
 
-/* =====================================================
-   REMOVE ITEM
-===================================================== */
+                    <td>
+                        ${kg(
+                            item.quantity_kg
+                        )} KG
+                    </td>
 
-function removeItem(index){
+                    <td>
+                        ₹${money(
+                            item.price_per_kg
+                        )}
+                    </td>
 
-    cart.splice(
-        index,
-        1
-    );
-
-    renderBill();
-
-}
-
-
-/* =====================================================
-   TOTAL
-===================================================== */
-
-document.getElementById(
-    "discount"
-).addEventListener(
-    "input",
-    calculateTotal
-);
-
-
-function calculateTotal(){
-
-    let subtotal =
-        cart.reduce(
-            function(sum,item){
-
-                return sum +
-                    Number(
-                        item.item_total
-                    );
-
-            },
-            0
-        );
-
-
-    let discount =
-        Number(
-            document.getElementById(
-              
+                    <td>
+                        ₹${money(
