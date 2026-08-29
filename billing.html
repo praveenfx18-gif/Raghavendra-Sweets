@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Raghavendra Sweets | Billing</title>
+<title>Raghavendra Sweets - Billing</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,1240 +14,935 @@
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at top,#fff8dc 0%,#f6df9b 45%,#ead08a 100%);
-    color:#35110c;
-    min-height:100vh;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#fffaf0,#f6e2aa);
+    color:#4b160f;
 }
 
-.header{
-    background:linear-gradient(135deg,#74150d,#350503);
-    padding:22px 15px;
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#68140e,#8f2118);
+    color:#fff;
+    padding:18px;
     text-align:center;
-    color:white;
-    box-shadow:0 5px 25px rgba(0,0,0,.3);
+    border-bottom:4px solid #d5a52b;
 }
 
-.logo{
-    width:88px;
-    height:88px;
-    border-radius:50%;
-    object-fit:cover;
-    background:white;
-    padding:4px;
-    border:3px solid #e1b52e;
+header h1{
+    font-size:30px;
+    color:#ffd966;
 }
 
-.header h1{
-    margin-top:9px;
-    color:#ffd95a;
-    font-size:27px;
-    letter-spacing:.5px;
-}
-
-.header p{
+header p{
     margin-top:5px;
-    color:#fff2b8;
-    font-size:14px;
+    color:#fff4cc;
 }
 
+/* MAIN */
 .container{
-    width:94%;
-    max-width:1150px;
-    margin:22px auto 40px;
+    width:95%;
+    max-width:1200px;
+    margin:20px auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
 }
 
-.status{
-    padding:14px;
-    margin-bottom:18px;
-    border-radius:12px;
-    text-align:center;
-    font-weight:bold;
-    background:#fff9df;
-    border:1px solid #dfbd55;
-    color:#68140e;
-}
-
-.card{
-    background:rgba(255,255,255,.97);
-    border:1px solid #e1c36c;
-    border-radius:17px;
+/* PRODUCTS */
+.products-section{
+    background:white;
     padding:20px;
-    margin-bottom:18px;
-    box-shadow:0 7px 25px rgba(70,30,10,.14);
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
-.card h2{
+.section-title{
+    font-size:23px;
+    margin-bottom:15px;
     color:#68140e;
-    margin-bottom:17px;
-    font-size:21px;
+    border-bottom:2px solid #d5a52b;
+    padding-bottom:8px;
 }
 
-.info-grid{
+.products{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-}
-
-.info{
-    padding:15px;
-    border-radius:12px;
-    background:#fff9e8;
-    border:1px solid #e6ca76;
-}
-
-.info span{
-    display:block;
-    font-size:13px;
-    color:#80604b;
-}
-
-.info strong{
-    display:block;
-    margin-top:6px;
-    color:#68140e;
-    font-size:18px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr auto;
-    gap:12px;
-    align-items:end;
-}
-
-.field label{
-    display:block;
-    font-weight:bold;
-    font-size:14px;
-    margin-bottom:7px;
-}
-
-select,
-input{
-    width:100%;
-    padding:12px;
-    border-radius:9px;
-    border:1px solid #cba94e;
-    background:#fffdf7;
-    color:#35110c;
-    font-size:15px;
-    outline:none;
-}
-
-select:focus,
-input:focus{
-    border-color:#68140e;
-    box-shadow:0 0 0 2px rgba(104,20,14,.08);
-}
-
-.add-btn{
-    padding:13px 20px;
-    background:#68140e;
-    color:white;
-    font-size:15px;
-}
-
-.add-btn:hover{
-    background:#8a2118;
-}
-
-.quick-label{
-    margin-top:16px;
-    margin-bottom:8px;
-    font-size:13px;
-    color:#80604b;
-    font-weight:bold;
-}
-
-.quick{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.quick button{
-    border:1px solid #d6ad3e;
-    background:#fff4cd;
-    color:#68140e;
-    padding:9px 14px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.quick button:hover{
-    background:#f5df9d;
-}
-
-.table-container{
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:720px;
-}
-
-th{
-    background:#68140e;
-    color:#ffd95a;
-    padding:13px 8px;
-    font-size:14px;
-}
-
-td{
-    padding:12px 8px;
-    text-align:center;
-    border-bottom:1px solid #ead9aa;
-}
-
-tr:hover td{
-    background:#fffaf0;
-}
-
-.remove{
-    background:#b3261e;
-    color:white;
-    padding:7px 12px;
-    border-radius:7px;
-    cursor:pointer;
-    border:none;
-}
-
-.empty{
-    padding:32px;
-    text-align:center;
-    color:#8b7868;
-}
-
-.payment-layout{
-    display:flex;
-    justify-content:flex-end;
-}
-
-.summary{
-    width:390px;
-    max-width:100%;
-}
-
-.row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
     gap:15px;
-    padding:12px 0;
-    border-bottom:1px solid #ead9aa;
 }
 
-.discount-input{
-    width:135px;
-    text-align:right;
-}
-
-.total{
-    border-bottom:0;
-    padding-top:17px;
-    font-size:25px;
-    font-weight:bold;
-    color:#68140e;
-}
-
-.payment-methods{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin-top:18px;
-}
-
-.payment-option{
-    border:2px solid #e2c56d;
-    border-radius:11px;
+.product{
+    border:2px solid #ead39a;
+    border-radius:12px;
     padding:15px;
+    background:#fffdf7;
     text-align:center;
-    background:#fffaf0;
-    cursor:pointer;
     transition:.2s;
 }
 
-.payment-option:hover{
-    transform:translateY(-2px);
+.product:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
 }
 
-.payment-option input{
-    width:auto;
-    margin-right:5px;
+.product h3{
+    color:#68140e;
+    margin-bottom:8px;
 }
 
-.save{
+.price{
+    font-size:20px;
+    font-weight:bold;
+    color:#9a6510;
+    margin-bottom:12px;
+}
+
+.quantity-select{
     width:100%;
-    margin-top:20px;
-    padding:16px;
+    padding:9px;
+    border:1px solid #c9a84c;
+    border-radius:7px;
+    margin-bottom:10px;
+    background:white;
+}
+
+.add-btn{
+    width:100%;
     border:none;
-    border-radius:10px;
-    background:linear-gradient(135deg,#68140e,#ad7600);
+    padding:10px;
+    border-radius:8px;
+    background:#68140e;
     color:white;
-    font-size:18px;
+    font-size:15px;
     font-weight:bold;
     cursor:pointer;
 }
 
-.save:disabled{
-    opacity:.6;
-    cursor:not-allowed;
+.add-btn:hover{
+    background:#8f2118;
 }
 
-.message{
-    display:none;
-    margin-top:15px;
-    padding:13px;
-    border-radius:9px;
+/* BILL */
+.bill-section{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    height:max-content;
+    position:sticky;
+    top:15px;
+}
+
+.bill-header{
     text-align:center;
+    border-bottom:2px dashed #999;
+    padding-bottom:12px;
+    margin-bottom:12px;
+}
+
+.bill-header h2{
+    color:#68140e;
+}
+
+.bill-info{
+    font-size:13px;
+    color:#555;
+    margin-top:5px;
+}
+
+.bill-items{
+    max-height:350px;
+    overflow-y:auto;
+}
+
+.bill-item{
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.item-top{
+    display:flex;
+    justify-content:space-between;
     font-weight:bold;
 }
 
-.success{
-    display:block;
-    background:#e5f7df;
-    color:#24611c;
+.item-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:6px;
+    font-size:13px;
+    color:#555;
 }
 
-.error{
-    display:block;
-    background:#ffe2df;
-    color:#8b1a13;
+.remove-btn{
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:5px 8px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-@media(max-width:750px){
+.empty{
+    text-align:center;
+    color:#777;
+    padding:30px 10px;
+}
 
-    .header h1{
-        font-size:22px;
-    }
+/* TOTAL */
+.total-box{
+    border-top:2px solid #68140e;
+    margin-top:15px;
+    padding-top:12px;
+}
 
-    .info-grid{
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    margin:7px 0;
+}
+
+.grand-total{
+    font-size:25px;
+    font-weight:bold;
+    color:#68140e;
+    margin-top:10px;
+}
+
+/* PAYMENT */
+.payment{
+    margin-top:15px;
+}
+
+.payment h3{
+    margin-bottom:8px;
+}
+
+.payment-options{
+    display:flex;
+    gap:8px;
+}
+
+.payment-option{
+    flex:1;
+    padding:10px;
+    border:2px solid #d5a52b;
+    border-radius:8px;
+    text-align:center;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.payment-option.active{
+    background:#68140e;
+    color:white;
+}
+
+/* BUTTONS */
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.main-btn{
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.print-btn{
+    background:#2e7d32;
+    color:white;
+}
+
+.clear-btn{
+    background:#c62828;
+    color:white;
+}
+
+.print-btn:hover{
+    background:#1b5e20;
+}
+
+.clear-btn:hover{
+    background:#8e0000;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+    .container{
         grid-template-columns:1fr;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
+    .bill-section{
+        position:static;
     }
-
-    .payment-methods{
-        grid-template-columns:1fr;
-    }
-
-    .card{
-        padding:15px;
-    }
-
 }
 
+/* PRINT */
+@media print{
+
+    body{
+        background:white;
+    }
+
+    body *{
+        visibility:hidden;
+    }
+
+    .bill-section,
+    .bill-section *{
+        visibility:visible;
+    }
+
+    .bill-section{
+        position:absolute;
+        left:0;
+        top:0;
+        width:80mm;
+        max-width:80mm;
+        box-shadow:none;
+        padding:5mm;
+        margin:0;
+    }
+
+    .buttons,
+    .payment{
+        display:none;
+    }
+
+    .bill-items{
+        max-height:none;
+        overflow:visible;
+    }
+
+    .remove-btn{
+        display:none;
+    }
+
+    .bill-section{
+        border:none;
+    }
+
+    .bill-header h2{
+        font-size:20px;
+    }
+
+    .grand-total{
+        font-size:20px;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-
-<header class="header">
-
-    <img
-        src="logo.jpg"
-        class="logo"
-        alt="Raghavendra Sweets Logo"
-    >
-
-    <h1>RAGHAVENDRA SWEETS</h1>
-
-    <p>Smart Billing System</p>
-
+<header>
+    <h1>🍬 RAGHAVENDRA SWEETS 🍬</h1>
+    <p>Billing Counter</p>
 </header>
 
+<div class="container">
 
-<main class="container">
+    <!-- PRODUCTS -->
+    <section class="products-section">
 
-
-<div id="status" class="status">
-    🔄 Connecting to database...
-</div>
-
-
-<!-- BILL INFO -->
-
-<section class="card">
-
-    <div class="info-grid">
-
-        <div class="info">
-            <span>Bill Number</span>
-            <strong id="billNumber">---</strong>
+        <div class="section-title">
+            🍬 Sweets
         </div>
 
-        <div class="info">
-            <span>Date</span>
-            <strong id="billDate">---</strong>
+        <div class="products" id="products"></div>
+
+    </section>
+
+
+    <!-- BILL -->
+    <section class="bill-section">
+
+        <div class="bill-header">
+            <h2>RAGHAVENDRA SWEETS</h2>
+            <div class="bill-info">
+                Bill No: <span id="billNumber"></span>
+            </div>
+            <div class="bill-info">
+                <span id="dateTime"></span>
+            </div>
         </div>
 
-        <div class="info">
-            <span>Time</span>
-            <strong id="billTime">---</strong>
-        </div>
+        <div id="billItems" class="bill-items">
 
-    </div>
-
-</section>
-
-
-<!-- ADD SWEET -->
-
-<section class="card">
-
-    <h2>🍬 Add Sweet</h2>
-
-    <div class="form-grid">
-
-
-        <div class="field">
-
-            <label>Select Sweet</label>
-
-            <select id="productSelect">
-
-                <option value="">
-                    Loading sweets...
-                </option>
-
-            </select>
+            <div class="empty">
+                No items added
+            </div>
 
         </div>
 
+        <div class="total-box">
 
-        <div class="field">
-
-            <label>Quantity (KG)</label>
-
-            <input
-                id="quantity"
-                type="number"
-                min="0.001"
-                step="0.001"
-                value="0.250"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>Price / KG</label>
-
-            <input
-                id="price"
-                type="text"
-                readonly
-                placeholder="₹0.00"
-            >
-
-        </div>
-
-
-        <button
-            class="add-btn"
-            type="button"
-            onclick="addItem()"
-        >
-            + Add
-        </button>
-
-
-    </div>
-
-
-    <div class="quick-label">
-        Quick Quantity
-    </div>
-
-
-    <div class="quick">
-
-        <button onclick="setQty(.250)">
-            250g
-        </button>
-
-        <button onclick="setQty(.500)">
-            500g
-        </button>
-
-        <button onclick="setQty(.750)">
-            750g
-        </button>
-
-        <button onclick="setQty(1)">
-            1 KG
-        </button>
-
-        <button onclick="setQty(2)">
-            2 KG
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- BILL -->
-
-<section class="card">
-
-    <h2>🧾 Current Bill</h2>
-
-    <div id="billTable">
-
-        <div class="empty">
-            No sweets added yet.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PAYMENT -->
-
-<section class="card">
-
-    <h2>💰 Payment</h2>
-
-
-    <div class="payment-layout">
-
-        <div class="summary">
-
-            <div class="row">
-
+            <div class="total-row">
                 <span>Subtotal</span>
-
-                <strong id="subtotal">
-                    ₹0.00
-                </strong>
-
+                <strong>₹<span id="subtotal">0.00</span></strong>
             </div>
 
-
-            <div class="row">
-
+            <div class="total-row">
                 <span>Discount</span>
-
-                <input
-                    id="discount"
-                    class="discount-input"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value="0"
-                >
-
+                <strong>₹0.00</strong>
             </div>
 
-
-            <div class="row total">
-
+            <div class="total-row grand-total">
                 <span>TOTAL</span>
+                <span>₹<span id="total">0.00</span></span>
+            </div>
 
-                <strong id="grandTotal">
-                    ₹0.00
-                </strong>
+        </div>
+
+
+        <!-- PAYMENT -->
+        <div class="payment">
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-options">
+
+                <div
+                    class="payment-option active"
+                    id="cash"
+                    onclick="selectPayment('CASH')">
+                    💵 Cash
+                </div>
+
+                <div
+                    class="payment-option"
+                    id="card"
+                    onclick="selectPayment('CARD')">
+                    💳 Card
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
+        <!-- BUTTONS -->
+        <div class="buttons">
 
-    <div class="payment-methods">
+            <button
+                class="main-btn clear-btn"
+                onclick="clearBill()">
+                🗑 Clear
+            </button>
 
-        <label class="payment-option">
+            <button
+                class="main-btn print-btn"
+                onclick="printBill()">
+                🖨 Print Bill
+            </button>
 
-            <input
-                type="radio"
-                name="payment"
-                value="Cash"
-                checked
-            >
+        </div>
 
-            💵 Cash
+    </section>
 
-        </label>
-
-
-        <label class="payment-option">
-
-            <input
-                type="radio"
-                name="payment"
-                value="Card"
-            >
-
-            💳 Card
-
-        </label>
-
-
-        <label class="payment-option">
-
-            <input
-                type="radio"
-                name="payment"
-                value="UPI"
-            >
-
-            📱 UPI
-
-        </label>
-
-    </div>
-
-
-    <button
-        class="save"
-        id="saveButton"
-        onclick="saveBill()"
-    >
-        🧾 SAVE BILL
-    </button>
-
-
-    <div
-        id="message"
-        class="message">
-    </div>
-
-</section>
-
-
-</main>
+</div>
 
 
 <script>
 
-/* =====================================================
-   SUPABASE CONFIG
-===================================================== */
+/* =====================================
+   PRODUCTS
+===================================== */
 
-const SUPABASE_URL =
-    "https://vajhxvghtyiwcdnbbwpt.supabase.co";
+const products = [
 
-const SUPABASE_KEY =
-    "sb_publishable_3Qx2SKaQYx8hXRfaaEvU-A_1AU_eY3A";
+    {
+        id:1,
+        name:"Kaju Katli",
+        price:700
+    },
+
+    {
+        id:2,
+        name:"Gulab Jamun",
+        price:280
+    },
+
+    {
+        id:3,
+        name:"Mysore Pak",
+        price:480
+    },
+
+    {
+        id:4,
+        name:"Boondi Laddu",
+        price:360
+    },
+
+    {
+        id:5,
+        name:"Motichoor Laddu",
+        price:420
+    },
+
+    {
+        id:6,
+        name:"Rasmalai",
+        price:500
+    },
+
+    {
+        id:7,
+        name:"Badusha",
+        price:360
+    },
+
+    {
+        id:8,
+        name:"Jangri",
+        price:400
+    },
+
+    {
+        id:9,
+        name:"Doodh Peda",
+        price:460
+    },
+
+    {
+        id:10,
+        name:"Milk Mysore Pak",
+        price:520
+    },
+
+    {
+        id:11,
+        name:"Dry Fruit Laddu",
+        price:650
+    },
+
+    {
+        id:12,
+        name:"Soan Papdi",
+        price:320
+    }
+
+];
 
 
-/* =====================================================
-   APP DATA
-===================================================== */
-
-let products = [];
+/* =====================================
+   BILL DATA
+===================================== */
 
 let cart = [];
 
-
-/* =====================================================
-   PAGE START
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        updateClock();
-
-        generateBillNumber();
-
-        loadProducts();
-
-    }
-);
+let paymentMethod = "CASH";
 
 
-setInterval(
-    updateClock,
-    1000
-);
-
-
-/* =====================================================
-   CLOCK
-===================================================== */
-
-function updateClock(){
-
-    const now =
-        new Date();
-
-    document.getElementById(
-        "billDate"
-    ).textContent =
-        now.toLocaleDateString(
-            "en-IN"
-        );
-
-    document.getElementById(
-        "billTime"
-    ).textContent =
-        now.toLocaleTimeString(
-            "en-IN"
-        );
-
-}
-
-
-/* =====================================================
+/* =====================================
    BILL NUMBER
-===================================================== */
+===================================== */
 
-function generateBillNumber(){
+let billNumber =
+    "RS-" +
+    new Date().getFullYear() +
+    "-" +
+    Math.floor(1000 + Math.random() * 9000);
 
-    const now =
-        new Date();
+document.getElementById("billNumber").textContent =
+    billNumber;
 
-    const date =
-        now.getFullYear() +
-        String(
-            now.getMonth()+1
-        ).padStart(2,"0") +
-        String(
-            now.getDate()
-        ).padStart(2,"0");
 
-    const random =
-        Math.floor(
-            1000 +
-            Math.random()*9000
-        );
+/* =====================================
+   DATE & TIME
+===================================== */
 
-    document.getElementById(
-        "billNumber"
-    ).textContent =
-        "RS-" +
-        date +
-        "-" +
-        random;
+function updateDateTime(){
+
+    const now = new Date();
+
+    document.getElementById("dateTime").textContent =
+        now.toLocaleDateString("en-IN") +
+        " " +
+        now.toLocaleTimeString("en-IN");
+
+}
+
+updateDateTime();
+
+setInterval(updateDateTime,1000);
+
+
+/* =====================================
+   SHOW PRODUCTS
+===================================== */
+
+function displayProducts(){
+
+    const container =
+        document.getElementById("products");
+
+    container.innerHTML = "";
+
+    products.forEach(product => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "product";
+
+        div.innerHTML = `
+
+            <h3>${product.name}</h3>
+
+            <div class="price">
+                ₹${product.price}/KG
+            </div>
+
+            <select
+                class="quantity-select"
+                id="qty-${product.id}">
+
+                <option value="0.25">
+                    250 g
+                </option>
+
+                <option value="0.5">
+                    500 g
+                </option>
+
+                <option value="0.75">
+                    750 g
+                </option>
+
+                <option value="1" selected>
+                    1 KG
+                </option>
+
+                <option value="1.25">
+                    1.25 KG
+                </option>
+
+                <option value="1.5">
+                    1.5 KG
+                </option>
+
+                <option value="2">
+                    2 KG
+                </option>
+
+            </select>
+
+            <button
+                class="add-btn"
+                onclick="addToBill(${product.id})">
+
+                + Add to Bill
+
+            </button>
+
+        `;
+
+        container.appendChild(div);
+
+    });
 
 }
 
 
-/* =====================================================
-   LOAD PRODUCTS FROM SUPABASE
-===================================================== */
+/* =====================================
+   ADD TO BILL
+===================================== */
 
-async function loadProducts(){
+function addToBill(productId){
 
-    const select =
-        document.getElementById(
-            "productSelect"
-        );
-
-    const status =
-        document.getElementById(
-            "status"
-        );
-
-
-    status.textContent =
-        "🔄 Loading sweets...";
-
-
-    select.innerHTML =
-        `<option value="">
-            Loading sweets...
-         </option>`;
-
-
-    try{
-
-        const endpoint =
-            SUPABASE_URL +
-            "/rest/v1/products" +
-            "?select=id,name,price_per_kg,stock_kg" +
-            "&order=name.asc";
-
-
-        const response =
-            await fetch(
-                endpoint,
-                {
-                    method:"GET",
-
-                    headers:{
-                        "apikey":
-                            SUPABASE_KEY,
-
-                        "Authorization":
-                            "Bearer " +
-                            SUPABASE_KEY,
-
-                        "Accept":
-                            "application/json"
-                    }
-                }
-            );
-
-
-        const text =
-            await response.text();
-
-
-        console.log(
-            "PRODUCT RESPONSE:",
-            text
-        );
-
-
-        if(!response.ok){
-
-            throw new Error(
-                "HTTP " +
-                response.status +
-                " | " +
-                text
-            );
-
-        }
-
-
-        products =
-            JSON.parse(text);
-
-
-        if(!Array.isArray(products)){
-
-            throw new Error(
-                "Invalid products response"
-            );
-
-        }
-
-
-        products.sort(
-            function(a,b){
-
-                return String(
-                    a.name
-                ).localeCompare(
-                    String(b.name)
-                );
-
-            }
-        );
-
-
-        select.innerHTML =
-            `<option value="">
-                Select Sweet
-             </option>`;
-
-
-        products.forEach(
-            function(product){
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-
-                option.value =
-                    product.id;
-
-
-                option.textContent =
-                    String(product.name) +
-                    " — ₹" +
-                    money(
-                        product.price_per_kg
-                    ) +
-                    "/KG — Stock: " +
-                    kg(
-                        product.stock_kg
-                    ) +
-                    " KG";
-
-
-                select.appendChild(
-                    option
-                );
-
-            }
-        );
-
-
-        status.textContent =
-            "✅ " +
-            products.length +
-            " sweets loaded successfully";
-
-
-        showMessage(
-            "Sweets loaded successfully.",
-            true
-        );
-
-
-        setTimeout(
-            function(){
-
-                document.getElementById(
-                    "message"
-                ).style.display =
-                    "none";
-
-            },
-            2500
-        );
-
-
-    }
-    catch(error){
-
-        console.error(
-            "PRODUCT LOAD ERROR:",
-            error
-        );
-
-
-        select.innerHTML =
-            `<option value="">
-                ❌ Failed to load sweets
-             </option>`;
-
-
-        status.textContent =
-            "❌ Database connection failed";
-
-
-        showMessage(
-            "❌ " +
-            error.message,
-            false
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   SELECT SWEET
-===================================================== */
-
-document.getElementById(
-    "productSelect"
-).addEventListener(
-    "change",
-    function(){
-
-        const product =
-            products.find(
-                function(item){
-
-                    return String(
-                        item.id
-                    ) ===
-                    String(
-                        this.value
-                    );
-
-                },
-                this
-            );
-
-
-        if(product){
-
-            document.getElementById(
-                "price"
-            ).value =
-                "₹" +
-                money(
-                    product.price_per_kg
-                );
-
-        }
-        else{
-
-            document.getElementById(
-                "price"
-            ).value =
-                "";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   QUICK QUANTITY
-===================================================== */
-
-function setQty(value){
-
-    document.getElementById(
-        "quantity"
-    ).value =
-        Number(value).toFixed(3);
-
-}
-
-
-/* =====================================================
-   ADD ITEM
-===================================================== */
-
-function addItem(){
-
-    const productId =
-        document.getElementById(
-            "productSelect"
-        ).value;
-
+    const product =
+        products.find(p => p.id === productId);
 
     const quantity =
-        Number(
+        parseFloat(
             document.getElementById(
-                "quantity"
+                "qty-" + productId
             ).value
         );
 
-
-    if(!productId){
-
-        alert(
-            "First sweet select cheyyi."
-        );
-
-        return;
-
-    }
-
-
-    if(!quantity || quantity <= 0){
-
-        alert(
-            "Valid quantity enter cheyyi."
-        );
-
-        return;
-
-    }
-
-
-    const product =
-        products.find(
-            function(item){
-
-                return String(
-                    item.id
-                ) ===
-                String(productId);
-
-            }
-        );
-
-
-    if(!product){
-
-        alert(
-            "Product not found."
-        );
-
-        return;
-
-    }
-
-
-    const stock =
-        Number(
-            product.stock_kg
-        ) || 0;
-
-
-    if(stock <= 0){
-
-        alert(
-            "This sweet is out of stock."
-        );
-
-        return;
-
-    }
-
-
     const existing =
-        cart.find(
-            function(item){
-
-                return String(
-                    item.product_id
-                ) ===
-                String(product.id);
-
-            }
+        cart.find(item =>
+            item.id === productId &&
+            item.quantity === quantity
         );
-
 
     if(existing){
 
-        const newQuantity =
-            existing.quantity_kg +
-            quantity;
+        existing.count++;
 
-
-        if(newQuantity > stock){
-
-            alert(
-                "Available stock: " +
-                kg(stock) +
-                " KG"
-            );
-
-            return;
-
-        }
-
-
-        existing.quantity_kg =
-            newQuantity;
-
-
-        existing.item_total =
-            newQuantity *
-            existing.price_per_kg;
-
-    }
-    else{
+    }else{
 
         cart.push({
 
-            product_id:
-                product.id,
+            id:product.id,
 
-            product_name:
-                product.name,
+            name:product.name,
 
-            quantity_kg:
-                quantity,
+            price:product.price,
 
-            price_per_kg:
-                Number(
-                    product.price_per_kg
-                ) || 0,
+            quantity:quantity,
 
-            item_total:
-                quantity *
-                (
-                    Number(
-                        product.price_per_kg
-                    ) || 0
-                )
+            count:1
 
         });
 
     }
-
 
     renderBill();
 
 }
 
 
-/* =====================================================
+/* =====================================
    RENDER BILL
-===================================================== */
+===================================== */
 
 function renderBill(){
 
-    const container =
-        document.getElementById(
-            "billTable"
-        );
+    const billItems =
+        document.getElementById("billItems");
 
+    billItems.innerHTML = "";
 
     if(cart.length === 0){
 
-        container.innerHTML =
-            `<div class="empty">
-                No sweets added yet.
-             </div>`;
+        billItems.innerHTML = `
+            <div class="empty">
+                No items added
+            </div>
+        `;
 
-        calculateTotal();
+        document.getElementById("subtotal")
+            .textContent = "0.00";
+
+        document.getElementById("total")
+            .textContent = "0.00";
+
+        return;
+    }
+
+
+    let subtotal = 0;
+
+
+    cart.forEach((item,index) => {
+
+        const itemTotal =
+            item.price *
+            item.quantity *
+            item.count;
+
+        subtotal += itemTotal;
+
+
+        let quantityText;
+
+        if(item.quantity < 1){
+
+            quantityText =
+                Math.round(item.quantity * 1000) +
+                " g";
+
+        }else{
+
+            quantityText =
+                item.quantity + " KG";
+
+        }
+
+
+        const div =
+            document.createElement("div");
+
+        div.className = "bill-item";
+
+        div.innerHTML = `
+
+            <div class="item-top">
+
+                <span>
+                    ${item.name}
+                </span>
+
+                <span>
+                    ₹${itemTotal.toFixed(2)}
+                </span>
+
+            </div>
+
+            <div class="item-bottom">
+
+                <span>
+                    ${quantityText}
+                    ${item.count > 1
+                        ? " × " + item.count
+                        : ""}
+                </span>
+
+                <span>
+                    ₹${item.price}/KG
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeItem(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        `;
+
+        billItems.appendChild(div);
+
+    });
+
+
+    document.getElementById("subtotal")
+        .textContent =
+        subtotal.toFixed(2);
+
+    document.getElementById("total")
+        .textContent =
+        subtotal.toFixed(2);
+
+}
+
+
+/* =====================================
+   REMOVE ITEM
+===================================== */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    renderBill();
+
+}
+
+
+/* =====================================
+   PAYMENT
+===================================== */
+
+function selectPayment(method){
+
+    paymentMethod = method;
+
+    document
+        .getElementById("cash")
+        .classList.remove("active");
+
+    document
+        .getElementById("card")
+        .classList.remove("active");
+
+
+    if(method === "CASH"){
+
+        document
+            .getElementById("cash")
+            .classList.add("active");
+
+    }else{
+
+        document
+            .getElementById("card")
+            .classList.add("active");
+
+    }
+
+}
+
+
+/* =====================================
+   PRINT
+===================================== */
+
+function printBill(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Please add at least one item to the bill."
+        );
 
         return;
 
     }
 
 
-    let html = `
+    window.print();
 
-        <div class="table-container">
-
-        <table>
-
-        <thead>
-
-        <tr>
-
-            <th>S.No</th>
-
-            <th>Sweet</th>
-
-            <th>Qty</th>
-
-            <th>Price/KG</th>
-
-            <th>Total</th>
-
-            <th>Action</th>
-
-        </tr>
-
-        </thead>
-
-        <tbody>
-
-    `;
+}
 
 
-    cart.forEach(
-        function(item,index){
+/* =====================================
+   CLEAR BILL
+===================================== */
 
-            html += `
+function clearBill(){
 
-                <tr>
+    if(cart.length === 0){
+        return;
+    }
 
-                    <td>
-                        ${index + 1}
-                    </td>
 
-                    <td>
-                        ${escapeHtml(
-                            item.product_name
-                        )}
-                    </td>
+    const confirmClear =
+        confirm(
+            "Clear the current bill?"
+        );
 
-                    <td>
-                        ${kg(
-                            item.quantity_kg
-                        )} KG
-                    </td>
 
-                    <td>
-                        ₹${money(
-                            item.price_per_kg
-                        )}
-                    </td>
+    if(!confirmClear){
+        return;
+    }
 
-                    <td>
-                        ₹${money(
+
+    cart = [];
+
+    paymentMethod = "CASH";
+
+    billNumber =
+        "RS-" +
+        new Date().getFullYear() +
+        "-" +
+        Math.floor(1000 + Math.random() * 9000);
+
+
+    document.getElementById("billNumber")
+        .textContent =
+        billNumber;
+
+
+    selectPayment("CASH");
+
+    renderBill();
+
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+displayProducts();
+
+renderBill();
+
+</script>
+
+</body>
+</html>
