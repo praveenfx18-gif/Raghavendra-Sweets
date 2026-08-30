@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>రాయల్ స్వీట్స్ - Smart Billing & POS</title>
+  <title>Raghavendra Sweets - POS & Billing System</title>
   <style>
     * {
       box-sizing: border-box;
@@ -19,10 +19,12 @@
       overflow: hidden;
     }
 
-    /* Left Section: Menu */
-    .menu-container {
+    /* Left Section: Menu & History Tabs */
+    .left-container {
       flex: 6.5;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 20px;
       overflow-y: auto;
     }
 
@@ -30,11 +32,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
       background: white;
       padding: 12px 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 15px;
     }
 
     .brand-section {
@@ -44,8 +46,8 @@
     }
 
     .shop-logo {
-      height: 48px;
-      width: 48px;
+      height: 50px;
+      width: 50px;
       object-fit: cover;
       border-radius: 8px;
     }
@@ -53,24 +55,47 @@
     .brand-section h1 {
       color: #b84200;
       font-size: 22px;
-      line-height: 1.2;
+      font-weight: 700;
     }
 
-    .brand-section small {
+    .brand-section p {
       color: #666;
       font-size: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .tab-btn {
+      padding: 8px 18px;
+      border: none;
+      background: #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #444;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #b84200;
+      color: white;
     }
 
     .actions-bar {
       display: flex;
       gap: 10px;
+      margin-bottom: 15px;
     }
 
     .search-input {
-      padding: 8px 14px;
+      padding: 9px 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      width: 200px;
+      flex: 1;
       outline: none;
       font-size: 14px;
     }
@@ -79,21 +104,18 @@
       background: #2e7d32;
       color: white;
       border: none;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
       font-size: 14px;
-      transition: background 0.2s;
     }
 
     .btn-add-item:hover {
-      background: #236327;
+      background: #246327;
     }
 
+    /* Items Grid */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -103,40 +125,64 @@
     .item-card {
       background: white;
       border-radius: 12px;
-      padding: 15px;
+      padding: 12px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.04);
       cursor: pointer;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
       border: 1px solid #eee;
-      position: relative;
     }
 
     .item-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
       border-color: #f3c2a6;
     }
 
-    .item-card .icon {
-      font-size: 38px;
+    .item-card img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 8px;
       margin-bottom: 8px;
     }
 
     .item-card h3 {
       font-size: 15px;
       color: #333;
-      margin-bottom: 5px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 4px;
     }
 
     .item-card .price {
-      font-weight: bold;
+      font-weight: 700;
       color: #b84200;
-      font-size: 15px;
+      font-size: 14px;
+    }
+
+    /* History Table View */
+    .history-container {
+      display: none;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .history-table th, .history-table td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .history-table th {
+      background: #fafafa;
+      color: #555;
     }
 
     /* Right Section: Billing */
@@ -157,13 +203,9 @@
       text-align: center;
     }
 
-    .bill-header .bill-logo-container {
-      margin-bottom: 8px;
-    }
-
     .bill-header .bill-logo {
-      height: 45px;
-      object-fit: contain;
+      height: 48px;
+      margin-bottom: 5px;
     }
 
     .bill-items-list {
@@ -231,29 +273,22 @@
       border-top: 1px solid #eee;
     }
 
-    /* Cash Calculator Section */
     .cash-section {
-      margin-top: 12px;
+      margin-top: 10px;
       background: #fdf8f5;
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #f3e0d5;
     }
 
-    .cash-input-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 6px;
-      align-items: center;
-    }
-
     .cash-input {
-      flex: 1;
+      width: 100%;
       padding: 8px 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: bold;
+      margin-top: 5px;
       outline: none;
     }
 
@@ -282,30 +317,12 @@
       background: #963500;
     }
 
-    /* Print Acknowledgement & Sponsor */
-    .bill-footer {
+    /* Print Specific Acknowledgement & Sponsor */
+    .print-acknowledgement-box {
       display: none;
-      text-align: center;
-      margin-top: 15px;
-      padding-top: 10px;
-      border-top: 1px dashed #777;
     }
 
-    .bill-footer .ack-text {
-      font-size: 13px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 4px;
-    }
-
-    .bill-footer .sponsor-text {
-      font-size: 11px;
-      color: #777;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Modal for Adding New Item */
+    /* Modal Form */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -321,14 +338,13 @@
 
     .modal-content {
       background: white;
-      width: 360px;
-      padding: 24px;
+      width: 380px;
+      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     .modal-content h3 {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       color: #b84200;
     }
 
@@ -343,7 +359,7 @@
       color: #555;
     }
 
-    .form-group input, .form-group select {
+    .form-group input {
       width: 100%;
       padding: 8px 10px;
       border: 1px solid #ddd;
@@ -354,7 +370,7 @@
     .modal-actions {
       display: flex;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: 15px;
     }
 
     .modal-actions button {
@@ -366,18 +382,15 @@
       cursor: pointer;
     }
 
-    .btn-save {
-      background: #2e7d32;
-      color: white;
-    }
+    .btn-save { background: #2e7d32; color: white; }
+    .btn-cancel { background: #eee; color: #333; }
 
-    .btn-cancel {
-      background: #eee;
-      color: #333;
-    }
-
-    /* Print Styling */
+    /* Half Page Print Settings */
     @media print {
+      @page {
+        size: A5 portrait;
+        margin: 10mm;
+      }
       body * {
         visibility: hidden;
       }
@@ -389,64 +402,112 @@
         left: 0;
         top: 0;
         width: 100%;
-        max-width: 340px;
-        margin: 0 auto;
+        max-width: 100%;
         border: none;
         box-shadow: none;
         padding: 0;
       }
-      .qty-controls button, .cash-section, .checkout-btn, .search-input, .btn-add-item {
+      .qty-controls button, .cash-section, .checkout-btn, .search-input, .btn-add-item, .nav-tabs {
         display: none !important;
       }
-      .bill-footer {
+      .print-acknowledgement-box {
         display: block !important;
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: 1px dashed #444;
+        text-align: center;
+      }
+      .ack-title {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+      .ack-desc {
+        font-size: 12px;
+        color: #444;
+        line-height: 1.4;
+        margin-bottom: 15px;
+      }
+      .sponsor-box {
+        border-top: 1px dotted #999;
+        padding-top: 8px;
+        font-size: 11px;
+        color: #555;
+        text-transform: uppercase;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Menu Section -->
-  <div class="menu-container">
+  <!-- Left Container -->
+  <div class="left-container">
     <div class="header-bar">
       <div class="brand-section">
-        <img src="logo.png" alt="Logo" class="shop-logo" onerror="this.src='https://via.placeholder.com/48/b84200/ffffff?text=🍬'">
+        <img src="logo.png" alt="Logo" class="shop-logo" onerror="this.src='https://via.placeholder.com/50/b84200/ffffff?text=RS'">
         <div>
-          <h1>రాయల్ స్వీట్స్ & బేకరీ</h1>
-          <small>Fresh & Pure Traditional Sweets</small>
+          <h1>Raghavendra Sweets</h1>
+          <p>Pure Ghee Sweets & Savouries</p>
         </div>
-      </div>
-      
-      <div class="actions-bar">
-        <input type="text" id="searchInput" class="search-input" placeholder="స్వీట్ వెతకండి..." onkeyup="filterItems()">
-        <button class="btn-add-item" onclick="openAddModal()">+ కొత్త స్వీట్</button>
       </div>
     </div>
 
-    <div class="items-grid" id="itemsGrid"></div>
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('menu')">Sweets Menu</button>
+      <button class="tab-btn" onclick="switchTab('history')">Order History</button>
+    </div>
+
+    <!-- Menu Content -->
+    <div id="menuView">
+      <div class="actions-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search sweets..." onkeyup="filterItems()">
+        <button class="btn-add-item" onclick="openAddModal()">+ Add New Sweet</button>
+      </div>
+      <div class="items-grid" id="itemsGrid"></div>
+    </div>
+
+    <!-- History Content -->
+    <div id="historyView" class="history-container">
+      <h3 style="margin-bottom: 12px; color: #333;">Order & Payment History</h3>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Bill #</th>
+            <th>Date & Time</th>
+            <th>Items</th>
+            <th>Total Amount</th>
+            <th>Payment Mode</th>
+          </tr>
+        </thead>
+        <tbody id="historyList">
+          <!-- Filled dynamically -->
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <!-- Billing & POS Section -->
+  <!-- Right Section: Billing -->
   <div class="billing-container">
     <div class="bill-header">
-      <div class="bill-logo-container">
-        <img src="logo.png" alt="Shop Logo" class="bill-logo" onerror="this.style.display='none'">
-      </div>
-      <h2>రాయల్ స్వీట్స్ (Royal Sweets)</h2>
-      <p style="color: #666; font-size: 12px; margin-top: 2px;">మెయిన్ రోడ్, హైదరాబాద్ | Ph: +91 9876543210</p>
-      <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px; color: #444;">
-        <span>బిల్ #: <strong id="billNo">1001</strong></span>
+      <img src="logo.png" alt="Shop Logo" class="bill-logo" onerror="this.style.display='none'">
+      <h2>Raghavendra Sweets</h2>
+      <p style="font-size: 12px; color: #666;">Main Road, Market Center | Ph: +91 9876543210</p>
+      <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px;">
+        <span>Bill No: <strong id="billNo">1001</strong></span>
         <span id="billDate"></span>
       </div>
     </div>
 
     <div class="bill-items-list" id="billList">
-      <p style="text-align: center; color: #999; margin-top: 30px;">స్వీట్స్ సెలెక్ట్ చేయండి</p>
+      <p style="text-align: center; color: #999; margin-top: 30px;">No items selected</p>
     </div>
 
     <div class="summary-section">
       <div class="summary-row">
-        <span>సబ్ టోటల్ (Subtotal):</span>
+        <span>Subtotal:</span>
         <span id="subTotal">₹0.00</span>
       </div>
       <div class="summary-row">
@@ -454,95 +515,111 @@
         <span id="gstAmount">₹0.00</span>
       </div>
       <div class="summary-row total">
-        <span>మొత్తం (Grand Total):</span>
+        <span>Grand Total:</span>
         <span id="grandTotal">₹0.00</span>
       </div>
 
       <!-- Cash Calculation -->
       <div class="cash-section">
-        <label style="font-size: 13px; font-weight: bold; color: #555;">క్యాష్ పేమెంట్ (Cash Received):</label>
-        <div class="cash-input-group">
-          <input type="number" id="cashGiven" class="cash-input" placeholder="₹ కస్టమర్ ఇచ్చిన నగదు" oninput="calculateChange()">
-        </div>
-        <div class="change-text" id="changeDisplay">తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00</div>
+        <label style="font-size: 12px; font-weight: bold; color: #555;">Cash Received:</label>
+        <input type="number" id="cashGiven" class="cash-input" placeholder="₹ Enter Cash Amount" oninput="calculateChange()">
+        <div class="change-text" id="changeDisplay">Change Due: ₹0.00</div>
       </div>
 
-      <button class="checkout-btn" onclick="printReceipt()">బిల్ ప్రింట్ చేయండి (Print Receipt)</button>
+      <button class="checkout-btn" onclick="printReceipt()">Print Bill Receipt</button>
 
-      <!-- Acknowledgement & Sponsored by (Prints at bottom) -->
-      <div class="bill-footer">
-        <div class="ack-text">🙏 ధన్యవాదాలు! మళ్లీ సందర్శించండి! 🙏</div>
-        <p style="font-size: 11px; color: #666; margin-bottom: 5px;">Visit Again • Have a Sweet Day!</p>
-        <div class="sponsor-text">Sponsored by: <strong>ABC Digital Tech Solutions</strong></div>
+      <!-- Acknowledgement & Sponsored By Section (Prints in Half Page) -->
+      <div class="print-acknowledgement-box">
+        <div class="ack-title">Acknowledgement & Receipt</div>
+        <div class="ack-desc">
+          Thank you for choosing <strong>Raghavendra Sweets</strong>.<br>
+          We acknowledge the receipt of full payment for this order.<br>
+          Goods once sold cannot be returned. Please visit again!
+        </div>
+        <div class="sponsor-box">
+          Sponsored & Powered By: <strong>Apex Retail POS Systems</strong>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Add New Item Modal -->
+  <!-- Add Sweet Modal -->
   <div class="modal-overlay" id="addModal">
     <div class="modal-content">
-      <h3>+ కొత్త స్వీట్ జోడించండి</h3>
+      <h3>+ Add Sweet Item</h3>
       <div class="form-group">
-        <label>స్వీట్ పేరు (Sweet Name):</label>
-        <input type="text" id="newSweetName" placeholder="ఉదా: కాజు బర్ఫీ">
+        <label>Sweet Name:</label>
+        <input type="text" id="newSweetName" placeholder="e.g. Kaju Peda">
       </div>
       <div class="form-group">
-        <label>కేజీ ధర (Price / Kg in ₹):</label>
-        <input type="number" id="newSweetPrice" placeholder="ఉదా: 600">
+        <label>Price per Kg (₹):</label>
+        <input type="number" id="newSweetPrice" placeholder="e.g. 500">
       </div>
       <div class="form-group">
-        <label>ఐకాన్ (Emoji):</label>
-        <select id="newSweetIcon">
-          <option value="🍬">🍬 Sweet Candy</option>
-          <option value="🧆">🧆 Jamun / Laddu</option>
-          <option value="💎">💎 Diamond / Barfi</option>
-          <option value="🟡">🟡 Laddu / Halwa</option>
-          <option value="🧈">🧈 Mysore Pak / Ghee Sweet</option>
-          <option value="⚪">⚪ Rasgulla / Kova</option>
-          <option value="🥨">🥨 Jalebi / Murukku</option>
-          <option value="🥜">🥜 Dry Fruit Sweet</option>
-        </select>
+        <label>Upload Picture (From Device):</label>
+        <input type="file" id="newSweetFile" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label>Or Image URL (Optional):</label>
+        <input type="text" id="newSweetImgUrl" placeholder="https://example.com/sweet.jpg">
       </div>
       <div class="modal-actions">
-        <button class="btn-cancel" onclick="closeAddModal()">రద్దు (Cancel)</button>
-        <button class="btn-save" onclick="saveNewSweet()">సేవ్ చేయండి</button>
+        <button class="btn-cancel" onclick="closeAddModal()">Cancel</button>
+        <button class="btn-save" onclick="saveNewSweet()">Save Sweet</button>
       </div>
     </div>
   </div>
 
   <script>
-    let sweets = JSON.parse(localStorage.getItem('sweetShopItems')) || [
-      { id: 1, name: "గులాబ్ జామున్ (Gulab Jamun)", price: 320, icon: "🧆" },
-      { id: 2, name: "కాజు కట్లీ (Kaju Katli)", price: 950, icon: "💎" },
-      { id: 3, name: "మోతీచూర్ లడ్డు (Laddu)", price: 400, icon: "🟡" },
-      { id: 4, name: "మైసూర్ పాక్ (Mysore Pak)", price: 480, icon: "🧈" },
-      { id: 5, name: "రసగుల్లా (Rasgulla)", price: 350, icon: "⚪" },
-      { id: 6, name: "జిలేబీ (Jalebi)", price: 280, icon: "🥨" },
-      { id: 7, name: "పాలకోవ (Pala Kova)", price: 520, icon: "⚪" },
-      { id: 8, name: "మిక్స్డ్ డ్రై ఫ్రూట్ (Dry Fruit)", price: 1100, icon: "🥜" }
+    // Default Sample Data with generic sweet images
+    const defaultSweets = [
+      { id: 1, name: "Gulab Jamun", price: 340, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&auto=format&fit=crop&q=60" },
+      { id: 2, name: "Kaju Katli", price: 980, img: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=400&auto=format&fit=crop&q=60" },
+      { id: 3, name: "Motichoor Laddu", price: 420, img: "https://images.unsplash.com/photo-1605197584547-c93de1a00564?w=400&auto=format&fit=crop&q=60" },
+      { id: 4, name: "Mysore Pak", price: 500, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&auto=format&fit=crop&q=60" },
+      { id: 5, name: "Rasgulla", price: 360, img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&auto=format&fit=crop&q=60" },
+      { id: 6, name: "Kaju Dry Fruit Halwa", price: 1150, img: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&auto=format&fit=crop&q=60" }
     ];
 
+    let sweets = JSON.parse(localStorage.getItem('raghavendraSweets')) || defaultSweets;
+    let orderHistory = JSON.parse(localStorage.getItem('raghavendraHistory')) || [];
     let cart = [];
 
-    // Current Date formatting
     function setDate() {
       const now = new Date();
-      document.getElementById('billDate').innerText = now.toLocaleDateString('te-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+      document.getElementById('billDate').innerText = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
     }
 
-    // Render Menu Items
+    function switchTab(tab) {
+      const menuView = document.getElementById('menuView');
+      const historyView = document.getElementById('historyView');
+      const tabs = document.querySelectorAll('.tab-btn');
+
+      if (tab === 'menu') {
+        menuView.style.display = 'block';
+        historyView.style.display = 'none';
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+      } else {
+        menuView.style.display = 'none';
+        historyView.style.display = 'block';
+        tabs[1].classList.add('active');
+        tabs[0].classList.remove('active');
+        renderHistory();
+      }
+    }
+
     function renderItems(items) {
       const grid = document.getElementById('itemsGrid');
       grid.innerHTML = items.map(item => `
         <div class="item-card" onclick="addToCart(${item.id})">
-          <div class="icon">${item.icon}</div>
+          <img src="${item.img}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/150/fdf8f5/b84200?text=Sweet'">
           <h3>${item.name}</h3>
           <div class="price">₹${item.price} / kg</div>
         </div>
       `).join('');
     }
 
-    // Add to Cart
     function addToCart(id) {
       const item = sweets.find(s => s.id === id);
       const existing = cart.find(c => c.id === id);
@@ -555,7 +632,6 @@
       updateBill();
     }
 
-    // Update Quantity
     function updateQty(id, change) {
       const item = cart.find(c => c.id === id);
       if (!item) return;
@@ -567,12 +643,10 @@
       updateBill();
     }
 
-    // Update Bill Section
     function updateBill() {
       const list = document.getElementById('billList');
-      
       if (cart.length === 0) {
-        list.innerHTML = '<p style="text-align: center; color: #999; margin-top: 30px;">స్వీట్స్ సెలెక్ట్ చేయండి</p>';
+        list.innerHTML = '<p style="text-align: center; color: #999; margin-top: 30px;">No items selected</p>';
       } else {
         list.innerHTML = cart.map(item => `
           <div class="bill-item">
@@ -601,7 +675,6 @@
       calculateChange();
     }
 
-    // Cash Return Calculation
     function calculateChange() {
       const grandTotalText = document.getElementById('grandTotal').innerText.replace('₹', '');
       const grandTotal = parseFloat(grandTotalText) || 0;
@@ -610,78 +683,53 @@
 
       if (cashGiven >= grandTotal && grandTotal > 0) {
         const change = cashGiven - grandTotal;
-        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన చిల్లర: ₹${change.toFixed(2)}`;
+        changeDisplay.innerText = `Change Due: ₹${change.toFixed(2)}`;
         changeDisplay.style.color = '#2e7d32';
       } else if (cashGiven > 0 && cashGiven < grandTotal) {
         const remaining = grandTotal - cashGiven;
-        changeDisplay.innerText = `ఇంకా ఇవ్వాల్సిన మొత్తం: ₹${remaining.toFixed(2)}`;
+        changeDisplay.innerText = `Balance Due: ₹${remaining.toFixed(2)}`;
         changeDisplay.style.color = '#d32f2f';
       } else {
-        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00`;
+        changeDisplay.innerText = `Change Due: ₹0.00`;
         changeDisplay.style.color = '#666';
       }
     }
 
-    // Search filter
     function filterItems() {
       const text = document.getElementById('searchInput').value.toLowerCase();
       const filtered = sweets.filter(item => item.name.toLowerCase().includes(text));
       renderItems(filtered);
     }
 
-    // Print Bill Action
     function printReceipt() {
       if (cart.length === 0) {
-        alert("దయచేసి బిల్ కోసం కనీసం ఒక స్వీట్ అయినా యాడ్ చేయండి!");
+        alert("Please add at least one sweet to the cart.");
         return;
       }
+
+      const billNo = document.getElementById('billNo').innerText;
+      const total = document.getElementById('grandTotal').innerText;
+      const itemsPurchased = cart.map(i => `${i.name} (${i.qty}kg)`).join(', ');
+
+      // Save to History
+      orderHistory.unshift({
+        billNo: '#' + billNo,
+        date: new Date().toLocaleString('en-GB'),
+        items: itemsPurchased,
+        total: total,
+        payment: 'Cash'
+      });
+      localStorage.setItem('raghavendraHistory', JSON.stringify(orderHistory));
+
+      // Trigger Print
       window.print();
-      
-      // Update Bill Number & Clear Screen
-      document.getElementById('billNo').innerText = parseInt(document.getElementById('billNo').innerText) + 1;
+
+      // Reset Bill
+      document.getElementById('billNo').innerText = parseInt(billNo) + 1;
       cart = [];
       document.getElementById('cashGiven').value = '';
       updateBill();
     }
 
-    // Modal Operations for adding new sweets
-    function openAddModal() {
-      document.getElementById('addModal').style.display = 'flex';
-    }
-
-    function closeAddModal() {
-      document.getElementById('addModal').style.display = 'none';
-      document.getElementById('newSweetName').value = '';
-      document.getElementById('newSweetPrice').value = '';
-    }
-
-    function saveNewSweet() {
-      const name = document.getElementById('newSweetName').value.trim();
-      const price = parseFloat(document.getElementById('newSweetPrice').value);
-      const icon = document.getElementById('newSweetIcon').value;
-
-      if (!name || isNaN(price) || price <= 0) {
-        alert("దయచేసి సరైన స్వీట్ పేరు మరియు ధర నమోదు చేయండి!");
-        return;
-      }
-
-      const newSweet = {
-        id: Date.now(),
-        name: name,
-        price: price,
-        icon: icon
-      };
-
-      sweets.push(newSweet);
-      localStorage.setItem('sweetShopItems', JSON.stringify(sweets));
-      
-      renderItems(sweets);
-      closeAddModal();
-    }
-
-    // Init
-    setDate();
-    renderItems(sweets);
-  </script>
-</body>
-</html>
+    function renderHistory() {
+      const list = document.getEleme
