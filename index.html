@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>రాయల్ స్వీట్స్ - POS & Billing</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Left Section: Menu */
+    .menu-container {
+      flex: 6;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header-bar h1 {
+      color: #b84200;
+      font-size: 24px;
+    }
+
+    .search-input {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      outline: none;
+    }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .item-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eee;
+    }
+
+    .item-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .item-card .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .item-card h3 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .item-card .price {
+      font-weight: bold;
+      color: #b84200;
+    }
+
+    /* Right Section: Billing */
+    .billing-container {
+      flex: 4;
+      background: white;
+      border-left: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: -4px 0 10px rgba(0,0,0,0.03);
+    }
+
+    .bill-header {
+      border-bottom: 2px dashed #eee;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .bill-items-list {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+
+    .bill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f9f9f9;
+    }
+
+    .bill-item-info {
+      flex: 2;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .qty-btn {
+      background: #eee;
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .item-total {
+      flex: 1;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .summary-section {
+      border-top: 2px dashed #eee;
+      padding-top: 15px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: #666;
+    }
+
+    .summary-row.total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 10px;
+    }
+
+    /* Cash Calculator Section */
+    .cash-section {
+      margin-top: 15px;
+      background: #fdf8f5;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #f3e0d5;
+    }
+
+    .cash-input-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    .cash-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      outline: none;
+    }
+
+    .change-text {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .checkout-btn {
+      background: #b84200;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.2s;
+    }
+
+    .checkout-btn:hover {
+      background: #963500;
+    }
+
+    /* Print styling */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .billing-container, .billing-container * {
+        visibility: visible;
+      }
+      .billing-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+      }
+      .qty-controls, .cash-section, .checkout-btn, .search-input {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Section -->
+  <div class="menu-container">
+    <div class="header-bar">
+      <h1>🍬 రాయల్ స్వీట్స్ (Sweets POS)</h1>
+      <input type="text" id="searchInput" class="search-input" placeholder="స్వీట్స్ వెతకండి..." onkeyup="filterItems()">
+    </div>
+
+    <div class="items-grid" id="itemsGrid">
+      <!-- Items will be loaded by JS -->
+    </div>
+  </div>
+
+  <!-- Billing & Payment Section -->
+  <div class="billing-container">
+    <div class="bill-header">
+      <h2>ఆర్డర్ వివరాలు (Current Bill)</h2>
+      <p style="color: #888; font-size: 13px;">బిల్ నంబర్: #<span id="billNo">1001</span></p>
+    </div>
+
+    <div class="bill-items-list" id="billList">
+      <p style="text-align: center; color: #999; margin-top: 30px;">స్వీట్స్ సెలెక్ట్ చేయండి</p>
+    </div>
+
+    <div class="summary-section">
+      <div class="summary-row">
+        <span>సబ్ టోటల్ (Subtotal):</span>
+        <span id="subTotal">₹0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>GST (5%):</span>
+        <span id="gstAmount">₹0.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>మొత్తం (Grand Total):</span>
+        <span id="grandTotal">₹0.00</span>
+      </div>
+
+      <!-- Cash Calculation -->
+      <div class="cash-section">
+        <label style="font-size: 13px; font-weight: bold; color: #555;">క్యాష్ పేమెంట్ (Cash Received):</label>
+        <div class="cash-input-group">
+          <input type="number" id="cashGiven" class="cash-input" placeholder="₹ కస్టమర్ ఇచ్చిన మొత్తం" oninput="calculateChange()">
+        </div>
+        <div class="change-text" id="changeDisplay">తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00</div>
+      </div>
+
+      <button class="checkout-btn" onclick="printReceipt()">బిల్ ప్రింట్ చేయండి (Print Bill)</button>
+    </div>
+  </div>
+
+  <script>
+    const sweets = [
+      { id: 1, name: "గులాబ్ జామున్ (Gulab Jamun)", price: 320, icon: "🧆" },
+      { id: 2, name: "కాజు కట్లీ (Kaju Katli)", price: 950, icon: "💎" },
+      { id: 3, name: "మోతీచూర్ లడ్డు (Motichoor Laddu)", price: 400, icon: "🟡" },
+      { id: 4, name: "మైసూర్ పాక్ (Mysore Pak)", price: 480, icon: "🧈" },
+      { id: 5, name: "రసగుల్లా (Rasgulla)", price: 350, icon: "⚪" },
+      { id: 6, name: "జిలేబీ (Jalebi)", price: 280, icon: "🥨" },
+      { id: 7, name: "బాదుషా (Badusha)", price: 380, icon: "🍩" },
+      { id: 8, name: "పాలకోవ (Pala Kova)", price: 520, icon: "🥛" },
+      { id: 9, name: "మిక్స్డ్ డ్రై ఫ్రూట్ (Dry Fruit)", price: 1100, icon: "🥜" }
+    ];
+
+    let cart = [];
+
+    // Render Items
+    function renderItems(items) {
+      const grid = document.getElementById('itemsGrid');
+      grid.innerHTML = items.map(item => `
+        <div class="item-card" onclick="addToCart(${item.id})">
+          <div class="icon">${item.icon}</div>
+          <h3>${item.name}</h3>
+          <div class="price">₹${item.price} / kg</div>
+        </div>
+      `).join('');
+    }
+
+    // Add to Cart
+    function addToCart(id) {
+      const item = sweets.find(s => s.id === id);
+      const existing = cart.find(c => c.id === id);
+
+      if (existing) {
+        existing.qty += 0.25; // adds 250g
+      } else {
+        cart.push({ ...item, qty: 0.25 });
+      }
+      updateBill();
+    }
+
+    // Update Quantity
+    function updateQty(id, change) {
+      const item = cart.find(c => c.id === id);
+      if (!item) return;
+
+      item.qty += change;
+      if (item.qty <= 0) {
+        cart = cart.filter(c => c.id !== id);
+      }
+      updateBill();
+    }
+
+    // Update UI & Calculations
+    function updateBill() {
+      const list = document.getElementById('billList');
+      
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="text-align: center; color: #999; margin-top: 30px;">స్వీట్స్ సెలెక్ట్ చేయండి</p>';
+      } else {
+        list.innerHTML = cart.map(item => `
+          <div class="bill-item">
+            <div class="bill-item-info">
+              <strong>${item.name}</strong><br>
+              <small style="color: #666;">₹${item.price}/kg</small>
+            </div>
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty(${item.id}, -0.25)">-</button>
+              <span>${item.qty} kg</span>
+              <button class="qty-btn" onclick="updateQty(${item.id}, 0.25)">+</button>
+            </div>
+            <div class="item-total">₹${(item.price * item.qty).toFixed(2)}</div>
+          </div>
+        `).join('');
+      }
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const gst = subtotal * 0.05;
+      const total = subtotal + gst;
+
+      document.getElementById('subTotal').innerText = `₹${subtotal.toFixed(2)}`;
+      document.getElementById('gstAmount').innerText = `₹${gst.toFixed(2)}`;
+      document.getElementById('grandTotal').innerText = `₹${total.toFixed(2)}`;
+
+      calculateChange();
+    }
+
+    // Calculate Return Cash
+    function calculateChange() {
+      const grandTotalText = document.getElementById('grandTotal').innerText.replace('₹', '');
+      const grandTotal = parseFloat(grandTotalText) || 0;
+      const cashGiven = parseFloat(document.getElementById('cashGiven').value) || 0;
+      const changeDisplay = document.getElementById('changeDisplay');
+
+      if (cashGiven >= grandTotal && grandTotal > 0) {
+        const change = cashGiven - grandTotal;
+        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన మొత్తం: ₹${change.toFixed(2)}`;
+        changeDisplay.style.color = '#2e7d32';
+      } else if (cashGiven > 0 && cashGiven < grandTotal) {
+        const remaining = grandTotal - cashGiven;
+        changeDisplay.innerText = `ఇంకా రావాల్సిన మొత్తం: ₹${remaining.toFixed(2)}`;
+        changeDisplay.style.color = '#d32f2f';
+      } else {
+        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00`;
+        changeDisplay.style.color = '#666';
+      }
+    }
+
+    // Filter Search
+    function filterItems() {
+      const text = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = sweets.filter(item => item.name.toLowerCase().includes(text));
+      renderItems(filtered);
+    }
+
+    // Print & Reset
+    function printReceipt() {
+      if (cart.length === 0) {
+        alert("దయచేసి కనీసం ఒక ఐటమ్ అయినా యాడ్ చేయండి!");
+        return;
+      }
+      window.print();
+      
+      // Auto-increment bill number and clear after print
+      document.getElementById('billNo').innerText = parseInt(document.getElementById('billNo').innerText) + 1;
+      cart = [];
+      document.getElementById('cashGiven').value = '';
+      updateBill();
+    }
+
+    // Initialize
+    renderItems(sweets);
+  </script>
+</body>
+</html>
