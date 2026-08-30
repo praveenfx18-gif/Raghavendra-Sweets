@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-      content="Raghavendra Sweets - Traditional Indian sweets made with purity, tradition and love.">
+      content="Raghavendra Sweets - Pure traditional Indian sweets made with quality and care.">
 
 <meta name="theme-color" content="#68140e">
 
 <title>Raghavendra Sweets | Taste of Tradition</title>
 
+
 <style>
+
+/* ================================
+   RESET
+================================ */
 
 *{
     margin:0;
@@ -28,9 +34,10 @@ body{
     color:#3d160f;
 }
 
-/* =========================
+
+/* ================================
    HEADER
-========================= */
+================================ */
 
 header{
     position:fixed;
@@ -39,25 +46,30 @@ header{
     width:100%;
     z-index:1000;
 
-    background:rgba(104,20,14,0.97);
+    background:rgba(104,20,14,0.98);
+
     border-bottom:2px solid #d5a52b;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+
+    box-shadow:0 4px 20px rgba(0,0,0,0.22);
 }
+
 
 .navbar{
     max-width:1200px;
-    margin:auto;
-
     min-height:78px;
+
+    margin:auto;
+    padding:0 22px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 22px;
 }
 
-/* LOGO */
+
+/* ================================
+   LOGO
+================================ */
 
 .logo{
     display:flex;
@@ -68,38 +80,59 @@ header{
     text-decoration:none;
 }
 
+
 .logo-symbol{
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
 
     border:2px solid #d5a52b;
     border-radius:50%;
+
+    overflow:hidden;
+
+    background:#4d0d09;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:25px;
-    color:#d5a52b;
-
-    background:#4d0d09;
+    flex-shrink:0;
 }
+
+
+.logo-symbol img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
 
 .logo-text h1{
     font-size:23px;
     letter-spacing:1px;
 }
 
+
 .logo-text span{
     display:block;
+
+    margin-top:2px;
+
     font-family:Arial,sans-serif;
+
     font-size:10px;
     letter-spacing:3px;
+
     color:#e7c66b;
-    margin-top:2px;
 }
 
-/* NAVIGATION */
+
+/* ================================
+   NAVIGATION
+================================ */
 
 .nav-links{
     display:flex;
@@ -107,55 +140,71 @@ header{
     gap:28px;
 }
 
+
 .nav-links a{
     color:#fff8dc;
     text-decoration:none;
 
     font-family:Arial,sans-serif;
+
     font-size:14px;
     font-weight:600;
 
     transition:0.3s;
 }
 
+
 .nav-links a:hover{
     color:#ffd75b;
 }
 
+
 .shop-btn{
-    padding:11px 20px;
+    padding:11px 21px;
 
     border:1px solid #d5a52b;
     border-radius:25px;
 
-    color:#68140e !important;
     background:#e8bd45;
+
+    color:#68140e !important;
 
     font-weight:bold !important;
 }
 
+
 .shop-btn:hover{
     background:#f5d77b;
+
     transform:translateY(-2px);
 }
+
 
 /* MOBILE MENU */
 
 .menu-btn{
     display:none;
-    color:#fff;
-    font-size:28px;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    font-size:29px;
+
     cursor:pointer;
 }
 
-/* =========================
+
+/* ================================
    HERO
-========================= */
+================================ */
 
 .hero{
     min-height:100vh;
 
-    padding:130px 20px 70px;
+    padding:135px 20px 70px;
+
+    position:relative;
 
     display:flex;
     align-items:center;
@@ -163,63 +212,93 @@ header{
 
     text-align:center;
 
-    position:relative;
     overflow:hidden;
 
     background:
-        radial-gradient(circle at 20% 30%,rgba(213,165,43,0.18),transparent 25%),
-        radial-gradient(circle at 80% 70%,rgba(104,20,14,0.15),transparent 30%),
-        linear-gradient(135deg,#fffaf0,#f7e4ad);
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(213,165,43,0.18),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(104,20,14,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f7e4ad
+        );
 }
+
 
 .hero-content{
     max-width:900px;
+
     animation:fadeUp 1s ease;
 }
 
+
 .small-title{
+    margin-bottom:18px;
+
     color:#9a7014;
 
     font-family:Arial,sans-serif;
+
     font-size:13px;
     font-weight:bold;
 
     letter-spacing:4px;
-    text-transform:uppercase;
 
-    margin-bottom:18px;
+    text-transform:uppercase;
 }
 
+
 .hero h2{
-    font-size:clamp(42px,7vw,78px);
-    line-height:1.05;
+    margin-bottom:20px;
 
     color:#68140e;
 
-    margin-bottom:20px;
+    font-size:clamp(42px,7vw,78px);
+
+    line-height:1.05;
 }
+
 
 .hero h2 span{
     color:#b38318;
 }
 
+
 .hero p{
     max-width:650px;
+
     margin:0 auto 32px;
 
-    font-family:Arial,sans-serif;
     color:#69453d;
 
+    font-family:Arial,sans-serif;
+
     font-size:17px;
+
     line-height:1.8;
 }
 
+
 .hero-buttons{
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     flex-wrap:wrap;
 }
+
 
 .primary-btn,
 .secondary-btn{
@@ -229,39 +308,51 @@ header{
 
     border-radius:30px;
 
-    text-decoration:none;
-
     font-family:Arial,sans-serif;
+
     font-weight:bold;
+
+    text-decoration:none;
 
     transition:0.3s;
 }
 
+
 .primary-btn{
     background:#68140e;
-    color:white;
 
     border:2px solid #68140e;
+
+    color:white;
 }
+
 
 .primary-btn:hover{
     background:#8d241b;
+
     transform:translateY(-3px);
+
     box-shadow:0 8px 20px rgba(104,20,14,0.25);
 }
 
+
 .secondary-btn{
-    color:#68140e;
-    border:2px solid #68140e;
     background:transparent;
+
+    border:2px solid #68140e;
+
+    color:#68140e;
 }
+
 
 .secondary-btn:hover{
     background:#68140e;
+
     color:white;
 }
 
-/* DECORATIONS */
+
+/* HERO DECORATION */
 
 .hero::before,
 .hero::after{
@@ -270,136 +361,178 @@ header{
     position:absolute;
 
     color:#d5a52b;
+
     opacity:0.35;
 
     font-size:100px;
+
+    pointer-events:none;
 }
+
 
 .hero::before{
     left:5%;
     top:30%;
 }
 
+
 .hero::after{
     right:5%;
     bottom:20%;
 }
 
-/* =========================
+
+/* ================================
    TRUST BAR
-========================= */
+================================ */
 
 .trust-bar{
     background:#68140e;
+
     color:#fff4c8;
 
     border-top:1px solid #d5a52b;
+
     border-bottom:1px solid #d5a52b;
 }
 
+
 .trust-container{
     max-width:1100px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
 }
 
+
 .trust-item{
     padding:24px 15px;
+
     text-align:center;
 
     border-right:1px solid rgba(213,165,43,0.35);
 }
 
+
 .trust-item:last-child{
     border-right:none;
 }
 
+
 .trust-icon{
-    font-size:27px;
-    color:#e5bd4c;
     margin-bottom:7px;
+
+    color:#e5bd4c;
+
+    font-size:27px;
 }
+
 
 .trust-item h3{
-    font-size:15px;
     margin-bottom:4px;
+
+    font-size:15px;
 }
+
 
 .trust-item p{
-    font-family:Arial,sans-serif;
-    font-size:11px;
     color:#e6cf9b;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
 }
 
-/* =========================
-   COMMON SECTION
-========================= */
+
+/* ================================
+   COMMON SECTIONS
+================================ */
 
 section{
     padding:90px 20px;
 }
 
+
 .section-container{
     max-width:1150px;
+
     margin:auto;
 }
 
+
 .section-title{
-    text-align:center;
     margin-bottom:50px;
+
+    text-align:center;
 }
+
 
 .section-title small{
     display:block;
 
+    margin-bottom:10px;
+
     color:#a27817;
 
     font-family:Arial,sans-serif;
+
     font-size:11px;
     font-weight:bold;
 
     letter-spacing:3px;
-    text-transform:uppercase;
 
-    margin-bottom:10px;
+    text-transform:uppercase;
 }
+
 
 .section-title h2{
     color:#68140e;
+
     font-size:38px;
 }
 
+
 .section-title p{
     max-width:650px;
+
     margin:14px auto 0;
 
-    font-family:Arial,sans-serif;
     color:#76564e;
+
+    font-family:Arial,sans-serif;
 
     line-height:1.7;
 }
 
-/* =========================
+
+/* ================================
    ABOUT
-========================= */
+================================ */
 
 .about{
     background:#fffaf0;
 }
 
+
 .about-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:60px;
+
     align-items:center;
 }
+
 
 .about-card{
     min-height:420px;
 
     border:2px solid #d5a52b;
+
     border-radius:12px;
 
     background:
@@ -410,173 +543,227 @@ section{
         );
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
 
-    box-shadow:0 15px 40px rgba(70,20,10,0.18);
+    box-shadow:
+        0 15px 40px rgba(70,20,10,0.18);
 }
 
-.about-emblem{
-    width:190px;
-    height:190px;
+
+.about-logo{
+    width:205px;
+    height:205px;
 
     border:2px solid #d5a52b;
+
     border-radius:50%;
 
+    overflow:hidden;
+
+    background:#4d0d09;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-
-    flex-direction:column;
-
-    color:#f0cf70;
 }
 
-.about-emblem strong{
-    font-size:45px;
+
+.about-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
 }
 
-.about-emblem span{
-    font-family:Arial,sans-serif;
-    font-size:10px;
-    letter-spacing:3px;
-}
 
 .about-text h2{
-    color:#68140e;
-    font-size:38px;
     margin-bottom:20px;
+
+    color:#68140e;
+
+    font-size:38px;
 }
 
+
 .about-text p{
-    font-family:Arial,sans-serif;
-    color:#68483f;
-    line-height:1.9;
     margin-bottom:18px;
+
+    color:#68483f;
+
+    font-family:Arial,sans-serif;
+
+    line-height:1.9;
 }
+
 
 .about-points{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:12px;
 
     margin-top:25px;
 }
 
+
 .about-point{
     padding:13px;
 
     background:#f8ebc7;
+
     border-left:3px solid #d5a52b;
 
     font-family:Arial,sans-serif;
+
     font-size:13px;
     font-weight:bold;
 }
 
-/* =========================
+
+/* ================================
    SWEETS
-========================= */
+================================ */
 
 .featured{
     background:#f7e7b9;
 }
 
+
 .sweets-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:24px;
 }
 
+
 .sweet-card{
+    overflow:hidden;
+
     background:#fffdf6;
 
     border:1px solid #e1c879;
+
     border-radius:12px;
 
-    overflow:hidden;
+    box-shadow:
+        0 8px 25px rgba(70,30,10,0.08);
 
     transition:0.35s;
-
-    box-shadow:0 8px 25px rgba(70,30,10,0.08);
 }
+
 
 .sweet-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(70,30,10,0.16);
+
+    box-shadow:
+        0 15px 35px rgba(70,30,10,0.16);
 }
+
 
 .sweet-image{
     height:210px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:
-        linear-gradient(135deg,#fff8dd,#ecd58f);
+        linear-gradient(
+            135deg,
+            #fff8dd,
+            #ecd58f
+        );
 
     font-size:70px;
 }
+
 
 .sweet-content{
     padding:22px;
 }
 
+
 .sweet-content h3{
-    color:#68140e;
-    font-size:22px;
     margin-bottom:8px;
+
+    color:#68140e;
+
+    font-size:22px;
 }
+
 
 .sweet-content p{
-    font-family:Arial,sans-serif;
-    color:#76564e;
-    font-size:13px;
-    line-height:1.6;
     margin-bottom:16px;
+
+    color:#76564e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    line-height:1.6;
 }
+
 
 .view-shop{
-    display:inline-block;
-
     color:#8b6510;
-    text-decoration:none;
 
     font-family:Arial,sans-serif;
-    font-weight:bold;
+
     font-size:13px;
+    font-weight:bold;
+
+    text-decoration:none;
 }
+
 
 .view-shop:hover{
     color:#68140e;
 }
 
-/* =========================
+
+/* ================================
    WHY US
-========================= */
+================================ */
 
 .why-us{
     background:#fffaf0;
 }
 
+
 .features{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:25px;
 }
 
+
 .feature{
-    text-align:center;
     padding:30px 20px;
 
+    background:white;
+
     border:1px solid #ead8a5;
+
     border-radius:10px;
 
-    background:white;
+    text-align:center;
 }
+
 
 .feature-icon{
     width:65px;
@@ -587,30 +774,40 @@ section{
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:#68140e;
+
     color:#e8c35d;
 
     font-size:27px;
 }
 
+
 .feature h3{
-    color:#68140e;
     margin-bottom:10px;
+
+    color:#68140e;
 }
 
+
 .feature p{
-    font-family:Arial,sans-serif;
     color:#76564e;
+
+    font-family:Arial,sans-serif;
+
     font-size:13px;
+
     line-height:1.7;
 }
 
-/* =========================
-   CTA
-========================= */
+
+/* ================================
+   CALL TO ACTION
+================================ */
 
 .cta{
     padding:80px 20px;
@@ -622,25 +819,33 @@ section{
             #4a0c08
         );
 
-    text-align:center;
-
     color:white;
+
+    text-align:center;
 }
+
 
 .cta h2{
-    font-size:40px;
-    color:#f1cf6a;
     margin-bottom:15px;
+
+    color:#f1cf6a;
+
+    font-size:40px;
 }
+
 
 .cta p{
     max-width:650px;
+
     margin:0 auto 28px;
 
-    font-family:Arial,sans-serif;
     color:#f3dfae;
+
+    font-family:Arial,sans-serif;
+
     line-height:1.7;
 }
+
 
 .cta-btn{
     display:inline-block;
@@ -648,99 +853,128 @@ section{
     padding:14px 30px;
 
     background:#e6ba43;
-    color:#54100b;
 
     border-radius:30px;
 
-    text-decoration:none;
+    color:#54100b;
 
     font-family:Arial,sans-serif;
+
     font-weight:bold;
+
+    text-decoration:none;
 
     transition:0.3s;
 }
 
+
 .cta-btn:hover{
     background:#f4d477;
+
     transform:translateY(-3px);
 }
 
-/* =========================
+
+/* ================================
    FOOTER
-========================= */
+================================ */
 
 footer{
-    background:#300806;
-    color:#ead8a5;
-
     padding:55px 20px 20px;
+
+    background:#300806;
+
+    color:#ead8a5;
 }
+
 
 .footer-container{
     max-width:1150px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:2fr 1fr 1fr;
+
     gap:50px;
 }
 
+
 .footer-brand h2{
-    color:#f0cc65;
     margin-bottom:12px;
+
+    color:#f0cc65;
 }
+
 
 .footer-brand p{
-    font-family:Arial,sans-serif;
-    color:#c9ad82;
-    line-height:1.7;
-    font-size:13px;
     max-width:400px;
+
+    color:#c9ad82;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    line-height:1.7;
 }
 
+
 .footer-column h3{
-    color:#f0cc65;
     margin-bottom:18px;
+
+    color:#f0cc65;
+
     font-size:16px;
 }
+
 
 .footer-column a{
     display:block;
 
+    margin-bottom:11px;
+
     color:#c9ad82;
-    text-decoration:none;
 
     font-family:Arial,sans-serif;
+
     font-size:13px;
 
-    margin-bottom:11px;
+    text-decoration:none;
 }
 
+
 .footer-column a:hover{
-    color:#fff;
+    color:white;
 }
+
 
 .copyright{
     max-width:1150px;
+
     margin:40px auto 0;
 
     padding-top:20px;
 
     border-top:1px solid rgba(213,165,43,0.2);
 
-    text-align:center;
+    color:#987b57;
 
     font-family:Arial,sans-serif;
+
     font-size:11px;
 
-    color:#987b57;
+    text-align:center;
 }
 
-/* =========================
+
+/* ================================
    ANIMATION
-========================= */
+================================ */
 
 @keyframes fadeUp{
+
     from{
         opacity:0;
         transform:translateY(25px);
@@ -750,11 +984,13 @@ footer{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* ================================
+   TABLET
+================================ */
 
 @media(max-width:800px){
 
@@ -771,58 +1007,78 @@ footer{
         background:#68140e;
 
         flex-direction:column;
+
         gap:0;
 
         border-bottom:2px solid #d5a52b;
     }
 
+
     .nav-links.active{
         display:flex;
     }
 
+
     .nav-links a{
         width:100%;
-        text-align:center;
 
         padding:16px;
 
         border-bottom:1px solid rgba(213,165,43,0.15);
+
+        text-align:center;
     }
+
 
     .menu-btn{
         display:block;
     }
 
+
     .trust-container{
         grid-template-columns:1fr 1fr;
     }
+
 
     .trust-item{
         border-bottom:1px solid rgba(213,165,43,0.25);
     }
 
+
     .about-grid{
         grid-template-columns:1fr;
+
         gap:35px;
     }
+
 
     .about-card{
         min-height:300px;
     }
 
+
     .sweets-grid{
         grid-template-columns:1fr;
     }
+
 
     .features{
         grid-template-columns:1fr;
     }
 
+
     .footer-container{
         grid-template-columns:1fr;
+
         gap:30px;
     }
+
 }
+
+
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width:500px){
 
@@ -830,214 +1086,334 @@ footer{
         padding:0 15px;
     }
 
+
+    .logo-symbol{
+        width:43px;
+        height:43px;
+    }
+
+
     .logo-text h1{
         font-size:18px;
     }
+
+
+    .logo-text span{
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
 
     .hero{
         padding-top:120px;
     }
 
+
     .hero h2{
         font-size:43px;
     }
+
 
     .hero p{
         font-size:14px;
     }
 
+
     .section-title h2{
         font-size:30px;
     }
+
 
     .about-text h2{
         font-size:30px;
     }
 
+
     .cta h2{
         font-size:30px;
     }
 
+
     .about-points{
         grid-template-columns:1fr;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
 <header>
 
 <nav class="navbar">
 
-<a href="index.html" class="logo">
 
-    <div class="logo-symbol">
-        ॐ
-    </div>
+    <!-- LOGO -->
 
-    <div class="logo-text">
-        <h1>Raghavendra Sweets</h1>
-        <span>TASTE OF TRADITION</span>
-    </div>
+    <a href="index.html" class="logo">
 
-</a>
+        <div class="logo-symbol">
 
-<div class="menu-btn" onclick="toggleMenu()">
-    ☰
-</div>
+            <img
+                src="logo.png"
+                alt="Raghavendra Sweets Logo"
+            >
 
-<div class="nav-links" id="navLinks">
+        </div>
 
-    <a href="index.html">Home</a>
 
-    <a href="#about">About</a>
+        <div class="logo-text">
 
-    <a href="#sweets">Our Sweets</a>
+            <h1>
+                Raghavendra Sweets
+            </h1>
 
-    <a href="#why">Why Us</a>
+            <span>
+                TASTE OF TRADITION
+            </span>
 
-    <a href="shop.html" class="shop-btn">
-        Visit Shop
+        </div>
+
     </a>
 
-</div>
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <div
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open Menu"
+    >
+        ☰
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#sweets">
+            Our Sweets
+        </a>
+
+        <a href="#why">
+            Why Us
+        </a>
+
+        <a
+            href="shop.html"
+            class="shop-btn"
+        >
+            Visit Shop
+        </a>
+
+    </div>
 
 </nav>
 
 </header>
 
 
-<!-- =========================
+
+<!-- =========================================
      HERO
-========================= -->
+========================================= -->
 
 <section class="hero">
 
 <div class="hero-content">
 
+
     <div class="small-title">
         Pure • Traditional • Delicious
     </div>
 
+
     <h2>
-        The Taste<br>
-        <span>of Tradition</span>
+
+        The Taste
+
+        <br>
+
+        <span>
+            of Tradition
+        </span>
+
     </h2>
 
+
     <p>
-        Welcome to Raghavendra Sweets — where traditional Indian
-        sweets are crafted with purity, quality ingredients and
-        timeless recipes.
+
+        Welcome to Raghavendra Sweets —
+        where traditional Indian sweets are
+        crafted with purity, quality ingredients
+        and timeless recipes.
+
     </p>
+
 
     <div class="hero-buttons">
 
-        <a href="shop.html" class="primary-btn">
+        <a
+            href="shop.html"
+            class="primary-btn"
+        >
             Explore Our Sweets
         </a>
 
-        <a href="#about" class="secondary-btn">
+
+        <a
+            href="#about"
+            class="secondary-btn"
+        >
             Discover Our Story
         </a>
 
     </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================
      TRUST BAR
-========================= -->
+========================================= -->
 
 <div class="trust-bar">
 
 <div class="trust-container">
 
+
     <div class="trust-item">
 
-        <div class="trust-icon">✦</div>
+        <div class="trust-icon">
+            ✦
+        </div>
 
-        <h3>Pure Ingredients</h3>
+        <h3>
+            Pure Ingredients
+        </h3>
 
-        <p>Quality you can trust</p>
+        <p>
+            Quality you can trust
+        </p>
 
     </div>
 
 
+
     <div class="trust-item">
 
-        <div class="trust-icon">◆</div>
+        <div class="trust-icon">
+            ◆
+        </div>
 
-        <h3>Traditional Recipes</h3>
+        <h3>
+            Traditional Recipes
+        </h3>
 
-        <p>Made with timeless methods</p>
+        <p>
+            Made with timeless methods
+        </p>
 
     </div>
 
 
+
     <div class="trust-item">
 
-        <div class="trust-icon">♥</div>
+        <div class="trust-icon">
+            ♥
+        </div>
 
-        <h3>Made With Love</h3>
+        <h3>
+            Made With Love
+        </h3>
 
-        <p>Freshness in every bite</p>
+        <p>
+            Freshness in every bite
+        </p>
 
     </div>
 
 
+
     <div class="trust-item">
 
-        <div class="trust-icon">★</div>
+        <div class="trust-icon">
+            ★
+        </div>
 
-        <h3>Customer First</h3>
+        <h3>
+            Customer First
+        </h3>
 
-        <p>Your happiness matters</p>
+        <p>
+            Your happiness matters
+        </p>
 
     </div>
+
 
 </div>
 
 </div>
 
 
-<!-- =========================
+
+<!-- =========================================
      ABOUT
-========================= -->
+========================================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about"
+>
 
 <div class="section-container">
 
+
 <div class="about-grid">
+
+
+    <!-- BRAND LOGO CARD -->
 
     <div class="about-card">
 
-        <div class="about-emblem">
+        <div class="about-logo">
 
-            <strong>ॐ</strong>
-
-            <span>
-                RAGHAVENDRA
-            </span>
-
-            <span>
-                SWEETS
-            </span>
+            <img
+                src="logo.png"
+                alt="Raghavendra Sweets"
+            >
 
         </div>
 
     </div>
 
+
+
+    <!-- STORY -->
 
     <div class="about-text">
 
@@ -1045,43 +1421,59 @@ footer{
             Our Story
         </div>
 
+
         <h2>
             Tradition in Every Bite
         </h2>
 
-        <p>
-            At Raghavendra Sweets, we believe that sweets are more
-            than just food — they are a part of our celebrations,
-            memories and traditions.
-        </p>
 
         <p>
-            From classic Indian favourites to special festive
-            delicacies, every sweet is prepared with attention to
-            quality, freshness and authentic taste.
+
+            At Raghavendra Sweets, we believe
+            that sweets are more than just food —
+            they are a part of our celebrations,
+            memories and traditions.
+
         </p>
+
+
+        <p>
+
+            From classic Indian favourites to
+            special festive delicacies, every sweet
+            is prepared with attention to quality,
+            freshness and authentic taste.
+
+        </p>
+
 
         <div class="about-points">
+
 
             <div class="about-point">
                 ✓ Freshly Prepared
             </div>
 
+
             <div class="about-point">
                 ✓ Quality Ingredients
             </div>
+
 
             <div class="about-point">
                 ✓ Authentic Taste
             </div>
 
+
             <div class="about-point">
                 ✓ Hygienic Preparation
             </div>
 
+
         </div>
 
     </div>
+
 
 </div>
 
@@ -1090,30 +1482,46 @@ footer{
 </section>
 
 
-<!-- =========================
-     FEATURED SWEETS
-========================= -->
 
-<section class="featured" id="sweets">
+<!-- =========================================
+     FEATURED SWEETS
+========================================= -->
+
+<section
+    class="featured"
+    id="sweets"
+>
 
 <div class="section-container">
 
+
 <div class="section-title">
 
-    <small>Our Specialities</small>
+    <small>
+        Our Specialities
+    </small>
 
-    <h2>Favourite Sweets</h2>
+
+    <h2>
+        Favourite Sweets
+    </h2>
+
 
     <p>
-        A glimpse of the delicious treats waiting for you
-        at Raghavendra Sweets.
+
+        A glimpse of the delicious treats
+        waiting for you at Raghavendra Sweets.
+
     </p>
 
 </div>
 
 
+
 <div class="sweets-grid">
 
+
+    <!-- SWEET 1 -->
 
     <div class="sweet-card">
 
@@ -1121,16 +1529,26 @@ footer{
             🍮
         </div>
 
+
         <div class="sweet-content">
 
-            <h3>Gulab Jamun</h3>
+            <h3>
+                Gulab Jamun
+            </h3>
+
 
             <p>
-                Soft, delicious and soaked in perfectly
-                flavoured sugar syrup.
+
+                Soft, delicious and soaked in
+                perfectly flavoured sugar syrup.
+
             </p>
 
-            <a href="shop.html" class="view-shop">
+
+            <a
+                href="shop.html"
+                class="view-shop"
+            >
                 VIEW IN SHOP →
             </a>
 
@@ -1138,6 +1556,9 @@ footer{
 
     </div>
 
+
+
+    <!-- SWEET 2 -->
 
     <div class="sweet-card">
 
@@ -1145,16 +1566,26 @@ footer{
             🟡
         </div>
 
+
         <div class="sweet-content">
 
-            <h3>Boondi Laddu</h3>
+            <h3>
+                Boondi Laddu
+            </h3>
+
 
             <p>
-                A timeless Indian favourite made with
-                traditional preparation.
+
+                A timeless Indian favourite made
+                with traditional preparation.
+
             </p>
 
-            <a href="shop.html" class="view-shop">
+
+            <a
+                href="shop.html"
+                class="view-shop"
+            >
                 VIEW IN SHOP →
             </a>
 
@@ -1162,6 +1593,9 @@ footer{
 
     </div>
 
+
+
+    <!-- SWEET 3 -->
 
     <div class="sweet-card">
 
@@ -1169,173 +1603,8 @@ footer{
             🥮
         </div>
 
+
         <div class="sweet-content">
 
-            <h3>Kaju Katli</h3>
-
-            <p>
-                Rich and elegant cashew sweet with a
-                smooth traditional taste.
-            </p>
-
-            <a href="shop.html" class="view-shop">
-                VIEW IN SHOP →
-            </a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     WHY US
-========================= -->
-
-<section class="why-us" id="why">
-
-<div class="section-container">
-
-<div class="section-title">
-
-    <small>Why Raghavendra Sweets</small>
-
-    <h2>Made Different</h2>
-
-    <p>
-        We combine tradition, quality and care to give
-        you sweets worth remembering.
-    </p>
-
-</div>
-
-
-<div class="features">
-
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            ✦
-        </div>
-
-        <h3>Premium Quality</h3>
-
-        <p>
-            We focus on quality ingredients and careful
-            preparation for consistent taste.
-        </p>
-
-    </div>
-
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            ♨
-        </div>
-
-        <h3>Fresh Every Day</h3>
-
-        <p>
-            Our sweets are prepared with freshness
-            and care so every bite feels special.
-        </p>
-
-    </div>
-
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            ♥
-        </div>
-
-        <h3>Made With Care</h3>
-
-        <p>
-            Every order is handled with attention,
-            because your trust matters to us.
-        </p>
-
-    </div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-<h2>
-    Ready for Something Sweet?
-</h2>
-
-<p>
-    Explore our collection of traditional sweets and
-    discover your next favourite.
-</p>
-
-<a href="shop.html" class="cta-btn">
-    ENTER SWEET SHOP
-</a>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<div class="footer-container">
-
-
-    <div class="footer-brand">
-
-        <h2>
-            Raghavendra Sweets
-        </h2>
-
-        <p>
-            Bringing the authentic taste of traditional
-            Indian sweets to your celebrations and
-            special moments.
-        </p>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h3>Quick Links</h3>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="#about">
-            About Us
-        </a>
-
-        <a href="#sweets">
-            Our Sweets
-        </a>
-
-        <a href="shop.html">
-            Shop
-  
+            <h3>
+                Kaju K
