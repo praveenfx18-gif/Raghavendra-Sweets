@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#68140e">
+
+<meta name="description"
+      content="Raghavendra Sweets - Professional Sweet Shop Billing">
+
+<title>Raghavendra Sweets | Sweet Shop</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#fffaf0;
+    color:#3d160f;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    width:100%;
+
+    background:#68140e;
+
+    border-bottom:2px solid #d5a52b;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.20);
+}
+
+
+.navbar{
+    max-width:1250px;
+
+    min-height:76px;
+
+    margin:auto;
+
+    padding:0 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    text-decoration:none;
+
+    color:white;
+}
+
+
+.logo-symbol{
+    width:48px;
+    height:48px;
+
+    border:2px solid #d5a52b;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#4d0d09;
+
+    flex-shrink:0;
+}
+
+
+.logo-symbol img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+.logo-text h1{
+    font-size:21px;
+
+    color:#fff3c4;
+
+    letter-spacing:0.5px;
+}
+
+
+.logo-text span{
+    display:block;
+
+    margin-top:2px;
+
+    color:#e7c66b;
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+/* =====================================================
+   HEADER RIGHT
+===================================================== */
+
+.header-right{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+
+.home-link{
+    color:#fff5d5;
+
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+
+.home-link:hover{
+    color:#ffd75b;
+}
+
+
+.cart-top{
+    position:relative;
+
+    padding:11px 18px;
+
+    border:1px solid #d5a52b;
+
+    border-radius:25px;
+
+    background:#e8bd45;
+
+    color:#5b100b;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.cart-count{
+    position:absolute;
+
+    top:-8px;
+    right:-7px;
+
+    min-width:22px;
+    height:22px;
+
+    padding:0 5px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:2px solid #d5a52b;
+
+    color:#68140e;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-heading{
+    padding:35px 20px 25px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f5e1a9
+        );
+
+    border-bottom:1px solid #e1c879;
+}
+
+
+.page-heading small{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#9a7014;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+
+.page-heading h2{
+    color:#68140e;
+
+    font-size:37px;
+
+    margin-bottom:7px;
+}
+
+
+.page-heading p{
+    color:#76564e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+===================================================== */
+
+.main{
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:28px 20px 50px;
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1fr) 380px;
+
+    gap:25px;
+
+    align-items:start;
+}
+
+
+/* =====================================================
+   SHOP LEFT
+===================================================== */
+
+.shop-panel{
+    min-width:0;
+}
+
+
+.shop-toolbar{
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+}
+
+
+.search-box{
+    flex:1;
+
+    min-width:220px;
+
+    position:relative;
+}
+
+
+.search-box input{
+    width:100%;
+
+    height:46px;
+
+    padding:0 17px;
+
+    border:1px solid #d8c17c;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:white;
+
+    color:#3d160f;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+}
+
+
+.search-box input:focus{
+    border-color:#a77b15;
+
+    box-shadow:
+        0 0 0 3px rgba(213,165,43,0.12);
+}
+
+
+.category-select{
+    height:46px;
+
+    padding:0 14px;
+
+    border:1px solid #d8c17c;
+
+    border-radius:9px;
+
+    background:white;
+
+    color:#68140e;
+
+    outline:none;
+
+    font-family:Arial,sans-serif;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   PRODUCTS GRID
+===================================================== */
+
+.products-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:18px;
+}
+
+
+.product-card{
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid #e1cf91;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 6px 20px rgba(65,25,10,0.07);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.product-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(65,25,10,0.13);
+}
+
+
+.product-visual{
+    height:145px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9df,
+            #f0d994
+        );
+
+    border-bottom:1px solid #ead9a4;
+}
+
+
+.product-emoji{
+    font-size:58px;
+
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(0,0,0,0.12)
+        );
+}
+
+
+.category-badge{
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    padding:5px 8px;
+
+    border-radius:15px;
+
+    background:#68140e;
+
+    color:#f8dc8a;
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    font-weight:bold;
+}
+
+
+.product-info{
+    padding:15px;
+}
+
+
+.product-info h3{
+    color:#68140e;
+
+    font-size:18px;
+
+    margin-bottom:6px;
+}
+
+
+.product-info p{
+    min-height:36px;
+
+    color:#79584e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    margin-bottom:8px;
+}
+
+
+.price{
+    color:#8b6510;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+
+.price span{
+    color:#806d66;
+
+    font-size:10px;
+
+    font-weight:normal;
+}
+
+
+/* =====================================================
+   WEIGHT
+===================================================== */
+
+.weight-row{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+    margin-bottom:10px;
+}
+
+
+.weight-row button{
+    min-height:34px;
+
+    border:1px solid #d8c17c;
+
+    border-radius:6px;
+
+    background:#fffaf0;
+
+    color:#68140e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.weight-row button:hover{
+    border-color:#9e7416;
+
+    background:#f8ebc7;
+}
+
+
+.weight-row button.active{
+    background:#68140e;
+
+    color:#fff2bd;
+
+    border-color:#68140e;
+}
+
+
+.add-btn{
+    width:100%;
+
+    height:39px;
+
+    border:none;
+
+    border-radius:7px;
+
+    background:#68140e;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.add-btn:hover{
+    background:#8c2118;
+
+    transform:translateY(-1px);
+}
+
+
+.no-products{
+    grid-column:1/-1;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+    color:#76564e;
+
+    font-family:Arial,sans-serif;
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-panel{
+    position:sticky;
+
+    top:96px;
+
+    background:white;
+
+    border:1px solid #d9c27d;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 10px 30px rgba(65,25,10,0.10);
+}
+
+
+.cart-header{
+    padding:18px;
+
+    background:#68140e;
+
+    color:white;
+
+    border-bottom:2px solid #d5a52b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+.cart-header h2{
+    color:#f6d77b;
+
+    font-size:20px;
+}
+
+
+.cart-header span{
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    color:#ead9a7;
+}
+
+
+.cart-items{
+    max-height:430px;
+
+    overflow-y:auto;
+
+    padding:12px;
+}
+
+
+.empty-cart{
+    padding:50px 15px;
+
+    text-align:center;
+
+    color:#8a6a61;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+}
+
+
+.empty-cart-icon{
+    font-size:42px;
+
+    margin-bottom:10px;
+
+    opacity:.55;
+}
+
+
+.cart-item{
+    padding:13px 5px;
+
+    border-bottom:1px solid #eee1bc;
+}
+
+
+.cart-item:last-child{
+    border-bottom:none;
+}
+
+
+.cart-item-top{
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+
+.cart-item-name{
+    color:#68140e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+
+.cart-item-weight{
+    margin-top:4px;
+
+    color:#876f68;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+}
+
+
+.cart-item-price{
+    color:#8b6510;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+.cart-controls{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:9px;
+}
+
+
+.quantity-controls{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+
+.qty-btn{
+    width:25px;
+    height:25px;
+
+    border:1px solid #d6bf78;
+
+    border-radius:5px;
+
+    background:#fffaf0;
+
+    color:#68140e;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+
+.qty-number{
+    min-width:20px;
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+.remove-btn{
+    border:none;
+
+    background:transparent;
+
+    color:#a13b30;
+
+    cursor:pointer;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   BILL SUMMARY
+===================================================== */
+
+.bill-summary{
+    padding:18px;
+
+    background:#fffaf0;
+
+    border-top:1px solid #e1cf91;
+}
+
+
+.summary-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+    color:#6e5048;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+}
+
+
+.summary-row.total{
+    margin-top:14px;
+
+    padding-top:14px;
+
+    border-top:1px dashed #c9ae62;
+
+    color:#68140e;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+
+.summary-row.total strong{
+    color:#68140e;
+}
+
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
+.payment-title{
+    margin:18px 0 10px;
+
+    color:#68140e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+.payment-options{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+}
+
+
+.payment-option{
+    position:relative;
+}
+
+
+.payment-option input{
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+
+.payment-option label{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    height:42px;
+
+    border:1px solid #d5c07c;
+
+    border-radius:7px;
+
+    background:white;
+
+    color:#68140e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.payment-option input:checked + label{
+    background:#68140e;
+
+    border-color:#68140e;
+
+    color:#f7d97a;
+}
+
+
+/* CASH RECEIVED */
+
+.cash-section{
+    display:none;
+
+    margin-top:12px;
+}
+
+
+.cash-section.show{
+    display:block;
+}
+
+
+.cash-section label{
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#694b43;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+
+.cash-section input{
+    width:100%;
+
+    height:42px;
+
+    padding:0 12px;
+
+    border:1px solid #d5c07c;
+
+    border-radius:7px;
+
+    outline:none;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+}
+
+
+.change-box{
+    margin-top:8px;
+
+    padding:9px;
+
+    border-radius:7px;
+
+    background:#f4e7bd;
+
+    color:#68140e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   CONFIRM BUTTON
+===================================================== */
+
+.confirm-btn{
+    width:100%;
+
+    height:48px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#b38318;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:.4px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.confirm-btn:hover{
+    background:#8e6913;
+
+    transform:translateY(-1px);
+}
+
+
+.confirm-btn:disabled{
+    background:#c9bda0;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+
+.clear-btn{
+    width:100%;
+
+    height:37px;
+
+    margin-top:8px;
+
+    border:1px solid #cdaea5;
+
+    border-radius:8px;
+
+    background:white;
+
+    color:#8a3a31;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.clear-btn:hover{
+    background:#fff2ef;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    z-index:5000;
+
+    min-width:240px;
+
+    padding:14px 18px;
+
+    border-radius:9px;
+
+    background:#68140e;
+
+    border:1px solid #d5a52b;
+
+    color:#fff3c5;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+
+.toast.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   BILL MODAL
+===================================================== */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:4000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(25,5,2,.75);
+
+    backdrop-filter:blur(4px);
+}
+
+
+.modal.show{
+    display:flex;
+}
+
+
+.bill-window{
+    width:100%;
+
+    max-width:450px;
+
+    max-height:92vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.35);
+}
+
+
+/* =====================================================
+   BILL
+===================================================== */
+
+.bill{
+    padding:28px 25px;
+
+    color:#111;
+
+    background:white;
+
+    font-family:"Courier New",monospace;
+
+    font-size:12px;
+}
+
+
+.bill-head{
+    text-align:center;
+
+    padding-bottom:15px;
+
+    border-bottom:1px dashed #777;
+}
+
+
+.bill-logo{
+    width:62px;
+    height:62px;
+
+    margin:0 auto 8px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:2px solid #68140e;
+}
+
+
+.bill-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+.bill-head h2{
+    font-family:Georgia,serif;
+
+    color:#68140e;
+
+    font-size:23px;
+
+    margin-bottom:3px;
+}
+
+
+.bill-head p{
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+
+.bill-info{
+    padding:12px 0;
+
+    border-bottom:1px dashed #777;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:5px;
+}
+
+
+.bill-info div:nth-child(even){
+    text-align:right;
+}
+
+
+.bill-table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:13px 0;
+}
+
+
+.bill-table th{
+    padding-bottom:7px;
+
+    border-bottom:1px solid #222;
+
+    text-align:left;
+}
+
+
+.bill-table th:last-child,
+.bill-table td:last-child{
+    text-align:right;
+}
+
+
+.bill-table td{
+    padding:6px 0;
+
+    vertical-align:top;
+}
+
+
+.bill-total{
+    padding-top:10px;
+
+    border-top:1px dashed #777;
+}
+
+
+.bill-total-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:4px 0;
+}
+
+
+.bill-total-row.grand{
+    margin-top:5px;
+
+    padding-top:8px;
+
+    border-top:1px solid #222;
+
+    font-size:15px;
+
+    font-weight:bold;
+}
+
+
+.bill-payment{
+    margin-top:12px;
+
+    padding-top:10px;
+
+    border-top:1px dashed #777;
+}
+
+
+.bill-footer{
+    margin-top:18px;
+
+    padding-top:14px;
+
+    border-top:1px dashed #777;
+
+    text-align:center;
+
+    font-size:10px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   BILL ACTIONS
+===================================================== */
+
+.bill-actions{
+    padding:15px;
+
+    background:#f6edd3;
+
+    border-top:1px solid #ddc98b;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+}
+
+
+.bill-action{
+    height:42px;
+
+    border:none;
+
+    border-radius:7px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.print-btn{
+    background:#68140e;
+
+    color:white;
+}
+
+
+.new-bill-btn{
+    background:#d5a52b;
+
+    color:#4c100b;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    margin-top:20px;
+
+    padding:25px 20px;
+
+    background:#300806;
+
+    color:#c9ad82;
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
+
+    .main{
+        grid-template-columns:
+            minmax(0,1fr)
+            350px;
+    }
+
+    .products-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+
+@media(max-width:850px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .cart-panel{
+        position:relative;
+
+        top:auto;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .navbar{
+        min-height:70px;
+
+        padding:0 13px;
+    }
+
+
+    .logo-symbol{
+        width:42px;
+        height:42px;
+    }
+
+
+    .logo-text h1{
+        font-size:17px;
+    }
+
+
+    .logo-text span{
+        font-size:7px;
+
+        letter-spacing:2px;
+    }
+
+
+    .home-link{
+        display:none;
+    }
+
+
+    .page-heading{
+        padding:27px 15px 20px;
+    }
+
+
+    .page-heading h2{
+        font-size:29px;
+    }
+
+
+    .main{
+        padding:
+            20px 12px 35px;
+    }
+
+
+    .products-grid{
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+    }
+
+
+    .product-visual{
+        height:115px;
+    }
+
+
+    .product-emoji{
+        font-size:45px;
+    }
+
+
+    .product-info{
+        padding:11px;
+    }
+
+
+    .product-info h3{
+        font-size:15px;
+    }
+
+
+    .product-info p{
+        font-size:10px;
+
+        min-height:auto;
+
+        margin-bottom:7px;
+    }
+
+
+    .price{
+        font-size:12px;
+    }
+
+
+    .weight-row{
+        grid-template-columns:1fr 1fr;
+    }
+
+
+    .weight-row button{
+        font-size:9px;
+    }
+
+
+    .add-btn{
+        height:36px;
+
+        font-size:10px;
+    }
+
+
+    .cart-top{
+        padding:9px 13px;
+
+        font-size:11px;
+    }
+
+
+    .toast{
+        left:15px;
+        right:15px;
+
+        bottom:15px;
+
+        text-align:center;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+
+    body *{
+        visibility:hidden !important;
+    }
+
+
+    .bill-window,
+    .bill-window *{
+        visibility:visible !important;
+    }
+
+
+    .modal{
+        position:absolute;
+
+        inset:0;
+
+        display:block !important;
+
+        background:white;
+
+        padding:0;
+    }
+
+
+    .bill-window{
+        max-width:none;
+
+        max-height:none;
+
+        width:80mm;
+
+        margin:0 auto;
+
+        box-shadow:none;
+
+        border-radius:0;
+    }
+
+
+    .bill{
+        padding:5m
