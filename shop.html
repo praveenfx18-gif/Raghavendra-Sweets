@@ -5,22 +5,17 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#68140e">
 
-<meta name="description"
-      content="Raghavendra Sweets - Professional Sweet Shop Billing">
-
-<title>Raghavendra Sweets | Sweet Shop</title>
-
+<title>Raghavendra Sweets | Shop</title>
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================
+   BASIC
+========================= */
 
 *{
     margin:0;
@@ -28,1589 +23,865 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Arial, sans-serif;
     background:#fffaf0;
-    color:#3d160f;
+    color:#42140e;
 }
 
 
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
-header{
+.header{
+    background:#68140e;
+    border-bottom:2px solid #d5a52b;
+    padding:12px 20px;
     position:sticky;
     top:0;
     z-index:1000;
-
-    width:100%;
-
-    background:#68140e;
-
-    border-bottom:2px solid #d5a52b;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,0.20);
 }
 
-
-.navbar{
-    max-width:1250px;
-
-    min-height:76px;
-
+.header-inner{
+    max-width:1200px;
     margin:auto;
 
-    padding:0 20px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
-
-/* =====================================================
-   LOGO
-===================================================== */
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
 
 .logo{
-    display:flex;
-
-    align-items:center;
-
-    gap:11px;
-
-    text-decoration:none;
-
-    color:white;
-}
-
-
-.logo-symbol{
     width:48px;
     height:48px;
-
-    border:2px solid #d5a52b;
-
     border-radius:50%;
-
     overflow:hidden;
-
+    border:2px solid #d5a52b;
     background:#4d0d09;
-
-    flex-shrink:0;
 }
 
-
-.logo-symbol img{
+.logo img{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
-    display:block;
 }
 
-
-.logo-text h1{
-    font-size:21px;
-
+.brand-name{
     color:#fff3c4;
-
-    letter-spacing:0.5px;
+    font-family:Georgia,serif;
+    font-size:21px;
 }
 
-
-.logo-text span{
-    display:block;
-
-    margin-top:2px;
-
+.brand-tag{
     color:#e7c66b;
-
-    font-family:Arial,sans-serif;
-
     font-size:9px;
-
-    letter-spacing:3px;
+    letter-spacing:2px;
+    margin-top:3px;
 }
 
-
-/* =====================================================
-   HEADER RIGHT
-===================================================== */
-
-.header-right{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-
-.home-link{
-    color:#fff5d5;
-
+.home-btn{
+    color:#fff3c4;
     text-decoration:none;
-
-    font-family:Arial,sans-serif;
-
+    font-weight:bold;
     font-size:14px;
-
-    font-weight:bold;
 }
 
 
-.home-link:hover{
-    color:#ffd75b;
-}
-
-
-.cart-top{
-    position:relative;
-
-    padding:11px 18px;
-
-    border:1px solid #d5a52b;
-
-    border-radius:25px;
-
-    background:#e8bd45;
-
-    color:#5b100b;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-
-.cart-count{
-    position:absolute;
-
-    top:-8px;
-    right:-7px;
-
-    min-width:22px;
-    height:22px;
-
-    padding:0 5px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    border:2px solid #d5a52b;
-
-    color:#68140e;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:11px;
-}
-
-
-/* =====================================================
+/* =========================
    PAGE TITLE
-===================================================== */
+========================= */
 
-.page-heading{
-    padding:35px 20px 25px;
-
+.page-title{
     text-align:center;
+    padding:35px 15px;
 
     background:
         linear-gradient(
             135deg,
             #fffaf0,
-            #f5e1a9
+            #f3dfaa
         );
 
-    border-bottom:1px solid #e1c879;
+    border-bottom:1px solid #ddc781;
 }
 
-
-.page-heading small{
-    display:block;
-
-    margin-bottom:8px;
-
-    color:#9a7014;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-}
-
-
-.page-heading h2{
+.page-title h1{
     color:#68140e;
-
-    font-size:37px;
-
-    margin-bottom:7px;
+    font-family:Georgia,serif;
+    font-size:38px;
+    margin-bottom:8px;
 }
 
-
-.page-heading p{
+.page-title p{
     color:#76564e;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   MAIN LAYOUT
-===================================================== */
-
-.main{
-    max-width:1250px;
-
-    margin:auto;
-
-    padding:28px 20px 50px;
-
-    display:grid;
-
-    grid-template-columns:minmax(0,1fr) 380px;
-
-    gap:25px;
-
-    align-items:start;
-}
-
-
-/* =====================================================
-   SHOP LEFT
-===================================================== */
-
-.shop-panel{
-    min-width:0;
-}
-
-
-.shop-toolbar{
-    display:flex;
-
-    gap:12px;
-
-    margin-bottom:20px;
-
-    flex-wrap:wrap;
-}
-
-
-.search-box{
-    flex:1;
-
-    min-width:220px;
-
-    position:relative;
-}
-
-
-.search-box input{
-    width:100%;
-
-    height:46px;
-
-    padding:0 17px;
-
-    border:1px solid #d8c17c;
-
-    border-radius:9px;
-
-    outline:none;
-
-    background:white;
-
-    color:#3d160f;
-
-    font-family:Arial,sans-serif;
-
     font-size:14px;
 }
 
 
-.search-box input:focus{
-    border-color:#a77b15;
+/* =========================
+   MAIN
+========================= */
 
-    box-shadow:
-        0 0 0 3px rgba(213,165,43,0.12);
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px 60px;
+
+    display:grid;
+    grid-template-columns:1fr 370px;
+    gap:25px;
 }
 
 
-.category-select{
-    height:46px;
+/* =========================
+   SEARCH
+========================= */
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    margin-bottom:22px;
+}
+
+.search{
+    flex:1;
+    height:45px;
+
+    border:1px solid #d8c17c;
+    border-radius:8px;
 
     padding:0 14px;
 
-    border:1px solid #d8c17c;
+    outline:none;
+    background:white;
+    font-size:14px;
+}
 
-    border-radius:9px;
+.category{
+    height:45px;
+
+    border:1px solid #d8c17c;
+    border-radius:8px;
+
+    padding:0 12px;
 
     background:white;
-
     color:#68140e;
-
-    outline:none;
-
-    font-family:Arial,sans-serif;
-
     font-weight:bold;
 }
 
 
-/* =====================================================
-   PRODUCTS GRID
-===================================================== */
+/* =========================
+   PRODUCTS
+========================= */
 
-.products-grid{
+.products{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
-
-.product-card{
+.product{
+    background:white;
+    border:1px solid #dfcc91;
+    border-radius:12px;
     overflow:hidden;
 
-    background:white;
-
-    border:1px solid #e1cf91;
-
-    border-radius:12px;
-
     box-shadow:
-        0 6px 20px rgba(65,25,10,0.07);
+        0 5px 18px rgba(70,30,10,.07);
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    transition:.25s;
 }
 
-
-.product-card:hover{
+.product:hover{
     transform:translateY(-4px);
-
-    box-shadow:
-        0 12px 28px rgba(65,25,10,0.13);
 }
 
-
-.product-visual{
-    height:145px;
+.product-image{
+    height:140px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    position:relative;
 
     background:
         linear-gradient(
             135deg,
             #fff9df,
-            #f0d994
+            #efd792
         );
 
-    border-bottom:1px solid #ead9a4;
-}
-
-
-.product-emoji{
     font-size:58px;
-
-    filter:
-        drop-shadow(
-            0 5px 5px rgba(0,0,0,0.12)
-        );
 }
-
-
-.category-badge{
-    position:absolute;
-
-    top:10px;
-    left:10px;
-
-    padding:5px 8px;
-
-    border-radius:15px;
-
-    background:#68140e;
-
-    color:#f8dc8a;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    font-weight:bold;
-}
-
 
 .product-info{
     padding:15px;
 }
 
-
 .product-info h3{
     color:#68140e;
-
+    font-family:Georgia,serif;
     font-size:18px;
-
     margin-bottom:6px;
 }
 
-
 .product-info p{
-    min-height:36px;
-
-    color:#79584e;
-
-    font-family:Arial,sans-serif;
-
+    color:#76564e;
     font-size:11px;
-
     line-height:1.5;
-
-    margin-bottom:8px;
+    min-height:34px;
 }
-
 
 .price{
-    color:#8b6510;
-
-    font-family:Arial,sans-serif;
-
+    color:#9a7014;
     font-size:14px;
-
     font-weight:bold;
-
-    margin-bottom:10px;
+    margin:10px 0;
 }
 
-
-.price span{
-    color:#806d66;
-
-    font-size:10px;
-
+.price small{
+    color:#806b64;
     font-weight:normal;
 }
 
-
-/* =====================================================
-   WEIGHT
-===================================================== */
-
-.weight-row{
+.weights{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
-    gap:7px;
-
-    margin-bottom:10px;
+    gap:6px;
+    margin-bottom:9px;
 }
 
+.weight{
+    height:32px;
 
-.weight-row button{
-    min-height:34px;
-
-    border:1px solid #d8c17c;
-
+    border:1px solid #d5c07c;
     border-radius:6px;
 
     background:#fffaf0;
-
     color:#68140e;
 
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
+    font-size:10px;
     font-weight:bold;
 
     cursor:pointer;
-
-    transition:.2s;
 }
 
-
-.weight-row button:hover{
-    border-color:#9e7416;
-
-    background:#f8ebc7;
-}
-
-
-.weight-row button.active{
+.weight.selected{
     background:#68140e;
-
-    color:#fff2bd;
-
+    color:#ffe9a2;
     border-color:#68140e;
 }
 
-
-.add-btn{
+.add{
     width:100%;
+    height:38px;
 
-    height:39px;
-
-    border:none;
-
+    border:0;
     border-radius:7px;
 
     background:#68140e;
-
     color:white;
 
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
     font-weight:bold;
+    font-size:11px;
 
     cursor:pointer;
+}
 
-    transition:.2s;
+.add:hover{
+    background:#8b241b;
 }
 
 
-.add-btn:hover{
-    background:#8c2118;
-
-    transform:translateY(-1px);
-}
-
-
-.no-products{
-    grid-column:1/-1;
-
-    padding:50px 20px;
-
-    text-align:center;
-
-    color:#76564e;
-
-    font-family:Arial,sans-serif;
-}
-
-
-/* =====================================================
+/* =========================
    CART
-===================================================== */
+========================= */
 
-.cart-panel{
+.cart{
     position:sticky;
-
-    top:96px;
+    top:90px;
 
     background:white;
 
-    border:1px solid #d9c27d;
-
-    border-radius:14px;
+    border:1px solid #d8c17c;
+    border-radius:13px;
 
     overflow:hidden;
 
     box-shadow:
-        0 10px 30px rgba(65,25,10,0.10);
+        0 10px 30px rgba(60,20,10,.10);
 }
 
-
-.cart-header{
-    padding:18px;
-
+.cart-head{
     background:#68140e;
+    color:#f3d273;
 
-    color:white;
+    padding:17px;
 
     border-bottom:2px solid #d5a52b;
 
     display:flex;
-
-    align-items:center;
-
     justify-content:space-between;
+    align-items:center;
 }
 
-
-.cart-header h2{
-    color:#f6d77b;
-
+.cart-head h2{
+    font-family:Georgia,serif;
     font-size:20px;
 }
 
-
-.cart-header span{
-    font-family:Arial,sans-serif;
-
+.cart-head span{
+    color:#f1dfae;
     font-size:11px;
-
-    color:#ead9a7;
 }
 
-
-.cart-items{
-    max-height:430px;
-
+.cart-list{
+    padding:10px;
+    max-height:400px;
     overflow-y:auto;
-
-    padding:12px;
 }
 
-
-.empty-cart{
+.empty{
     padding:50px 15px;
-
     text-align:center;
-
-    color:#8a6a61;
-
-    font-family:Arial,sans-serif;
-
+    color:#80665e;
     font-size:13px;
+    line-height:1.8;
 }
 
-
-.empty-cart-icon{
-    font-size:42px;
-
-    margin-bottom:10px;
-
-    opacity:.55;
-}
-
-
-.cart-item{
+.item{
     padding:13px 5px;
-
     border-bottom:1px solid #eee1bc;
 }
 
-
-.cart-item:last-child{
-    border-bottom:none;
+.item:last-child{
+    border-bottom:0;
 }
 
-
-.cart-item-top{
+.item-line{
     display:flex;
-
-    align-items:flex-start;
-
     justify-content:space-between;
-
     gap:10px;
 }
 
-
-.cart-item-name{
+.item-name{
     color:#68140e;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
     font-weight:bold;
+    font-size:13px;
 }
 
-
-.cart-item-weight{
-    margin-top:4px;
-
-    color:#876f68;
-
-    font-family:Arial,sans-serif;
-
+.item-weight{
+    color:#856e66;
     font-size:10px;
+    margin-top:4px;
 }
 
-
-.cart-item-price{
-    color:#8b6510;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
+.item-price{
+    color:#946d13;
     font-weight:bold;
-
+    font-size:12px;
     white-space:nowrap;
 }
 
-
-.cart-controls{
+.controls{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     margin-top:9px;
 }
 
-
-.quantity-controls{
+.qty{
     display:flex;
-
     align-items:center;
-
     gap:7px;
 }
 
-
-.qty-btn{
+.qty button{
     width:25px;
     height:25px;
 
-    border:1px solid #d6bf78;
-
+    border:1px solid #d5c07c;
     border-radius:5px;
 
     background:#fffaf0;
-
     color:#68140e;
 
     cursor:pointer;
-
     font-weight:bold;
 }
 
-
-.qty-number{
+.qty span{
     min-width:20px;
-
     text-align:center;
-
-    font-family:Arial,sans-serif;
-
     font-size:12px;
-
     font-weight:bold;
 }
 
-
-.remove-btn{
-    border:none;
-
-    background:transparent;
-
-    color:#a13b30;
-
+.remove{
+    border:0;
+    background:none;
+    color:#a23a31;
     cursor:pointer;
-
-    font-family:Arial,sans-serif;
-
     font-size:10px;
 }
 
 
-/* =====================================================
-   BILL SUMMARY
-===================================================== */
+/* =========================
+   SUMMARY
+========================= */
 
-.bill-summary{
-    padding:18px;
-
+.summary{
     background:#fffaf0;
-
-    border-top:1px solid #e1cf91;
+    border-top:1px solid #ddca8e;
+    padding:17px;
 }
 
-
-.summary-row{
+.summary-line{
     display:flex;
-
     justify-content:space-between;
-
-    align-items:center;
 
     margin-bottom:10px;
 
-    color:#6e5048;
-
-    font-family:Arial,sans-serif;
-
+    color:#70534b;
     font-size:13px;
 }
 
-
-.summary-row.total{
-    margin-top:14px;
-
-    padding-top:14px;
+.total{
+    padding-top:13px;
+    margin-top:12px;
 
     border-top:1px dashed #c9ae62;
 
     color:#68140e;
-
     font-size:20px;
-
     font-weight:bold;
 }
 
 
-.summary-row.total strong{
-    color:#68140e;
-}
-
-
-/* =====================================================
+/* =========================
    PAYMENT
-===================================================== */
+========================= */
 
 .payment-title{
-    margin:18px 0 10px;
+    margin:18px 0 9px;
 
     color:#68140e;
-
-    font-family:Arial,sans-serif;
-
     font-size:12px;
-
     font-weight:bold;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
 }
 
-
-.payment-options{
+.payment{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:8px;
 }
 
+.payment label{
+    height:40px;
 
-.payment-option{
-    position:relative;
-}
-
-
-.payment-option input{
-    position:absolute;
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-
-.payment-option label{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    gap:6px;
-
-    height:42px;
-
     border:1px solid #d5c07c;
-
     border-radius:7px;
-
-    background:white;
 
     color:#68140e;
 
-    font-family:Arial,sans-serif;
-
     font-size:12px;
-
     font-weight:bold;
 
     cursor:pointer;
 }
 
+.payment input{
+    display:none;
+}
 
-.payment-option input:checked + label{
+.payment input:checked + label{
     background:#68140e;
-
-    border-color:#68140e;
-
-    color:#f7d97a;
+    color:#f4d67a;
 }
 
 
-/* CASH RECEIVED */
+/* =========================
+   CASH
+========================= */
 
-.cash-section{
-    display:none;
-
+.cash-box{
     margin-top:12px;
 }
 
-
-.cash-section.show{
+.cash-box label{
     display:block;
-}
 
-
-.cash-section label{
-    display:block;
+    color:#70534b;
+    font-size:11px;
+    font-weight:bold;
 
     margin-bottom:6px;
-
-    color:#694b43;
-
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
-    font-weight:bold;
 }
 
-
-.cash-section input{
+.cash-box input{
     width:100%;
+    height:40px;
 
-    height:42px;
+    border:1px solid #d5c07c;
+    border-radius:7px;
 
     padding:0 12px;
 
-    border:1px solid #d5c07c;
-
-    border-radius:7px;
-
     outline:none;
-
-    font-family:Arial,sans-serif;
-
-    font-size:14px;
+    font-size:13px;
 }
 
-
-.change-box{
-    margin-top:8px;
-
+.change{
+    margin-top:7px;
     padding:9px;
 
-    border-radius:7px;
+    border-radius:6px;
 
-    background:#f4e7bd;
+    background:#f3e5b9;
 
     color:#68140e;
 
-    font-family:Arial,sans-serif;
+    text-align:center;
 
     font-size:12px;
-
     font-weight:bold;
-
-    text-align:center;
 }
 
 
-/* =====================================================
-   CONFIRM BUTTON
-===================================================== */
+/* =========================
+   BUTTONS
+========================= */
 
-.confirm-btn{
+.confirm{
     width:100%;
+    height:46px;
 
-    height:48px;
+    margin-top:14px;
 
-    margin-top:15px;
-
-    border:none;
-
+    border:0;
     border-radius:8px;
 
     background:#b38318;
-
     color:white;
 
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
     font-weight:bold;
-
-    letter-spacing:.4px;
+    font-size:12px;
 
     cursor:pointer;
-
-    transition:.2s;
 }
 
-
-.confirm-btn:hover{
-    background:#8e6913;
-
-    transform:translateY(-1px);
-}
-
-
-.confirm-btn:disabled{
-    background:#c9bda0;
-
+.confirm:disabled{
+    background:#c8bda5;
     cursor:not-allowed;
-
-    transform:none;
 }
 
-
-.clear-btn{
+.clear{
     width:100%;
-
-    height:37px;
+    height:36px;
 
     margin-top:8px;
 
-    border:1px solid #cdaea5;
-
-    border-radius:8px;
+    border:1px solid #d2b6ae;
+    border-radius:7px;
 
     background:white;
-
-    color:#8a3a31;
-
-    font-family:Arial,sans-serif;
+    color:#8a3930;
 
     font-size:11px;
-
     font-weight:bold;
 
     cursor:pointer;
 }
 
 
-.clear-btn:hover{
-    background:#fff2ef;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-.toast{
-    position:fixed;
-
-    right:22px;
-    bottom:22px;
-
-    z-index:5000;
-
-    min-width:240px;
-
-    padding:14px 18px;
-
-    border-radius:9px;
-
-    background:#68140e;
-
-    border:1px solid #d5a52b;
-
-    color:#fff3c5;
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.25);
-
-    opacity:0;
-
-    transform:translateY(15px);
-
-    pointer-events:none;
-
-    transition:.3s;
-}
-
-
-.toast.show{
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-
-/* =====================================================
+/* =========================
    BILL MODAL
-===================================================== */
+========================= */
 
 .modal{
-    position:fixed;
-
-    inset:0;
-
-    z-index:4000;
-
     display:none;
 
-    align-items:center;
+    position:fixed;
+    inset:0;
 
+    z-index:3000;
+
+    background:rgba(0,0,0,.72);
+
+    align-items:center;
     justify-content:center;
 
-    padding:20px;
-
-    background:rgba(25,5,2,.75);
-
-    backdrop-filter:blur(4px);
+    padding:15px;
 }
 
-
-.modal.show{
+.modal.active{
     display:flex;
 }
 
-
-.bill-window{
+.bill-box{
     width:100%;
-
-    max-width:450px;
+    max-width:430px;
 
     max-height:92vh;
-
     overflow:auto;
 
     background:white;
-
     border-radius:8px;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.35);
 }
 
-
-/* =====================================================
-   BILL
-===================================================== */
-
 .bill{
-    padding:28px 25px;
+    padding:25px;
 
     color:#111;
 
-    background:white;
-
     font-family:"Courier New",monospace;
-
-    font-size:12px;
+    font-size:11px;
 }
 
-
-.bill-head{
+.bill-header{
     text-align:center;
 
-    padding-bottom:15px;
+    padding-bottom:14px;
 
-    border-bottom:1px dashed #777;
+    border-bottom:1px dashed #555;
 }
 
-
 .bill-logo{
-    width:62px;
-    height:62px;
+    width:60px;
+    height:60px;
 
-    margin:0 auto 8px;
+    margin:auto;
+    margin-bottom:8px;
 
     border-radius:50%;
-
     overflow:hidden;
 
     border:2px solid #68140e;
 }
 
-
 .bill-logo img{
     width:100%;
     height:100%;
-
     object-fit:cover;
 }
 
-
-.bill-head h2{
-    font-family:Georgia,serif;
-
+.bill-header h2{
     color:#68140e;
-
-    font-size:23px;
-
-    margin-bottom:3px;
+    font-family:Georgia,serif;
+    font-size:22px;
 }
 
-
-.bill-head p{
-    font-size:10px;
-
-    line-height:1.5;
+.bill-header p{
+    margin-top:4px;
 }
-
 
 .bill-info{
-    padding:12px 0;
-
-    border-bottom:1px dashed #777;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
-    gap:5px;
-}
+    padding:12px 0;
 
+    border-bottom:1px dashed #555;
+
+    line-height:1.7;
+}
 
 .bill-info div:nth-child(even){
     text-align:right;
 }
 
-
 .bill-table{
     width:100%;
-
     border-collapse:collapse;
-
     margin:13px 0;
 }
 
-
 .bill-table th{
-    padding-bottom:7px;
-
-    border-bottom:1px solid #222;
-
     text-align:left;
+    border-bottom:1px solid #222;
+    padding-bottom:6px;
 }
-
 
 .bill-table th:last-child,
 .bill-table td:last-child{
     text-align:right;
 }
 
-
 .bill-table td{
     padding:6px 0;
-
     vertical-align:top;
 }
 
-
 .bill-total{
-    padding-top:10px;
-
-    border-top:1px dashed #777;
+    border-top:1px dashed #555;
+    padding-top:9px;
 }
 
-
-.bill-total-row{
+.bill-row{
     display:flex;
-
     justify-content:space-between;
-
     padding:4px 0;
 }
 
-
-.bill-total-row.grand{
+.bill-grand{
+    border-top:1px solid #222;
     margin-top:5px;
-
     padding-top:8px;
 
-    border-top:1px solid #222;
-
     font-size:15px;
-
     font-weight:bold;
 }
 
-
-.bill-payment{
-    margin-top:12px;
-
-    padding-top:10px;
-
-    border-top:1px dashed #777;
-}
-
-
 .bill-footer{
-    margin-top:18px;
-
-    padding-top:14px;
-
-    border-top:1px dashed #777;
-
     text-align:center;
 
-    font-size:10px;
+    border-top:1px dashed #555;
+
+    margin-top:14px;
+    padding-top:13px;
 
     line-height:1.7;
 }
 
-
-/* =====================================================
-   BILL ACTIONS
-===================================================== */
-
 .bill-actions{
-    padding:15px;
-
-    background:#f6edd3;
-
-    border-top:1px solid #ddc98b;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
     gap:8px;
+
+    padding:14px;
+
+    background:#f4e8c7;
+
+    border-top:1px solid #d8c17c;
 }
 
-
-.bill-action{
+.bill-actions button{
     height:42px;
 
-    border:none;
-
+    border:0;
     border-radius:7px;
 
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
-
-.print-btn{
+.print{
     background:#68140e;
-
     color:white;
 }
 
-
-.new-bill-btn{
+.new{
     background:#d5a52b;
-
     color:#4c100b;
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* =========================
+   TOAST
+========================= */
 
-footer{
-    margin-top:20px;
+.toast{
+    position:fixed;
 
-    padding:25px 20px;
+    left:50%;
+    bottom:20px;
 
-    background:#300806;
+    transform:translate(-50%,20px);
 
-    color:#c9ad82;
+    opacity:0;
 
-    text-align:center;
+    z-index:5000;
 
-    font-family:Arial,sans-serif;
+    background:#68140e;
+    color:#ffe9a4;
 
-    font-size:11px;
+    border:1px solid #d5a52b;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width:1050px){
-
-    .main{
-        grid-template-columns:
-            minmax(0,1fr)
-            350px;
-    }
-
-    .products-grid{
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
-    }
-
-}
-
-
-@media(max-width:850px){
+@media(max-width:900px){
 
     .main{
         grid-template-columns:1fr;
     }
 
-    .cart-panel{
+    .cart{
         position:relative;
-
         top:auto;
     }
 
 }
 
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-    .navbar{
-        min-height:70px;
-
-        padding:0 13px;
-    }
-
-
-    .logo-symbol{
-        width:42px;
-        height:42px;
-    }
-
-
-    .logo-text h1{
-        font-size:17px;
-    }
-
-
-    .logo-text span{
-        font-size:7px;
-
-        letter-spacing:2px;
-    }
-
-
-    .home-link{
-        display:none;
-    }
-
-
-    .page-heading{
-        padding:27px 15px 20px;
-    }
-
-
-    .page-heading h2{
-        font-size:29px;
-    }
-
-
-    .main{
-        padding:
-            20px 12px 35px;
-    }
-
-
-    .products-grid{
+    .products{
         grid-template-columns:1fr 1fr;
-
         gap:12px;
     }
 
-
-    .product-visual{
-        height:115px;
-    }
-
-
-    .product-emoji{
+    .product-image{
+        height:110px;
         font-size:45px;
     }
-
 
     .product-info{
         padding:11px;
     }
 
-
     .product-info h3{
         font-size:15px;
     }
 
-
     .product-info p{
         font-size:10px;
-
-        min-height:auto;
-
-        margin-bottom:7px;
     }
 
+    .brand-name{
+        font-size:17px;
+    }
 
-    .price{
+    .home-btn{
         font-size:12px;
     }
 
-
-    .weight-row{
-        grid-template-columns:1fr 1fr;
+    .toolbar{
+        flex-direction:column;
     }
 
-
-    .weight-row button{
-        font-size:9px;
-    }
-
-
-    .add-btn{
-        height:36px;
-
-        font-size:10px;
-    }
-
-
-    .cart-top{
-        padding:9px 13px;
-
-        font-size:11px;
-    }
-
-
-    .toast{
-        left:15px;
-        right:15px;
-
-        bottom:15px;
-
-        text-align:center;
+    .category{
+        width:100%;
     }
 
 }
@@ -1618,57 +889,803 @@ footer{
 
 @media(max-width:380px){
 
-    .products-grid{
+    .products{
         grid-template-columns:1fr;
     }
 
 }
 
 
-/* =====================================================
+/* =========================
    PRINT
-===================================================== */
+========================= */
 
 @media print{
 
     body *{
-        visibility:hidden !important;
+        visibility:hidden;
     }
 
-
-    .bill-window,
-    .bill-window *{
-        visibility:visible !important;
+    .modal,
+    .modal *{
+        visibility:visible;
     }
-
 
     .modal{
         position:absolute;
-
-        inset:0;
-
         display:block !important;
 
         background:white;
-
         padding:0;
     }
 
-
-    .bill-window{
+    .bill-box{
+        width:80mm;
         max-width:none;
-
         max-height:none;
 
-        width:80mm;
-
-        margin:0 auto;
+        margin:auto;
 
         box-shadow:none;
-
-        border-radius:0;
     }
 
-
     .bill{
-        padding:5m
+        padding:5mm;
+    }
+
+    .bill-actions{
+        display:none !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+<div class="header-inner">
+
+<a href="index.html" class="brand">
+
+    <div class="logo">
+
+        <img
+            src="logo.png"
+            alt="Raghavendra Sweets Logo"
+        >
+
+    </div>
+
+    <div>
+
+        <div class="brand-name">
+            Raghavendra Sweets
+        </div>
+
+        <div class="brand-tag">
+            TASTE OF TRADITION
+        </div>
+
+    </div>
+
+</a>
+
+
+<a href="index.html" class="home-btn">
+    ← Home
+</a>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     TITLE
+========================= -->
+
+<section class="page-title">
+
+<h1>
+    Sweet Shop
+</h1>
+
+<p>
+    Select your sweets and prepare the bill
+</p>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section>
+
+
+<div class="toolbar">
+
+<input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Search sweets..."
+>
+
+<select
+    class="category"
+    id="category"
+>
+
+    <option value="all">
+        All Categories
+    </option>
+
+    <option value="milk">
+        Milk Sweets
+    </option>
+
+    <option value="laddu">
+        Laddus
+    </option>
+
+    <option value="kaju">
+        Kaju Sweets
+    </option>
+
+    <option value="traditional">
+        Traditional
+    </option>
+
+</select>
+
+</div>
+
+
+<div
+    class="products"
+    id="products"
+></div>
+
+
+</section>
+
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<aside class="cart">
+
+
+<div class="cart-head">
+
+<h2>
+    Current Bill
+</h2>
+
+<span id="itemCount">
+    0 items
+</span>
+
+</div>
+
+
+<div
+    class="cart-list"
+    id="cartList"
+>
+
+<div class="empty">
+
+    🛍️
+
+    <br>
+
+    No sweets added yet.
+
+    <br>
+
+    Select sweets from above.
+
+</div>
+
+</div>
+
+
+
+<div class="summary">
+
+
+<div class="summary-line">
+
+<span>
+    Items
+</span>
+
+<strong id="itemsNumber">
+    0
+</strong>
+
+</div>
+
+
+<div class="summary-line">
+
+<span>
+    Subtotal
+</span>
+
+<strong id="subtotal">
+    ₹0.00
+</strong>
+
+</div>
+
+
+<div class="summary-line">
+
+<span>
+    Discount
+</span>
+
+<strong>
+    ₹0.00
+</strong>
+
+</div>
+
+
+<div class="summary-line total">
+
+<span>
+    TOTAL
+</span>
+
+<strong id="total">
+    ₹0.00
+</strong>
+
+</div>
+
+
+
+<div class="payment-title">
+    Payment Method
+</div>
+
+
+<div class="payment">
+
+
+<div>
+
+<input
+    type="radio"
+    name="payment"
+    id="cash"
+    value="Cash"
+    checked
+>
+
+<label for="cash">
+    💵 Cash
+</label>
+
+</div>
+
+
+<div>
+
+<input
+    type="radio"
+    name="payment"
+    id="card"
+    value="Card"
+>
+
+<label for="card">
+    💳 Card
+</label>
+
+</div>
+
+
+</div>
+
+
+
+<div
+    class="cash-box"
+    id="cashBox"
+>
+
+<label>
+    Cash Received
+</label>
+
+<input
+    id="cashReceived"
+    type="number"
+    min="0"
+    step="0.01"
+    placeholder="Enter cash amount"
+>
+
+<div
+    class="change"
+    id="change"
+>
+    Change: ₹0.00
+</div>
+
+</div>
+
+
+
+<button
+    class="confirm"
+    id="confirm"
+    disabled
+>
+    ✓ CONFIRM ORDER
+</button>
+
+
+<button
+    class="clear"
+    id="clear"
+>
+    Clear Current Bill
+</button>
+
+
+</div>
+
+</aside>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 Raghavendra Sweets
+    • Professional Billing System
+
+</footer>
+
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+
+<!-- =========================
+     BILL MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+
+<div class="bill-box">
+
+
+<div class="bill" id="bill">
+
+
+<div class="bill-header">
+
+
+<div class="bill-logo">
+
+<img
+    src="logo.png"
+    alt="Raghavendra Sweets"
+>
+
+</div>
+
+
+<h2>
+    RAGHAVENDRA SWEETS
+</h2>
+
+
+<p>
+    Taste of Tradition
+</p>
+
+
+<p>
+    Thank You for Shopping With Us
+</p>
+
+
+</div>
+
+
+
+<div class="bill-info">
+
+<div>
+    Bill No
+</div>
+
+<div id="billNo">
+    -
+</div>
+
+
+<div>
+    Date
+</div>
+
+<div id="billDate">
+    -
+</div>
+
+
+<div>
+    Time
+</div>
+
+<div id="billTime">
+    -
+</div>
+
+
+<div>
+    Payment
+</div>
+
+<div id="billPayment">
+    -
+</div>
+
+</div>
+
+
+
+<table class="bill-table">
+
+<thead>
+
+<tr>
+
+<th>
+    Item
+</th>
+
+<th>
+    Qty
+</th>
+
+<th>
+    Amount
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="billItems">
+
+</tbody>
+
+</table>
+
+
+
+<div class="bill-total">
+
+
+<div class="bill-row">
+
+<span>
+    Subtotal
+</span>
+
+<span id="billSubtotal">
+    ₹0.00
+</span>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Discount
+</span>
+
+<span>
+    ₹0.00
+</span>
+
+</div>
+
+
+<div class="bill-row bill-grand">
+
+<span>
+    TOTAL
+</span>
+
+<span id="billTotal">
+    ₹0.00
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<div id="billPaymentDetails">
+
+</div>
+
+
+
+<div class="bill-footer">
+
+<strong>
+    RAGHAVENDRA SWEETS
+</strong>
+
+<br>
+
+Pure • Traditional • Delicious
+
+<br><br>
+
+Please Visit Again!
+
+<br>
+
+Thank You ❤️
+
+<br><br>
+
+--------------------------------
+
+<br>
+
+Sponsored by
+
+<br>
+
+Raghavendra Sweets
+
+</div>
+
+
+</div>
+
+
+
+<div class="bill-actions">
+
+<button
+    class="print"
+    id="print"
+>
+    🖨 PRINT BILL
+</button>
+
+
+<button
+    class="new"
+    id="newBill"
+>
+    + NEW BILL
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+const products = [
+
+{
+    id:1,
+    name:"Gulab Jamun",
+    category:"milk",
+    price:280,
+    emoji:"🍮",
+    description:"Soft and delicious traditional sweet."
+},
+
+{
+    id:2,
+    name:"Boondi Laddu",
+    category:"laddu",
+    price:320,
+    emoji:"🟡",
+    description:"Classic festive Indian laddu."
+},
+
+{
+    id:3,
+    name:"Kaju Katli",
+    category:"kaju",
+    price:720,
+    emoji:"🥮",
+    description:"Premium cashew sweet."
+},
+
+{
+    id:4,
+    name:"Kaju Roll",
+    category:"kaju",
+    price:760,
+    emoji:"🍥",
+    description:"Rich kaju sweet."
+},
+
+{
+    id:5,
+    name:"Mysore Pak",
+    category:"traditional",
+    price:520,
+    emoji:"🟨",
+    description:"Traditional melt-in-mouth sweet."
+},
+
+{
+    id:6,
+    name:"Milk Peda",
+    category:"milk",
+    price:440,
+    emoji:"⚪",
+    description:"Soft and creamy peda."
+},
+
+{
+    id:7,
+    name:"Ravva Laddu",
+    category:"laddu",
+    price:360,
+    emoji:"🟠",
+    description:"Traditional semolina laddu."
+},
+
+{
+    id:8,
+    name:"Motichoor Laddu",
+    category:"laddu",
+    price:420,
+    emoji:"🟠",
+    description:"Fine traditional boondi laddu."
+},
+
+{
+    id:9,
+    name:"Badusha",
+    category:"traditional",
+    price:340,
+    emoji:"🥯",
+    description:"Flaky traditional sweet."
+},
+
+{
+    id:10,
+    name:"Ariselu",
+    category:"traditional",
+    price:420,
+    emoji:"🍪",
+    description:"Traditional festive sweet."
+},
+
+{
+    id:11,
+    name:"Kaju Pista Roll",
+    category:"kaju",
+    price:780,
+    emoji:"💚",
+    description:"Premium kaju and pista sweet."
+},
+
+{
+    id:12,
+    name:"Doodh Peda",
+    category:"milk",
+    price:460,
+    emoji:"🥛",
+    description:"Rich milk-based sweet."
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let cart = [];
+
+let selectedWeight = {};
+
+const weightOptions = [
+
+{
+    text:"250g",
+    value:0.25
+},
+
+{
+    text:"500g",
+    value:0.5
+},
+
+{
+    text:"750g",
+    value:0.75
+},
+
+{
+    text:"1 KG",
+    value:1
+}
+
+];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const productsBox =
+    document.getElementById("products");
+
+const searchBox =
+    document.getElementById("search");
+
+const categoryBox =
+    document.getElementById
