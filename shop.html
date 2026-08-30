@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#68140e">
+<meta name="theme-color" content="#65140d">
 
 <title>Raghavendra Sweets | Shop</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -24,28 +15,24 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#fffaf0;
-    color:#42140e;
+    color:#3f160f;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 .header{
-    background:#68140e;
-    border-bottom:2px solid #d5a52b;
-    padding:12px 20px;
+    background:#65140d;
+    border-bottom:2px solid #d7ad35;
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .header-inner{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
+    padding:12px 20px;
 
     display:flex;
     align-items:center;
@@ -60,12 +47,12 @@ body{
 }
 
 .logo{
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
     border-radius:50%;
     overflow:hidden;
-    border:2px solid #d5a52b;
-    background:#4d0d09;
+    border:2px solid #e0b83f;
+    background:#4a0c08;
 }
 
 .logo img{
@@ -74,353 +61,346 @@ body{
     object-fit:cover;
 }
 
-.brand-name{
-    color:#fff3c4;
+.brand-title{
+    color:#fff2bd;
     font-family:Georgia,serif;
     font-size:21px;
+    font-weight:bold;
 }
 
-.brand-tag{
-    color:#e7c66b;
+.brand-subtitle{
+    color:#e4c76e;
     font-size:9px;
     letter-spacing:2px;
     margin-top:3px;
 }
 
-.home-btn{
-    color:#fff3c4;
+.home{
+    color:#fff3c7;
     text-decoration:none;
     font-weight:bold;
     font-size:14px;
 }
 
-
-/* =========================
-   PAGE TITLE
-========================= */
-
-.page-title{
+/* HERO */
+.hero{
     text-align:center;
-    padding:35px 15px;
+    padding:42px 20px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf0,
-            #f3dfaa
-        );
+    background:linear-gradient(
+        135deg,
+        #fffaf0,
+        #f2dfa5
+    );
 
-    border-bottom:1px solid #ddc781;
+    border-bottom:1px solid #dcc67e;
 }
 
-.page-title h1{
-    color:#68140e;
+.hero h1{
     font-family:Georgia,serif;
-    font-size:38px;
+    color:#65140d;
+    font-size:40px;
     margin-bottom:8px;
 }
 
-.page-title p{
-    color:#76564e;
+.hero p{
+    color:#765b53;
     font-size:14px;
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
+/* MAIN */
 .main{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
     padding:30px 20px 60px;
 
     display:grid;
-    grid-template-columns:1fr 370px;
+    grid-template-columns:minmax(0,1fr) 380px;
     gap:25px;
 }
 
-
-/* =========================
-   SEARCH
-========================= */
-
+/* TOOLBAR */
 .toolbar{
     display:flex;
     gap:10px;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .search{
     flex:1;
     height:45px;
+    padding:0 15px;
 
-    border:1px solid #d8c17c;
+    border:1px solid #d7bf75;
     border-radius:8px;
-
-    padding:0 14px;
 
     outline:none;
     background:white;
     font-size:14px;
 }
 
+.search:focus{
+    border-color:#8a5d13;
+}
+
 .category{
+    width:170px;
     height:45px;
 
-    border:1px solid #d8c17c;
+    border:1px solid #d7bf75;
     border-radius:8px;
 
-    padding:0 12px;
+    padding:0 10px;
 
     background:white;
-    color:#68140e;
+    color:#65140d;
     font-weight:bold;
 }
 
-
-/* =========================
-   PRODUCTS
-========================= */
-
+/* PRODUCTS */
 .products{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:18px;
 }
 
 .product{
-    background:white;
-    border:1px solid #dfcc91;
+    background:#fff;
+
+    border:1px solid #dfcd98;
     border-radius:12px;
+
     overflow:hidden;
 
-    box-shadow:
-        0 5px 18px rgba(70,30,10,.07);
+    box-shadow:0 5px 18px rgba(70,30,10,.08);
 
-    transition:.25s;
+    transition:.2s;
 }
 
 .product:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 }
 
-.product-image{
-    height:140px;
+.product-picture{
+    height:145px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fff9df,
-            #efd792
-        );
+    background:linear-gradient(
+        135deg,
+        #fff9df,
+        #eed58b
+    );
 
     font-size:58px;
 }
 
-.product-info{
+.product-content{
     padding:15px;
 }
 
-.product-info h3{
-    color:#68140e;
+.product-content h3{
+    color:#65140d;
     font-family:Georgia,serif;
     font-size:18px;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
-.product-info p{
-    color:#76564e;
+.description{
+    min-height:32px;
+
+    color:#80655d;
     font-size:11px;
     line-height:1.5;
-    min-height:34px;
 }
 
 .price{
-    color:#9a7014;
+    margin:10px 0;
+
+    color:#a07413;
     font-size:14px;
     font-weight:bold;
-    margin:10px 0;
 }
 
-.price small{
-    color:#806b64;
+.price span{
+    color:#80655d;
+    font-size:10px;
     font-weight:normal;
 }
 
+/* WEIGHTS */
 .weights{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;
     margin-bottom:9px;
 }
 
 .weight{
-    height:32px;
+    height:31px;
 
-    border:1px solid #d5c07c;
+    border:1px solid #d7c27f;
     border-radius:6px;
 
     background:#fffaf0;
-    color:#68140e;
-
-    font-size:10px;
-    font-weight:bold;
+    color:#65140d;
 
     cursor:pointer;
+
+    font-size:9px;
+    font-weight:bold;
 }
 
-.weight.selected{
-    background:#68140e;
-    color:#ffe9a2;
-    border-color:#68140e;
+.weight.active{
+    background:#65140d;
+    border-color:#65140d;
+    color:#ffe7a0;
 }
 
-.add{
+/* ADD */
+.add-btn{
     width:100%;
     height:38px;
 
     border:0;
     border-radius:7px;
 
-    background:#68140e;
-    color:white;
-
-    font-weight:bold;
-    font-size:11px;
+    background:#65140d;
+    color:#fff;
 
     cursor:pointer;
+
+    font-size:11px;
+    font-weight:bold;
 }
 
-.add:hover{
-    background:#8b241b;
+.add-btn:hover{
+    background:#8a241a;
 }
 
-
-/* =========================
-   CART
-========================= */
-
+/* CART */
 .cart{
     position:sticky;
-    top:90px;
+    top:88px;
 
-    background:white;
+    height:max-content;
 
-    border:1px solid #d8c17c;
+    background:#fff;
+
+    border:1px solid #d7bf75;
     border-radius:13px;
 
     overflow:hidden;
 
-    box-shadow:
-        0 10px 30px rgba(60,20,10,.10);
+    box-shadow:0 10px 30px rgba(60,20,10,.1);
 }
 
-.cart-head{
-    background:#68140e;
-    color:#f3d273;
+.cart-header{
+    background:#65140d;
+    color:#f1d16b;
 
     padding:17px;
 
-    border-bottom:2px solid #d5a52b;
-
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+
+    border-bottom:2px solid #d7ad35;
 }
 
-.cart-head h2{
+.cart-header h2{
     font-family:Georgia,serif;
     font-size:20px;
 }
 
-.cart-head span{
-    color:#f1dfae;
+.cart-header span{
+    color:#f5e3a7;
     font-size:11px;
 }
 
-.cart-list{
-    padding:10px;
-    max-height:400px;
+.cart-items{
+    max-height:390px;
     overflow-y:auto;
+    padding:10px;
 }
 
 .empty{
-    padding:50px 15px;
+    padding:45px 15px;
     text-align:center;
-    color:#80665e;
+
+    color:#80655d;
     font-size:13px;
     line-height:1.8;
 }
 
-.item{
-    padding:13px 5px;
-    border-bottom:1px solid #eee1bc;
+.cart-item{
+    padding:12px 5px;
+    border-bottom:1px solid #eee2c3;
 }
 
-.item:last-child{
+.cart-item:last-child{
     border-bottom:0;
 }
 
-.item-line{
+.cart-top{
     display:flex;
     justify-content:space-between;
     gap:10px;
 }
 
-.item-name{
-    color:#68140e;
+.cart-name{
+    color:#65140d;
     font-weight:bold;
     font-size:13px;
 }
 
-.item-weight{
-    color:#856e66;
+.cart-weight{
+    color:#80655d;
     font-size:10px;
     margin-top:4px;
 }
 
-.item-price{
-    color:#946d13;
-    font-weight:bold;
+.cart-amount{
+    color:#9a7014;
     font-size:12px;
+    font-weight:bold;
     white-space:nowrap;
 }
 
-.controls{
+.cart-controls{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin-top:9px;
+
+    margin-top:8px;
 }
 
-.qty{
+.quantity{
     display:flex;
     align-items:center;
     gap:7px;
 }
 
-.qty button{
-    width:25px;
-    height:25px;
+.quantity button{
+    width:26px;
+    height:26px;
 
-    border:1px solid #d5c07c;
+    border:1px solid #d6c27f;
     border-radius:5px;
 
     background:#fffaf0;
-    color:#68140e;
+    color:#65140d;
 
     cursor:pointer;
     font-weight:bold;
 }
 
-.qty span{
-    min-width:20px;
+.quantity span{
+    min-width:18px;
     text-align:center;
+
     font-size:12px;
     font-weight:bold;
 }
@@ -428,113 +408,107 @@ body{
 .remove{
     border:0;
     background:none;
-    color:#a23a31;
+
+    color:#a23c32;
+
     cursor:pointer;
     font-size:10px;
 }
 
-
-/* =========================
-   SUMMARY
-========================= */
-
+/* SUMMARY */
 .summary{
-    background:#fffaf0;
-    border-top:1px solid #ddca8e;
     padding:17px;
+
+    background:#fffaf0;
+
+    border-top:1px solid #dec98e;
 }
 
-.summary-line{
+.summary-row{
     display:flex;
     justify-content:space-between;
 
     margin-bottom:10px;
 
-    color:#70534b;
+    color:#70564e;
     font-size:13px;
 }
 
-.total{
-    padding-top:13px;
+.total-row{
     margin-top:12px;
+    padding-top:12px;
 
-    border-top:1px dashed #c9ae62;
+    border-top:1px dashed #c9ad5e;
 
-    color:#68140e;
+    color:#65140d;
     font-size:20px;
     font-weight:bold;
 }
 
-
-/* =========================
-   PAYMENT
-========================= */
-
+/* PAYMENT */
 .payment-title{
     margin:18px 0 9px;
 
-    color:#68140e;
+    color:#65140d;
+
     font-size:12px;
     font-weight:bold;
 }
 
-.payment{
+.payment-options{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:8px;
 }
 
-.payment label{
+.payment-option input{
+    display:none;
+}
+
+.payment-option label{
     height:40px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border:1px solid #d5c07c;
+    border:1px solid #d6c17b;
     border-radius:7px;
 
-    color:#68140e;
+    color:#65140d;
+
+    cursor:pointer;
 
     font-size:12px;
     font-weight:bold;
-
-    cursor:pointer;
 }
 
-.payment input{
-    display:none;
+.payment-option input:checked + label{
+    background:#65140d;
+    color:#f5d776;
 }
 
-.payment input:checked + label{
-    background:#68140e;
-    color:#f4d67a;
-}
-
-
-/* =========================
-   CASH
-========================= */
-
-.cash-box{
+/* CASH */
+.cash-area{
     margin-top:12px;
 }
 
-.cash-box label{
+.cash-area label{
     display:block;
 
-    color:#70534b;
+    color:#70564e;
+
     font-size:11px;
     font-weight:bold;
 
     margin-bottom:6px;
 }
 
-.cash-box input{
+.cash-area input{
     width:100%;
     height:40px;
 
-    border:1px solid #d5c07c;
+    border:1px solid #d6c17b;
     border-radius:7px;
 
     padding:0 12px;
@@ -547,11 +521,10 @@ body{
     margin-top:7px;
     padding:9px;
 
+    background:#f3e5b9;
     border-radius:6px;
 
-    background:#f3e5b9;
-
-    color:#68140e;
+    color:#65140d;
 
     text-align:center;
 
@@ -559,11 +532,7 @@ body{
     font-weight:bold;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
+/* BUTTONS */
 .confirm{
     width:100%;
     height:46px;
@@ -576,14 +545,14 @@ body{
     background:#b38318;
     color:white;
 
-    font-weight:bold;
-    font-size:12px;
-
     cursor:pointer;
+
+    font-size:12px;
+    font-weight:bold;
 }
 
 .confirm:disabled{
-    background:#c8bda5;
+    background:#c9c0a9;
     cursor:not-allowed;
 }
 
@@ -593,23 +562,64 @@ body{
 
     margin-top:8px;
 
-    border:1px solid #d2b6ae;
+    background:white;
+
+    border:1px solid #d6b7af;
     border-radius:7px;
 
-    background:white;
     color:#8a3930;
+
+    cursor:pointer;
 
     font-size:11px;
     font-weight:bold;
-
-    cursor:pointer;
 }
 
+/* FOOTER */
+footer{
+    padding:25px 15px;
 
-/* =========================
-   BILL MODAL
-========================= */
+    background:#4a0d09;
+    color:#e7cc82;
 
+    text-align:center;
+
+    font-size:11px;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:22px;
+
+    transform:translate(-50%,25px);
+
+    opacity:0;
+
+    background:#65140d;
+    color:#ffe7a0;
+
+    border:1px solid #d7ad35;
+    border-radius:8px;
+
+    padding:12px 20px;
+
+    z-index:5000;
+
+    font-size:12px;
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* BILL MODAL */
 .modal{
     display:none;
 
@@ -626,15 +636,15 @@ body{
     padding:15px;
 }
 
-.modal.active{
+.modal.show{
     display:flex;
 }
 
 .bill-box{
     width:100%;
     max-width:430px;
-
     max-height:92vh;
+
     overflow:auto;
 
     background:white;
@@ -642,7 +652,7 @@ body{
 }
 
 .bill{
-    padding:25px;
+    padding:24px;
 
     color:#111;
 
@@ -662,13 +672,12 @@ body{
     width:60px;
     height:60px;
 
-    margin:auto;
-    margin-bottom:8px;
+    margin:0 auto 8px;
 
+    border:2px solid #65140d;
     border-radius:50%;
-    overflow:hidden;
 
-    border:2px solid #68140e;
+    overflow:hidden;
 }
 
 .bill-logo img{
@@ -678,9 +687,9 @@ body{
 }
 
 .bill-header h2{
-    color:#68140e;
+    color:#65140d;
     font-family:Georgia,serif;
-    font-size:22px;
+    font-size:21px;
 }
 
 .bill-header p{
@@ -705,12 +714,15 @@ body{
 .bill-table{
     width:100%;
     border-collapse:collapse;
+
     margin:13px 0;
 }
 
 .bill-table th{
     text-align:left;
+
     border-bottom:1px solid #222;
+
     padding-bottom:6px;
 }
 
@@ -726,22 +738,28 @@ body{
 
 .bill-total{
     border-top:1px dashed #555;
-    padding-top:9px;
+    padding-top:8px;
 }
 
 .bill-row{
     display:flex;
     justify-content:space-between;
+
     padding:4px 0;
 }
 
 .bill-grand{
     border-top:1px solid #222;
+
     margin-top:5px;
     padding-top:8px;
 
     font-size:15px;
     font-weight:bold;
+}
+
+.bill-payment{
+    margin-top:8px;
 }
 
 .bill-footer{
@@ -765,7 +783,7 @@ body{
 
     background:#f4e8c7;
 
-    border-top:1px solid #d8c17c;
+    border-top:1px solid #d7bf75;
 }
 
 .bill-actions button{
@@ -774,63 +792,23 @@ body{
     border:0;
     border-radius:7px;
 
-    font-weight:bold;
     cursor:pointer;
+
+    font-weight:bold;
 }
 
-.print{
-    background:#68140e;
+.print-btn{
+    background:#65140d;
     color:white;
 }
 
-.new{
-    background:#d5a52b;
-    color:#4c100b;
+.new-btn{
+    background:#d7ad35;
+    color:#4d100b;
 }
 
-
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-    position:fixed;
-
-    left:50%;
-    bottom:20px;
-
-    transform:translate(-50%,20px);
-
-    opacity:0;
-
-    z-index:5000;
-
-    background:#68140e;
-    color:#ffe9a4;
-
-    border:1px solid #d5a52b;
-
-    padding:12px 20px;
-
-    border-radius:8px;
-
-    font-size:12px;
-    font-weight:bold;
-
-    transition:.25s;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
+/* RESPONSIVE */
+@media(max-width:950px){
 
     .main{
         grid-template-columns:1fr;
@@ -843,37 +821,42 @@ body{
 
 }
 
-
-@media(max-width:650px){
+@media(max-width:700px){
 
     .products{
-        grid-template-columns:1fr 1fr;
-        gap:12px;
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
-    .product-image{
-        height:110px;
-        font-size:45px;
+    .category{
+        width:145px;
     }
 
-    .product-info{
-        padding:11px;
+}
+
+@media(max-width:520px){
+
+    .header-inner{
+        padding:10px 14px;
     }
 
-    .product-info h3{
-        font-size:15px;
-    }
-
-    .product-info p{
-        font-size:10px;
-    }
-
-    .brand-name{
+    .brand-title{
         font-size:17px;
     }
 
-    .home-btn{
+    .home{
         font-size:12px;
+    }
+
+    .hero{
+        padding:32px 15px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .main{
+        padding:20px 12px 45px;
     }
 
     .toolbar{
@@ -884,10 +867,30 @@ body{
         width:100%;
     }
 
+    .products{
+        gap:10px;
+    }
+
+    .product-picture{
+        height:115px;
+        font-size:45px;
+    }
+
+    .product-content{
+        padding:11px;
+    }
+
+    .product-content h3{
+        font-size:15px;
+    }
+
+    .weights{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
 
-
-@media(max-width:380px){
+@media(max-width:360px){
 
     .products{
         grid-template-columns:1fr;
@@ -895,27 +898,27 @@ body{
 
 }
 
-
-/* =========================
-   PRINT
-========================= */
-
+/* PRINT */
 @media print{
 
     body *{
-        visibility:hidden;
+        visibility:hidden !important;
     }
 
     .modal,
     .modal *{
-        visibility:visible;
+        visibility:visible !important;
     }
 
     .modal{
-        position:absolute;
         display:block !important;
 
+        position:absolute;
+
+        inset:0;
+
         background:white;
+
         padding:0;
     }
 
@@ -938,18 +941,10 @@ body{
     }
 
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header class="header">
 
@@ -957,426 +952,243 @@ body{
 
 <a href="index.html" class="brand">
 
-    <div class="logo">
+<div class="logo">
+<img src="logo.png" alt="Raghavendra Sweets">
+</div>
 
-        <img
-            src="logo.png"
-            alt="Raghavendra Sweets Logo"
-        >
-
-    </div>
-
-    <div>
-
-        <div class="brand-name">
-            Raghavendra Sweets
-        </div>
-
-        <div class="brand-tag">
-            TASTE OF TRADITION
-        </div>
-
-    </div>
+<div>
+<div class="brand-title">Raghavendra Sweets</div>
+<div class="brand-subtitle">TASTE OF TRADITION</div>
+</div>
 
 </a>
 
-
-<a href="index.html" class="home-btn">
-    ← Home
-</a>
+<a href="index.html" class="home">← Home</a>
 
 </div>
 
 </header>
 
 
+<section class="hero">
 
-<!-- =========================
-     TITLE
-========================= -->
+<h1>Our Sweet Collection</h1>
 
-<section class="page-title">
-
-<h1>
-    Sweet Shop
-</h1>
-
-<p>
-    Select your sweets and prepare the bill
-</p>
+<p>Choose your favourite sweets and prepare your bill</p>
 
 </section>
 
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="main">
 
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
 <section>
-
 
 <div class="toolbar">
 
 <input
-    class="search"
-    id="search"
-    type="search"
-    placeholder="Search sweets..."
+type="search"
+id="search"
+class="search"
+placeholder="🔎 Search sweets..."
 >
 
-<select
-    class="category"
-    id="category"
->
+<select id="category" class="category">
 
-    <option value="all">
-        All Categories
-    </option>
-
-    <option value="milk">
-        Milk Sweets
-    </option>
-
-    <option value="laddu">
-        Laddus
-    </option>
-
-    <option value="kaju">
-        Kaju Sweets
-    </option>
-
-    <option value="traditional">
-        Traditional
-    </option>
+<option value="all">All Categories</option>
+<option value="milk">Milk Sweets</option>
+<option value="laddu">Laddus</option>
+<option value="kaju">Kaju Sweets</option>
+<option value="traditional">Traditional</option>
 
 </select>
 
 </div>
 
 
-<div
-    class="products"
-    id="products"
-></div>
-
+<div id="products" class="products"></div>
 
 </section>
 
 
-
-<!-- =========================
-     CART
-========================= -->
-
 <aside class="cart">
 
+<div class="cart-header">
 
-<div class="cart-head">
+<h2>Current Bill</h2>
 
-<h2>
-    Current Bill
-</h2>
-
-<span id="itemCount">
-    0 items
-</span>
+<span id="itemCount">0 items</span>
 
 </div>
 
 
-<div
-    class="cart-list"
-    id="cartList"
->
+<div id="cartItems" class="cart-items">
 
 <div class="empty">
-
-    🛍️
-
-    <br>
-
-    No sweets added yet.
-
-    <br>
-
-    Select sweets from above.
-
+🛍️
+<br>
+Your bill is empty.
+<br>
+Select sweets to begin.
 </div>
 
 </div>
-
 
 
 <div class="summary">
 
-
-<div class="summary-line">
-
-<span>
-    Items
-</span>
-
-<strong id="itemsNumber">
-    0
-</strong>
-
+<div class="summary-row">
+<span>Items</span>
+<strong id="itemsCount">0</strong>
 </div>
 
-
-<div class="summary-line">
-
-<span>
-    Subtotal
-</span>
-
-<strong id="subtotal">
-    ₹0.00
-</strong>
-
+<div class="summary-row">
+<span>Subtotal</span>
+<strong id="subtotal">₹0.00</strong>
 </div>
 
-
-<div class="summary-line">
-
-<span>
-    Discount
-</span>
-
-<strong>
-    ₹0.00
-</strong>
-
+<div class="summary-row">
+<span>Discount</span>
+<strong>₹0.00</strong>
 </div>
 
-
-<div class="summary-line total">
-
-<span>
-    TOTAL
-</span>
-
-<strong id="total">
-    ₹0.00
-</strong>
-
+<div class="summary-row total-row">
+<span>TOTAL</span>
+<strong id="total">₹0.00</strong>
 </div>
-
 
 
 <div class="payment-title">
-    Payment Method
+Payment Method
 </div>
 
 
-<div class="payment">
+<div class="payment-options">
 
-
-<div>
+<div class="payment-option">
 
 <input
-    type="radio"
-    name="payment"
-    id="cash"
-    value="Cash"
-    checked
+type="radio"
+name="payment"
+id="cash"
+value="Cash"
+checked
 >
 
 <label for="cash">
-    💵 Cash
+💵 Cash
 </label>
 
 </div>
 
 
-<div>
+<div class="payment-option">
 
 <input
-    type="radio"
-    name="payment"
-    id="card"
-    value="Card"
+type="radio"
+name="payment"
+id="card"
+value="Card"
 >
 
 <label for="card">
-    💳 Card
+💳 Card
 </label>
 
 </div>
 
-
 </div>
 
 
+<div id="cashArea" class="cash-area">
 
-<div
-    class="cash-box"
-    id="cashBox"
->
-
-<label>
-    Cash Received
+<label for="cashReceived">
+Cash Received
 </label>
 
 <input
-    id="cashReceived"
-    type="number"
-    min="0"
-    step="0.01"
-    placeholder="Enter cash amount"
+type="number"
+id="cashReceived"
+min="0"
+step="0.01"
+placeholder="Enter received amount"
 >
 
-<div
-    class="change"
-    id="change"
->
-    Change: ₹0.00
+<div id="change" class="change">
+Change: ₹0.00
 </div>
 
 </div>
 
 
-
 <button
-    class="confirm"
-    id="confirm"
-    disabled
+id="confirm"
+class="confirm"
+disabled
 >
-    ✓ CONFIRM ORDER
+✓ CONFIRM ORDER
 </button>
 
 
 <button
-    class="clear"
-    id="clear"
+id="clear"
+class="clear"
 >
-    Clear Current Bill
+Clear Current Bill
 </button>
-
 
 </div>
 
 </aside>
 
-
 </main>
 
 
-
 <footer>
-
-    © 2026 Raghavendra Sweets
-    • Professional Billing System
-
+© 2026 Raghavendra Sweets • Taste of Tradition
 </footer>
 
 
-
-<!-- =========================
-     TOAST
-========================= -->
-
-<div
-    class="toast"
-    id="toast"
-></div>
+<div id="toast" class="toast"></div>
 
 
+<!-- BILL -->
 
-<!-- =========================
-     BILL MODAL
-========================= -->
-
-<div
-    class="modal"
-    id="modal"
->
-
+<div id="modal" class="modal">
 
 <div class="bill-box">
 
-
-<div class="bill" id="bill">
-
+<div class="bill">
 
 <div class="bill-header">
 
-
 <div class="bill-logo">
-
-<img
-    src="logo.png"
-    alt="Raghavendra Sweets"
->
-
+<img src="logo.png" alt="Logo">
 </div>
 
+<h2>RAGHAVENDRA SWEETS</h2>
 
-<h2>
-    RAGHAVENDRA SWEETS
-</h2>
+<p>Taste of Tradition</p>
 
-
-<p>
-    Taste of Tradition
-</p>
-
-
-<p>
-    Thank You for Shopping With Us
-</p>
-
+<p>Thank You for Shopping With Us</p>
 
 </div>
-
 
 
 <div class="bill-info">
 
-<div>
-    Bill No
-</div>
+<div>Bill No</div>
+<div id="billNo">-</div>
 
-<div id="billNo">
-    -
-</div>
+<div>Date</div>
+<div id="billDate">-</div>
 
+<div>Time</div>
+<div id="billTime">-</div>
 
-<div>
-    Date
-</div>
-
-<div id="billDate">
-    -
-</div>
-
-
-<div>
-    Time
-</div>
-
-<div id="billTime">
-    -
-</div>
-
-
-<div>
-    Payment
-</div>
-
-<div id="billPayment">
-    -
-</div>
+<div>Payment</div>
+<div id="billPayment">-</div>
 
 </div>
-
 
 
 <table class="bill-table">
@@ -1384,89 +1196,44 @@ body{
 <thead>
 
 <tr>
-
-<th>
-    Item
-</th>
-
-<th>
-    Qty
-</th>
-
-<th>
-    Amount
-</th>
-
+<th>Item</th>
+<th>Qty</th>
+<th>Amount</th>
 </tr>
 
 </thead>
 
-
-<tbody id="billItems">
-
-</tbody>
+<tbody id="billItems"></tbody>
 
 </table>
 
 
-
 <div class="bill-total">
 
-
 <div class="bill-row">
-
-<span>
-    Subtotal
-</span>
-
-<span id="billSubtotal">
-    ₹0.00
-</span>
-
+<span>Subtotal</span>
+<span id="billSubtotal">₹0.00</span>
 </div>
 
-
 <div class="bill-row">
-
-<span>
-    Discount
-</span>
-
-<span>
-    ₹0.00
-</span>
-
+<span>Discount</span>
+<span>₹0.00</span>
 </div>
-
 
 <div class="bill-row bill-grand">
-
-<span>
-    TOTAL
-</span>
-
-<span id="billTotal">
-    ₹0.00
-</span>
+<span>TOTAL</span>
+<span id="billTotal">₹0.00</span>
+</div>
 
 </div>
 
 
-</div>
-
-
-
-<div id="billPaymentDetails">
-
-</div>
-
+<div id="billPaymentDetails" class="bill-payment"></div>
 
 
 <div class="bill-footer">
 
-<strong>
-    RAGHAVENDRA SWEETS
-</strong>
+<strong>RAGHAVENDRA SWEETS</strong>
 
 <br>
 
@@ -1482,7 +1249,7 @@ Thank You ❤️
 
 <br><br>
 
---------------------------------
+------------------------------
 
 <br>
 
@@ -1494,198 +1261,322 @@ Raghavendra Sweets
 
 </div>
 
-
 </div>
-
 
 
 <div class="bill-actions">
 
-<button
-    class="print"
-    id="print"
->
-    🖨 PRINT BILL
+<button id="printBtn" class="print-btn">
+🖨 PRINT BILL
 </button>
 
-
-<button
-    class="new"
-    id="newBill"
->
-    + NEW BILL
+<button id="newBtn" class="new-btn">
++ NEW BILL
 </button>
 
 </div>
 
-
 </div>
 
 </div>
-
 
 
 <script>
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+/* ==============================
+   SWEETS DATA
+============================== */
 
-const products = [
+const sweets = [
 
 {
-    id:1,
-    name:"Gulab Jamun",
-    category:"milk",
-    price:280,
-    emoji:"🍮",
-    description:"Soft and delicious traditional sweet."
+id:1,
+name:"Gulab Jamun",
+category:"milk",
+price:280,
+emoji:"🍮",
+description:"Soft and delicious traditional sweet."
 },
 
 {
-    id:2,
-    name:"Boondi Laddu",
-    category:"laddu",
-    price:320,
-    emoji:"🟡",
-    description:"Classic festive Indian laddu."
+id:2,
+name:"Boondi Laddu",
+category:"laddu",
+price:320,
+emoji:"🟡",
+description:"Classic festive Indian laddu."
 },
 
 {
-    id:3,
-    name:"Kaju Katli",
-    category:"kaju",
-    price:720,
-    emoji:"🥮",
-    description:"Premium cashew sweet."
+id:3,
+name:"Kaju Katli",
+category:"kaju",
+price:720,
+emoji:"🥮",
+description:"Premium cashew sweet."
 },
 
 {
-    id:4,
-    name:"Kaju Roll",
-    category:"kaju",
-    price:760,
-    emoji:"🍥",
-    description:"Rich kaju sweet."
+id:4,
+name:"Kaju Roll",
+category:"kaju",
+price:760,
+emoji:"🍥",
+description:"Rich kaju sweet."
 },
 
 {
-    id:5,
-    name:"Mysore Pak",
-    category:"traditional",
-    price:520,
-    emoji:"🟨",
-    description:"Traditional melt-in-mouth sweet."
+id:5,
+name:"Mysore Pak",
+category:"traditional",
+price:520,
+emoji:"🟨",
+description:"Traditional melt-in-mouth sweet."
 },
 
 {
-    id:6,
-    name:"Milk Peda",
-    category:"milk",
-    price:440,
-    emoji:"⚪",
-    description:"Soft and creamy peda."
+id:6,
+name:"Milk Peda",
+category:"milk",
+price:440,
+emoji:"⚪",
+description:"Soft and creamy peda."
 },
 
 {
-    id:7,
-    name:"Ravva Laddu",
-    category:"laddu",
-    price:360,
-    emoji:"🟠",
-    description:"Traditional semolina laddu."
+id:7,
+name:"Ravva Laddu",
+category:"laddu",
+price:360,
+emoji:"🟠",
+description:"Traditional semolina laddu."
 },
 
 {
-    id:8,
-    name:"Motichoor Laddu",
-    category:"laddu",
-    price:420,
-    emoji:"🟠",
-    description:"Fine traditional boondi laddu."
+id:8,
+name:"Motichoor Laddu",
+category:"laddu",
+price:420,
+emoji:"🟠",
+description:"Fine traditional boondi laddu."
 },
 
 {
-    id:9,
-    name:"Badusha",
-    category:"traditional",
-    price:340,
-    emoji:"🥯",
-    description:"Flaky traditional sweet."
+id:9,
+name:"Badusha",
+category:"traditional",
+price:340,
+emoji:"🥯",
+description:"Flaky traditional sweet."
 },
 
 {
-    id:10,
-    name:"Ariselu",
-    category:"traditional",
-    price:420,
-    emoji:"🍪",
-    description:"Traditional festive sweet."
+id:10,
+name:"Ariselu",
+category:"traditional",
+price:420,
+emoji:"🍪",
+description:"Traditional festive sweet."
 },
 
 {
-    id:11,
-    name:"Kaju Pista Roll",
-    category:"kaju",
-    price:780,
-    emoji:"💚",
-    description:"Premium kaju and pista sweet."
+id:11,
+name:"Kaju Pista Roll",
+category:"kaju",
+price:780,
+emoji:"💚",
+description:"Premium kaju and pista sweet."
 },
 
 {
-    id:12,
-    name:"Doodh Peda",
-    category:"milk",
-    price:460,
-    emoji:"🥛",
-    description:"Rich milk-based sweet."
+id:12,
+name:"Doodh Peda",
+category:"milk",
+price:460,
+emoji:"🥛",
+description:"Rich milk-based sweet."
 }
 
 ];
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ==============================
+   STATE
+============================== */
 
 let cart = [];
 
 let selectedWeight = {};
 
-const weightOptions = [
-
+const weights = [
 {
-    text:"250g",
-    value:0.25
+label:"250g",
+value:0.25
 },
-
 {
-    text:"500g",
-    value:0.5
+label:"500g",
+value:0.5
 },
-
 {
-    text:"750g",
-    value:0.75
+label:"750g",
+value:0.75
 },
-
 {
-    text:"1 KG",
-    value:1
+label:"1 KG",
+value:1
 }
-
 ];
 
 
-/* =====================================================
+/* ==============================
    ELEMENTS
-===================================================== */
+============================== */
 
-const productsBox =
-    document.getElementById("products");
+const productsEl =
+document.getElementById("products");
 
-const searchBox =
-    document.getElementById("search");
+const searchEl =
+document.getElementById("search");
 
-const categoryBox =
-    document.getElementById
+const categoryEl =
+document.getElementById("category");
+
+const cartItemsEl =
+document.getElementById("cartItems");
+
+const itemCountEl =
+document.getElementById("itemCount");
+
+const itemsCountEl =
+document.getElementById("itemsCount");
+
+const subtotalEl =
+document.getElementById("subtotal");
+
+const totalEl =
+document.getElementById("total");
+
+const confirmEl =
+document.getElementById("confirm");
+
+const cashReceivedEl =
+document.getElementById("cashReceived");
+
+const changeEl =
+document.getElementById("change");
+
+const cashAreaEl =
+document.getElementById("cashArea");
+
+const modalEl =
+document.getElementById("modal");
+
+const toastEl =
+document.getElementById("toast");
+
+
+/* ==============================
+   MONEY
+============================== */
+
+function money(value){
+
+return "₹" +
+Number(value).toLocaleString(
+"en-IN",
+{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+}
+);
+
+}
+
+
+/* ==============================
+   TOAST
+============================== */
+
+let toastTimeout;
+
+function toast(message){
+
+toastEl.textContent = message;
+
+toastEl.classList.add("show");
+
+clearTimeout(toastTimeout);
+
+toastTimeout =
+setTimeout(
+function(){
+
+toastEl.classList.remove("show");
+
+},
+2000
+);
+
+}
+
+
+/* ==============================
+   RENDER PRODUCTS
+============================== */
+
+function renderProducts(){
+
+const search =
+searchEl.value
+.toLowerCase()
+.trim();
+
+const category =
+categoryEl.value;
+
+
+const filtered =
+sweets.filter(
+function(sweet){
+
+const matchesSearch =
+sweet.name
+.toLowerCase()
+.includes(search);
+
+const matchesCategory =
+category === "all" ||
+sweet.category === category;
+
+return matchesSearch &&
+matchesCategory;
+
+}
+);
+
+
+if(filtered.length === 0){
+
+productsEl.innerHTML = `
+
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:50px;
+color:#765b53;
+">
+
+🔎
+<br><br>
+No sweets found.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+productsEl.inne
