@@ -1,735 +1,1341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raghavendra Sweets - POS & Billing System</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Raghavendra Sweets - Traditional Indian sweets made with purity, tradition and love.">
+
+<meta name="theme-color" content="#68140e">
+
+<title>Raghavendra Sweets | Taste of Tradition</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#fffaf0;
+    color:#3d160f;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(104,20,14,0.97);
+    border-bottom:2px solid #d5a52b;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 22px;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:#fff4c8;
+    text-decoration:none;
+}
+
+.logo-symbol{
+    width:48px;
+    height:48px;
+
+    border:2px solid #d5a52b;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+    color:#d5a52b;
+
+    background:#4d0d09;
+}
+
+.logo-text h1{
+    font-size:23px;
+    letter-spacing:1px;
+}
+
+.logo-text span{
+    display:block;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#e7c66b;
+    margin-top:2px;
+}
+
+/* NAVIGATION */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#fff8dc;
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#ffd75b;
+}
+
+.shop-btn{
+    padding:11px 20px;
+
+    border:1px solid #d5a52b;
+    border-radius:25px;
+
+    color:#68140e !important;
+    background:#e8bd45;
+
+    font-weight:bold !important;
+}
+
+.shop-btn:hover{
+    background:#f5d77b;
+    transform:translateY(-2px);
+}
+
+/* MOBILE MENU */
+
+.menu-btn{
+    display:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    padding:130px 20px 70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 20% 30%,rgba(213,165,43,0.18),transparent 25%),
+        radial-gradient(circle at 80% 70%,rgba(104,20,14,0.15),transparent 30%),
+        linear-gradient(135deg,#fffaf0,#f7e4ad);
+}
+
+.hero-content{
+    max-width:900px;
+    animation:fadeUp 1s ease;
+}
+
+.small-title{
+    color:#9a7014;
+
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    font-weight:bold;
+
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.hero h2{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.05;
+
+    color:#68140e;
+
+    margin-bottom:20px;
+}
+
+.hero h2 span{
+    color:#b38318;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 32px;
+
+    font-family:Arial,sans-serif;
+    color:#69453d;
+
+    font-size:17px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-block;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#68140e;
+    color:white;
+
+    border:2px solid #68140e;
+}
+
+.primary-btn:hover{
+    background:#8d241b;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(104,20,14,0.25);
+}
+
+.secondary-btn{
+    color:#68140e;
+    border:2px solid #68140e;
+    background:transparent;
+}
+
+.secondary-btn:hover{
+    background:#68140e;
+    color:white;
+}
+
+/* DECORATIONS */
+
+.hero::before,
+.hero::after{
+    content:"✦";
+
+    position:absolute;
+
+    color:#d5a52b;
+    opacity:0.35;
+
+    font-size:100px;
+}
+
+.hero::before{
+    left:5%;
+    top:30%;
+}
+
+.hero::after{
+    right:5%;
+    bottom:20%;
+}
+
+/* =========================
+   TRUST BAR
+========================= */
+
+.trust-bar{
+    background:#68140e;
+    color:#fff4c8;
+
+    border-top:1px solid #d5a52b;
+    border-bottom:1px solid #d5a52b;
+}
+
+.trust-container{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+    padding:24px 15px;
+    text-align:center;
+
+    border-right:1px solid rgba(213,165,43,0.35);
+}
+
+.trust-item:last-child{
+    border-right:none;
+}
+
+.trust-icon{
+    font-size:27px;
+    color:#e5bd4c;
+    margin-bottom:7px;
+}
+
+.trust-item h3{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.trust-item p{
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    color:#e6cf9b;
+}
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+section{
+    padding:90px 20px;
+}
+
+.section-container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    display:block;
+
+    color:#a27817;
+
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    font-weight:bold;
+
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.section-title h2{
+    color:#68140e;
+    font-size:38px;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:14px auto 0;
+
+    font-family:Arial,sans-serif;
+    color:#76564e;
+
+    line-height:1.7;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:#fffaf0;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-card{
+    min-height:420px;
+
+    border:2px solid #d5a52b;
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #68140e,
+            #3f0b08
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(70,20,10,0.18);
+}
+
+.about-emblem{
+    width:190px;
+    height:190px;
+
+    border:2px solid #d5a52b;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    color:#f0cf70;
+}
+
+.about-emblem strong{
+    font-size:45px;
+}
+
+.about-emblem span{
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+.about-text h2{
+    color:#68140e;
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    font-family:Arial,sans-serif;
+    color:#68483f;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.about-point{
+    padding:13px;
+
+    background:#f8ebc7;
+    border-left:3px solid #d5a52b;
+
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* =========================
+   SWEETS
+========================= */
+
+.featured{
+    background:#f7e7b9;
+}
+
+.sweets-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.sweet-card{
+    background:#fffdf6;
+
+    border:1px solid #e1c879;
+    border-radius:12px;
+
+    overflow:hidden;
+
+    transition:0.35s;
+
+    box-shadow:0 8px 25px rgba(70,30,10,0.08);
+}
+
+.sweet-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(70,30,10,0.16);
+}
+
+.sweet-image{
+    height:210px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(135deg,#fff8dd,#ecd58f);
+
+    font-size:70px;
+}
+
+.sweet-content{
+    padding:22px;
+}
+
+.sweet-content h3{
+    color:#68140e;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.sweet-content p{
+    font-family:Arial,sans-serif;
+    color:#76564e;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:16px;
+}
+
+.view-shop{
+    display:inline-block;
+
+    color:#8b6510;
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.view-shop:hover{
+    color:#68140e;
+}
+
+/* =========================
+   WHY US
+========================= */
+
+.why-us{
+    background:#fffaf0;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.feature{
+    text-align:center;
+    padding:30px 20px;
+
+    border:1px solid #ead8a5;
+    border-radius:10px;
+
+    background:white;
+}
+
+.feature-icon{
+    width:65px;
+    height:65px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#68140e;
+    color:#e8c35d;
+
+    font-size:27px;
+}
+
+.feature h3{
+    color:#68140e;
+    margin-bottom:10px;
+}
+
+.feature p{
+    font-family:Arial,sans-serif;
+    color:#76564e;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:80px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #68140e,
+            #4a0c08
+        );
+
+    text-align:center;
+
+    color:white;
+}
+
+.cta h2{
+    font-size:40px;
+    color:#f1cf6a;
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:0 auto 28px;
+
+    font-family:Arial,sans-serif;
+    color:#f3dfae;
+    line-height:1.7;
+}
+
+.cta-btn{
+    display:inline-block;
+
+    padding:14px 30px;
+
+    background:#e6ba43;
+    color:#54100b;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.cta-btn:hover{
+    background:#f4d477;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#300806;
+    color:#ead8a5;
+
+    padding:55px 20px 20px;
+}
+
+.footer-container{
+    max-width:1150px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-brand h2{
+    color:#f0cc65;
+    margin-bottom:12px;
+}
+
+.footer-brand p{
+    font-family:Arial,sans-serif;
+    color:#c9ad82;
+    line-height:1.7;
+    font-size:13px;
+    max-width:400px;
+}
+
+.footer-column h3{
+    color:#f0cc65;
+    margin-bottom:18px;
+    font-size:16px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#c9ad82;
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+    font-size:13px;
+
+    margin-bottom:11px;
+}
+
+.footer-column a:hover{
+    color:#fff;
+}
+
+.copyright{
+    max-width:1150px;
+    margin:40px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(213,165,43,0.2);
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+    font-size:11px;
+
+    color:#987b57;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
 
-    body {
-      background: #f4f6f9;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+
+        position:absolute;
+
+        top:78px;
+        left:0;
+
+        width:100%;
+
+        background:#68140e;
+
+        flex-direction:column;
+        gap:0;
+
+        border-bottom:2px solid #d5a52b;
     }
 
-    /* Left Section: Menu & History Tabs */
-    .left-container {
-      flex: 6.5;
-      display: flex;
-      flex-direction: column;
-      padding: 15px 20px;
-      overflow-y: auto;
+    .nav-links.active{
+        display:flex;
     }
 
-    .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 15px;
+    .nav-links a{
+        width:100%;
+        text-align:center;
+
+        padding:16px;
+
+        border-bottom:1px solid rgba(213,165,43,0.15);
     }
 
-    .brand-section {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .menu-btn{
+        display:block;
     }
 
-    .shop-logo {
-      height: 50px;
-      width: 50px;
-      object-fit: cover;
-      border-radius: 8px;
+    .trust-container{
+        grid-template-columns:1fr 1fr;
     }
 
-    .brand-section h1 {
-      color: #b84200;
-      font-size: 22px;
-      font-weight: 700;
+    .trust-item{
+        border-bottom:1px solid rgba(213,165,43,0.25);
     }
 
-    .brand-section p {
-      color: #666;
-      font-size: 12px;
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:35px;
     }
 
-    .nav-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
+    .about-card{
+        min-height:300px;
     }
 
-    .tab-btn {
-      padding: 8px 18px;
-      border: none;
-      background: #e0e0e0;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      color: #444;
-      transition: all 0.2s;
+    .sweets-grid{
+        grid-template-columns:1fr;
     }
 
-    .tab-btn.active {
-      background: #b84200;
-      color: white;
+    .features{
+        grid-template-columns:1fr;
     }
 
-    .actions-bar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+}
+
+@media(max-width:500px){
+
+    .navbar{
+        padding:0 15px;
     }
 
-    .search-input {
-      padding: 9px 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      flex: 1;
-      outline: none;
-      font-size: 14px;
+    .logo-text h1{
+        font-size:18px;
     }
 
-    .btn-add-item {
-      background: #2e7d32;
-      color: white;
-      border: none;
-      padding: 9px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 14px;
+    .hero{
+        padding-top:120px;
     }
 
-    .btn-add-item:hover {
-      background: #246327;
+    .hero h2{
+        font-size:43px;
     }
 
-    /* Items Grid */
-    .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 15px;
+    .hero p{
+        font-size:14px;
     }
 
-    .item-card {
-      background: white;
-      border-radius: 12px;
-      padding: 12px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.04);
-      cursor: pointer;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid #eee;
+    .section-title h2{
+        font-size:30px;
     }
 
-    .item-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-      border-color: #f3c2a6;
+    .about-text h2{
+        font-size:30px;
     }
 
-    .item-card img {
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 8px;
+    .cta h2{
+        font-size:30px;
     }
 
-    .item-card h3 {
-      font-size: 15px;
-      color: #333;
-      margin-bottom: 4px;
+    .about-points{
+        grid-template-columns:1fr;
     }
+}
 
-    .item-card .price {
-      font-weight: 700;
-      color: #b84200;
-      font-size: 14px;
-    }
-
-    /* History Table View */
-    .history-container {
-      display: none;
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .history-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    .history-table th, .history-table td {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-    }
-
-    .history-table th {
-      background: #fafafa;
-      color: #555;
-    }
-
-    /* Right Section: Billing */
-    .billing-container {
-      flex: 3.5;
-      background: white;
-      border-left: 1px solid #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      box-shadow: -4px 0 10px rgba(0,0,0,0.03);
-    }
-
-    .bill-header {
-      border-bottom: 2px dashed #eee;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .bill-header .bill-logo {
-      height: 48px;
-      margin-bottom: 5px;
-    }
-
-    .bill-items-list {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 12px;
-    }
-
-    .bill-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #f9f9f9;
-    }
-
-    .bill-item-info {
-      flex: 2;
-    }
-
-    .qty-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex: 1.2;
-      justify-content: center;
-    }
-
-    .qty-btn {
-      background: #eee;
-      border: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .item-total {
-      flex: 1;
-      text-align: right;
-      font-weight: 600;
-    }
-
-    .summary-section {
-      border-top: 2px dashed #eee;
-      padding-top: 12px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .summary-row.total {
-      font-size: 18px;
-      font-weight: bold;
-      color: #111;
-      margin-top: 8px;
-      padding-top: 6px;
-      border-top: 1px solid #eee;
-    }
-
-    .cash-section {
-      margin-top: 10px;
-      background: #fdf8f5;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #f3e0d5;
-    }
-
-    .cash-input {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-top: 5px;
-      outline: none;
-    }
-
-    .change-text {
-      margin-top: 6px;
-      font-size: 13px;
-      font-weight: bold;
-      color: #2e7d32;
-    }
-
-    .checkout-btn {
-      background: #b84200;
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 12px;
-      transition: background 0.2s;
-    }
-
-    .checkout-btn:hover {
-      background: #963500;
-    }
-
-    /* Print Specific Acknowledgement & Sponsor */
-    .print-acknowledgement-box {
-      display: none;
-    }
-
-    /* Modal Form */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-    }
-
-    .modal-content {
-      background: white;
-      width: 380px;
-      padding: 22px;
-      border-radius: 12px;
-    }
-
-    .modal-content h3 {
-      margin-bottom: 12px;
-      color: #b84200;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-      color: #555;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      outline: none;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .modal-actions button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .btn-save { background: #2e7d32; color: white; }
-    .btn-cancel { background: #eee; color: #333; }
-
-    /* Half Page Print Settings */
-    @media print {
-      @page {
-        size: A5 portrait;
-        margin: 10mm;
-      }
-      body * {
-        visibility: hidden;
-      }
-      .billing-container, .billing-container * {
-        visibility: visible;
-      }
-      .billing-container {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        max-width: 100%;
-        border: none;
-        box-shadow: none;
-        padding: 0;
-      }
-      .qty-controls button, .cash-section, .checkout-btn, .search-input, .btn-add-item, .nav-tabs {
-        display: none !important;
-      }
-      .print-acknowledgement-box {
-        display: block !important;
-        margin-top: 25px;
-        padding-top: 15px;
-        border-top: 1px dashed #444;
-        text-align: center;
-      }
-      .ack-title {
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-      }
-      .ack-desc {
-        font-size: 12px;
-        color: #444;
-        line-height: 1.4;
-        margin-bottom: 15px;
-      }
-      .sponsor-box {
-        border-top: 1px dotted #999;
-        padding-top: 8px;
-        font-size: 11px;
-        color: #555;
-        text-transform: uppercase;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <!-- Left Container -->
-  <div class="left-container">
-    <div class="header-bar">
-      <div class="brand-section">
-        <img src="logo.png" alt="Logo" class="shop-logo" onerror="this.src='https://via.placeholder.com/50/b84200/ffffff?text=RS'">
-        <div>
-          <h1>Raghavendra Sweets</h1>
-          <p>Pure Ghee Sweets & Savouries</p>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+    <div class="logo-symbol">
+        ॐ
+    </div>
+
+    <div class="logo-text">
+        <h1>Raghavendra Sweets</h1>
+        <span>TASTE OF TRADITION</span>
+    </div>
+
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">
+    ☰
+</div>
+
+<div class="nav-links" id="navLinks">
+
+    <a href="index.html">Home</a>
+
+    <a href="#about">About</a>
+
+    <a href="#sweets">Our Sweets</a>
+
+    <a href="#why">Why Us</a>
+
+    <a href="shop.html" class="shop-btn">
+        Visit Shop
+    </a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="small-title">
+        Pure • Traditional • Delicious
+    </div>
+
+    <h2>
+        The Taste<br>
+        <span>of Tradition</span>
+    </h2>
+
+    <p>
+        Welcome to Raghavendra Sweets — where traditional Indian
+        sweets are crafted with purity, quality ingredients and
+        timeless recipes.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="shop.html" class="primary-btn">
+            Explore Our Sweets
+        </a>
+
+        <a href="#about" class="secondary-btn">
+            Discover Our Story
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TRUST BAR
+========================= -->
+
+<div class="trust-bar">
+
+<div class="trust-container">
+
+    <div class="trust-item">
+
+        <div class="trust-icon">✦</div>
+
+        <h3>Pure Ingredients</h3>
+
+        <p>Quality you can trust</p>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">◆</div>
+
+        <h3>Traditional Recipes</h3>
+
+        <p>Made with timeless methods</p>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">♥</div>
+
+        <h3>Made With Love</h3>
+
+        <p>Freshness in every bite</p>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">★</div>
+
+        <h3>Customer First</h3>
+
+        <p>Your happiness matters</p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+<div class="section-container">
+
+<div class="about-grid">
+
+    <div class="about-card">
+
+        <div class="about-emblem">
+
+            <strong>ॐ</strong>
+
+            <span>
+                RAGHAVENDRA
+            </span>
+
+            <span>
+                SWEETS
+            </span>
+
         </div>
-      </div>
+
     </div>
 
-    <!-- Navigation Tabs -->
-    <div class="nav-tabs">
-      <button class="tab-btn active" onclick="switchTab('menu')">Sweets Menu</button>
-      <button class="tab-btn" onclick="switchTab('history')">Order History</button>
-    </div>
 
-    <!-- Menu Content -->
-    <div id="menuView">
-      <div class="actions-bar">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search sweets..." onkeyup="filterItems()">
-        <button class="btn-add-item" onclick="openAddModal()">+ Add New Sweet</button>
-      </div>
-      <div class="items-grid" id="itemsGrid"></div>
-    </div>
+    <div class="about-text">
 
-    <!-- History Content -->
-    <div id="historyView" class="history-container">
-      <h3 style="margin-bottom: 12px; color: #333;">Order & Payment History</h3>
-      <table class="history-table">
-        <thead>
-          <tr>
-            <th>Bill #</th>
-            <th>Date & Time</th>
-            <th>Items</th>
-            <th>Total Amount</th>
-            <th>Payment Mode</th>
-          </tr>
-        </thead>
-        <tbody id="historyList">
-          <!-- Filled dynamically -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Right Section: Billing -->
-  <div class="billing-container">
-    <div class="bill-header">
-      <img src="logo.png" alt="Shop Logo" class="bill-logo" onerror="this.style.display='none'">
-      <h2>Raghavendra Sweets</h2>
-      <p style="font-size: 12px; color: #666;">Main Road, Market Center | Ph: +91 9876543210</p>
-      <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px;">
-        <span>Bill No: <strong id="billNo">1001</strong></span>
-        <span id="billDate"></span>
-      </div>
-    </div>
-
-    <div class="bill-items-list" id="billList">
-      <p style="text-align: center; color: #999; margin-top: 30px;">No items selected</p>
-    </div>
-
-    <div class="summary-section">
-      <div class="summary-row">
-        <span>Subtotal:</span>
-        <span id="subTotal">₹0.00</span>
-      </div>
-      <div class="summary-row">
-        <span>GST (5%):</span>
-        <span id="gstAmount">₹0.00</span>
-      </div>
-      <div class="summary-row total">
-        <span>Grand Total:</span>
-        <span id="grandTotal">₹0.00</span>
-      </div>
-
-      <!-- Cash Calculation -->
-      <div class="cash-section">
-        <label style="font-size: 12px; font-weight: bold; color: #555;">Cash Received:</label>
-        <input type="number" id="cashGiven" class="cash-input" placeholder="₹ Enter Cash Amount" oninput="calculateChange()">
-        <div class="change-text" id="changeDisplay">Change Due: ₹0.00</div>
-      </div>
-
-      <button class="checkout-btn" onclick="printReceipt()">Print Bill Receipt</button>
-
-      <!-- Acknowledgement & Sponsored By Section (Prints in Half Page) -->
-      <div class="print-acknowledgement-box">
-        <div class="ack-title">Acknowledgement & Receipt</div>
-        <div class="ack-desc">
-          Thank you for choosing <strong>Raghavendra Sweets</strong>.<br>
-          We acknowledge the receipt of full payment for this order.<br>
-          Goods once sold cannot be returned. Please visit again!
+        <div class="small-title">
+            Our Story
         </div>
-        <div class="sponsor-box">
-          Sponsored & Powered By: <strong>Apex Retail POS Systems</strong>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Add Sweet Modal -->
-  <div class="modal-overlay" id="addModal">
-    <div class="modal-content">
-      <h3>+ Add Sweet Item</h3>
-      <div class="form-group">
-        <label>Sweet Name:</label>
-        <input type="text" id="newSweetName" placeholder="e.g. Kaju Peda">
-      </div>
-      <div class="form-group">
-        <label>Price per Kg (₹):</label>
-        <input type="number" id="newSweetPrice" placeholder="e.g. 500">
-      </div>
-      <div class="form-group">
-        <label>Upload Picture (From Device):</label>
-        <input type="file" id="newSweetFile" accept="image/*">
-      </div>
-      <div class="form-group">
-        <label>Or Image URL (Optional):</label>
-        <input type="text" id="newSweetImgUrl" placeholder="https://example.com/sweet.jpg">
-      </div>
-      <div class="modal-actions">
-        <button class="btn-cancel" onclick="closeAddModal()">Cancel</button>
-        <button class="btn-save" onclick="saveNewSweet()">Save Sweet</button>
-      </div>
-    </div>
-  </div>
+        <h2>
+            Tradition in Every Bite
+        </h2>
 
-  <script>
-    // Default Sample Data with generic sweet images
-    const defaultSweets = [
-      { id: 1, name: "Gulab Jamun", price: 340, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&auto=format&fit=crop&q=60" },
-      { id: 2, name: "Kaju Katli", price: 980, img: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=400&auto=format&fit=crop&q=60" },
-      { id: 3, name: "Motichoor Laddu", price: 420, img: "https://images.unsplash.com/photo-1605197584547-c93de1a00564?w=400&auto=format&fit=crop&q=60" },
-      { id: 4, name: "Mysore Pak", price: 500, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&auto=format&fit=crop&q=60" },
-      { id: 5, name: "Rasgulla", price: 360, img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&auto=format&fit=crop&q=60" },
-      { id: 6, name: "Kaju Dry Fruit Halwa", price: 1150, img: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&auto=format&fit=crop&q=60" }
-    ];
+        <p>
+            At Raghavendra Sweets, we believe that sweets are more
+            than just food — they are a part of our celebrations,
+            memories and traditions.
+        </p>
 
-    let sweets = JSON.parse(localStorage.getItem('raghavendraSweets')) || defaultSweets;
-    let orderHistory = JSON.parse(localStorage.getItem('raghavendraHistory')) || [];
-    let cart = [];
+        <p>
+            From classic Indian favourites to special festive
+            delicacies, every sweet is prepared with attention to
+            quality, freshness and authentic taste.
+        </p>
 
-    function setDate() {
-      const now = new Date();
-      document.getElementById('billDate').innerText = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-    }
+        <div class="about-points">
 
-    function switchTab(tab) {
-      const menuView = document.getElementById('menuView');
-      const historyView = document.getElementById('historyView');
-      const tabs = document.querySelectorAll('.tab-btn');
-
-      if (tab === 'menu') {
-        menuView.style.display = 'block';
-        historyView.style.display = 'none';
-        tabs[0].classList.add('active');
-        tabs[1].classList.remove('active');
-      } else {
-        menuView.style.display = 'none';
-        historyView.style.display = 'block';
-        tabs[1].classList.add('active');
-        tabs[0].classList.remove('active');
-        renderHistory();
-      }
-    }
-
-    function renderItems(items) {
-      const grid = document.getElementById('itemsGrid');
-      grid.innerHTML = items.map(item => `
-        <div class="item-card" onclick="addToCart(${item.id})">
-          <img src="${item.img}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/150/fdf8f5/b84200?text=Sweet'">
-          <h3>${item.name}</h3>
-          <div class="price">₹${item.price} / kg</div>
-        </div>
-      `).join('');
-    }
-
-    function addToCart(id) {
-      const item = sweets.find(s => s.id === id);
-      const existing = cart.find(c => c.id === id);
-
-      if (existing) {
-        existing.qty = parseFloat((existing.qty + 0.25).toFixed(2));
-      } else {
-        cart.push({ ...item, qty: 0.25 });
-      }
-      updateBill();
-    }
-
-    function updateQty(id, change) {
-      const item = cart.find(c => c.id === id);
-      if (!item) return;
-
-      item.qty = parseFloat((item.qty + change).toFixed(2));
-      if (item.qty <= 0) {
-        cart = cart.filter(c => c.id !== id);
-      }
-      updateBill();
-    }
-
-    function updateBill() {
-      const list = document.getElementById('billList');
-      if (cart.length === 0) {
-        list.innerHTML = '<p style="text-align: center; color: #999; margin-top: 30px;">No items selected</p>';
-      } else {
-        list.innerHTML = cart.map(item => `
-          <div class="bill-item">
-            <div class="bill-item-info">
-              <strong>${item.name}</strong><br>
-              <small style="color: #666;">₹${item.price}/kg</small>
+            <div class="about-point">
+                ✓ Freshly Prepared
             </div>
-            <div class="qty-controls">
-              <button class="qty-btn" onclick="updateQty(${item.id}, -0.25)">-</button>
-              <span>${item.qty} kg</span>
-              <button class="qty-btn" onclick="updateQty(${item.id}, 0.25)">+</button>
+
+            <div class="about-point">
+                ✓ Quality Ingredients
             </div>
-            <div class="item-total">₹${(item.price * item.qty).toFixed(2)}</div>
-          </div>
-        `).join('');
-      }
 
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      const gst = subtotal * 0.05;
-      const total = subtotal + gst;
+            <div class="about-point">
+                ✓ Authentic Taste
+            </div>
 
-      document.getElementById('subTotal').innerText = `₹${subtotal.toFixed(2)}`;
-      document.getElementById('gstAmount').innerText = `₹${gst.toFixed(2)}`;
-      document.getElementById('grandTotal').innerText = `₹${total.toFixed(2)}`;
+            <div class="about-point">
+                ✓ Hygienic Preparation
+            </div>
 
-      calculateChange();
-    }
+        </div>
 
-    function calculateChange() {
-      const grandTotalText = document.getElementById('grandTotal').innerText.replace('₹', '');
-      const grandTotal = parseFloat(grandTotalText) || 0;
-      const cashGiven = parseFloat(document.getElementById('cashGiven').value) || 0;
-      const changeDisplay = document.getElementById('changeDisplay');
+    </div>
 
-      if (cashGiven >= grandTotal && grandTotal > 0) {
-        const change = cashGiven - grandTotal;
-        changeDisplay.innerText = `Change Due: ₹${change.toFixed(2)}`;
-        changeDisplay.style.color = '#2e7d32';
-      } else if (cashGiven > 0 && cashGiven < grandTotal) {
-        const remaining = grandTotal - cashGiven;
-        changeDisplay.innerText = `Balance Due: ₹${remaining.toFixed(2)}`;
-        changeDisplay.style.color = '#d32f2f';
-      } else {
-        changeDisplay.innerText = `Change Due: ₹0.00`;
-        changeDisplay.style.color = '#666';
-      }
-    }
+</div>
 
-    function filterItems() {
-      const text = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = sweets.filter(item => item.name.toLowerCase().includes(text));
-      renderItems(filtered);
-    }
+</div>
 
-    function printReceipt() {
-      if (cart.length === 0) {
-        alert("Please add at least one sweet to the cart.");
-        return;
-      }
+</section>
 
-      const billNo = document.getElementById('billNo').innerText;
-      const total = document.getElementById('grandTotal').innerText;
-      const itemsPurchased = cart.map(i => `${i.name} (${i.qty}kg)`).join(', ');
 
-      // Save to History
-      orderHistory.unshift({
-        billNo: '#' + billNo,
-        date: new Date().toLocaleString('en-GB'),
-        items: itemsPurchased,
-        total: total,
-        payment: 'Cash'
-      });
-      localStorage.setItem('raghavendraHistory', JSON.stringify(orderHistory));
+<!-- =========================
+     FEATURED SWEETS
+========================= -->
 
-      // Trigger Print
-      window.print();
+<section class="featured" id="sweets">
 
-      // Reset Bill
-      document.getElementById('billNo').innerText = parseInt(billNo) + 1;
-      cart = [];
-      document.getElementById('cashGiven').value = '';
-      updateBill();
-    }
+<div class="section-container">
 
-    function renderHistory() {
-      const list = document.getEleme
+<div class="section-title">
+
+    <small>Our Specialities</small>
+
+    <h2>Favourite Sweets</h2>
+
+    <p>
+        A glimpse of the delicious treats waiting for you
+        at Raghavendra Sweets.
+    </p>
+
+</div>
+
+
+<div class="sweets-grid">
+
+
+    <div class="sweet-card">
+
+        <div class="sweet-image">
+            🍮
+        </div>
+
+        <div class="sweet-content">
+
+            <h3>Gulab Jamun</h3>
+
+            <p>
+                Soft, delicious and soaked in perfectly
+                flavoured sugar syrup.
+            </p>
+
+            <a href="shop.html" class="view-shop">
+                VIEW IN SHOP →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="sweet-card">
+
+        <div class="sweet-image">
+            🟡
+        </div>
+
+        <div class="sweet-content">
+
+            <h3>Boondi Laddu</h3>
+
+            <p>
+                A timeless Indian favourite made with
+                traditional preparation.
+            </p>
+
+            <a href="shop.html" class="view-shop">
+                VIEW IN SHOP →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="sweet-card">
+
+        <div class="sweet-image">
+            🥮
+        </div>
+
+        <div class="sweet-content">
+
+            <h3>Kaju Katli</h3>
+
+            <p>
+                Rich and elegant cashew sweet with a
+                smooth traditional taste.
+            </p>
+
+            <a href="shop.html" class="view-shop">
+                VIEW IN SHOP →
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="why-us" id="why">
+
+<div class="section-container">
+
+<div class="section-title">
+
+    <small>Why Raghavendra Sweets</small>
+
+    <h2>Made Different</h2>
+
+    <p>
+        We combine tradition, quality and care to give
+        you sweets worth remembering.
+    </p>
+
+</div>
+
+
+<div class="features">
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ✦
+        </div>
+
+        <h3>Premium Quality</h3>
+
+        <p>
+            We focus on quality ingredients and careful
+            preparation for consistent taste.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ♨
+        </div>
+
+        <h3>Fresh Every Day</h3>
+
+        <p>
+            Our sweets are prepared with freshness
+            and care so every bite feels special.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ♥
+        </div>
+
+        <h3>Made With Care</h3>
+
+        <p>
+            Every order is handled with attention,
+            because your trust matters to us.
+        </p>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+<h2>
+    Ready for Something Sweet?
+</h2>
+
+<p>
+    Explore our collection of traditional sweets and
+    discover your next favourite.
+</p>
+
+<a href="shop.html" class="cta-btn">
+    ENTER SWEET SHOP
+</a>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-container">
+
+
+    <div class="footer-brand">
+
+        <h2>
+            Raghavendra Sweets
+        </h2>
+
+        <p>
+            Bringing the authentic taste of traditional
+            Indian sweets to your celebrations and
+            special moments.
+        </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3>Quick Links</h3>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#about">
+            About Us
+        </a>
+
+        <a href="#sweets">
+            Our Sweets
+        </a>
+
+        <a href="shop.html">
+            Shop
+  
