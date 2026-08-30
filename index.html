@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>రాయల్ స్వీట్స్ - POS & Billing</title>
+  <title>రాయల్ స్వీట్స్ - Smart Billing & POS</title>
   <style>
     * {
       box-sizing: border-box;
@@ -21,7 +21,7 @@
 
     /* Left Section: Menu */
     .menu-container {
-      flex: 6;
+      flex: 6.5;
       padding: 20px;
       overflow-y: auto;
     }
@@ -31,24 +31,72 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    .header-bar h1 {
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .shop-logo {
+      height: 48px;
+      width: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .brand-section h1 {
       color: #b84200;
-      font-size: 24px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .brand-section small {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .actions-bar {
+      display: flex;
+      gap: 10px;
     }
 
     .search-input {
-      padding: 10px 15px;
+      padding: 8px 14px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      width: 250px;
+      width: 200px;
       outline: none;
+      font-size: 14px;
+    }
+
+    .btn-add-item {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .btn-add-item:hover {
+      background: #236327;
     }
 
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
       gap: 15px;
     }
 
@@ -56,37 +104,44 @@
       background: white;
       border-radius: 12px;
       padding: 15px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.04);
       cursor: pointer;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
       border: 1px solid #eee;
+      position: relative;
     }
 
     .item-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      border-color: #f3c2a6;
     }
 
     .item-card .icon {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 38px;
+      margin-bottom: 8px;
     }
 
     .item-card h3 {
-      font-size: 16px;
+      font-size: 15px;
       color: #333;
       margin-bottom: 5px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .item-card .price {
       font-weight: bold;
       color: #b84200;
+      font-size: 15px;
     }
 
     /* Right Section: Billing */
     .billing-container {
-      flex: 4;
+      flex: 3.5;
       background: white;
       border-left: 1px solid #e0e0e0;
       display: flex;
@@ -97,21 +152,31 @@
 
     .bill-header {
       border-bottom: 2px dashed #eee;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .bill-header .bill-logo-container {
+      margin-bottom: 8px;
+    }
+
+    .bill-header .bill-logo {
+      height: 45px;
+      object-fit: contain;
     }
 
     .bill-items-list {
       flex: 1;
       overflow-y: auto;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .bill-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px solid #f9f9f9;
     }
@@ -123,16 +188,16 @@
     .qty-controls {
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex: 1;
+      gap: 6px;
+      flex: 1.2;
       justify-content: center;
     }
 
     .qty-btn {
       background: #eee;
       border: none;
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       cursor: pointer;
       font-weight: bold;
@@ -146,28 +211,31 @@
 
     .summary-section {
       border-top: 2px dashed #eee;
-      padding-top: 15px;
+      padding-top: 12px;
     }
 
     .summary-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
-      color: #666;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 14px;
     }
 
     .summary-row.total {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
-      color: #222;
-      margin-top: 10px;
+      color: #111;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px solid #eee;
     }
 
     /* Cash Calculator Section */
     .cash-section {
-      margin-top: 15px;
+      margin-top: 12px;
       background: #fdf8f5;
-      padding: 12px;
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid #f3e0d5;
     }
@@ -175,23 +243,23 @@
     .cash-input-group {
       display: flex;
       gap: 10px;
-      margin-top: 8px;
+      margin-top: 6px;
       align-items: center;
     }
 
     .cash-input {
       flex: 1;
-      padding: 8px 12px;
+      padding: 8px 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
       outline: none;
     }
 
     .change-text {
-      margin-top: 8px;
-      font-size: 14px;
+      margin-top: 6px;
+      font-size: 13px;
       font-weight: bold;
       color: #2e7d32;
     }
@@ -201,12 +269,12 @@
       color: white;
       border: none;
       width: 100%;
-      padding: 14px;
+      padding: 12px;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 15px;
+      margin-top: 12px;
       transition: background 0.2s;
     }
 
@@ -214,7 +282,101 @@
       background: #963500;
     }
 
-    /* Print styling */
+    /* Print Acknowledgement & Sponsor */
+    .bill-footer {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px dashed #777;
+    }
+
+    .bill-footer .ack-text {
+      font-size: 13px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .bill-footer .sponsor-text {
+      font-size: 11px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Modal for Adding New Item */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background: white;
+      width: 360px;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+      color: #b84200;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #555;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .modal-actions button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-save {
+      background: #2e7d32;
+      color: white;
+    }
+
+    .btn-cancel {
+      background: #eee;
+      color: #333;
+    }
+
+    /* Print Styling */
     @media print {
       body * {
         visibility: hidden;
@@ -227,11 +389,17 @@
         left: 0;
         top: 0;
         width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
         border: none;
         box-shadow: none;
+        padding: 0;
       }
-      .qty-controls, .cash-section, .checkout-btn, .search-input {
+      .qty-controls button, .cash-section, .checkout-btn, .search-input, .btn-add-item {
         display: none !important;
+      }
+      .bill-footer {
+        display: block !important;
       }
     }
   </style>
@@ -241,20 +409,35 @@
   <!-- Menu Section -->
   <div class="menu-container">
     <div class="header-bar">
-      <h1>🍬 రాయల్ స్వీట్స్ (Sweets POS)</h1>
-      <input type="text" id="searchInput" class="search-input" placeholder="స్వీట్స్ వెతకండి..." onkeyup="filterItems()">
+      <div class="brand-section">
+        <img src="logo.png" alt="Logo" class="shop-logo" onerror="this.src='https://via.placeholder.com/48/b84200/ffffff?text=🍬'">
+        <div>
+          <h1>రాయల్ స్వీట్స్ & బేకరీ</h1>
+          <small>Fresh & Pure Traditional Sweets</small>
+        </div>
+      </div>
+      
+      <div class="actions-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="స్వీట్ వెతకండి..." onkeyup="filterItems()">
+        <button class="btn-add-item" onclick="openAddModal()">+ కొత్త స్వీట్</button>
+      </div>
     </div>
 
-    <div class="items-grid" id="itemsGrid">
-      <!-- Items will be loaded by JS -->
-    </div>
+    <div class="items-grid" id="itemsGrid"></div>
   </div>
 
-  <!-- Billing & Payment Section -->
+  <!-- Billing & POS Section -->
   <div class="billing-container">
     <div class="bill-header">
-      <h2>ఆర్డర్ వివరాలు (Current Bill)</h2>
-      <p style="color: #888; font-size: 13px;">బిల్ నంబర్: #<span id="billNo">1001</span></p>
+      <div class="bill-logo-container">
+        <img src="logo.png" alt="Shop Logo" class="bill-logo" onerror="this.style.display='none'">
+      </div>
+      <h2>రాయల్ స్వీట్స్ (Royal Sweets)</h2>
+      <p style="color: #666; font-size: 12px; margin-top: 2px;">మెయిన్ రోడ్, హైదరాబాద్ | Ph: +91 9876543210</p>
+      <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px; color: #444;">
+        <span>బిల్ #: <strong id="billNo">1001</strong></span>
+        <span id="billDate"></span>
+      </div>
     </div>
 
     <div class="bill-items-list" id="billList">
@@ -279,31 +462,75 @@
       <div class="cash-section">
         <label style="font-size: 13px; font-weight: bold; color: #555;">క్యాష్ పేమెంట్ (Cash Received):</label>
         <div class="cash-input-group">
-          <input type="number" id="cashGiven" class="cash-input" placeholder="₹ కస్టమర్ ఇచ్చిన మొత్తం" oninput="calculateChange()">
+          <input type="number" id="cashGiven" class="cash-input" placeholder="₹ కస్టమర్ ఇచ్చిన నగదు" oninput="calculateChange()">
         </div>
         <div class="change-text" id="changeDisplay">తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00</div>
       </div>
 
-      <button class="checkout-btn" onclick="printReceipt()">బిల్ ప్రింట్ చేయండి (Print Bill)</button>
+      <button class="checkout-btn" onclick="printReceipt()">బిల్ ప్రింట్ చేయండి (Print Receipt)</button>
+
+      <!-- Acknowledgement & Sponsored by (Prints at bottom) -->
+      <div class="bill-footer">
+        <div class="ack-text">🙏 ధన్యవాదాలు! మళ్లీ సందర్శించండి! 🙏</div>
+        <p style="font-size: 11px; color: #666; margin-bottom: 5px;">Visit Again • Have a Sweet Day!</p>
+        <div class="sponsor-text">Sponsored by: <strong>ABC Digital Tech Solutions</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add New Item Modal -->
+  <div class="modal-overlay" id="addModal">
+    <div class="modal-content">
+      <h3>+ కొత్త స్వీట్ జోడించండి</h3>
+      <div class="form-group">
+        <label>స్వీట్ పేరు (Sweet Name):</label>
+        <input type="text" id="newSweetName" placeholder="ఉదా: కాజు బర్ఫీ">
+      </div>
+      <div class="form-group">
+        <label>కేజీ ధర (Price / Kg in ₹):</label>
+        <input type="number" id="newSweetPrice" placeholder="ఉదా: 600">
+      </div>
+      <div class="form-group">
+        <label>ఐకాన్ (Emoji):</label>
+        <select id="newSweetIcon">
+          <option value="🍬">🍬 Sweet Candy</option>
+          <option value="🧆">🧆 Jamun / Laddu</option>
+          <option value="💎">💎 Diamond / Barfi</option>
+          <option value="🟡">🟡 Laddu / Halwa</option>
+          <option value="🧈">🧈 Mysore Pak / Ghee Sweet</option>
+          <option value="⚪">⚪ Rasgulla / Kova</option>
+          <option value="🥨">🥨 Jalebi / Murukku</option>
+          <option value="🥜">🥜 Dry Fruit Sweet</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeAddModal()">రద్దు (Cancel)</button>
+        <button class="btn-save" onclick="saveNewSweet()">సేవ్ చేయండి</button>
+      </div>
     </div>
   </div>
 
   <script>
-    const sweets = [
+    let sweets = JSON.parse(localStorage.getItem('sweetShopItems')) || [
       { id: 1, name: "గులాబ్ జామున్ (Gulab Jamun)", price: 320, icon: "🧆" },
       { id: 2, name: "కాజు కట్లీ (Kaju Katli)", price: 950, icon: "💎" },
-      { id: 3, name: "మోతీచూర్ లడ్డు (Motichoor Laddu)", price: 400, icon: "🟡" },
+      { id: 3, name: "మోతీచూర్ లడ్డు (Laddu)", price: 400, icon: "🟡" },
       { id: 4, name: "మైసూర్ పాక్ (Mysore Pak)", price: 480, icon: "🧈" },
       { id: 5, name: "రసగుల్లా (Rasgulla)", price: 350, icon: "⚪" },
       { id: 6, name: "జిలేబీ (Jalebi)", price: 280, icon: "🥨" },
-      { id: 7, name: "బాదుషా (Badusha)", price: 380, icon: "🍩" },
-      { id: 8, name: "పాలకోవ (Pala Kova)", price: 520, icon: "🥛" },
-      { id: 9, name: "మిక్స్డ్ డ్రై ఫ్రూట్ (Dry Fruit)", price: 1100, icon: "🥜" }
+      { id: 7, name: "పాలకోవ (Pala Kova)", price: 520, icon: "⚪" },
+      { id: 8, name: "మిక్స్డ్ డ్రై ఫ్రూట్ (Dry Fruit)", price: 1100, icon: "🥜" }
     ];
 
     let cart = [];
 
-    // Render Items
+    // Current Date formatting
+    function setDate() {
+      const now = new Date();
+      document.getElementById('billDate').innerText = now.toLocaleDateString('te-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    // Render Menu Items
     function renderItems(items) {
       const grid = document.getElementById('itemsGrid');
       grid.innerHTML = items.map(item => `
@@ -321,7 +548,7 @@
       const existing = cart.find(c => c.id === id);
 
       if (existing) {
-        existing.qty += 0.25; // adds 250g
+        existing.qty = parseFloat((existing.qty + 0.25).toFixed(2));
       } else {
         cart.push({ ...item, qty: 0.25 });
       }
@@ -333,14 +560,14 @@
       const item = cart.find(c => c.id === id);
       if (!item) return;
 
-      item.qty += change;
+      item.qty = parseFloat((item.qty + change).toFixed(2));
       if (item.qty <= 0) {
         cart = cart.filter(c => c.id !== id);
       }
       updateBill();
     }
 
-    // Update UI & Calculations
+    // Update Bill Section
     function updateBill() {
       const list = document.getElementById('billList');
       
@@ -374,7 +601,7 @@
       calculateChange();
     }
 
-    // Calculate Return Cash
+    // Cash Return Calculation
     function calculateChange() {
       const grandTotalText = document.getElementById('grandTotal').innerText.replace('₹', '');
       const grandTotal = parseFloat(grandTotalText) || 0;
@@ -383,11 +610,11 @@
 
       if (cashGiven >= grandTotal && grandTotal > 0) {
         const change = cashGiven - grandTotal;
-        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన మొత్తం: ₹${change.toFixed(2)}`;
+        changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన చిల్లర: ₹${change.toFixed(2)}`;
         changeDisplay.style.color = '#2e7d32';
       } else if (cashGiven > 0 && cashGiven < grandTotal) {
         const remaining = grandTotal - cashGiven;
-        changeDisplay.innerText = `ఇంకా రావాల్సిన మొత్తం: ₹${remaining.toFixed(2)}`;
+        changeDisplay.innerText = `ఇంకా ఇవ్వాల్సిన మొత్తం: ₹${remaining.toFixed(2)}`;
         changeDisplay.style.color = '#d32f2f';
       } else {
         changeDisplay.innerText = `తిరిగి ఇవ్వాల్సిన మొత్తం: ₹0.00`;
@@ -395,29 +622,65 @@
       }
     }
 
-    // Filter Search
+    // Search filter
     function filterItems() {
       const text = document.getElementById('searchInput').value.toLowerCase();
       const filtered = sweets.filter(item => item.name.toLowerCase().includes(text));
       renderItems(filtered);
     }
 
-    // Print & Reset
+    // Print Bill Action
     function printReceipt() {
       if (cart.length === 0) {
-        alert("దయచేసి కనీసం ఒక ఐటమ్ అయినా యాడ్ చేయండి!");
+        alert("దయచేసి బిల్ కోసం కనీసం ఒక స్వీట్ అయినా యాడ్ చేయండి!");
         return;
       }
       window.print();
       
-      // Auto-increment bill number and clear after print
+      // Update Bill Number & Clear Screen
       document.getElementById('billNo').innerText = parseInt(document.getElementById('billNo').innerText) + 1;
       cart = [];
       document.getElementById('cashGiven').value = '';
       updateBill();
     }
 
-    // Initialize
+    // Modal Operations for adding new sweets
+    function openAddModal() {
+      document.getElementById('addModal').style.display = 'flex';
+    }
+
+    function closeAddModal() {
+      document.getElementById('addModal').style.display = 'none';
+      document.getElementById('newSweetName').value = '';
+      document.getElementById('newSweetPrice').value = '';
+    }
+
+    function saveNewSweet() {
+      const name = document.getElementById('newSweetName').value.trim();
+      const price = parseFloat(document.getElementById('newSweetPrice').value);
+      const icon = document.getElementById('newSweetIcon').value;
+
+      if (!name || isNaN(price) || price <= 0) {
+        alert("దయచేసి సరైన స్వీట్ పేరు మరియు ధర నమోదు చేయండి!");
+        return;
+      }
+
+      const newSweet = {
+        id: Date.now(),
+        name: name,
+        price: price,
+        icon: icon
+      };
+
+      sweets.push(newSweet);
+      localStorage.setItem('sweetShopItems', JSON.stringify(sweets));
+      
+      renderItems(sweets);
+      closeAddModal();
+    }
+
+    // Init
+    setDate();
     renderItems(sweets);
   </script>
 </body>
