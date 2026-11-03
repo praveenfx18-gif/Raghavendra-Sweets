@@ -1,56 +1,613 @@
-<!DOCTYPE html><html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Raghavendra Sweets - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshers Day 2026 | Sri Chaitanya Junior College</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<link rel="stylesheet" href="style.css">
+<body>
+    
+<!-- COUNTDOWN TIMER -->
+<section class="countdown-section">
+    <div class="container">
 
-<!-- Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <p class="small-heading">THE BIG DAY IS COMING</p>
+        <h2>Countdown to Freshers Day</h2>
 
-</head><body><div class="login-container">
-
-    <div class="login-card">
-
-        <img src="logo.png" alt="Raghavendra Sweets Logo" class="logo">
-
-        <h1>Raghavendra Sweets</h1>
-
-        <p class="subtitle">Welcome Back</p>
-
-        <form id="loginForm">
-
-            <div class="input-group">
-                <label>Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
+        <div class="countdown-grid">
+            <div class="count-box">
+                <span id="days">00</span>
+                <small>DAYS</small>
             </div>
 
-            <div class="input-group">
-                <label>Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    required
-                >
+            <div class="count-box">
+                <span id="hours">00</span>
+                <small>HOURS</small>
             </div>
 
-            <button type="submit" id="loginBtn">
-                Login
+            <div class="count-box">
+                <span id="minutes">00</span>
+                <small>MINUTES</small>
+            </div>
+
+            <div class="count-box">
+                <span id="seconds">00</span>
+                <small>SECONDS</small>
+            </div>
+        </div>
+
+        <p id="countdownMessage">Get ready for the celebration!</p>
+
+    </div>
+</section>
+
+
+<!-- WELCOME COVER -->
+<div class="welcome-cover" id="welcomeCover">
+    <div class="welcome-card">
+
+        <div class="gold-line"></div>
+
+        <p class="welcome-label">
+            SRI CHAITANYA JUNIOR COLLEGE
+        </p>
+
+        <div class="welcome-star">✦</div>
+
+        <h1>You're Invited</h1>
+
+        <p class="welcome-subtitle">
+            A Celebration of New Beginnings
+        </p>
+
+        <div class="welcome-divider"></div>
+
+        <h2>FRESHERS' DAY</h2>
+
+        <p class="welcome-year">2026</p>
+
+        <p class="welcome-message">
+            An unforgettable celebration awaits you
+        </p>
+
+        <button id="enterInvitation">
+            ENTER INVITATION <span>➜</span>
+        </button>
+
+        <div class="welcome-footer">
+            CHARAKA BHAVAN
+        </div>
+
+        <div class="gold-line"></div>
+
+    </div>
+</div>
+
+
+<!-- NAVIGATION -->
+<header class="header">
+    <div class="container nav-container">
+
+        <a href="#home" class="brand">
+            <img src="logo.png" alt="College Logo">
+            <span>SRI CHAITANYA</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#invitation">Invitation</a>
+            <a href="#guest">Guest</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#venue">Venue</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal">
+
+        <p class="hero-top">
+            SRI CHAITANYA JUNIOR COLLEGE PRESENTS
+        </p>
+
+        <h1>FRESHERS' DAY <span>2026</span></h1>
+
+        <div class="hero-divider"></div>
+
+        <h2>A New Beginning. A New Journey.</h2>
+
+        <p>
+            Celebrating dreams, friendships and unforgettable memories.
+        </p>
+
+        <a href="#invitation" class="gold-button">
+            EXPLORE INVITATION
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- INVITATION SECTION -->
+<section class="section invitation-section" id="invitation">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">A SPECIAL OCCASION</p>
+            <h2>You're Cordially Invited</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="invitation-box reveal">
+
+            <p>Respected Sir / Madam,</p>
+
+            <p>
+                With immense pleasure and great enthusiasm,
+                we cordially invite you to the grand celebration
+                of <strong>Freshers' Day 2026</strong> at
+                Sri Chaitanya Junior College, Charaka Bhavan.
+            </p>
+
+            <p>
+                Your gracious presence will make this occasion
+                even more memorable as we welcome our new students
+                into a journey filled with learning, friendship
+                and achievements.
+            </p>
+
+            <p>
+                We look forward to your esteemed presence.
+            </p>
+
+            <div class="signature">
+                <strong>With Regards,</strong>
+                <span>Management & Staff</span>
+                <span>Sri Chaitanya Junior College</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GUEST OF HONOUR -->
+<section class="section guest-section" id="guest">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">OUR ESTEEMED GUEST</p>
+            <h2>Guest of Honour</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="guest-card reveal">
+
+            <div class="guest-image">
+                <img src="image.jpg"
+                     alt="Guest of Honour"
+                     onerror="this.src='https://placehold.co/500x600/102342/d8bd78?text=Guest+Photo'">
+            </div>
+
+            <div class="guest-details">
+
+                <p class="guest-label">CHIEF GUEST</p>
+
+                <h3>IPS OFFICER</h3>
+
+                <h4>Guest of Honour</h4>
+
+                <div class="heading-line left-line"></div>
+
+                <p>
+                    We are honoured to welcome our distinguished
+                    Guest of Honour, whose presence and words
+                    of wisdom will inspire our students.
+                </p>
+
+                <p class="guest-designation">
+                    INDIAN POLICE SERVICE
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="guest-details">
+
+    <p class="guest-label">OUR ESTEEMED GUEST</p>
+
+    <h3>Welcome, Sir!</h3>
+
+    <h4>Guest of Honour</h4>
+
+    <div class="heading-line left-line"></div>
+
+    <p>
+        It is our privilege and honour to welcome
+        our distinguished Guest of Honour to
+        Freshers Day 2026.
+    </p>
+
+    <h2 class="officer-name">IPS OFFICER NAME</h2>
+
+    <p class="guest-designation">
+        INDIAN POLICE SERVICE
+    </p>
+
+    <p>
+        Your presence will inspire our students
+        to dream big and achieve greater heights.
+    </p>
+
+</div>
+
+
+<!-- EVENT HIGHLIGHTS -->
+<section class="section highlights-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">THE CELEBRATION</p>
+            <h2>Event Highlights</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card reveal">
+                <div class="highlight-icon">✦</div>
+                <h3>Grand Welcome</h3>
+                <p>A memorable welcome for our new students.</p>
+            </div>
+
+            <div class="highlight-card reveal">
+                <div class="highlight-icon">♫</div>
+                <h3>Cultural Events</h3>
+                <p>Music, dance and exciting performances.</p>
+            </div>
+
+            <div class="highlight-card reveal">
+                <div class="highlight-icon">★</div>
+                <h3>Special Address</h3>
+                <p>Inspirational words from our Guest of Honour.</p>
+            </div>
+
+            <div class="highlight-card reveal">
+                <div class="highlight-icon">♛</div>
+                <h3>Celebration</h3>
+                <p>A wonderful beginning to new friendships.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENT SCHEDULE -->
+<section class="section schedule-section" id="schedule">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">THE DAY'S PROGRAMME</p>
+            <h2>Event Schedule</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="schedule-box reveal">
+
+            <div class="schedule-item">
+                <span class="schedule-time">09:30 AM</span>
+                <div>
+                    <h3>Guest Reception</h3>
+                    <p>Welcoming our distinguished guests.</p>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">10:00 AM</span>
+                <div>
+                    <h3>Inaugural Ceremony</h3>
+                    <p>Formal opening of the celebration.</p>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">10:30 AM</span>
+                <div>
+                    <h3>Guest of Honour Address</h3>
+                    <p>Inspirational address to students.</p>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">11:30 AM</span>
+                <div>
+                    <h3>Cultural Programmes</h3>
+                    <p>Performances and student celebrations.</p>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">01:00 PM</span>
+                <div>
+                    <h3>Vote of Thanks</h3>
+                    <p>Closing ceremony and acknowledgements.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="schedule-note">
+            * Timings are indicative and subject to change.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section class="section gallery-section" id="gallery">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">OUR CAMPUS & MEMORIES</p>
+            <h2>Photo Gallery</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="gallery-grid reveal">
+
+            <div class="gallery-item">
+                <img src="college.jpg" alt="College Campus">
+            </div>
+
+            <div class="gallery-item">
+                <img src="event1.jpg" alt="College Event">
+            </div>
+
+            <div class="gallery-item">
+                <img src="event2.jpg" alt="Student Celebration">
+            </div>
+
+            <div class="gallery-item">
+                <img src="event3.jpg" alt="College Memories">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PHOTO LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-close" id="lightboxClose">×</button>
+
+    <button class="lightbox-arrow" id="previousPhoto">❮</button>
+
+    <img id="lightboxImage" src="" alt="Gallery Preview">
+
+    <button class="lightbox-arrow" id="nextPhoto">❯</button>
+
+    <p id="photoCounter"></p>
+
+</div>
+
+
+<!-- VENUE -->
+<section class="section venue-section" id="venue">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+    
+        </div>
+
+        <div class="venue-card reveal">
+         
+<!-- VENUE SECTION -->
+<section class="section venue-section" id="venue">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">JOIN US</p>
+            <h2>Event Venue</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="venue-card reveal">
+
+            <div class="venue-icon">📍</div>
+
+            <h3>CHARAKA BHAVAN</h3>
+
+            <p>Sri Chaitanya Junior College</p>
+
+            <p class="venue-note">
+                We look forward to welcoming you.
+            </p>
+
+            <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Mekala Venkatesh Function Hall, Sy.no.69/71, Bahadurpally, Hyderabad, Telangana 500043
+                target="_blank"
+                rel="noopener noreferrer"
+                class="directions-button">
+
+                GET DIRECTIONS ↗
+                </a>
+                
+ <a href="#video">Video</a>
+        
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHATSAPP SHARE -->
+<section class="share-section">
+    <div class="container">
+
+        <h2>Share the Celebration</h2>
+
+        <p>
+            Invite your friends and family to join
+            our Freshers Day celebration.
+        </p>
+
+        <a href="#" id="whatsappShare"
+           class="whatsapp-button"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            SHARE INVITATION ON WHATSAPP
+
+        </a>
+
+    </div>
+</section>
+
+
+<!-- RSVP -->
+<section class="section rsvp-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <p class="small-heading">YOUR PRESENCE MATTERS</p>
+            <h2>Send Your Response</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <form id="rsvpForm" class="rsvp-form reveal">
+
+            <input type="text" id="guestName"
+                   placeholder="Enter your name" required>
+
+            <select id="attendance" required>
+                <option value="">Select your response</option>
+                <option value="Attending">I will attend</option>
+                <option value="Unable to attend">Unable to attend</option>
+            </select>
+
+            <button type="submit" class="gold-button">
+                SUBMIT RESPONSE
             </button>
 
-            <p id="message"></p>
+            <p id="rsvpMessage"></p>
 
         </form>
 
     </div>
 
-</div>
+</section>
+
+<!-- THANK YOU SECTION -->
+<section class="thankyou-section">
+
+    <div class="container">
+
+        <div class="thankyou-content reveal">
+
+            <div class="thankyou-star">✦</div>
+
+            <h2>Thank You!</h2>
+
+            <p>
+                Your Presence Makes Our Celebration Special
+            </p>
+
+            <div class="thankyou-line"></div>
+
+            <h3>FRESHERS' DAY 2026</h3>
+
+            <p>Sri Chaitanya Junior College</p>
+
+            <p>Charaka Bhavan</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>SRI CHAITANYA JUNIOR COLLEGE</h2>
+
+        <p>CHARAKA BHAVAN</p>
+
+        <div class="footer-line"></div>
+
+        <h3>FRESHERS' DAY 2026</h3>
+
+        <p class="footer-copy">
+            © 2026 Sri Chaitanya Junior College.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+<section class="section video-section" id="video">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="small-heading">A SPECIAL INVITATION</p>
+            <h2>Watch Our Invitation</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="invitation-video">
+            <video controls playsinline preload="metadata">
+                <source src="videos/freshers-invitation.mp4"
+                        type="video/mp4">
+                Your browser does not support video.
+            </video>
+        </div>
+
+    </div>
+</section>
+
 
 <script src="script.js"></script>
 
